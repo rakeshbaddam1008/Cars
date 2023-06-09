@@ -1,6 +1,30 @@
-a {
-  color: rgb(92, 67, 205);
-}
 mat-form-field {
   width: 90%;
+}
+
+a:hover:after {
+  background-image: url("../../../assets/images/VIN-helptext.png");
+  background-repeat: no-repeat;
+  background-size: 250px;
+  display: block;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(0, 111, 232);
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  font-stretch: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-kerning: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+  outline: none;
+  border: none;
+  background: none;
+  padding-top: 8px;
+  font-size: 12px;
 }
