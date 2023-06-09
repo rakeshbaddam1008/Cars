@@ -1,0 +1,54 @@
+css-1clbolf {
+  width: 100%;
+  background-image: url(/instant-cash-offer/Landing/Gradient.png);
+  background-repeat: no-repeat;
+  background-position: 50% 80px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-size: contain;
+  padding-bottom: 16px;
+}
+
+.css-j0sx4m {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(195, 195, 195);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+css-1bq0zhg {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 8px;
+  max-width: 277px;
+  min-width: 277px;
+}
+css-1clbolf {
+  width: 100%;
+  background-image: url(../../../assets/images/car-background-Gradient.png);
+  background-repeat: no-repeat;
+  background-position: 50% 80px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-size: contain;
+  padding-bottom: 16px;
+}
+/* 
+.mat-tab-height {
+  height: 550px;
+} */
+
+.car-selection-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+.Car-selection-view {
+  height: 65%;
+  width: 55%;
+  padding-left: 18%;
+}

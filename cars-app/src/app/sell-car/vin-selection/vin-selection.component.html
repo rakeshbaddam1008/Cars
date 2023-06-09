@@ -1,0 +1,17 @@
+<mat-grid-list cols="3" rowHeight="2:1" rows="1" gutterSize="10px">
+  <mat-grid-tile>
+    <mat-form-field appearance="outline">
+      <mat-label>VIN</mat-label>
+      <input
+        matNativeControl
+        matInput
+        placeholder="Enter the 17-digit VIN"
+        maxlength="17"
+      />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile><a>Where is my VIN?</a> </mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-raised-button color="primary">GO</button>
+  </mat-grid-tile>
+</mat-grid-list>

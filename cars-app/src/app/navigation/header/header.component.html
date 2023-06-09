@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div style="overflow: hidden">
+    <img
+      class="header-logo"
+      src="./../../../assets/images/company-logo.png"
+      style="border-radius: 50%"
+    />
+  </div>
+  <div>
+    <a routerLink="/home">CARIZMA</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+      <li>
+        <a routerLink="/owner">BUY</a>
+      </li>
+      <li>
+        <a routerLink="/account">SELL</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

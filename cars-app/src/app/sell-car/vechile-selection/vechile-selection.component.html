@@ -1,0 +1,55 @@
+<mat-grid-list cols="2" rowHeight="100px">
+  <mat-grid-tile [colspan]="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Year</mat-label>
+      <input matNativeControl matInput type="number" min="1999" max="2023" />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Make</mat-label>
+      <select matNativeControl>
+        <option>ISUZU</option>
+        <option>Audi</option>
+        <option>BMW</option>
+        <option>HONDA</option>
+      </select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Model</mat-label>
+      <select matNativeControl>
+        <option>Accord</option>
+        <option>Civic</option>
+        <option>CR-V</option>
+        <option>WR-V</option>
+      </select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Style</mat-label>
+      <select matNativeControl>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Mileage</mat-label>
+      <input matNativeControl matInput type="number" min="0" max="55" />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1">
+    <button mat-raised-button color="primary">GO</button>
+  </mat-grid-tile>
+</mat-grid-list>
+<br />
+<br />
+<br />
