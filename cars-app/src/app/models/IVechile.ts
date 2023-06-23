@@ -10,3 +10,9 @@ interface IVechileModelDetails {
   style: string;
   mileage: number;
 }
+
+export interface IVechileData {
+  ModelYear: string | undefined;
+  Make: string | undefined;
+  Model: string | undefined;
+}

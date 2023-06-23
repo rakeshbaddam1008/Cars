@@ -14,7 +14,19 @@ import { HomeComponent } from './home/home.component';
 import { LicensePlateSelectionComponent } from './sell-car/license-plate-selection/license-plate-selection.component';
 import { VinSelectionComponent } from './sell-car/vin-selection/vin-selection.component';
 import { VechileSelectionComponent } from './sell-car/vechile-selection/vechile-selection.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CarQuestionaireComponent } from './sell-car/car-questionaire/car-questionaire.component';
+
+import { SurveyModule } from 'survey-angular-ui';
+import { CarStepperComponent } from './sell-car/car-stepper/car-stepper.component';
+import { CarQuestionaireComponent1 } from './sell-car/car-questionaire copy/car-questionaire.component1';
+import { FooterComponent } from './navigation/footer/footer.component';
+import { WhatIsVinComponent } from './common/what-is-vin/what-is-vin.component';
+import { SurveyCreatorModule } from 'survey-creator-angular';
+import { VechileDetailsComponent } from './questionaire/vechile-details/vechile-details.component';
+import { VechileConditionComponent } from './questionaire/vechile-condition/vechile-condition.component';
+import { SellerContactComponent } from './questionaire/seller-contact/seller-contact.component';
+import { SellerInstantOfferComponent } from './questionaire/seller-instant-offer/seller-instant-offer.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +39,15 @@ import { FormsModule } from '@angular/forms';
     LicensePlateSelectionComponent,
     VinSelectionComponent,
     VechileSelectionComponent,
+    CarQuestionaireComponent,
+    CarQuestionaireComponent1,
+    CarStepperComponent,
+    FooterComponent,
+    WhatIsVinComponent,
+    VechileDetailsComponent,
+    VechileConditionComponent,
+    SellerContactComponent,
+    SellerInstantOfferComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +56,9 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
+    SurveyModule,
+    SurveyCreatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

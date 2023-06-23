@@ -16,7 +16,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatGridListModule } from '@angular/material/grid-list';
-
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatSliderModule } from '@angular/material/slider';
+import {
+  MatBottomSheet,
+  MatBottomSheetModule,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
 @NgModule({
   declarations: [],
   imports: [
@@ -37,6 +43,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
+    MatStepperModule,
+    MatSliderModule,
+    MatBottomSheetModule,
   ],
   exports: [
     MatTabsModule,
@@ -55,6 +64,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDatepickerModule,
     MatNativeDateModule,
     MatGridListModule,
+    MatStepperModule,
+    MatSliderModule,
+    MatBottomSheetModule,
   ],
 })
 export class MaterialModule {}

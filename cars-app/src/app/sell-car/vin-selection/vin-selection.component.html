@@ -7,11 +7,16 @@
         matInput
         placeholder="Enter the 17-digit VIN"
         maxlength="17"
+        [(ngModel)]="vin"
       />
     </mat-form-field>
   </mat-grid-tile>
-  <mat-grid-tile><a>Where is my VIN?</a> </mat-grid-tile>
+  <mat-grid-tile
+    ><a (click)="openBottomSheet()">Where is my VIN?</a>
+  </mat-grid-tile>
   <mat-grid-tile>
-    <button mat-raised-button color="primary">GO</button>
+    <button mat-raised-button style="width: 45%" color="primary" (click)="go()">
+      GO
+    </button>
   </mat-grid-tile>
 </mat-grid-list>

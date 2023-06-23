@@ -2,7 +2,30 @@
   <mat-grid-tile [colspan]="1">
     <mat-form-field appearance="outline">
       <mat-label>Year</mat-label>
-      <input matNativeControl matInput type="number" min="1999" max="2023" />
+      <select matNativeControl>
+        <option>1991</option>
+        <option>1992</option>
+        <option>1993</option>
+        <option>1995</option>
+        <option>1996</option>
+        <option>1997</option>
+        <option>1998</option>
+        <option>1999</option>
+        <option>2000</option>
+        <option>2001</option>
+        <option>2002</option>
+        <option>2003</option>
+        <option>2004</option>
+        <option>2005</option>
+        <option>2006</option>
+        <option>2007</option>
+        <option>2008</option>
+        <option>2009</option>
+        <option>2010</option>
+        <option>2011</option>
+        <option>2012</option>
+        <option>2013</option>
+      </select>
     </mat-form-field>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1">
@@ -47,7 +70,14 @@
     </mat-form-field>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1">
-    <button mat-raised-button color="primary">GO</button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="btn-go"
+      routerLink="/questionaire"
+    >
+      GO
+    </button>
   </mat-grid-tile>
 </mat-grid-list>
 <br />

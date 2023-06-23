@@ -1,0 +1,38 @@
+<br />
+
+<div style="padding: 50px">
+  <mat-stepper>
+    <mat-step label="Vechile Details" state="phone">
+      <app-car-questionaire1></app-car-questionaire1>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Vechile Condition" state="chat">
+      <app-car-questionaire></app-car-questionaire>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Contact Information">
+      <p>Socialize with each other.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Instant Offer">
+      <p>You're welcome.</p>
+    </mat-step>
+
+    <!-- Icon overrides. -->
+    <ng-template matStepperIcon="phone">
+      <mat-icon>call_end</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="chat">
+      <mat-icon>forum</mat-icon>
+    </ng-template>
+  </mat-stepper>
+</div>

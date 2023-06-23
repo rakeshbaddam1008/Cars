@@ -1,17 +1,10 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="header-bg">
   <div fxHide.gt-xs>
     <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-  <div style="overflow: hidden">
-    <img
-      class="header-logo"
-      src="./../../../assets/images/company-logo.png"
-      style="border-radius: 50%"
-    />
-  </div>
-  <div>
+  <div class="logo">
     <a routerLink="/home">CARIZMA</a>
   </div>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
