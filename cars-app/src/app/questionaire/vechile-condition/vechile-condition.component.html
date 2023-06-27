@@ -1,1 +1,10 @@
-<p>vechile-condition works!</p>
+<div style="background-color: whitesmoke; padding: 25px">
+  <ng-container
+    style="border-radius: 25px; display: flex; justify-content: center"
+    *ngFor="let eachQuestion of questionJson"
+  >
+    <app-each-question [Question]="eachQuestion"></app-each-question>
+
+    <br />
+  </ng-container>
+</div>

@@ -1,0 +1,12 @@
+.car-header {
+  font-size: 2rem;
+  margin: 25px 0 0 95px;
+  align-items: center;
+  font-weight: 800 !important;
+  background-color: #f4f4f4;
+  background-repeat: repeat-x;
+}
+
+.car-stepper-content {
+  margin: 25px 0 0 95px;
+}

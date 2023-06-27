@@ -238,3 +238,22 @@ export const StateData: IState[] = [
     abbreviation: 'WY',
   },
 ];
+
+export const getAllMakes_URL = (year: Number) =>
+  `/carizma/vehicle-info/make/${year}`;
+export const getAllModel_URL = (year: Number, make: string) =>
+  `/carizma/vehicle-info/model?year=${year}&make=${make}`;
+export const getAlltrim_URL = (year: Number, make: string, model: string) =>
+  `/carizma/vehicle-info/trim?year=${year}&make=${make}&model=${model}`;
+
+export const getVechileDetailssByLicenseNumberURL = (
+  registerationNumber: string,
+  state: string
+) =>
+  `https://licenseplatedata.com/consumer-api/MOHAMAD-LPDHNQA4M/${state}/${registerationNumber}`;
+
+export const VechileYears: Number[] = [
+  1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
+  2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
+  2017, 2018, 2019, 2020, 2021, 2022, 2023,
+];

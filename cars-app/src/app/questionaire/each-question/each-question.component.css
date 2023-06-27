@@ -10,21 +10,8 @@
 
 .question-label {
   font-size: 20px;
-  font-weight: 550;
-  text-decoration: underline;
-}
-
-.question-label:after {
-  content: ":";
-}
-
-.question-value {
-  font-size: 15px;
-  align-items: start;
+  font-weight: 500;
 }
 .example-radio-button {
-  margin: 5px;
-}
-.example-h2 {
-  margin: 10px;
+  margin: 3px;
 }

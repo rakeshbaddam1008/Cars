@@ -27,6 +27,8 @@ import { VechileDetailsComponent } from './questionaire/vechile-details/vechile-
 import { VechileConditionComponent } from './questionaire/vechile-condition/vechile-condition.component';
 import { SellerContactComponent } from './questionaire/seller-contact/seller-contact.component';
 import { SellerInstantOfferComponent } from './questionaire/seller-instant-offer/seller-instant-offer.component';
+import { EachQuestionComponent } from './questionaire/each-question/each-question.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { SellerInstantOfferComponent } from './questionaire/seller-instant-offer
     VechileConditionComponent,
     SellerContactComponent,
     SellerInstantOfferComponent,
+    EachQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,7 @@ import { SellerInstantOfferComponent } from './questionaire/seller-instant-offer
     ReactiveFormsModule,
     SurveyModule,
     SurveyCreatorModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

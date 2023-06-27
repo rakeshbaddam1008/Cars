@@ -1,1 +1,45 @@
-<p>vechile-details works!</p>
+<div style="background-color: whitesmoke; padding: 25px">
+  <mat-card style="margin-bottom: 25px">
+    <mat-card-content>
+      <!-- <mat-card-header>
+        <h1 style="font-weight: 550; font-size: 25px">Vechile Details</h1>
+        <mat-divider></mat-divider>
+      </mat-card-header> -->
+      <div>
+        <mat-grid-list cols="6" gutterSize="35px" rowHeight="70px">
+          <mat-grid-tile>
+            <mat-label class="question-label"> Year</mat-label>
+          </mat-grid-tile>
+          <mat-grid-tile class="question-value">{{
+            selectVechileDetails?.ModelYear
+          }}</mat-grid-tile>
+          <mat-grid-tile>
+            <mat-label class="question-label"> Make</mat-label>
+          </mat-grid-tile>
+          <mat-grid-tile class="question-value">{{
+            selectVechileDetails?.Make
+          }}</mat-grid-tile>
+
+          <mat-grid-tile>
+            <mat-label class="question-label"> Model</mat-label>
+          </mat-grid-tile>
+          <mat-grid-tile class="question-value">{{
+            selectVechileDetails?.Model
+          }}</mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-divider> </mat-divider>
+  <form [formGroup]="form" (submit)="submitForm()">
+    <ng-container
+      style="border-radius: 25px; display: flex; justify-content: center"
+      *ngFor="let eachQuestion of VechileDetailsQuestionaireJson"
+    >
+      <app-each-question [Question]="eachQuestion"></app-each-question>
+
+      <br />
+    </ng-container>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>

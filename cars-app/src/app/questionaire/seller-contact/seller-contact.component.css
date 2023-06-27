@@ -1,0 +1,8 @@
+.seller-contact mat-form-field {
+  width: 50%;
+}
+
+.seller-contact {
+  justify-content: center;
+  align-items: center;
+}

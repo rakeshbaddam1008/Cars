@@ -2,40 +2,24 @@
   <mat-grid-tile [colspan]="1">
     <mat-form-field appearance="outline">
       <mat-label>Year</mat-label>
-      <select matNativeControl>
-        <option>1991</option>
-        <option>1992</option>
-        <option>1993</option>
-        <option>1995</option>
-        <option>1996</option>
-        <option>1997</option>
-        <option>1998</option>
-        <option>1999</option>
-        <option>2000</option>
-        <option>2001</option>
-        <option>2002</option>
-        <option>2003</option>
-        <option>2004</option>
-        <option>2005</option>
-        <option>2006</option>
-        <option>2007</option>
-        <option>2008</option>
-        <option>2009</option>
-        <option>2010</option>
-        <option>2011</option>
-        <option>2012</option>
-        <option>2013</option>
+      <select
+        matNativeControl
+        (change)="yearSelectionChange(yearSelected)"
+        [(ngModel)]="yearSelected"
+      >
+        <option *ngFor="let year of VechileRegisterationList" [value]="year">
+          {{ year }}
+        </option>
       </select>
     </mat-form-field>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1">
     <mat-form-field appearance="outline">
       <mat-label>Make</mat-label>
-      <select matNativeControl>
-        <option>ISUZU</option>
-        <option>Audi</option>
-        <option>BMW</option>
-        <option>HONDA</option>
+      <select matNativeControl [(ngModel)]="selectedMake">
+        <option *ngFor="let make of makesList | async" [value]="make">
+          {{ make }}
+        </option>
       </select>
     </mat-form-field>
   </mat-grid-tile>

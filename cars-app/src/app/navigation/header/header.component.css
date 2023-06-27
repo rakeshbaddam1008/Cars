@@ -45,8 +45,8 @@ mat-toolbar {
   left: 0;
   right: 0;
   background-image: url(../../../assets/images/bg-layout.png);
-  background-repeat: no-repeat;
-  background-position: center right;
+  background-repeat: round;
+  background-position: start right;
 }
 
 @media (max-width: 959px) {

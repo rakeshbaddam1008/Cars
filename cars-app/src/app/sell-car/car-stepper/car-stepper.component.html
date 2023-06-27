@@ -1,23 +1,25 @@
-<br />
-
-<div style="padding: 50px">
+<div class="car-header class.mat-elevation-z8">CARIZMA Instant Cash Offer</div>
+<div class="car-stepper-content">
   <mat-stepper>
     <mat-step label="Vechile Details" state="phone">
-      <app-car-questionaire1></app-car-questionaire1>
-
+      <app-vechile-details
+        [VechileDetailsQuestionaireJson]="sellerDetails?.VechileDetails"
+      ></app-vechile-details>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step label="Vechile Condition" state="chat">
-      <app-car-questionaire></app-car-questionaire>
+      <app-vechile-condition></app-vechile-condition>
+
+      <!-- <app-car-questionaire></app-car-questionaire> -->
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
     <mat-step label="Contact Information">
-      <p>Socialize with each other.</p>
+      <app-seller-contact></app-seller-contact>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
