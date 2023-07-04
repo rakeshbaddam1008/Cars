@@ -26,6 +26,8 @@ export class VechileSelectionComponent {
 
   selectedMake: string = '';
   selectedModel: string = '';
+  selectedStyle: string = '';
+
   constructor(private _service: NHTSAService) {
     this.VechileRegisterationList = VechileYears;
     this.makesList = of([]);
@@ -40,11 +42,19 @@ export class VechileSelectionComponent {
   }
 
   makeSelectionChange(selectedMake: string) {
-    this.modelList = of([]);
+    this.modelList = this._service.getModel(
+      this.yearSelected,
+      this.selectedMake
+    );
     this.trimList = of([]);
   }
 
   modelSelectionChange(selectedModel: string) {
+    this.trimList = this._service.getTrim(
+      this.yearSelected,
+      this.selectedMake,
+      this.selectedStyle
+    );
     this.trimList = of([]);
   }
   selectedTrim: string = '';

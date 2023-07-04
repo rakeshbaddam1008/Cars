@@ -2,49 +2,56 @@
   <mat-grid-tile [colspan]="1">
     <mat-form-field appearance="outline">
       <mat-label>Year</mat-label>
-      <select
+      <mat-select
         matNativeControl
         (change)="yearSelectionChange(yearSelected)"
         [(ngModel)]="yearSelected"
+        formControlName="year"
       >
-        <option *ngFor="let year of VechileRegisterationList" [value]="year">
+        <mat-option
+          *ngFor="let year of VechileRegisterationList"
+          [value]="year"
+        >
           {{ year }}
-        </option>
-      </select>
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1">
     <mat-form-field appearance="outline">
       <mat-label>Make</mat-label>
-      <select matNativeControl [(ngModel)]="selectedMake">
-        <option *ngFor="let make of makesList | async" [value]="make">
+      <mat-select matNativeControl [(ngModel)]="selectedMake">
+        <mat-option *ngFor="let make of makesList | async" [value]="make">
           {{ make }}
-        </option>
-      </select>
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="1">
     <mat-form-field appearance="outline">
       <mat-label>Model</mat-label>
-      <select matNativeControl>
-        <option>Accord</option>
-        <option>Civic</option>
-        <option>CR-V</option>
-        <option>WR-V</option>
-      </select>
+      <mat-select matNativeControl [(ngModel)]="selectedModel">
+        <mat-option *ngFor="let model of modelList | async" [value]="model">
+          {{ model }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="1">
     <mat-form-field appearance="outline">
       <mat-label>Style</mat-label>
-      <select matNativeControl>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
+
+      <mat-select
+        matNativeControl
+        [(ngModel)]="selectedStyle"
+        formControlName="trim"
+      >
+        <mat-option *ngFor="let trim of trimList | async" [value]="trim">
+          {{ trim }}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1">

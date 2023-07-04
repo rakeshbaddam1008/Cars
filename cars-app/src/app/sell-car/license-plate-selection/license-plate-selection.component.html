@@ -8,6 +8,7 @@
           matInput
           name="licensePlate"
           formControlName="licensePlate"
+          [(ngModel)]="selectedNumberPlate"
         />
         <mat-error>Name is required</mat-error>
       </mat-form-field>
@@ -15,16 +16,15 @@
     <mat-grid-tile>
       <mat-form-field appearance="outline">
         <mat-label>State</mat-label>
-        <select
-          matNativeControl
+        <mat-select
           [(ngModel)]="selectedState"
           name="selectedState"
-          formControlName="selectedState"
+          required="true"
         >
-          <option *ngFor="let state of states" [ngValue]="state.name">
-            {{ state.abbreviation }}
-          </option>
-        </select>
+          <mat-option *ngFor="let food of states" [value]="food.abbreviation">
+            {{ food.abbreviation }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
@@ -34,6 +34,7 @@
         color="primary"
         routerLink="/questionaire"
         [disabled]="!licensePlateSelection.valid"
+        (click)="onSubmit()"
       >
         GO
       </button>

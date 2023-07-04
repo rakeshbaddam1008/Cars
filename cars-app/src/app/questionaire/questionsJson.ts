@@ -8,6 +8,16 @@ enum Questiontype {
 export const QuestionaireVechileDetails: IQuestion[] = [
   {
     id: 1,
+    name: 'ownership',
+    title: 'Car Ownership?',
+    options: [],
+    answer: '',
+    type: Questiontype.text,
+    isRequired: true,
+    isHidden: false,
+  },
+  {
+    id: 1,
     name: 'hasCarTitle',
     title: 'Does your car have a title?',
     options: ['Yes', 'No'],
@@ -44,6 +54,16 @@ export const QuestionaireVechileDetails: IQuestion[] = [
     options: [],
     answer: '',
     type: Questiontype.text,
+    isRequired: true,
+    isHidden: false,
+  },
+  {
+    id: 2,
+    name: 'color',
+    title: 'What is the colour of your car?',
+    options: ['red', 'green', 'yellow', 'purple', 'blue'],
+    answer: '',
+    type: Questiontype.DorpBown,
     isRequired: true,
     isHidden: false,
   },

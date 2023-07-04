@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
 import { DecodeVinValues } from '@shaggytools/nhtsa-api-wrapper';
 import { IVechileData } from '../models/IVechile';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import {
   getAllMakes_URL,
   getAllModel_URL,
   getAlltrim_URL,
+  getVechileDetailssByLicenseNumberURL,
 } from '../constants.ts/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NHTSAService {
+  // getVechileDetailssByLicenseNumberURL(numberPlat: string,state:string) {
+  //   throw new Error('Method not implemented.');
+  // }
   constructor(private http: HttpClient) {}
 
   async getVechileDetailsByVIN(vin: string): Promise<IVechileData> {
@@ -42,16 +46,12 @@ export class NHTSAService {
     );
   }
 
-  // async getVechileDetailsByRegistrationDetails(
-  //   licensePlate: string,
-  //   state: string
-  // ): Observable<IVechileData> {
-  //   const { Results }=
-  //    await this.http.get<string[]>(getVechileDetailssByLicenseNumberURL(licensePlate,state))
-  //   const decodedVehicle = Results[0];
-
-  //   let data: IVechileData = decodedVehicle;
-
-  //   return data;
-  // }
+  getVechileDetailsByRegistrationDetails(
+    licensePlate: string,
+    state: string
+  ): Observable<IVechileData> {
+    return this.http.get<IVechileData>(
+      getVechileDetailssByLicenseNumberURL(licensePlate, state)
+    );
+  }
 }

@@ -17,21 +17,23 @@ export class SellCarStoreService {
   //   create a new BehaviorSubject for it, as well as the observable$, and getters/setters
   private readonly _todos = new BehaviorSubject<IQuestion[]>([]);
 
-  sellerCompleteDetails: ISellerVechileDetails | undefined;
+  sellerCompleteDetails: ISellerVechileDetails;
   // Expose the observable$ part of the _todos subject (read only stream)
   readonly todos$ = this._todos.asObservable();
 
+  constructor() {
+    this.sellerCompleteDetails = new ISellerVechileDetails();
+  }
   // the getter will return the last value emitted in _todos subject
   get todos(): IQuestion[] {
     return this._todos.getValue();
   }
 
   loadSellerDetails() {
-    let seller = new ISellerVechileDetails();
-    seller.VechileDetails = QuestionaireVechileDetails;
-    seller.VechileConditionDetails = QuestionaireVechileConditionDetails;
-    seller.contactDetails = '';
-    this.sellerCompleteDetails = seller;
+    this.sellerCompleteDetails.VechileDetails = QuestionaireVechileDetails;
+    this.sellerCompleteDetails.VechileConditionDetails =
+      QuestionaireVechileConditionDetails;
+    this.sellerCompleteDetails.contactDetails = '';
   }
   // assigning a value to this.todos will push it onto the observable
   // and down to all of its subsribers (ex: this.todos = [])
