@@ -5,6 +5,19 @@ enum Questiontype {
   MultiSelect,
 }
 
+export class IVechileDetailQuestionaire {
+  hasCarownership?: boolean;
+  carOwnership?: string;
+  hasCarTitle?: boolean;
+  carTitle?: string;
+  zipCode?: string;
+  mileage?: Number;
+  color?: string;
+}
+
+export const CarTitleOptions: string[] = ['Clean', 'salvage', 'Rebuilt'];
+export const CarTitleOwnership: string[] = ['Own', 'Lease', 'Re-finance'];
+
 export const QuestionaireVechileDetails: IQuestion[] = [
   {
     id: 1,
@@ -36,7 +49,6 @@ export const QuestionaireVechileDetails: IQuestion[] = [
     isRequired: true,
     isHidden: false,
   },
-
   {
     id: 2,
     name: 'Ownership',

@@ -18,6 +18,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 {
 }
 import {
@@ -48,6 +50,7 @@ import {
     MatStepperModule,
     MatSliderModule,
     MatBottomSheetModule,
+    MatSlideToggleModule,
   ],
   exports: [
     MatTabsModule,
@@ -69,6 +72,7 @@ import {
     MatStepperModule,
     MatSliderModule,
     MatBottomSheetModule,
+    MatSlideToggleModule,
   ],
 })
 export class MaterialModule {}

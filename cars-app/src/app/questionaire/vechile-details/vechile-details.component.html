@@ -1,57 +1,139 @@
-<div style="background-color: whitesmoke; padding: 25px">
-  <mat-card style="margin-bottom: 25px">
+<div
+  style="
+    background-color: rgb(247, 247, 247);
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
+  "
+>
+  <mat-card class="question-card">
     <mat-card-content>
-      <!-- <mat-card-header>
-        <h1 style="font-weight: 550; font-size: 25px">Vechile Details</h1>
-        <mat-divider></mat-divider>
-      </mat-card-header> -->
-      <div>
-        <div class="car-Declaration">
-          {{
-            selectVechileDetails?.ModelYear +
-              "2012 " +
-              selectVechileDetails?.Make +
-              "AUDI " +
-              selectVechileDetails?.Model +
-              " XUV 300"
-          }}
-        </div>
-
-        <mat-grid-list cols="6" gutterSize="5px" rowHeight="22px">
-          <mat-grid-tile>
-            <mat-label class="question-label"> Year</mat-label>
-          </mat-grid-tile>
-          <mat-grid-tile class="question-value">{{
-            selectVechileDetails?.ModelYear
-          }}</mat-grid-tile>
-          <mat-grid-tile>
-            <mat-label class="question-label"> Make</mat-label>
-          </mat-grid-tile>
-          <mat-grid-tile class="question-value">{{
-            selectVechileDetails?.Make
-          }}</mat-grid-tile>
-
-          <mat-grid-tile>
-            <mat-label class="question-label"> Model</mat-label>
-          </mat-grid-tile>
-          <mat-grid-tile class="question-value">{{
-            selectVechileDetails?.Model
-          }}</mat-grid-tile>
-        </mat-grid-list>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <mat-divider> </mat-divider>
-  <br />
-  <form [formGroup]="form" (submit)="submitForm()">
-    <ng-container
-      style="border-radius: 25px; display: flex; justify-content: center"
-      *ngFor="let eachQuestion of VechileDetailsQuestionaireJson"
-    >
-      <app-each-question [Question]="eachQuestion"></app-each-question>
+      <label class="question-label" id="example-radio-group-label"
+        >Does your Car has Ownership</label
+      >
+      <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="vechileQuestionaire.hasCarownership"
+      ></mat-slide-toggle>
 
       <br />
-    </ng-container>
-    <!-- <button type="submit" [disabled]="form.invalid">Submit</button> -->
-  </form>
+      <!-- <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileQuestionaire.hasCarownership"
+      >
+        <mat-radio-button [value]="true">yes</mat-radio-button>
+        <mat-radio-button [value]="false">no</mat-radio-button>
+      </mat-radio-group> -->
+
+      <ng-container *ngIf="vechileQuestionaire.hasCarownership">
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="vechileQuestionaire.carOwnership"
+        >
+          <mat-radio-button
+            class="example-radio-button"
+            name="Question.name"
+            *ngFor="let option of CarOwnershipOptions"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Does your car have a title?</label
+      >
+      <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="vechileQuestionaire.hasCarTitle"
+      ></mat-slide-toggle>
+
+      <br />
+      <!-- <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileQuestionaire.hasCarTitle"
+      >
+        <mat-radio-button [value]="true">yes</mat-radio-button>
+        <mat-radio-button [value]="false">no</mat-radio-button>
+      </mat-radio-group> -->
+
+      <ng-container *ngIf="vechileQuestionaire.hasCarTitle">
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="vechileQuestionaire.carTitle"
+        >
+          <mat-radio-button
+            class="example-radio-button"
+            name="Question.name"
+            *ngFor="let option of CarTitleOptions"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >What is the mileage of your car?</label
+      >
+
+      <br />
+      <mat-form-field appearance="outline" class="question-form-control">
+        <input
+          matInput
+          [(ngModel)]="vechileQuestionaire.mileage"
+          placeholder="Mileage ex. 123456"
+        />
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >What is the zipCode of your car location?</label
+      >
+      <br />
+      <mat-form-field appearance="outline" class="question-form-control">
+        <input
+          matInput
+          [(ngModel)]="vechileQuestionaire.zipCode"
+          placeholder="Zip ex. 28215"
+        />
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >What is the color of your car?</label
+      >
+      <br />
+      <mat-form-field appearance="outline" class="question-form-control">
+        <mat-select
+          [(ngModel)]="vechileQuestionaire.color"
+          required
+          placeholder="ex. red"
+        >
+          <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{
+            option
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+  </mat-card>
+
+  {{ vechileQuestionaire | json }}
 </div>
