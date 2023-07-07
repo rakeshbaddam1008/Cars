@@ -1,11 +1,15 @@
-<mat-toolbar color="primary" class="header-bg">
-  <div fxHide.gt-xs>
+<mat-toolbar class="header-bg">
+  <div fxHide.gt-xs style="margin-right: 15px">
     <button mat-icon-button (click)="onToggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
   <div class="logo">
-    <a routerLink="/home">CARIZMA</a>
+    <img
+      src="../../../assets/images/Logo Fina.png"
+      routerLink="/sell-car"
+      height="115px"
+    />
   </div>
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
     <ul fxLayout fxLayoutGap="15px" class="navigation-items">

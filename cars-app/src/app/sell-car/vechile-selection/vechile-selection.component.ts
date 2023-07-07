@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { VechileYears } from 'src/app/constants.ts/constants';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
@@ -10,7 +15,6 @@ import { NHTSAService } from 'src/app/services/nhtsa-service';
   styleUrls: ['./vechile-selection.component.css'],
 })
 export class VechileSelectionComponent {
-  yearSelected: Number = 1990;
   disabled = false;
   max = 100;
   min = 0;
@@ -24,9 +28,12 @@ export class VechileSelectionComponent {
   modelList: Observable<string[]>;
   trimList: Observable<string[]>;
 
-  selectedMake: string = '';
-  selectedModel: string = '';
-  selectedStyle: string = '';
+  manualVechileSelectionForm = new FormGroup({
+    yearSelected: new FormControl(1990, Validators.required),
+    selectedMake: new FormControl('', Validators.required),
+    selectedModel: new FormControl('', Validators.required),
+    selectedStyle: new FormControl('', Validators.required),
+  });
 
   constructor(private _service: NHTSAService) {
     this.VechileRegisterationList = VechileYears;
@@ -35,29 +42,41 @@ export class VechileSelectionComponent {
     this.trimList = of([]);
   }
 
-  yearSelectionChange(selectedMake: Number) {
-    this.makesList = this._service.getMakes(this.yearSelected);
+  yearSelectionChange() {
+    this.makesList = this._service.getMakes(
+      this.manualVechileSelectionForm.controls.yearSelected.value ?? 1990
+    );
     this.modelList = of([]);
     this.trimList = of([]);
   }
 
-  makeSelectionChange(selectedMake: string) {
+  makeSelectionChange() {
     this.modelList = this._service.getModel(
-      this.yearSelected,
-      this.selectedMake
+      this.manualVechileSelectionForm.controls.yearSelected.value ?? 1990,
+      this.manualVechileSelectionForm.controls.selectedMake.value ?? ''
     );
     this.trimList = of([]);
   }
 
-  modelSelectionChange(selectedModel: string) {
+  modelSelectionChange() {
     this.trimList = this._service.getTrim(
-      this.yearSelected,
-      this.selectedMake,
-      this.selectedStyle
+      this.manualVechileSelectionForm.controls.yearSelected.value ?? 1990,
+      this.manualVechileSelectionForm.controls.selectedMake.value ?? '',
+      this.manualVechileSelectionForm.controls.selectedStyle.value ?? ''
     );
-    this.trimList = of([]);
   }
   selectedTrim: string = '';
 
-  trimSelectionChange(selectedTrim: string) {}
+  trimSelectionChange() {}
+
+  onSubmit(): void {
+    // this._nhtsa
+    //   .getVechileDetailsByRegistrationDetails(
+    //     this.licensePlateSelection.controls.licensePlate.value ?? '',
+    //     this.licensePlateSelection.controls.selectedState.value ?? ''
+    //   )
+    //   .subscribe((res) => {
+    //     this._sellCarService.sellerCompleteDetails.vechile = res;
+    //   });
+  }
 }

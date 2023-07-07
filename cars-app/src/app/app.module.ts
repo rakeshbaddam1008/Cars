@@ -29,6 +29,7 @@ import { SellerContactComponent } from './questionaire/seller-contact/seller-con
 import { SellerInstantOfferComponent } from './questionaire/seller-instant-offer/seller-instant-offer.component';
 import { EachQuestionComponent } from './questionaire/each-question/each-question.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SellCarHomeComponent } from './sell-car/sell-car-home/sell-car-home.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     SellerContactComponent,
     SellerInstantOfferComponent,
     EachQuestionComponent,
+    SellCarHomeComponent,
   ],
   imports: [
     BrowserModule,

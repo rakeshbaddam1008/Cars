@@ -1,5 +1,10 @@
 mat-form-field {
-  width: 90%;
+  width: 80%;
+  height: 70%;
+}
+.btn-go {
+  width: 120px;
+  left: 0;
 }
 
 a:hover:after {

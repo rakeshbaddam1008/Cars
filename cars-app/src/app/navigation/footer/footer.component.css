@@ -1,6 +1,6 @@
 .bg-neutral-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+  background-color: #ff9966;
 }
 
 .text-white {
@@ -3727,7 +3727,7 @@ html.dark {
 }
 .bg-neutral-900 {
   --tw-bg-opacity: 1;
-  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+  background-color: #ff9966;
 }
 .bg-orange-100 {
   --tw-bg-opacity: 1;

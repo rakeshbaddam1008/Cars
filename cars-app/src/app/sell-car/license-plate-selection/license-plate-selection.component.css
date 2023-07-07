@@ -1,10 +1,18 @@
-.car-selection-container mat-form-field + mat-form-field {
-  margin-left: 8px;
+mat-form-field {
+  padding: 3px 1px;
 }
 mat-form-field {
-  width: 90%;
+  width: 80%;
+  height: 80%;
+}
+/* btn-go {
+  width: 60%;
+} */
+
+.btn-go {
+  width: 120px;
 }
 
-btn-go {
-  width: 100%;
+mat-form-field {
+  font-size: 12px;
 }

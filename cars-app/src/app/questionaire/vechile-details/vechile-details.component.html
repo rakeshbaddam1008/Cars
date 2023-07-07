@@ -6,7 +6,18 @@
         <mat-divider></mat-divider>
       </mat-card-header> -->
       <div>
-        <mat-grid-list cols="6" gutterSize="35px" rowHeight="70px">
+        <div class="car-Declaration">
+          {{
+            selectVechileDetails?.ModelYear +
+              "2012 " +
+              selectVechileDetails?.Make +
+              "AUDI " +
+              selectVechileDetails?.Model +
+              " XUV 300"
+          }}
+        </div>
+
+        <mat-grid-list cols="6" gutterSize="5px" rowHeight="22px">
           <mat-grid-tile>
             <mat-label class="question-label"> Year</mat-label>
           </mat-grid-tile>
@@ -31,6 +42,7 @@
     </mat-card-content>
   </mat-card>
   <mat-divider> </mat-divider>
+  <br />
   <form [formGroup]="form" (submit)="submitForm()">
     <ng-container
       style="border-radius: 25px; display: flex; justify-content: center"
@@ -40,6 +52,6 @@
 
       <br />
     </ng-container>
-    <button type="submit" [disabled]="form.invalid">Submit</button>
+    <!-- <button type="submit" [disabled]="form.invalid">Submit</button> -->
   </form>
 </div>

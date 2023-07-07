@@ -47,8 +47,15 @@ css-1clbolf {
 .car-selection-container mat-form-field + mat-form-field {
   margin-left: 8px;
 }
-.Car-selection-view {
-  height: 60%;
-  width: 50%;
-  padding-left: 23%;
-}
+/* .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 8px important;
+  padding-bottom: 8px important;
+} */
+/* ::ng-deep {
+  .mat-form-field-infix {
+    border: 0px !important;
+  }
+  .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: none !important;
+  }
+} */

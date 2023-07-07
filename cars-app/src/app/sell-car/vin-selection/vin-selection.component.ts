@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import {
   MatBottomSheet,
   MatBottomSheetRef,
@@ -13,15 +14,14 @@ import { CommondataSellService } from 'src/app/services/commondata-sell.service'
   styleUrls: ['./vin-selection.component.css'],
 })
 export class VinSelectionComponent {
-  vin: string = '';
   constructor(
     public dataService: CommondataSellService,
     private router: Router,
     private _bottomSheet: MatBottomSheet
   ) {}
+  vin = new FormControl('', [Validators.required, Validators.minLength(17)]);
 
   go() {
-    this.dataService.vin = this.vin;
     this.router.navigate(['/questionaire']);
   }
 

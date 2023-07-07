@@ -28,3 +28,17 @@
 .example-h2 {
   margin: 10px;
 }
+
+.car-selection-space {
+  left: 5vw;
+  top: 15vh;
+  bottom: 25vh;
+}
+.car-Declaration {
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 0px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}

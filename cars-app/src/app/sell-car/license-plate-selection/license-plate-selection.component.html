@@ -1,6 +1,6 @@
 <form [formGroup]="licensePlateSelection" (ngSubmit)="onSubmit()">
-  <mat-grid-list cols="3" rowHeight="100px" rows="1" gutterSize="10px">
-    <mat-grid-tile>
+  <mat-grid-list cols="4" rowHeight="70px" gutterSize="3px">
+    <mat-grid-tile colspan="2">
       <mat-form-field appearance="outline">
         <mat-label>License Plate</mat-label>
         <input
@@ -8,33 +8,33 @@
           matInput
           name="licensePlate"
           formControlName="licensePlate"
-          [(ngModel)]="selectedNumberPlate"
         />
-        <mat-error>Name is required</mat-error>
+        <mat-error>License Plate is required</mat-error>
       </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile colspan="2">
       <mat-form-field appearance="outline">
         <mat-label>State</mat-label>
         <mat-select
-          [(ngModel)]="selectedState"
           name="selectedState"
           required="true"
+          formControlName="selectedState"
         >
           <mat-option *ngFor="let food of states" [value]="food.abbreviation">
             {{ food.abbreviation }}
           </mat-option>
         </mat-select>
+        <mat-error>State is required</mat-error>
       </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile colspan="2">
       <button
         mat-raised-button
         class="btn-go"
         color="primary"
         routerLink="/questionaire"
-        [disabled]="!licensePlateSelection.valid"
         (click)="onSubmit()"
+        type="submit"
       >
         GO
       </button>

@@ -13,8 +13,8 @@ import { NHTSAService } from 'src/app/services/nhtsa-service';
 })
 export class LicensePlateSelectionComponent implements OnInit {
   states: IState[];
-  selectedState: string = '';
-  selectedNumberPlate: string = '';
+  // selectedState: string = '';
+  // selectedNumberPlate: string = '';
 
   licensePlateSelection = new FormGroup({
     licensePlate: new FormControl('', Validators.required),
@@ -36,8 +36,8 @@ export class LicensePlateSelectionComponent implements OnInit {
   onSubmit(): void {
     this._nhtsa
       .getVechileDetailsByRegistrationDetails(
-        this.selectedNumberPlate,
-        this.selectedState
+        this.licensePlateSelection.controls.licensePlate.value ?? '',
+        this.licensePlateSelection.controls.selectedState.value ?? ''
       )
       .subscribe((res) => {
         this._sellCarService.sellerCompleteDetails.vechile = res;

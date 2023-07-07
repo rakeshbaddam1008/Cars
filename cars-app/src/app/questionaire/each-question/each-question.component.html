@@ -1,8 +1,9 @@
-<mat-card style="max-width: 80%; min-width: 300px; padding: 15px; margin: 5px">
+<mat-card class="question-card">
   <mat-card-content>
     <label class="question-label" id="example-radio-group-label">{{
       Question?.title
     }}</label>
+    <br />
     <ng-container [ngSwitch]="Question?.type">
       <ng-template [ngSwitchCase]="'0'">
         <mat-radio-group
@@ -21,23 +22,19 @@
       </ng-template>
 
       <ng-template [ngSwitchCase]="'1'">
-        <br />
-        <mat-form-field
-          appearance="outline"
-          style="display: block; width: 60%; padding-top: 25px"
-        >
-          <input matInput name="Question.name" ngModel />
+        <mat-form-field appearance="outline" class="question-form-control">
+          <input matInput name="Question.name" />
         </mat-form-field>
       </ng-template>
 
       <ng-template [ngSwitchCase]="'2'">
-        <mat-form-field fxFlex="20">
-          <mat-label>Gender</mat-label>
-          <mat-select name="Question.name" required ngModel>
+        <mat-form-field class="question-form-control">
+          <mat-select name="Question.name" required>
             <mat-option
               *ngFor="let option of Question?.options"
               [value]="option"
-            ></mat-option>
+              >{{ option }}</mat-option
+            >
           </mat-select>
         </mat-form-field>
       </ng-template>

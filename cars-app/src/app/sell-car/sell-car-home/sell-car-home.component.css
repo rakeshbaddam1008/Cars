@@ -1,21 +1,50 @@
 .sell-car-l1 {
-  /* background-image: url("../../../assets/images/Untitled-7.jpg"); */
-  /* width: 100%;
-  height: 120vh; */
-  /* object-fit: cover;
+  background-image: url("../../../assets/images/1600_800_pixel_300res.jpg");
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   background-repeat: no-repeat;
-  background-size: 100% auto; */
+  background-size: 100% 100%;
   /* margin: 10px; */
   background-color: rgb(255, 255, 255);
 }
-.sell-car-l1 img {
+/* .sell-car-l1 img {
   height: auto;
   width: 100%;
   object-fit: cover;
-}
+} */
 /* 
 @media only screen and (max-width: 600px) {
   .sell-car-l1 {
     height: 415px;
   }
 } */
+.mainImageDescription .formNavi .lightButton {
+  font-size: 17px;
+  margin-top: 25px;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 10px 17px 10px 16px;
+  border: 1px solid #0f284c;
+  color: #0f284c;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.lightButton {
+  border-radius: 5px;
+  background-color: #fff;
+  font-weight: 500;
+  display: inline-block;
+  vertical-align: top;
+}
+.learnMoreVideo {
+  display: none;
+  position: relative;
+  z-index: 1000;
+}
+.Car-selection-view {
+  height: 40%;
+  width: 35%;
+  margin: 14% 0 10% 4%;
+  min-width: 400px;
+  min-height: 450px;
+}

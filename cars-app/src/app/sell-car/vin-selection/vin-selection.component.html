@@ -1,23 +1,26 @@
-<br />
-<mat-grid-list cols="4" rowHeight="100px" rows="1" gutterSize="10px">
-  <mat-grid-tile colspan="2">
-    <mat-form-field appearance="outline">
-      <mat-label>VIN</mat-label>
-      <input
-        matNativeControl
-        matInput
-        placeholder="Enter the 17-digit VIN"
-        maxlength="17"
-        [(ngModel)]="vin"
-      />
-    </mat-form-field>
-  </mat-grid-tile>
-  <mat-grid-tile
-    ><a (click)="openBottomSheet()">Where is my VIN?</a>
-  </mat-grid-tile>
-  <mat-grid-tile>
-    <button mat-raised-button style="width: 45%" color="primary" (click)="go()">
-      GO
-    </button>
-  </mat-grid-tile>
-</mat-grid-list>
+<form>
+  <mat-grid-list cols="4" rowHeight="70px" gutterSize="2px">
+    <mat-grid-tile colspan="3">
+      <mat-form-field appearance="outline" required>
+        <mat-label>VIN</mat-label>
+        <input
+          matNativeControl
+          matInput
+          placeholder="Enter the 17-digit VIN"
+          maxlength="17"
+          [formControl]="vin"
+          required
+        />
+        <mat-error *ngIf="vin.invalid">vin is required.</mat-error>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1"
+      ><a (click)="openBottomSheet()">Where is my VIN?</a>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2">
+      <button mat-raised-button class="btn-go" color="primary" (click)="go()">
+        GO
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
