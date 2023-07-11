@@ -54,7 +54,7 @@ mat-toolbar {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  background-color: #ff9966;
+  background-color: #1e6c92;
 }
 
 @media (max-width: 959px) {

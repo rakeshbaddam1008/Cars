@@ -1,19 +1,18 @@
 <div class="car-header class.mat-elevation-z8">
   CARIZMA Instant Cash Offer
   <h1>
+    {{ selectVechileDetails | json }}
     {{
-      (selectVechileDetails?.ModelYear ?? "2012 ") +
-        (selectVechileDetails?.Make ?? "AUDI ") +
-        (selectVechileDetails?.Model ?? " XUV 300")
+      (selectVechileDetails?.year ?? "2012 ") +
+        (selectVechileDetails?.make ?? "AUDI ") +
+        (selectVechileDetails?.model ?? " XUV 300")
     }}
   </h1>
 </div>
 <div class="car-stepper-content">
   <mat-stepper>
     <mat-step label="Vechile Details" state="phone">
-      <app-vechile-details
-        [VechileDetailsQuestionaireJson]="sellerDetails?.VechileDetails"
-      ></app-vechile-details>
+      <app-vechile-details></app-vechile-details>
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>

@@ -1,9 +1,11 @@
+import { IState } from '../models/IState';
+
 export enum CacheKey {
-  Staties = 'UsStates',
+  States = 'UsStates',
 }
 
 interface CacheValues {
-  [CacheKey.Staties]: IState;
+  [CacheKey.States]: IState;
 }
 
 interface CacheUtil {

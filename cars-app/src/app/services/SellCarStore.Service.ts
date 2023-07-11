@@ -6,6 +6,7 @@ import {
 import { Injectable } from '@angular/core';
 import { ISellerVechileDetails } from '../models/ISellerVechileDetails';
 import { QuestionaireVechileConditionDetails } from '../questionaire/vechile-condition-Json';
+import { IVechileModelDetails } from '../models/IVechile';
 
 @Injectable({ providedIn: 'root' })
 export class SellCarStoreService {
@@ -30,10 +31,14 @@ export class SellCarStoreService {
   }
 
   loadSellerDetails() {
-    this.sellerCompleteDetails.VechileDetails = QuestionaireVechileDetails;
+    // this.sellerCompleteDetails.VechileDetails = QuestionaireVechileDetails;
     this.sellerCompleteDetails.VechileConditionDetails =
       QuestionaireVechileConditionDetails;
     this.sellerCompleteDetails.contactDetails = '';
+  }
+
+  setCurrentSellVechileDetails(vechileDetails: IVechileModelDetails) {
+    this.sellerCompleteDetails.vechile = vechileDetails;
   }
   // assigning a value to this.todos will push it onto the observable
   // and down to all of its subsribers (ex: this.todos = [])

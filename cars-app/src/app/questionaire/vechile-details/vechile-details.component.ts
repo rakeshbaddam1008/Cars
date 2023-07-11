@@ -37,10 +37,6 @@ export class VechileDetailsComponent {
     //   formGroup[formControl.controlName] = new FormControl('');
     // });
     this.form = new FormGroup(formGroup);
-
-    this._nhtsaervice
-      .getVechileDetailsByVIN(this.dataService.vin)
-      .then((s) => (this.selectVechileDetails = s));
   }
 
   submitForm() {}

@@ -7,10 +7,10 @@ mat-sidenav {
 mat-sidenav {
   width: 250px;
 }
-
+/* 
 main {
   padding: 3px;
-}
+} */
 
 .logo-img {
   background-image: url("https://ironmansoftware.com/img/backdrop.svg");

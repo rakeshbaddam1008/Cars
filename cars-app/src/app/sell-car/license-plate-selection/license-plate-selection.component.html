@@ -20,8 +20,8 @@
           required="true"
           formControlName="selectedState"
         >
-          <mat-option *ngFor="let food of states" [value]="food.abbreviation">
-            {{ food.abbreviation }}
+          <mat-option *ngFor="let state of states | async" [value]="state.code">
+            {{ state.code }}
           </mat-option>
         </mat-select>
         <mat-error>State is required</mat-error>
@@ -32,7 +32,6 @@
         mat-raised-button
         class="btn-go"
         color="primary"
-        routerLink="/questionaire"
         (click)="onSubmit()"
         type="submit"
       >

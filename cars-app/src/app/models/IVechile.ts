@@ -1,18 +1,41 @@
+export interface IVechileModelDetails {
+  year?: Number;
+  make?: string;
+  model?: string;
+  style: string;
+  mileage: number;
+  trim: string;
+}
 interface IVechileLicense {
   plateNumber: string;
   stateCode: string;
 }
 
-interface IVechileModelDetails {
-  year: number;
-  make: string;
-  model: string;
-  style: string;
-  mileage: number;
+// export interface IVechileData {
+//   year: number;
+//   make: string;
+//   model: string;
+//   style: string;
+//   mileage: number;
+//   trim: string;
+// }
+
+export interface IVechileLicenseData {
+  licensePlateLookup: IVechileModelDetails;
 }
 
+// const toDTO = (input: IVechileData): IVechileData => {
+//   return {
+//     year: input.ModelYear,
+//     make: input.Make,
+//     model: string,
+//     style: string,
+//     mileage: number,
+//     trim: string,
+//   };
+// };
 export interface IVechileData {
-  ModelYear: string | undefined;
-  Make: string | undefined;
-  Model: string | undefined;
+  ModelYear: string;
+  Make?: string;
+  Model?: string;
 }

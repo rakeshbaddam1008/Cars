@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { DecodeVinValues } from '@shaggytools/nhtsa-api-wrapper';
-import { IVechileData } from '../models/IVechile';
+import { IVechileData, IVechileLicenseData } from '../models/IVechile';
 import { Observable, map, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import {
   getAllMakes_URL,
   getAllModel_URL,
+  getAllState_URL,
   getAlltrim_URL,
   getVechileDetailssByLicenseNumberURL,
+  getlocalhostURL,
 } from '../constants.ts/constants';
+import { IState } from '../models/IState';
 
 @Injectable({
   providedIn: 'root',
@@ -46,12 +49,24 @@ export class NHTSAService {
     );
   }
 
+  getStates(): Observable<IState[]> {
+    return this.http.get<IState[]>(environment.apiURL + getAllState_URL());
+  }
+
   getVechileDetailsByRegistrationDetails(
     licensePlate: string,
     state: string
-  ): Observable<IVechileData> {
-    return this.http.get<IVechileData>(
-      getVechileDetailssByLicenseNumberURL(licensePlate, state)
+  ): Observable<IVechileLicenseData> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+      }),
+    };
+    return this.http.get<IVechileLicenseData>(
+      getVechileDetailssByLicenseNumberURL(licensePlate, state),
+      httpOptions
     );
   }
 }

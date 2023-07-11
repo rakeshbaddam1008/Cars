@@ -22,6 +22,7 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "@shaggytools/nhtsa-api-wrapper": "^3.0.4",
+    "http-server": "^14.1.1",
     "rxjs": "~7.8.0",
     "survey-angular-ui": "^1.9.91",
     "survey-creator-angular": "^1.9.93",

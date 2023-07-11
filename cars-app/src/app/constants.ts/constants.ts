@@ -3,244 +3,243 @@ import { IState } from '../models/IState';
 export const StateData: IState[] = [
   {
     name: 'Alabama',
-    abbreviation: 'AL',
+    code: 'AL',
   },
   {
     name: 'Alaska',
-    abbreviation: 'AK',
+    code: 'AK',
   },
   {
     name: 'American Samoa',
-    abbreviation: 'AS',
+    code: 'AS',
   },
   {
     name: 'Arizona',
-    abbreviation: 'AZ',
+    code: 'AZ',
   },
   {
     name: 'Arkansas',
-    abbreviation: 'AR',
+    code: 'AR',
   },
   {
     name: 'California',
-    abbreviation: 'CA',
+    code: 'CA',
   },
   {
     name: 'Colorado',
-    abbreviation: 'CO',
+    code: 'CO',
   },
   {
     name: 'Connecticut',
-    abbreviation: 'CT',
+    code: 'CT',
   },
   {
     name: 'Delaware',
-    abbreviation: 'DE',
+    code: 'DE',
   },
   {
     name: 'District Of Columbia',
-    abbreviation: 'DC',
+    code: 'DC',
   },
   {
     name: 'Federated States Of Micronesia',
-    abbreviation: 'FM',
+    code: 'FM',
   },
   {
     name: 'Florida',
-    abbreviation: 'FL',
+    code: 'FL',
   },
   {
     name: 'Georgia',
-    abbreviation: 'GA',
+    code: 'GA',
   },
   {
     name: 'Guam',
-    abbreviation: 'GU',
+    code: 'GU',
   },
   {
     name: 'Hawaii',
-    abbreviation: 'HI',
+    code: 'HI',
   },
   {
     name: 'Idaho',
-    abbreviation: 'ID',
+    code: 'ID',
   },
   {
     name: 'Illinois',
-    abbreviation: 'IL',
+    code: 'IL',
   },
   {
     name: 'Indiana',
-    abbreviation: 'IN',
+    code: 'IN',
   },
   {
     name: 'Iowa',
-    abbreviation: 'IA',
+    code: 'IA',
   },
   {
     name: 'Kansas',
-    abbreviation: 'KS',
+    code: 'KS',
   },
   {
     name: 'Kentucky',
-    abbreviation: 'KY',
+    code: 'KY',
   },
   {
     name: 'Louisiana',
-    abbreviation: 'LA',
+    code: 'LA',
   },
   {
     name: 'Maine',
-    abbreviation: 'ME',
+    code: 'ME',
   },
   {
     name: 'Marshall Islands',
-    abbreviation: 'MH',
+    code: 'MH',
   },
   {
     name: 'Maryland',
-    abbreviation: 'MD',
+    code: 'MD',
   },
   {
     name: 'Massachusetts',
-    abbreviation: 'MA',
+    code: 'MA',
   },
   {
     name: 'Michigan',
-    abbreviation: 'MI',
+    code: 'MI',
   },
   {
     name: 'Minnesota',
-    abbreviation: 'MN',
+    code: 'MN',
   },
   {
     name: 'Mississippi',
-    abbreviation: 'MS',
+    code: 'MS',
   },
   {
     name: 'Missouri',
-    abbreviation: 'MO',
+    code: 'MO',
   },
   {
     name: 'Montana',
-    abbreviation: 'MT',
+    code: 'MT',
   },
   {
     name: 'Nebraska',
-    abbreviation: 'NE',
+    code: 'NE',
   },
   {
     name: 'Nevada',
-    abbreviation: 'NV',
+    code: 'NV',
   },
   {
     name: 'New Hampshire',
-    abbreviation: 'NH',
+    code: 'NH',
   },
   {
     name: 'New Jersey',
-    abbreviation: 'NJ',
+    code: 'NJ',
   },
   {
     name: 'New Mexico',
-    abbreviation: 'NM',
+    code: 'NM',
   },
   {
     name: 'New York',
-    abbreviation: 'NY',
+    code: 'NY',
   },
   {
     name: 'North Carolina',
-    abbreviation: 'NC',
+    code: 'NC',
   },
   {
     name: 'North Dakota',
-    abbreviation: 'ND',
+    code: 'ND',
   },
   {
     name: 'Northern Mariana Islands',
-    abbreviation: 'MP',
+    code: 'MP',
   },
   {
     name: 'Ohio',
-    abbreviation: 'OH',
+    code: 'OH',
   },
   {
     name: 'Oklahoma',
-    abbreviation: 'OK',
+    code: 'OK',
   },
   {
     name: 'Oregon',
-    abbreviation: 'OR',
+    code: 'OR',
   },
   {
     name: 'Palau',
-    abbreviation: 'PW',
+    code: 'PW',
   },
   {
     name: 'Pennsylvania',
-    abbreviation: 'PA',
+    code: 'PA',
   },
   {
     name: 'Puerto Rico',
-    abbreviation: 'PR',
+    code: 'PR',
   },
   {
     name: 'Rhode Island',
-    abbreviation: 'RI',
+    code: 'RI',
   },
   {
     name: 'South Carolina',
-    abbreviation: 'SC',
+    code: 'SC',
   },
   {
     name: 'South Dakota',
-    abbreviation: 'SD',
+    code: 'SD',
   },
   {
     name: 'Tennessee',
-    abbreviation: 'TN',
+    code: 'TN',
   },
   {
     name: 'Texas',
-    abbreviation: 'TX',
+    code: 'TX',
   },
   {
     name: 'Utah',
-    abbreviation: 'UT',
+    code: 'UT',
   },
   {
     name: 'Vermont',
-    abbreviation: 'VT',
+    code: 'VT',
   },
   {
     name: 'Virgin Islands',
-    abbreviation: 'VI',
+    code: 'VI',
   },
   {
     name: 'Virginia',
-    abbreviation: 'VA',
+    code: 'VA',
   },
   {
     name: 'Washington',
-    abbreviation: 'WA',
+    code: 'WA',
   },
   {
     name: 'West Virginia',
-    abbreviation: 'WV',
+    code: 'WV',
   },
   {
     name: 'Wisconsin',
-    abbreviation: 'WI',
+    code: 'WI',
   },
   {
     name: 'Wyoming',
-    abbreviation: 'WY',
+    code: 'WY',
   },
 ];
-
 export const getAllMakes_URL = (year: Number) =>
-  `/carizma/vehicle-info/make/${year}`;
+  `/carizma/vehicle-info/make?year=${year}`;
 export const getAllModel_URL = (year: Number, make: string) =>
   `/carizma/vehicle-info/model?year=${year}&make=${make}`;
 export const getAlltrim_URL = (year: Number, make: string, model: string) =>
@@ -252,6 +251,12 @@ export const getVechileDetailssByLicenseNumberURL = (
 ) =>
   `https://licenseplatedata.com/consumer-api/MOHAMAD-LPDHNQA4M/${state}/${registerationNumber}`;
 
+export const getlocalhostURL = (registerationNumber: string, state: string) =>
+  `http://localhost:3000/carizma/consumer-api/MOHAMAD-LPDHNQA4M/${state}/${registerationNumber}`;
+
+export const getAllState_URL = () => `/carizma/us-states-region`;
+
+//localhost:3000/carizma/vehicle-info/make/200
 export const VechileYears: Number[] = [
   1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
   2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
