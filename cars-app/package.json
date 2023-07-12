@@ -24,8 +24,6 @@
     "@shaggytools/nhtsa-api-wrapper": "^3.0.4",
     "http-server": "^14.1.1",
     "rxjs": "~7.8.0",
-    "survey-angular-ui": "^1.9.91",
-    "survey-creator-angular": "^1.9.93",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

@@ -79,7 +79,14 @@ mat-card::before {
   height: 100%;
   z-index: 0;
   opacity: 0.2;
-  background-image: var(--myCssVar);
+  background-image: linear-gradient(
+    to bottom,
+    #f1eaeb,
+    #e8e3e7,
+    #dddce3,
+    #d0d6dd,
+    #c4d0d4
+  );
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: 100% 100%;
@@ -87,6 +94,9 @@ mat-card::before {
   -webkit-filter: blur(10px);
 }
 .card1 {
+  border-width: 4px;
+  border-color: #757575;
+
   background-image: linear-gradient(
     to bottom,
     #f1eaeb,
