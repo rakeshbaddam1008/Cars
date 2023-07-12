@@ -44,7 +44,7 @@ export class VechileSelectionComponent {
 
   yearSelectionChange() {
     this.makesList = this._service.getMakes(
-      this.manualVechileSelectionForm.controls.yearSelected.value ?? 1990
+      this.manualVechileSelectionForm.value.yearSelected ?? 1990
     );
     this.modelList = of([]);
     this.trimList = of([]);
@@ -52,17 +52,17 @@ export class VechileSelectionComponent {
 
   makeSelectionChange() {
     this.modelList = this._service.getModel(
-      this.manualVechileSelectionForm.controls.yearSelected.value ?? 1990,
-      this.manualVechileSelectionForm.controls.selectedMake.value ?? ''
+      this.manualVechileSelectionForm.value.yearSelected ?? 1990,
+      this.manualVechileSelectionForm.value.selectedMake ?? ''
     );
     this.trimList = of([]);
   }
 
   modelSelectionChange() {
     this.trimList = this._service.getTrim(
-      this.manualVechileSelectionForm.controls.yearSelected.value ?? 1990,
-      this.manualVechileSelectionForm.controls.selectedMake.value ?? '',
-      this.manualVechileSelectionForm.controls.selectedStyle.value ?? ''
+      this.manualVechileSelectionForm.value.yearSelected ?? 1990,
+      this.manualVechileSelectionForm.value.selectedMake ?? '',
+      this.manualVechileSelectionForm.value.selectedStyle ?? ''
     );
   }
   selectedTrim: string = '';
@@ -72,8 +72,8 @@ export class VechileSelectionComponent {
   onSubmit(): void {
     // this._nhtsa
     //   .getVechileDetailsByRegistrationDetails(
-    //     this.licensePlateSelection.controls.licensePlate.value ?? '',
-    //     this.licensePlateSelection.controls.selectedState.value ?? ''
+    //     this.licensePlateSelection.value.licensePlate.value ?? '',
+    //     this.licensePlateSelection.value.selectedState.value ?? ''
     //   )
     //   .subscribe((res) => {
     //     this._sellCarService.sellerCompleteDetails.vechile = res;

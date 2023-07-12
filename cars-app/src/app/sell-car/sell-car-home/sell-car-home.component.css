@@ -1,10 +1,10 @@
 .sell-car-l1 {
   background-image: url("../../../assets/images/v02.jpg");
   width: 100%;
-  height: 100%;
+  height: calc(100%-70px);
   object-fit: contain;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: calc(100%-70px) calc(100%-70px);
   /* margin: 10px; */
   background-color: rgb(255, 255, 255);
 }
@@ -233,4 +233,52 @@ li {
   width: 100%;
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+
+#ScrollTopBtn.scroll-top {
+  display: block;
+}
+#ScrollTopBtn.scroll-top {
+  display: block;
+}
+#ScrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e6ecef;
+  box-shadow: 0 0 4px 0 rgba(153, 134, 134, 0.1);
+}
+#ScrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e6ecef;
+  box-shadow: 0 0 4px 0 rgba(153, 134, 134, 0.1);
+}
+a {
+  color: #1179ef;
+  text-decoration: none;
+  cursor: pointer;
 }
