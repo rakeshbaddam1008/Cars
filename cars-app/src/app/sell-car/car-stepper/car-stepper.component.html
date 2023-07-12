@@ -2,9 +2,11 @@
   CARIZMA Instant Cash Offer
   <h1>
     {{
-      (selectVechileDetails?.year ?? "2012 ") +
-        (selectVechileDetails?.make ?? "AUDI ") +
-        (selectVechileDetails?.model ?? " XUV 300")
+      selectVechileDetails?.year +
+        " " +
+        selectVechileDetails?.make +
+        " " +
+        selectVechileDetails?.model
     }}
   </h1>
 </div>
