@@ -16,11 +16,9 @@ import { VinSelectionComponent } from './sell-car/vin-selection/vin-selection.co
 import { VechileSelectionComponent } from './sell-car/vechile-selection/vechile-selection.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { SurveyModule } from 'survey-angular-ui';
 import { CarStepperComponent } from './sell-car/car-stepper/car-stepper.component';
 import { FooterComponent } from './navigation/footer/footer.component';
 import { WhatIsVinComponent } from './common/what-is-vin/what-is-vin.component';
-import { SurveyCreatorModule } from 'survey-creator-angular';
 import { VechileDetailsComponent } from './questionaire/vechile-details/vechile-details.component';
 import { VechileConditionComponent } from './questionaire/vechile-condition/vechile-condition.component';
 import { SellerContactComponent } from './questionaire/seller-contact/seller-contact.component';
@@ -59,8 +57,6 @@ import { SellCarHomeComponent } from './sell-car/sell-car-home/sell-car-home.com
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    SurveyModule,
-    SurveyCreatorModule,
     HttpClientModule,
   ],
   providers: [],
