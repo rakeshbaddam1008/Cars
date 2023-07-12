@@ -248,9 +248,7 @@ export const getAlltrim_URL = (year: Number, make: string, model: string) =>
 export const getVechileDetailssByLicenseNumberURL = (
   registerationNumber: string,
   state: string
-) =>
-  `https://licenseplatedata.com/consumer-api/MOHAMAD-LPDHNQA4M/${state}/${registerationNumber}`;
-
+) => `/carizma/licenseplatedata?plate=${registerationNumber}&state=${state}`;
 export const getlocalhostURL = (registerationNumber: string, state: string) =>
   `http://localhost:3000/carizma/consumer-api/MOHAMAD-LPDHNQA4M/${state}/${registerationNumber}`;
 

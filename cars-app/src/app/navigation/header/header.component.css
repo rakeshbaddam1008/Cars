@@ -25,6 +25,10 @@ a:active {
   margin: 0;
 }
 
+.log1 {
+  padding-left: 25px;
+  padding-top: 5px;
+}
 mat-toolbar {
   border-radius: 3px;
 }

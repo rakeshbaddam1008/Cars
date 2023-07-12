@@ -65,7 +65,8 @@ export class NHTSAService {
       }),
     };
     return this.http.get<IVechileLicenseData>(
-      getVechileDetailssByLicenseNumberURL(licensePlate, state),
+      environment.apiURL +
+        getVechileDetailssByLicenseNumberURL(licensePlate, state),
       httpOptions
     );
   }
