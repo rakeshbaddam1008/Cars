@@ -33,9 +33,6 @@ export class VechileDetailsComponent {
     this.vechileQuestionaire = new IVechileDetailQuestionaire();
     const formGroup = {};
 
-    // this.formData.forEach((formControl: FormControl) => {
-    //   formGroup[formControl.controlName] = new FormControl('');
-    // });
     this.form = new FormGroup(formGroup);
   }
 

@@ -10,10 +10,9 @@
       <label class="question-label" id="example-radio-group-label"
         >Does your own a car?</label
       >
-      <!-- <mat-slide-toggle
-        class="question-slider"
-        [(ngModel)]="vechileQuestionaire.hasCarownership"
-      ></mat-slide-toggle> -->
+      <!-- <app-switch-control
+        [(count)]="vechileQuestionaire.hasCarownership"
+      ></app-switch-control> -->
 
       <br />
       <!-- <mat-radio-group
@@ -25,22 +24,20 @@
         <mat-radio-button [value]="false">no</mat-radio-button>
       </mat-radio-group> -->
 
-      <ng-container *ngIf="vechileQuestionaire.hasCarownership">
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group"
-          [(ngModel)]="vechileQuestionaire.carOwnership"
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileQuestionaire.carOwnership"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          name="Question.name"
+          *ngFor="let option of CarOwnershipOptions"
+          [value]="option"
         >
-          <mat-radio-button
-            class="example-radio-button"
-            name="Question.name"
-            *ngFor="let option of CarOwnershipOptions"
-            [value]="option"
-          >
-            {{ option }}
-          </mat-radio-button>
-        </mat-radio-group>
-      </ng-container>
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
     </mat-card-content>
   </mat-card>
   <mat-card class="question-card">
@@ -48,10 +45,10 @@
       <label class="question-label" id="example-radio-group-label"
         >Does your car have a title?</label
       >
-      <mat-slide-toggle
+      <!-- <mat-slide-toggle
         class="question-slider"
         [(ngModel)]="vechileQuestionaire.hasCarTitle"
-      ></mat-slide-toggle>
+      ></mat-slide-toggle> -->
 
       <br />
       <!-- <mat-radio-group
@@ -63,22 +60,22 @@
         <mat-radio-button [value]="false">no</mat-radio-button>
       </mat-radio-group> -->
 
-      <ng-container *ngIf="vechileQuestionaire.hasCarTitle">
-        <mat-radio-group
-          aria-labelledby="example-radio-group-label"
-          class="example-radio-group"
-          [(ngModel)]="vechileQuestionaire.carTitle"
+      <!-- <ng-container *ngIf="vechileQuestionaire.hasCarTitle"> -->
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileQuestionaire.carTitle"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          name="Question.name"
+          *ngFor="let option of CarTitleOptions"
+          [value]="option"
         >
-          <mat-radio-button
-            class="example-radio-button"
-            name="Question.name"
-            *ngFor="let option of CarTitleOptions"
-            [value]="option"
-          >
-            {{ option }}
-          </mat-radio-button>
-        </mat-radio-group>
-      </ng-container>
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+      <!-- </ng-container> -->
     </mat-card-content>
   </mat-card>
 

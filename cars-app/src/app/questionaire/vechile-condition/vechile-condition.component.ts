@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IQuestion } from '../questionsJson';
+import { IQuestion, IVechileConditionQuestionaire } from '../questionsJson';
 import { QuestionaireVechileConditionDetails } from '../vechile-condition-Json';
 
 @Component({
@@ -8,8 +8,21 @@ import { QuestionaireVechileConditionDetails } from '../vechile-condition-Json';
   styleUrls: ['./vechile-condition.component.css'],
 })
 export class VechileConditionComponent {
-  questionJson: IQuestion[] | undefined;
+  public vechileCondition: IVechileConditionQuestionaire;
   constructor() {
-    this.questionJson = QuestionaireVechileConditionDetails;
+    this.vechileCondition = new IVechileConditionQuestionaire();
   }
+
+  EngineRepairOptions: string[] = ['Engine repairs', "I don't know"];
+  carEngineTransmissionOptions: string[] = [
+    'Engine is partly taken apart.',
+    'Engine or Transmission is removed but still available.',
+    'Engine or Tranmission is no longer available',
+  ];
+  BodyDamageOptions: string[] = ['No Damage', 'Some damage', 'crashed'];
+  BodyDamageDentScratchOptions: string[] = [
+    'less than 3',
+    '4 to 6 ',
+    '7 and more',
+  ];
 }

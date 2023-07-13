@@ -6,13 +6,41 @@ enum Questiontype {
 }
 
 export class IVechileDetailQuestionaire {
-  hasCarownership?: boolean;
   carOwnership?: string;
-  hasCarTitle?: boolean;
   carTitle?: string;
   zipCode?: string;
   mileage?: Number;
   color?: string;
+}
+
+export class IVechileConditionQuestionaire {
+  constructor() {
+    this.externalConditions = new IVechileConditionExteriorQuestionaire();
+    this.bodyCondition = new IVechileConditionBodyQuestionaire();
+  }
+  doesCarDrive?: boolean = true;
+  doesCarStart?: boolean;
+  carEngineTransmission?: string;
+  doesCarNedsMechanicalWork?: boolean;
+  repairWorks?: string;
+  externalConditions: IVechileConditionExteriorQuestionaire;
+  bodyCondition: IVechileConditionBodyQuestionaire;
+}
+
+export class IVechileConditionExteriorQuestionaire {
+  doesPanelsIntact?: boolean;
+  doesAllCarTiresAttached?: boolean;
+  doesCarinFloodorFire?: boolean;
+  Iswindshieldbroken?: boolean;
+}
+
+export class IVechileConditionBodyQuestionaire {
+  Front?: string[];
+  Rear?: string[];
+  LeftSide?: string[];
+  RightSide?: string[];
+  DamagetoRadiatorCooling?: string[];
+  NoticeableDings_Dents_Scratches?: string[];
 }
 
 export const CarTitleOptions: string[] = ['Clean', 'salvage', 'Rebuilt'];

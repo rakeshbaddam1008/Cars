@@ -26,6 +26,7 @@ import { SellerInstantOfferComponent } from './questionaire/seller-instant-offer
 import { EachQuestionComponent } from './questionaire/each-question/each-question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SellCarHomeComponent } from './sell-car/sell-car-home/sell-car-home.component';
+import { SwitchControlComponent } from './common/switch-control/switch-control.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { SellCarHomeComponent } from './sell-car/sell-car-home/sell-car-home.com
     SellerInstantOfferComponent,
     EachQuestionComponent,
     SellCarHomeComponent,
+    SwitchControlComponent,
   ],
   imports: [
     BrowserModule,

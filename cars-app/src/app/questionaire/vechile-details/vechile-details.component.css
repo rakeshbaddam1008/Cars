@@ -14,7 +14,7 @@
 }
 
 .question-label:after {
-  content: ":";
+  /* content: ":"; */
 }
 
 .question-value {

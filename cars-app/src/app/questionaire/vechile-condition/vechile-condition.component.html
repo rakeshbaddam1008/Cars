@@ -1,10 +1,302 @@
-<div style="background-color: whitesmoke; padding: 25px">
-  <ng-container
-    style="border-radius: 25px; display: flex; justify-content: center"
-    *ngFor="let eachQuestion of questionJson"
-  >
-    <app-each-question [Question]="eachQuestion"></app-each-question>
+<div style="margin-top: 15%; margin-left: 10%">
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Does the car drive?</label
+      >
+      <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="vechileCondition.doesCarDrive"
+      ></mat-slide-toggle>
 
-    <br />
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <ng-container *ngIf="!vechileCondition.doesCarDrive">
+    <mat-card class="question-card">
+      <mat-card-content>
+        <label class="question-label" id="example-radio-group-label"
+          >Does the car start?</label
+        >
+        <mat-slide-toggle
+          class="question-slider"
+          [(ngModel)]="vechileCondition.doesCarStart"
+        ></mat-slide-toggle>
+        <br />
+      </mat-card-content>
+    </mat-card>
   </ng-container>
+  <ng-container
+    *ngIf="!vechileCondition.doesCarStart && !vechileCondition.doesCarDrive"
+  >
+    <mat-card class="question-card">
+      <mat-card-content>
+        <label class="question-label" id="example-radio-group-label"
+          >Are the engines and transmission in the car?</label
+        >
+
+        <br />
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group-column"
+          [(ngModel)]="vechileCondition.carEngineTransmission"
+        >
+          <mat-radio-button
+            class="example-radio-button"
+            name="Question.name"
+            *ngFor="let option of carEngineTransmissionOptions"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Does your car needs mechanical work?</label
+      >
+      <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="vechileCondition.doesCarNedsMechanicalWork"
+      ></mat-slide-toggle>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <ng-container *ngIf="vechileCondition.doesCarNedsMechanicalWork">
+    <mat-card class="question-card">
+      <mat-card-content>
+        <label class="question-label" id="example-radio-group-label"
+          >What kind of work does your car need?</label
+        >
+        <br />
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="vechileCondition.repairWorks"
+        >
+          <mat-radio-button
+            class="example-radio-button"
+            *ngFor="let option of EngineRepairOptions"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+
+        <br />
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+
+  <mat-divider style="padding: 10px"></mat-divider>
+  <h1>External Car Conditions</h1>
+  <!-- vechileCondition.externalConditions -->
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Body panels intact?</label
+      >
+      <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="vechileCondition.externalConditions.doesPanelsIntact"
+      ></mat-slide-toggle>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Are all tires attached to the car?</label
+      >
+      <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="
+          vechileCondition.externalConditions.doesAllCarTiresAttached
+        "
+      ></mat-slide-toggle>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Have your car ever been in a flood or fire?</label
+      >
+      <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="vechileCondition.externalConditions.doesCarinFloodorFire"
+      ></mat-slide-toggle>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Is the windshield is broken?</label
+      >
+      <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="vechileCondition.externalConditions.Iswindshieldbroken"
+      ></mat-slide-toggle>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+  <h1>Body Car Condition</h1>
+  <!--vechileCondition.bodyCondition -->
+  <mat-divider style="padding: 10px"></mat-divider>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Front?</label
+      >
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.Front"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label">Rear</label>
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.Rear"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Left Side</label
+      >
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.LeftSide"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Right Side</label
+      >
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.RightSide"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Damage to radiator or cooling</label
+      >
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.DamagetoRadiatorCooling"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label">
+        Noticeable Dings/Dents/Scratches?
+      </label>
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.DamagetoRadiatorCooling"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageDentScratchOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
 </div>
