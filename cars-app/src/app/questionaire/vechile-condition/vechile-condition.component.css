@@ -21,10 +21,6 @@
   font-weight: 600;
 }
 
-/* .question-label:after {
-  content: ":";
-} */
-
 .question-value {
   font-size: 15px;
   align-items: start;

@@ -1,11 +1,11 @@
 <form [formGroup]="manualVechileSelectionForm" (submit)="onSubmit()">
-  <mat-grid-list cols="4" rowHeight="70px" gutterSize="2px">
+  <mat-grid-list cols="4" rowHeight="100px" gutterSize="2px">
     <mat-grid-tile colspan="2">
       <mat-form-field appearance="outline">
         <mat-label>Year</mat-label>
         <mat-select
           matNativeControl
-          (selectionChange)="yearSelectionChange()"
+          (selectionChange)="yearSelectionChange($event)"
           formControlNameame="yearSelected"
           name="yearSelected"
         >

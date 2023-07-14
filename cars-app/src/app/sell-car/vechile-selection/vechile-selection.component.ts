@@ -28,21 +28,27 @@ export class VechileSelectionComponent {
   modelList: Observable<string[]>;
   trimList: Observable<string[]>;
 
-  manualVechileSelectionForm = new FormGroup({
-    yearSelected: new FormControl(1990, Validators.required),
-    selectedMake: new FormControl('', Validators.required),
-    selectedModel: new FormControl('', Validators.required),
-    selectedStyle: new FormControl('', Validators.required),
-  });
+  manualVechileSelectionForm: FormGroup;
 
   constructor(private _service: NHTSAService) {
     this.VechileRegisterationList = VechileYears;
     this.makesList = of([]);
     this.modelList = of([]);
     this.trimList = of([]);
+    this.manualVechileSelectionForm = new FormGroup({
+      yearSelected: new FormControl(0, Validators.required),
+      selectedMake: new FormControl('', Validators.required),
+      selectedModel: new FormControl('', Validators.required),
+      selectedStyle: new FormControl('', Validators.required),
+    });
   }
-
-  yearSelectionChange() {
+  get yearSelected() {
+    return this.manualVechileSelectionForm.get('yearSelected');
+  }
+  yearSelectionChange(e: any) {
+    this.yearSelected?.setValue(e?.value, {
+      emitEvent: true,
+    });
     this.makesList = this._service.getMakes(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990
     );
@@ -52,7 +58,7 @@ export class VechileSelectionComponent {
 
   makeSelectionChange() {
     this.modelList = this._service.getModel(
-      this.manualVechileSelectionForm.value.yearSelected ?? 1990,
+      this.manualVechileSelectionForm.value.yearSelected,
       this.manualVechileSelectionForm.value.selectedMake ?? ''
     );
     this.trimList = of([]);

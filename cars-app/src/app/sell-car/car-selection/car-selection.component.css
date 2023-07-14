@@ -1,4 +1,4 @@
-css-1clbolf {
+/* css-1clbolf {
   width: 100%;
   background-image: url(/instant-cash-offer/Landing/Gradient.png);
   background-repeat: no-repeat;
@@ -38,15 +38,15 @@ css-1clbolf {
   justify-content: center;
   background-size: contain;
   padding-bottom: 16px;
-}
+} */
 /* 
 .mat-tab-height {
   height: 550px;
 } */
-
+/* 
 .car-selection-container mat-form-field + mat-form-field {
   margin-left: 8px;
-}
+} */
 /* .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
   padding-top: 8px important;
   padding-bottom: 8px important;
@@ -64,7 +64,7 @@ css-1clbolf {
     background-color: transparent;
   }
 } */
-
+/* 
 mat-card::before {
   content: " ";
   display: block;
@@ -82,10 +82,15 @@ mat-card::before {
   background-size: 100% 100%;
   filter: blur(10px);
   -webkit-filter: blur(10px);
-}
+} */
 .card1 {
   border-width: 4px;
   border-color: #757575;
-  background: #f1eaeb;
-  background: linear-gradient(to top, #f1eaeb 100%, #fff8f9 50%, #c4d0df 100%);
+
+  background-image: linear-gradient(
+    to top,
+    #f1eaeb 100%,
+    #fff8f9 50%,
+    #c4d0df 100%
+  );
 }

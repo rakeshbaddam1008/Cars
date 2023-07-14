@@ -21,31 +21,6 @@
 .pt-6 {
   padding-top: 1.5rem;
 }
-/* .sm\:py-24 {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-.sm\:\!pl-60 {
-  padding-left: 15rem !important;
-}
-.sm\:text-start {
-  text-align: start;
-}
-.sm\:text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-} */
-/*!tailwindcss v3.3.0 | MIT License | https://tailwindcss.com*/
-*,
-:after,
-:before {
-  box-sizing: border-box;
-  border: 0 solid #e5e7eb;
-}
-:after,
-:before {
-  --tw-content: "";
-}
 .bg-neutral-900 {
   --tw-bg-opacity: 1;
   background-color: #1e6c92;
@@ -81,7 +56,7 @@
   line-height: 2.5rem;
 } */
 /*!tailwindcss v3.3.0 | MIT License | https://tailwindcss.com*/
-*,
+/* *,
 :after,
 :before {
   box-sizing: border-box;
@@ -90,7 +65,7 @@
 :after,
 :before {
   --tw-content: "";
-}
+} */
 html {
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
