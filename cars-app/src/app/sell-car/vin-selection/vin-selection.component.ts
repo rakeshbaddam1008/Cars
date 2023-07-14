@@ -25,7 +25,7 @@ export class VinSelectionComponent {
   vin = new FormControl('', [Validators.required, Validators.minLength(17)]);
 
   go() {
-    this._nhtsaervice.getVechileDetailsByVIN(this.vin.value ?? '').then((s) =>
+    this._nhtsaervice.getVechileDetailsByVIN(this.vin.value ?? '').then((s) => {
       this.dataService.setCurrentSellVechileDetails({
         make: s.Make,
         model: s.Model,
@@ -33,10 +33,9 @@ export class VinSelectionComponent {
         style: '',
         mileage: 0,
         trim: '',
-      })
-    );
-
-    this.router.navigate(['/questionaire']);
+      });
+      this.router.navigate(['/questionaire']);
+    });
   }
 
   openBottomSheet(): void {
