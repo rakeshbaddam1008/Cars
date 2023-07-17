@@ -6,17 +6,23 @@
   "
 >
   <mat-card class="question-card">
-    <mat-card-content>
+    <mat-card-content style="display: flex; align-items: center">
       <label
         class="question-label required--after"
         id="example-radio-group-label"
         >Does the car drive?</label
       >
-      <mat-slide-toggle
-        class="question-slider"
+      <!-- <mat-slide-toggle
         [(ngModel)]="vechileCondition.doesCarDrive"
-      ></mat-slide-toggle>
+      ></mat-slide-toggle> -->
+      <!-- <toggle-button
+        class="question-slider"
+        [inputValue]="vechileCondition.doesCarDrive"
+      ></toggle-button> -->
 
+      <span style="float: right; margin-left: auto">
+        <app-switch-html></app-switch-html>
+      </span>
       <br />
     </mat-card-content>
   </mat-card>

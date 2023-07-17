@@ -27,6 +27,8 @@ import { EachQuestionComponent } from './questionaire/each-question/each-questio
 import { HttpClientModule } from '@angular/common/http';
 import { SellCarHomeComponent } from './sell-car/sell-car-home/sell-car-home.component';
 import { SwitchControlComponent } from './common/switch-control/switch-control.component';
+import { ToggleButtonComponent } from './common/toggle-switch/toggle';
+import { SwitchHtmlComponent } from './common/switch-html/switch-html.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,6 @@ import { SwitchControlComponent } from './common/switch-control/switch-control.c
     LicensePlateSelectionComponent,
     VinSelectionComponent,
     VechileSelectionComponent,
-
     CarStepperComponent,
     FooterComponent,
     WhatIsVinComponent,
@@ -50,6 +51,8 @@ import { SwitchControlComponent } from './common/switch-control/switch-control.c
     EachQuestionComponent,
     SellCarHomeComponent,
     SwitchControlComponent,
+    ToggleButtonComponent,
+    SwitchHtmlComponent,
   ],
   imports: [
     BrowserModule,

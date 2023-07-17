@@ -66,6 +66,8 @@
   width: 35%;
   margin: 14% 0 10% 29%;
   min-width: 400px;
+  max-width: 650px;
+
   min-height: 450px;
 
   /* height: 40%; */
