@@ -12,21 +12,59 @@
         <mat-error>License Plate is required</mat-error>
       </mat-form-field>
     </mat-grid-tile>
+
     <mat-grid-tile colspan="2">
+      <!-- <mat-form-field appearance="outline"> -->
+      <!-- <input
+          type="text"
+          matInput
+          placeholder="State"
+          formControlName="selectedState"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of states" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field> -->
+
       <mat-form-field appearance="outline">
         <mat-label>State</mat-label>
-        <mat-select
-          name="selectedState"
-          required="true"
-          formControlName="selectedState"
-        >
-          <mat-option *ngFor="let state of states | async" [value]="state.code">
-            {{ state.code }}
+
+        <input
+          type="text"
+          placeholder="Select State"
+          aria-label="Number"
+          matInput
+          formControlName="licensePlateSelection.get('selectedState')"
+          [formControl]="myStateControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-error>State is required</mat-error>
+
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <!-- <mat-grid-tile colspan="2">
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <mat-select required="true" formControlName="selectedState">
+          <mat-option *ngFor="let state of states" [value]="state">
+            {{ state }}
           </mat-option>
         </mat-select>
         <mat-error>State is required</mat-error>
       </mat-form-field>
-    </mat-grid-tile>
+    </mat-grid-tile> -->
     <mat-grid-tile colspan="2">
       <button
         mat-raised-button

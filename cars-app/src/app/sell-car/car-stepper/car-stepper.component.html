@@ -1,37 +1,90 @@
 <div class="car-header class.mat-elevation-z8">
-  CARIZMA Instant Cash Offer
-  <h1>
-    {{
+  Instant Cash Offer :
+  {{
+    " " +
       selectVechileDetails?.year +
-        " " +
-        selectVechileDetails?.make +
-        " " +
-        selectVechileDetails?.model
-    }}
-  </h1>
+      " " +
+      selectVechileDetails?.make +
+      " " +
+      selectVechileDetails?.model
+  }}
 </div>
 <div class="car-stepper-content">
   <mat-stepper>
     <mat-step label="Vechile Details" state="phone">
       <app-vechile-details></app-vechile-details>
-      <div>
-        <button mat-button matStepperNext>Next</button>
+      <mat-divider></mat-divider>
+      <div
+        class="w-100"
+        style="padding: 10px 5px; background: #f9f9f9; float: right"
+      >
+        <button
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          style="background-color: #1e6c92; color: #f9f9f9; float: right"
+          mat-button
+          matStepperNext
+        >
+          Next
+        </button>
+        &nbsp;
       </div>
     </mat-step>
     <mat-step label="Vechile Condition" state="chat">
       <app-vechile-condition></app-vechile-condition>
 
-      <!-- <app-car-questionaire></app-car-questionaire> -->
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <mat-divider></mat-divider>
+      <div
+        class="w-100"
+        style="padding: 10px 5px; background: #f9f9f9; float: right"
+      >
+        <button
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          style="background-color: #1e6c92; color: #f9f9f9; float: left"
+          mat-button
+          matStepperPrevious
+        >
+          Back
+        </button>
+        <button
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          style="background-color: #1e6c92; color: #f9f9f9; float: right"
+          mat-button
+          matStepperNext
+        >
+          Next
+        </button>
+        &nbsp;
       </div>
     </mat-step>
     <mat-step label="Contact Information">
       <app-seller-contact></app-seller-contact>
-      <div>
+      <!-- <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
+      </div> -->
+      <mat-divider></mat-divider>
+      <div
+        _ngcontent-my-app-c41=""
+        class="row m-0 smc-controlled-width w-100 btn-back"
+      >
+        <div _ngcontent-my-app-c41="" class="col-6 d-flex m-0 p-0">
+          <button
+            _ngcontent-my-app-c41=""
+            class="secondary-cta mr-auto"
+            fdprocessedid="lef4y2"
+          >
+            Back
+          </button>
+        </div>
+        <div _ngcontent-my-app-c41="" class="col-6 d-flex m-0 p-0">
+          <button
+            _ngcontent-my-app-c41=""
+            class="primary-cta ml-auto"
+            disabled=""
+          >
+            Next
+          </button>
+        </div>
       </div>
     </mat-step>
     <mat-step label="Instant Offer">

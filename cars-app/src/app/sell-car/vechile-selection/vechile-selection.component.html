@@ -1,80 +1,94 @@
 <form [formGroup]="manualVechileSelectionForm" (submit)="onSubmit()">
-  <mat-grid-list cols="4" rowHeight="100px" gutterSize="2px">
-    <mat-grid-tile colspan="2">
-      <mat-form-field appearance="outline">
-        <mat-label>Year</mat-label>
-        <mat-select
-          matNativeControl
-          (selectionChange)="yearSelectionChange($event)"
-          formControlNameame="yearSelected"
-          name="yearSelected"
-        >
-          <mat-option
-            *ngFor="let year of VechileRegisterationList"
-            [value]="year"
+  <div class="container-fluid" style="padding-top: 15px">
+    <div class="row">
+      <!-- <mat-grid-list cols="4" rowHeight="75px" gutterSize="1px">
+    <mat-grid-tile colspan="2"> -->
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Year</mat-label>
+          <mat-select
+            matNativeControl
+            (selectionChange)="yearSelectionChange($event)"
+            formControlNameame="yearSelected"
+            name="yearSelected"
           >
-            {{ year }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile colspan="2">
-      <mat-form-field appearance="outline">
-        <mat-label>Make</mat-label>
-        <mat-select
-          matNativeControl
-          formControlName="selectedMake"
-          name="selectedMake"
-          (selectionChange)="makeSelectionChange()"
-        >
-          <mat-option *ngFor="let make of makesList | async" [value]="make">
-            {{ make }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-grid-tile>
+            <mat-option
+              *ngFor="let year of VechileRegisterationList"
+              [value]="year"
+            >
+              {{ year }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <!-- </mat-grid-tile> -->
+        <!-- <mat-grid-tile colspan="2"> -->
+        <mat-form-field appearance="outline">
+          <mat-label>Make</mat-label>
+          <mat-select
+            matNativeControl
+            formControlName="selectedMake"
+            name="selectedMake"
+            (selectionChange)="makeSelectionChange()"
+          >
+            <mat-option *ngFor="let make of makesList | async" [value]="make">
+              {{ make }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- </mat-grid-tile> -->
+      <div class="col-6">
+        <!-- <mat-grid-tile colspan="2"> -->
+        <mat-form-field appearance="outline">
+          <mat-label>Model</mat-label>
+          <mat-select
+            matNativeControl
+            formControlNameame="selectedModel"
+            name="selectedModel"
+            (selectionChange)="modelSelectionChange()"
+          >
+            <mat-option *ngFor="let model of modelList | async" [value]="model">
+              {{ model }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- </mat-grid-tile> -->
 
-    <mat-grid-tile colspan="2">
-      <mat-form-field appearance="outline">
-        <mat-label>Model</mat-label>
-        <mat-select
-          matNativeControl
-          formControlNameame="selectedModel"
-          name="selectedModel"
-          (selectionChange)="modelSelectionChange()"
-        >
-          <mat-option *ngFor="let model of modelList | async" [value]="model">
-            {{ model }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-grid-tile>
+      <!-- <mat-grid-tile colspan="2"> -->
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Style</mat-label>
 
-    <mat-grid-tile colspan="2">
-      <mat-form-field appearance="outline">
-        <mat-label>Style</mat-label>
-
-        <mat-select
-          matNativeControl
-          formControlNameame="selectedStyle"
-          name="trim"
-          (selectionChange)="trimSelectionChange()"
+          <mat-select
+            matNativeControl
+            formControlNameame="selectedStyle"
+            name="trim"
+            (selectionChange)="trimSelectionChange()"
+          >
+            <mat-option *ngFor="let trim of trimList | async" [value]="trim">
+              {{ trim }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- </mat-grid-tile> -->
+        <!-- <mat-grid-tile [colspan]="2"> -->
+      </div>
+      <div class="col-12">
+        <button
+          mat-raised-button
+          color="primary"
+          class="btn-go"
+          routerLink="/questionaire"
         >
-          <mat-option *ngFor="let trim of trimList | async" [value]="trim">
-            {{ trim }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="2">
-      <button
-        mat-raised-button
-        color="primary"
-        class="btn-go"
-        routerLink="/questionaire"
-      >
-        GO
-      </button>
-    </mat-grid-tile>
-  </mat-grid-list>
+          Get Offer
+        </button>
+        <!-- </mat-grid-tile>
+  </mat-grid-list> -->
+      </div>
+    </div>
+  </div>
+  <br />
 </form>

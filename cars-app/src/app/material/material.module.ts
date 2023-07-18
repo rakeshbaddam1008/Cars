@@ -19,9 +19,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
-{
-}
 import {
   MatBottomSheet,
   MatBottomSheetModule,
@@ -51,6 +50,7 @@ import {
     MatSliderModule,
     MatBottomSheetModule,
     MatSlideToggleModule,
+    MatAutocompleteModule,
   ],
   exports: [
     MatTabsModule,
@@ -73,6 +73,7 @@ import {
     MatSliderModule,
     MatBottomSheetModule,
     MatSlideToggleModule,
+    MatAutocompleteModule,
   ],
 })
 export class MaterialModule {}

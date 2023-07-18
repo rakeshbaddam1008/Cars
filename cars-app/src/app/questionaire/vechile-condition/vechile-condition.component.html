@@ -21,7 +21,7 @@
       ></toggle-button> -->
 
       <span style="float: right; margin-left: auto">
-        <app-switch-html></app-switch-html>
+        <app-switch-html id="rock" name="rock"></app-switch-html>
       </span>
       <br />
     </mat-card-content>
@@ -33,10 +33,14 @@
         <label class="question-label" id="example-radio-group-label"
           >Does the car start?</label
         >
-        <mat-slide-toggle
+        <!-- <mat-slide-toggle
           class="question-slider"
           [(ngModel)]="vechileCondition.doesCarStart"
-        ></mat-slide-toggle>
+        ></mat-slide-toggle> -->
+
+        <span style="float: right; margin-left: auto">
+          <app-switch-html></app-switch-html>
+        </span>
         <br />
       </mat-card-content>
     </mat-card>
@@ -74,10 +78,14 @@
       <label class="question-label" id="example-radio-group-label"
         >Does your car needs mechanical work?</label
       >
-      <mat-slide-toggle
+
+      <span style="float: right; margin-left: auto">
+        <app-switch-html></app-switch-html>
+      </span>
+      <!-- <mat-slide-toggle
         class="question-slider"
         [(ngModel)]="vechileCondition.doesCarNedsMechanicalWork"
-      ></mat-slide-toggle>
+      ></mat-slide-toggle> -->
 
       <br />
     </mat-card-content>
@@ -117,10 +125,14 @@
       <label class="question-label" id="example-radio-group-label"
         >Body panels intact?</label
       >
-      <mat-slide-toggle
+
+      <span style="float: right; margin-left: auto">
+        <app-switch-html></app-switch-html>
+      </span>
+      <!-- <mat-slide-toggle
         class="question-slider"
         [(ngModel)]="vechileCondition.externalConditions.doesPanelsIntact"
-      ></mat-slide-toggle>
+      ></mat-slide-toggle> -->
 
       <br />
     </mat-card-content>
@@ -131,12 +143,16 @@
       <label class="question-label" id="example-radio-group-label"
         >Are all tires attached to the car?</label
       >
-      <mat-slide-toggle
+
+      <span style="float: right; margin-left: auto">
+        <app-switch-html></app-switch-html>
+      </span>
+      <!-- <mat-slide-toggle
         class="question-slider"
         [(ngModel)]="
           vechileCondition.externalConditions.doesAllCarTiresAttached
         "
-      ></mat-slide-toggle>
+      ></mat-slide-toggle> -->
 
       <br />
     </mat-card-content>
@@ -147,10 +163,14 @@
       <label class="question-label" id="example-radio-group-label"
         >Have your car ever been in a flood or fire?</label
       >
-      <mat-slide-toggle
+
+      <span style="float: right; margin-left: auto">
+        <app-switch-html></app-switch-html>
+      </span>
+      <!-- <mat-slide-toggle
         class="question-slider"
         [(ngModel)]="vechileCondition.externalConditions.doesCarinFloodorFire"
-      ></mat-slide-toggle>
+      ></mat-slide-toggle> -->
 
       <br />
     </mat-card-content>
@@ -161,10 +181,14 @@
       <label class="question-label" id="example-radio-group-label"
         >Is the windshield is broken?</label
       >
-      <mat-slide-toggle
+      <!-- <mat-slide-toggle
         class="question-slider"
         [(ngModel)]="vechileCondition.externalConditions.Iswindshieldbroken"
       ></mat-slide-toggle>
+       -->
+      <span style="float: right; margin-left: auto">
+        <app-switch-html></app-switch-html>
+      </span>
 
       <br />
     </mat-card-content>
