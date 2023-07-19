@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, map, of, startWith } from 'rxjs';
 import { IState } from 'src/app/models/IState';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
+import { AlertService } from 'src/app/services/alert.service';
 import { CommondataSellService } from 'src/app/services/commondata-sell.service';
 import { MockDataService } from 'src/app/services/mock-data.service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
@@ -27,12 +28,13 @@ export class LicensePlateSelectionComponent implements OnInit {
     public _dataService: CommondataSellService,
     public _sellCarService: SellCarStoreService,
     private router: Router,
-    private _nhtsa: NHTSAService
+    private _nhtsa: NHTSAService,
+    private alertService: AlertService
   ) {
     this._dataService.getUSStates().subscribe((res) => {
       this.states = res;
       // this.filteredOptions = of(this.states);
-    });
+    },error =>  this.alertService.error(error.message));
 
     // pipe(ap((r) => r.code);
     // });
@@ -53,6 +55,7 @@ export class LicensePlateSelectionComponent implements OnInit {
 
   //Handle Errors if we submit
   onSubmit(): void {
+    // this.getErrorMessage()
     this._nhtsa
       .getVechileDetailsByRegistrationDetails(
         this.licensePlateSelection.controls.licensePlate.value ?? '',
@@ -62,6 +65,9 @@ export class LicensePlateSelectionComponent implements OnInit {
         this._sellCarService.sellerCompleteDetails.vechile =
           res.licensePlateLookup;
         this.router.navigate(['/questionaire']);
-      });
+      },(error) => {
+        this.alertService.error(error.message)
+      })
   }
+
 }

@@ -1,7 +1,7 @@
 <form>
-  <mat-grid-list cols="4" rowHeight="70px" gutterSize="2px">
-    <mat-grid-tile colspan="3">
-      <mat-form-field appearance="outline" required>
+  <mat-grid-list cols="4" rowHeight="50px"  gutterSize="2px">
+    <mat-grid-tile colspan="4" rowspan="1.5" style="padding-bottom: 5%;">
+      <mat-form-field appearance="outline" required >
         <mat-label>VIN</mat-label>
         <input
           matNativeControl
@@ -11,13 +11,13 @@
           [formControl]="vin"
           required
         />
-        <mat-error *ngIf="vin.invalid">vin is required.</mat-error>
+        <mat-error style="z-index: 100; position: absolute;" *ngIf="vin.status == 'INVALID'">{{  getErrorMessage()}}</mat-error>
       </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile colspan="1"
+    <mat-grid-tile colspan="4"
       ><a (click)="openBottomSheet()">Where is my VIN?</a>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2">
+    <mat-grid-tile colspan="4">
       <button mat-raised-button class="btn-go" color="primary" (click)="go()">
         GO
       </button>

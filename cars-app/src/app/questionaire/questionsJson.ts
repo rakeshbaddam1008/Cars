@@ -18,7 +18,7 @@ export class IVechileConditionQuestionaire {
     this.externalConditions = new IVechileConditionExteriorQuestionaire();
     this.bodyCondition = new IVechileConditionBodyQuestionaire();
   }
-  doesCarDrive?: boolean = true;
+  doesCarDrive?: boolean;
   doesCarStart?: boolean;
   carEngineTransmission?: string;
   doesCarNedsMechanicalWork?: boolean;

@@ -10,7 +10,7 @@
   }}
 </div>
 <div class="car-stepper-content">
-  <mat-stepper>
+  <mat-stepper labelPosition="bottom">
     <mat-step label="Vechile Details" state="phone">
       <app-vechile-details></app-vechile-details>
       <mat-divider></mat-divider>
@@ -84,6 +84,10 @@
       </div>
     </mat-step>
 
+    <mat-step label="Review">
+      <app-review-page></app-review-page>
+      <mat-divider></mat-divider>
+    </mat-step>
     <mat-step label="Contact Information">
       <app-seller-contact></app-seller-contact>
       <!-- <div>

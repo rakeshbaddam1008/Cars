@@ -1,0 +1,32 @@
+.review-item-container{
+    text-align: center;
+    padding: 20px;
+}
+.summary-ans{
+    padding: 8px;
+    /* margin: px; */
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #e1e1e1;
+}
+.mat-card{
+    width: 70%;
+    height: 100%;
+    padding: 20px;
+    margin: 15px auto;
+    box-shadow: 4px#6e6e6e;
+}
+.mat-divider {
+    border-top-width: 2px;
+    border-top-style: dashed;
+
+    border-top-color: #6e6e6e;
+}
+.breadcrumb{
+    font-size: 18px;
+    border: 2px solid;
+    border-radius: 5px;
+    margin: 15px 0;
+    padding: 5px 2px;
+    width: 30%;
+}

@@ -25,4 +25,10 @@ export class VechileConditionComponent {
     '4 to 6 ',
     '7 and more',
   ];
+
+
+  doesCarDriveEvent(event :boolean) {
+    
+    this.vechileCondition.doesCarDrive = event
+  }
 }

@@ -39,9 +39,11 @@ export class CarStepperComponent {
     switch (stepIndex) {
       case 0:
         return '#ff0000'; // Red
-      case 1:
+      case 1 :
+      case 2 :
+      case 3:
         return '#ffd800'; // yellow
-      case 2:
+      case 4:
         return '#ffd800'; // green
       default:
         return '#10ff0a'; 
