@@ -1,0 +1,150 @@
+<div
+  style="
+    background-color: rgb(247, 247, 247);
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
+  "
+>
+  <h1>Body Car Condition</h1>
+  <!--vechileCondition.bodyCondition -->
+  <mat-divider style="padding: 10px"></mat-divider>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label">Front</label>
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.Front"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label">Rear</label>
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.Rear"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Left Side</label
+      >
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.LeftSide"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Right Side</label
+      >
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.RightSide"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label"
+        >Damage to radiator or cooling</label
+      >
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.DamagetoRadiatorCooling"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="question-card">
+    <mat-card-content>
+      <label class="question-label" id="example-radio-group-label">
+        Noticeable Dings/Dents/Scratches?
+      </label>
+      <br />
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileCondition.bodyCondition.DamagetoRadiatorCooling"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let option of BodyDamageDentScratchOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group>
+
+      <br />
+    </mat-card-content>
+  </mat-card>
+</div>

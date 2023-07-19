@@ -5,7 +5,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
-      <main>
+      <main style="min-height: 720px">
         <router-outlet
           (activate)="onActivate($event, outlet)"
           #outlet

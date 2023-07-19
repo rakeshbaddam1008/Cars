@@ -24,13 +24,40 @@
           mat-button
           matStepperNext
         >
-          Next
+          Next >
         </button>
         &nbsp;
       </div>
     </mat-step>
     <mat-step label="Vechile Condition" state="chat">
       <app-vechile-condition></app-vechile-condition>
+
+      <mat-divider></mat-divider>
+      <div
+        class="w-100"
+        style="padding: 10px 5px; background: #f9f9f9; float: right"
+      >
+        <button
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          style="background-color: #1e6c92; color: #f9f9f9; float: left"
+          mat-button
+          matStepperPrevious
+        >
+          &lt; Back
+        </button>
+        <button
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          style="background-color: #1e6c92; color: #f9f9f9; float: right"
+          mat-button
+          matStepperNext
+        >
+          Next &gt;
+        </button>
+        &nbsp;
+      </div>
+    </mat-step>
+    <mat-step label="Vechile Body Condition" state="chat">
+      <app-vechile-body-condition></app-vechile-body-condition>
 
       <mat-divider></mat-divider>
       <div
@@ -56,13 +83,14 @@
         &nbsp;
       </div>
     </mat-step>
+
     <mat-step label="Contact Information">
       <app-seller-contact></app-seller-contact>
       <!-- <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div> -->
-      <mat-divider></mat-divider>
+      <!-- <mat-divider></mat-divider>
       <div
         _ngcontent-my-app-c41=""
         class="row m-0 smc-controlled-width w-100 btn-back"
@@ -85,6 +113,30 @@
             Next
           </button>
         </div>
+      </div> -->
+
+      <mat-divider></mat-divider>
+      <div
+        class="w-100"
+        style="padding: 10px 5px; background: #f9f9f9; float: right"
+      >
+        <button
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          style="background-color: #1e6c92; color: #f9f9f9; float: left"
+          mat-button
+          matStepperPrevious
+        >
+          &lt; Back
+        </button>
+        <button
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          style="background-color: #1e6c92; color: #f9f9f9; float: right"
+          mat-button
+          matStepperNext
+        >
+          Next &gt;
+        </button>
+        &nbsp;
       </div>
     </mat-step>
     <mat-step label="Instant Offer">

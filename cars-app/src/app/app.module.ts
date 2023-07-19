@@ -29,6 +29,7 @@ import { SellCarHomeComponent } from './sell-car/sell-car-home/sell-car-home.com
 import { SwitchControlComponent } from './common/switch-control/switch-control.component';
 import { ToggleButtonComponent } from './common/toggle-switch/toggle';
 import { SwitchHtmlComponent } from './common/switch-html/switch-html.component';
+import { VechileBodyConditionComponent } from './questionaire/vechile-body-condition/vechile-body-condition.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SwitchHtmlComponent } from './common/switch-html/switch-html.component'
     SwitchControlComponent,
     ToggleButtonComponent,
     SwitchHtmlComponent,
+    VechileBodyConditionComponent,
   ],
   imports: [
     BrowserModule,
