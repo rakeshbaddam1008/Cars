@@ -19,7 +19,7 @@
         style="padding: 10px 5px; background: #f9f9f9; float: right"
       >
         <button
-          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto btn-width"
           style="background-color: #1e6c92; color: #f9f9f9; float: right"
           mat-button
           matStepperNext
@@ -38,7 +38,7 @@
         style="padding: 10px 5px; background: #f9f9f9; float: right"
       >
         <button
-          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto btn-width"
           style="background-color: #1e6c92; color: #f9f9f9; float: left"
           mat-button
           matStepperPrevious
@@ -46,7 +46,7 @@
           &lt; Back
         </button>
         <button
-          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto btn-width"
           style="background-color: #1e6c92; color: #f9f9f9; float: right"
           mat-button
           matStepperNext
@@ -65,7 +65,7 @@
         style="padding: 10px 5px; background: #f9f9f9; float: right"
       >
         <button
-          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto btn-width"
           style="background-color: #1e6c92; color: #f9f9f9; float: left"
           mat-button
           matStepperPrevious
@@ -73,7 +73,7 @@
           Back
         </button>
         <button
-          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto btn-width"
           style="background-color: #1e6c92; color: #f9f9f9; float: right"
           mat-button
           matStepperNext
@@ -84,10 +84,6 @@
       </div>
     </mat-step>
 
-    <mat-step label="Review">
-      <app-review-page></app-review-page>
-      <mat-divider></mat-divider>
-    </mat-step>
     <mat-step label="Contact Information">
       <app-seller-contact></app-seller-contact>
       <!-- <div>
@@ -125,7 +121,7 @@
         style="padding: 10px 5px; background: #f9f9f9; float: right"
       >
         <button
-          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto btn-width"
           style="background-color: #1e6c92; color: #f9f9f9; float: left"
           mat-button
           matStepperPrevious
@@ -133,7 +129,7 @@
           &lt; Back
         </button>
         <button
-          class="btn btn-dark btn-block mb-3 mt-5 ms-auto"
+          class="btn btn-dark btn-block mb-3 mt-5 ms-auto btn-width"
           style="background-color: #1e6c92; color: #f9f9f9; float: right"
           mat-button
           matStepperNext
@@ -142,6 +138,10 @@
         </button>
         &nbsp;
       </div>
+    </mat-step>
+    <mat-step label="Review">
+      <app-review-page></app-review-page>
+      <mat-divider></mat-divider>
     </mat-step>
     <mat-step label="Instant Offer">
       <app-seller-instant-offer></app-seller-instant-offer>

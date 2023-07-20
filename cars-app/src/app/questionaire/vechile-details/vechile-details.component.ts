@@ -22,7 +22,7 @@ export class VechileDetailsComponent {
   submitted: boolean | undefined;
   vechileQuestionaire: IVechileDetailQuestionaire;
 
-  CarTitleOptions: string[] = ['Clean', 'salvage', 'Rebuilt', 'I dont know'];
+  CarTitleOptions: string[] = ['Clean', 'Salvage/Rebuilt', 'Junk', 'No Title'];
   CarOwnershipOptions: string[] = ['Own', 'Lease', 'Re-finance'];
   CarColorOptions: string[] = ['red', 'green', 'yellow', 'purple', 'blue'];
 
