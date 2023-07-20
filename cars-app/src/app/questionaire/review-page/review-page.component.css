@@ -10,11 +10,12 @@
     background-color: #e1e1e1;
 }
 .mat-card{
-    width: 70%;
     height: 100%;
     padding: 20px;
     margin: 15px auto;
     box-shadow: 4px#6e6e6e;
+    margin-bottom: 25px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
 }
 .mat-divider {
     border-top-width: 2px;
@@ -24,9 +25,15 @@
 }
 .breadcrumb{
     font-size: 18px;
-    border: 2px solid;
-    border-radius: 5px;
-    margin: 15px 0;
-    padding: 5px 2px;
-    width: 30%;
+    color: #0a3453;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: 700;
+}
+.content-edit{
+    color: #1246ee;
+    font-size: 14px;
+    text-decoration: underline;
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: 400;
+    cursor: pointer;
 }
