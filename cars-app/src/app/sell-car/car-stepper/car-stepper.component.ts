@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import { IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { ViewEncapsulation, Renderer2 } from '@angular/core';
+import { ReviewService } from 'src/app/services/review.service';
+import { Subject, takeUntil } from 'rxjs';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-car-stepper',
@@ -12,19 +15,29 @@ import { ViewEncapsulation, Renderer2 } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class CarStepperComponent {
+  private onDestroy$: Subject<void> = new Subject<void>();
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
 
+  @ViewChild('stepper') private myStepper!: MatStepper;
+
   constructor(
     private _formBuilder: FormBuilder,
     public _store: SellCarStoreService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private reviewService: ReviewService
   ) {
     // this._store.loadSellerDetails();
     this.selectVechileDetails = this._store.sellerCompleteDetails.vechile;
+  }
+
+  ngOnInit() {
+    this.reviewService.getStepperIndex().pipe(takeUntil(this.onDestroy$)).subscribe((index: number) => {
+      this.myStepper.selectedIndex = index;
+    })
   }
 
   ngAfterViewInit() {
@@ -35,6 +48,7 @@ export class CarStepperComponent {
       this.renderer.setStyle(headerElement, 'background-color', color);
     });
   }
+
   getStepIconColor(stepIndex: number): string {
     switch (stepIndex) {
       case 0:
@@ -48,5 +62,9 @@ export class CarStepperComponent {
       default:
         return '#10ff0a'; 
     }
+  }
+
+  public ngOnDestroy(): void {
+    this.onDestroy$.next();
   }
 }
