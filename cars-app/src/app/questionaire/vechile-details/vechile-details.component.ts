@@ -23,7 +23,7 @@ export class VechileDetailsComponent {
   vechileQuestionaire: IVechileDetailQuestionaire;
 
   CarTitleOptions: string[] = ['Clean', 'Salvage/Rebuilt', 'Junk', 'No Title'];
-  CarOwnershipOptions: string[] = ['Own', 'Lease', 'Re-finance'];
+  CarOwnershipOptions: string[] = ['Yes', 'No']; //['Own', 'Lease', 'Re-finance'];
   CarColorOptions: string[] = ['red', 'green', 'yellow', 'purple', 'blue'];
 
   constructor(

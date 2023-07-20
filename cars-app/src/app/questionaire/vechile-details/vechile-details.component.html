@@ -85,7 +85,7 @@
     <mat-card class="question-card">
       <mat-card-content>
         <label class="question-label" id="example-radio-group-label"
-          >What is the mileage of your car?</label
+          >Mileage?</label
         >
 
         <br />
@@ -98,27 +98,10 @@
         </mat-form-field>
       </mat-card-content>
     </mat-card>
-
     <mat-card class="question-card">
       <mat-card-content>
         <label class="question-label" id="example-radio-group-label"
-          >What is the zipCode of your car location?</label
-        >
-        <br />
-        <mat-form-field appearance="outline" class="question-form-control">
-          <input
-            matInput
-            [(ngModel)]="vechileQuestionaire.zipCode"
-            placeholder="Zip ex. 28215"
-          />
-        </mat-form-field>
-      </mat-card-content>
-    </mat-card>
-
-    <mat-card class="question-card">
-      <mat-card-content>
-        <label class="question-label" id="example-radio-group-label"
-          >What is the color of your car?</label
+          >What is the color of your {{ selectVechileDetails?.Make }}?</label
         >
         <br />
         <mat-form-field appearance="outline" class="question-form-control">
@@ -134,6 +117,51 @@
             >
           </mat-select>
         </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="question-card">
+      <mat-card-content>
+        <label class="question-label" id="example-radio-group-label"
+          >What is your zipCode?</label
+        >
+        <br />
+        <mat-form-field appearance="outline" class="question-form-control">
+          <input
+            matInput
+            [(ngModel)]="vechileQuestionaire.zipCode"
+            placeholder="Zip ex. 28215"
+          />
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="question-card">
+      <mat-card-content>
+        <label class="question-label" id="example-radio-group-label"
+          >Do you currently have a loan on your
+          {{ selectVechileDetails?.Make }}?
+        </label>
+
+        <br />
+        <!-- <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileQuestionaire.hasCarownership"
+      >
+        <mat-radio-button [value]="true">yes</mat-radio-button>
+        <mat-radio-button [value]="false">no</mat-radio-button>
+      </mat-radio-group> -->
+
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="vechileQuestionaire.carDrive"
+        >
+          <mat-radio-button class="example-radio-button" name="Question.name">
+            <mat-option value="true" name="r">Yes</mat-option>
+            <mat-option value="false" name="r">No</mat-option>
+          </mat-radio-button>
+        </mat-radio-group>
       </mat-card-content>
     </mat-card>
   </ng-container>
