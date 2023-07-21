@@ -8,7 +8,7 @@ import { ReviewService } from 'src/app/services/review.service';
 })
 export class ReviewPageComponent {
 
-
+  checked: boolean = true
   constructor(private reviewService: ReviewService) {
         
   }

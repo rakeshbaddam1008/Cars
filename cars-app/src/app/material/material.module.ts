@@ -20,6 +20,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 import {
   MatBottomSheet,
@@ -51,6 +52,7 @@ import {
     MatBottomSheetModule,
     MatSlideToggleModule,
     MatAutocompleteModule,
+    MatCheckboxModule
   ],
   exports: [
     MatTabsModule,

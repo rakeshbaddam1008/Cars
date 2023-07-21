@@ -27,18 +27,27 @@
 
   border-top-color: #6e6e6e;
 }
-.breadcrumb {
-  font-size: 18px;
-  color: #0a3453;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  text-decoration: underline;
-}
+
 .content-edit {
-  color: #1246ee;
   font-size: 14px;
   text-decoration: underline;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   cursor: pointer;
 }
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #000000;
+    background-color: #000000;
+  }
+
+  .checkbox{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .custom-checkbox-style {
+    border: 1px solid rgb(145, 143, 143);
+  }
+  .custom-checkbox-style:hover{
+    border: 2px solid black !important;
+  }

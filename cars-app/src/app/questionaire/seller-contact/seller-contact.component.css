@@ -12,3 +12,18 @@
   margin-bottom: 25px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
 }
+
+.checkbox{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.custom-checkbox-style {
+  border: 1px solid rgb(145, 143, 143);
+}
+.custom-checkbox-style:hover{
+  border: 2px solid black !important;
+}
+.breadcrumb {
+  font-size: 16px;
+}
