@@ -7,6 +7,8 @@ enum Questiontype {
 
 export class IVechileDetailQuestionaire {
   carOwnership?: string;
+  carLoan?: boolean;
+
   carDrive?: boolean;
 
   carTitle?: string;

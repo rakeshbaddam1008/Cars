@@ -32,10 +32,7 @@
     class="vehica-car-card-row-wrapper vehica-car"
   >
     <div class="vehica-car-card-row">
-      <a
-        href="https://demo.vehica.com/listing/bentley-mulsanne-2017-4-door-sedan-blue/"
-        class="vehica-car-card-link"
-      ></a>
+      <a class="vehica-car-card-link"></a>
       <div class="vehica-car-card-row__inner">
         <div class="vehica-car-card-row__image">
           <div class="vehica-car-card__featured">
@@ -52,8 +49,8 @@
               />
               <div class="vehica-car-card__image-info">
                 <span class="vehica-car-card__image-info__photos"
-                  ><i class="far fa-images"></i> <span>6</span></span
-                >
+                  ><i class="far fa-images"></i>
+                </span>
               </div>
             </div>
           </div>
@@ -64,7 +61,14 @@
             title="Bentley Mulsanne 4-door sedan blue"
             class="vehica-car-card-row__name"
           >
-            Bentley Mulsanne 4-door sedan blue
+            {{
+              " " +
+                selectVechileDetails?.year +
+                " " +
+                selectVechileDetails?.make +
+                " " +
+                selectVechileDetails?.model
+            }}
           </span>
           <div class="vehica-car-card__price-mobile">$14,900</div>
           <div class="vehica-car-card-row__secondary-attributes">
@@ -124,7 +128,7 @@
             <div class="vehica-car-card__info__single">
               <i class="fas fa-circle"></i> <span>210,000 miles</span>
             </div>
-            <div class="vehica-car-card__info__single">
+            <!-- <div class="vehica-car-card__info__single">
               <i class="fas fa-circle"></i> <span>Manual</span>
             </div>
             <div class="vehica-car-card__info__single">
@@ -132,7 +136,7 @@
             </div>
             <div class="vehica-car-card__info__single">
               <i class="fas fa-circle"></i> <span>Rear Wheel Drive</span>
-            </div>
+            </div> -->
           </div>
           <div class="vehica-car-card-row__info-more">
             <span class="vehica-car-card-row__info-more__label">
@@ -151,27 +155,28 @@
           </div>
           <div class="vehica-car-card-row__price-desktop">$14,900</div>
           <div class="vehica-car-card-row__calculate">
-            <a
-              href="https://demo.vehica.com/loan-calculator/?id=9664"
-              title=""
-              target="_blank"
-              ><span>Calculate financing</span></a
-            >
+            <a title="" target="_blank"><span>Best Deal</span></a>
           </div>
         </div>
 
         <br />
       </div>
+      <div class="row mr-10">
+        <div class="col-md-6"></div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-success offer-btn">
+            <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer
+          </button>
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-danger offer-btn">
+            <mat-icon>thumb_down</mat-icon> &nbsp; Reject offer
+          </button>
+        </div>
+      </div>
+      <br />
+      <br />
     </div>
     <br />
-    <div class="row">
-      <div class="col-md-6"></div>
-      <div class="col-md-3">
-        <button type="button" class="btn btn-success">Approve Offer</button>
-      </div>
-      <div class="col-md-3">
-        <button type="button" class="btn btn-danger">Reject offer</button>
-      </div>
-    </div>
   </div>
 </div>

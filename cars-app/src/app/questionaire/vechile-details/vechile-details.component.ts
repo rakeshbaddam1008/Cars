@@ -24,7 +24,18 @@ export class VechileDetailsComponent {
 
   CarTitleOptions: string[] = ['Clean', 'Salvage/Rebuilt', 'Junk', 'No Title'];
   CarOwnershipOptions: string[] = ['Yes', 'No']; //['Own', 'Lease', 'Re-finance'];
-  CarColorOptions: string[] = ['red', 'green', 'yellow', 'purple', 'blue'];
+  CarColorOptions: string[] = [
+    'Black',
+    'White',
+    'Grey',
+    'Silver',
+    'Blue',
+    'Red',
+    'Gold',
+    'Green',
+    'Yellow',
+    'other',
+  ];
 
   constructor(
     public _nhtsaervice: NHTSAService,

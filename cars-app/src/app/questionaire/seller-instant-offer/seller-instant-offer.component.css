@@ -207,6 +207,7 @@
 
 .vehica-car-card-row .vehica-car-row__content {
   padding-right: 32px;
+  padding-left: 32px;
 }
 
 .vehica-car-card-row__name {
@@ -390,6 +391,8 @@
 .vehica-car-card__image-bg {
   background: #eff0f1;
   position: relative;
+  height: 550px;
+  width: 290px;
 }
 .vehica-car-card__image img {
   position: absolute;
@@ -433,4 +436,12 @@ img {
 img {
   overflow-clip-margin: content-box;
   overflow: clip;
+}
+
+.offer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  font-size: x-large;
 }

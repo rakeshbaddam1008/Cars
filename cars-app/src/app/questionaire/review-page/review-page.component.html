@@ -1,190 +1,167 @@
-<div style="
-background-color: rgb(247, 247, 247);
-padding: 25px;
-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
-">
-
-
-
-
-<div class="mat-card-cvr">
-    
+<div
+  style="
+    background-color: rgb(247, 247, 247);
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
+  "
+>
+  <div class="mat-card-cvr">
     <mat-card class="mat-card">
-        <div class="col-12 title-col d-flex align-items-center" >
-            <span class="breadcrumb">Vehicle Details</span> 
-            <a (click)="routeToStepperIndex(0)" class="content-edit ml-auto">edit</a>   
-        </div>
+      <div class="col-12 title-col d-flex align-items-center">
+        <span class="breadcrumb">Vehicle Details</span>
+        <a (click)="routeToStepperIndex(0)" class="content-edit ml-auto"
+          >edit</a
+        >
+      </div>
 
-        <div class="container">
-            <!-- First Row -->
-            <div class="row">
-                <!-- Box 1 -->
-                <div class="col-sm-12 col-md-6  text-start p-2">
-                    <h4 class="mb-0 ">Title?</h4>
-                    <div class=" text-secondary">
-                        Clean
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6  text-start p-2">
-                    <h4 class="mb-0">Do you currently have a loan on your [Make]?</h4>
-                <div class="text-secondary">
-                    Yes
-                </div>
-                </div>
-                <div class="col-sm-12 col-md-6  text-start p-2">
-                    <h4 class="mb-0">Mileage? </h4>
-                <div class=" text-secondary">
-                    1234
-                </div>
-                </div>
-                <div class="col-sm-12 col-md-6  text-start p-2">
-                    <h4 class="mb-0">What is the color of your [Make]? </h4>
-                <div class="text-secondary">
-                    Blue
-                </div>
-                </div>
-                <div class="col-sm-12 col-md-6  text-start p-2">
-                    <h4 class="mb-0">What is your zipCode?</h4>
-                    <div class=" text-secondary">
-                        12345
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6  text-start p-2">
-                    <h4 class="mb-0">Does your [Make] drive?</h4>
-                    <div class=" text-secondary">
-                        Yes
-                    </div>
-                </div>
-                <!-- <div class="col-md-3 border text-center p-2">
+      <div class="container">
+        <!-- First Row -->
+        <div class="row">
+          <!-- Box 1 -->
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Title?</h4>
+            <div class="text-secondary">Clean</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">
+              Do you currently have a loan on your [Make]?
+            </h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Mileage?</h4>
+            <div class="text-secondary">1234</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">What is the color of your [Make]?</h4>
+            <div class="text-secondary">Blue</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">What is your zipCode?</h4>
+            <div class="text-secondary">12345</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Does your [Make] drive?</h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+          <!-- <div class="col-md-3 border text-center p-2">
                     Data 4
                 </div> -->
-            </div>   
         </div>
+      </div>
     </mat-card>
-</div>
-    <div class="mat-card-cvr">
-        
-        <mat-card class="mat-card">
-            <div class="col-12 title-col d-flex align-items-center" >
-                <span class="breadcrumb" >Vehicle Condition</span>   
-                <a (click)="routeToStepperIndex(1)" class="content-edit ml-auto">edit</a>   
-            </div>
-            
-            <div class="container">
-                <!-- First Row -->
-                <div class="row">
-                    <!-- Box 1 -->
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Does your [Make] drive?</h4>
-                        <div class=" text-secondary">
-                            Yes
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Does your [Make] starts? </h4>
-                    <div class=" text-secondary">
-                        Yes
-                    </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 text-start p-2">
-                        <h4 class="mb-0">Are the engine and transmission in the [Make]?</h4>
-                    <div class="text-secondary">
-                        Yes
-                    </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Does your [Make] have any mechanical issues? </h4>
-                    <div class="text-secondary">
-                        No
-                    </div>
-                    </div>
-                   
-                    <!-- <div class="col-md-3 border text-center p-2">
+  </div>
+  <div class="mat-card-cvr">
+    <mat-card class="mat-card">
+      <div class="col-12 title-col d-flex align-items-center">
+        <span class="breadcrumb">Vehicle Condition</span>
+        <a (click)="routeToStepperIndex(1)" class="content-edit ml-auto"
+          >edit</a
+        >
+      </div>
+
+      <div class="container">
+        <!-- First Row -->
+        <div class="row">
+          <!-- Box 1 -->
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Does your [Make] drive?</h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Does your [Make] starts?</h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">
+              Are the engine and transmission in the [Make]?
+            </h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">
+              Does your [Make] have any mechanical issues?
+            </h4>
+            <div class="text-secondary">No</div>
+          </div>
+
+          <!-- <div class="col-md-3 border text-center p-2">
                         Data 4
                     </div> -->
-                </div>   
-            </div>
-        </mat-card>
-        
-    </div>
-    
-    <div class="mat-card-cvr">
-        
-        <mat-card class="mat-card">
-            <div class="col-12 title-col d-flex align-items-center" >
-                <span class="breadcrumb" >Vehicle Body Condition</span>
-                <a (click)="routeToStepperIndex(2)" class="content-edit ml-auto">edit</a>  
-            </div>
-           
-            <div class="container">
-                <!-- First Row -->
-                <div class="row">
-                    <!-- Box 1 -->
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Are all of the wheels inflated on your [Make]?</h4>
-                        <div class=" text-secondary">
-                            Yes
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Any glass or lights cracked or broken on your [Make]?</h4>
-                        <div class=" text-secondary">
-                            No
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Does it have any body damage?</h4>
-                        <div class=" text-secondary">
-                            No
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Noticeable Dings/Dents/Scratches on your [Make]?</h4>
-                        <div class=" text-secondary">
-                            No
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Body panels intact?</h4>
-                        <div class=" text-secondary">
-                            Yes
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Are the airbags deployed or missing?</h4>
-                        <div class=" text-secondary">
-                            No
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Did your [Make] ever suffer flood or fire damage?</h4>
-                        <div class=" text-secondary">
-                            Yes
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6  text-start p-2">
-                        <h4 class="mb-0">Is the interior of your [Make] intact?</h4>
-                        <div class=" text-secondary">
-                            Yes
-                        </div>
-                    </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
 
-                </div>
+  <div class="mat-card-cvr">
+    <mat-card class="mat-card">
+      <div class="col-12 title-col d-flex align-items-center">
+        <span class="breadcrumb">Vehicle Body Condition</span>
+        <a (click)="routeToStepperIndex(2)" class="content-edit ml-auto"
+          >edit</a
+        >
+      </div>
 
-            </div>
-        </mat-card>
-    </div>
-    <div class="mat-card-cvr">
-        
-        <mat-card class="mat-card">
-            <div class="col-12 title-col d-flex align-items-center" >
-                <span class="breadcrumb" >Contact Information</span> 
-                <a (click)="routeToStepperIndex(3)" class="content-edit ml-auto">edit</a>    
-            </div>
-            
-            <div class="container">
-                <!-- First Row -->
-                <!-- <div class="row align-items-center">
+      <div class="container">
+        <!-- First Row -->
+        <div class="row">
+          <!-- Box 1 -->
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">
+              Are all of the wheels inflated on your [Make]?
+            </h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">
+              Any glass or lights cracked or broken on your [Make]?
+            </h4>
+            <div class="text-secondary">No</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Does it have any body damage?</h4>
+            <div class="text-secondary">No</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">
+              Noticeable Dings/Dents/Scratches on your [Make]?
+            </h4>
+            <div class="text-secondary">No</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Body panels intact?</h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Are the airbags deployed or missing?</h4>
+            <div class="text-secondary">No</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">
+              Did your [Make] ever suffer flood or fire damage?
+            </h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <h4 class="mb-0 lbl">Is the interior of your [Make] intact?</h4>
+            <div class="text-secondary">Yes</div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="mat-card-cvr">
+    <mat-card class="mat-card">
+      <div class="col-12 title-col d-flex align-items-center">
+        <span class="breadcrumb">Contact Information</span>
+        <a (click)="routeToStepperIndex(3)" class="content-edit ml-auto"
+          >edit</a
+        >
+      </div>
+
+      <div class="container">
+        <!-- First Row -->
+        <!-- <div class="row align-items-center">
                     
                     <div class="col-md-6 text-right pr-0">
                         <h4 for="full-name" class="mb-0">Full Name:</h4>
@@ -211,32 +188,22 @@ box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
                         <span class="text-secondary">+123456789</span>
                     </div>
                 </div> -->
-                
-                <div class="row">
-                    <div class="col-6  text-start p-2">
-                        <h4 class="mb-0">Full Name:</h4>
-                        <div class=" text-secondary">
-                            Mohammed Mukthar
-                        </div>
-                    </div>
-                    <div class="col-6  text-start p-2">
-                        <h4 class="mb-0">Email</h4>
-                        <div class=" text-secondary">
-                            mukthar@abc.com
-                        </div>
-                    </div>
-                    <div class="col-6  text-start p-2">
-                        <h4 class="mb-0">Phone Number</h4>
-                        <div class=" text-secondary">
-                            +123456789
-                        </div>
-                    </div>
 
-                </div>
-
-            </div>
-        </mat-card>
-    </div>
-        
-        
+        <div class="row">
+          <div class="col-6 text-start p-2">
+            <h4 class="mb-0">Full Name:</h4>
+            <div class="text-secondary">Test Thar</div>
+          </div>
+          <div class="col-6 text-start p-2">
+            <h4 class="mb-0">Email</h4>
+            <div class="text-secondary">Test@abc.com</div>
+          </div>
+          <div class="col-6 text-start p-2">
+            <h4 class="mb-0">Phone Number</h4>
+            <div class="text-secondary">+123456789</div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
 </div>
