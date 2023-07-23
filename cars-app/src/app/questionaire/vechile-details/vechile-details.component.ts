@@ -1,13 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { IVechileData } from 'src/app/models/IVechile';
+import { IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
 import { CommondataSellService } from 'src/app/services/commondata-sell.service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
-import {
-  IQuestion,
-  IVechileDetailQuestionaire,
-  QuestionaireVechileDetails,
-} from '../questionsJson';
+import { IVechileDetailQuestionaire } from '../questionsJson';
 import { FormControl, FormGroup } from '@angular/forms';
+import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
+import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 
 @Component({
   selector: 'app-vechile-details',
@@ -15,8 +13,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./vechile-details.component.css'],
 })
 export class VechileDetailsComponent {
-  selectVechileDetails: IVechileData | undefined;
-  @Input() VechileDetailsQuestionaireJson: IQuestion[] | undefined;
+  sellerDetails: ISellerVechileDetails | undefined;
+  selectVechileDetails?: IVechileModelDetails;
   @Input() formData: FormData[] | undefined;
   form: FormGroup;
   submitted: boolean | undefined;
@@ -39,10 +37,11 @@ export class VechileDetailsComponent {
 
   constructor(
     public _nhtsaervice: NHTSAService,
-    private dataService: CommondataSellService
+    public _store: SellCarStoreService
   ) {
     this.vechileQuestionaire = new IVechileDetailQuestionaire();
     const formGroup = {};
+    this.selectVechileDetails = this._store.sellerCompleteDetails.vechile;
 
     this.form = new FormGroup(formGroup);
   }

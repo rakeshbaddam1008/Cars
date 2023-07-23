@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IQuestion, IVechileConditionQuestionaire } from '../questionsJson';
-import { QuestionaireVechileConditionDetails } from '../vechile-condition-Json';
+import { IVechileConditionQuestionaire } from '../questionsJson';
+import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
+import { IVechileModelDetails } from 'src/app/models/IVechile';
 
 @Component({
   selector: 'app-vechile-condition',
@@ -8,8 +9,12 @@ import { QuestionaireVechileConditionDetails } from '../vechile-condition-Json';
   styleUrls: ['./vechile-condition.component.css'],
 })
 export class VechileConditionComponent {
+  selectVechileDetails?: IVechileModelDetails;
+  selectedMake?: string = '';
   public vechileCondition: IVechileConditionQuestionaire;
-  constructor() {
+  constructor(public _store: SellCarStoreService) {
+    this.selectVechileDetails = this._store.sellerCompleteDetails.vechile;
+    this.selectedMake = this.selectVechileDetails?.make;
     this.vechileCondition = new IVechileConditionQuestionaire();
   }
 
@@ -26,9 +31,7 @@ export class VechileConditionComponent {
     '7 and more',
   ];
 
-
-  doesCarDriveEvent(event :boolean) {
-    
-    this.vechileCondition.doesCarDrive = event
+  doesCarDriveEvent(event: boolean) {
+    this.vechileCondition.doesCarDrive = event;
   }
 }

@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { IQuestion } from '../questionsJson';
 
 @Component({
   selector: 'app-each-question',
@@ -7,6 +6,6 @@ import { IQuestion } from '../questionsJson';
   styleUrls: ['./each-question.component.css'],
 })
 export class EachQuestionComponent {
-  @Input() Question: IQuestion | undefined;
+  @Input() Question: any;
   ngOnInIt() {}
 }

@@ -6,121 +6,39 @@ enum Questiontype {
 }
 
 export class IVechileDetailQuestionaire {
-  carOwnership?: string;
-  carLoan?: boolean;
-
-  carDrive?: boolean;
-
   carTitle?: string;
-  zipCode?: string;
+  carLoan?: boolean;
   mileage?: Number;
   color?: string;
+  zipCode?: string;
 }
-
 export class IVechileConditionQuestionaire {
   constructor() {
     this.externalConditions = new IVechileConditionExteriorQuestionaire();
-    this.bodyCondition = new IVechileConditionBodyQuestionaire();
   }
   doesCarDrive?: boolean;
   doesCarStart?: boolean;
-  carEngineTransmission?: string;
-  doesCarNedsMechanicalWork?: boolean;
-  repairWorks?: string;
+  carEngineandTransmission?: boolean;
+  doesCarHaveMechanicalIssues?: boolean;
+  //External Conditions
+
   externalConditions: IVechileConditionExteriorQuestionaire;
-  bodyCondition: IVechileConditionBodyQuestionaire;
 }
-
 export class IVechileConditionExteriorQuestionaire {
-  doesPanelsIntact?: boolean;
-  doesAllCarTiresAttached?: boolean;
-  doesCarinFloodorFire?: boolean;
-  Iswindshieldbroken?: boolean;
-}
-
-export class IVechileConditionBodyQuestionaire {
-  Front?: string[];
-  Rear?: string[];
-  LeftSide?: string[];
-  RightSide?: string[];
-  DamagetoRadiatorCooling?: string[];
-  NoticeableDings_Dents_Scratches?: string[];
+  doesAllCarWheelInflated?: boolean;
+  doesAllGlassorLightCracked?: boolean;
+  doesBodyDamage?: boolean;
+  doesBodyDamageSeverity?: number;
+  NoticeableDingsDentsScratches?: boolean;
+  doesBodyPanelIntact?: boolean;
+  doesAirbagsDeployedOrMissing?: boolean;
+  // Did your [Make] ever suffer flood or fire damage?
+  DoesCarSufferedFloodorFireDamage?: boolean;
+  // Is the interior of your [Make] intact?
+  DoesInteriorIntact?: boolean;
+  // Vehicle transmission type?
+  vechileTransmissionType?: string;
 }
 
 export const CarTitleOptions: string[] = ['Clean', 'salvage', 'Rebuilt'];
 export const CarTitleOwnership: string[] = ['Own', 'Lease', 'Re-finance'];
-
-export const QuestionaireVechileDetails: IQuestion[] = [
-  {
-    id: 1,
-    name: 'ownership',
-    title: 'Car Ownership?',
-    options: [],
-    answer: '',
-    type: Questiontype.text,
-    isRequired: true,
-    isHidden: false,
-  },
-  {
-    id: 1,
-    name: 'hasCarTitle',
-    title: 'Does your car have a title?',
-    options: ['Yes', 'No'],
-    answer: '',
-    type: Questiontype.radio,
-    isRequired: true,
-    isHidden: false,
-  },
-  {
-    id: 2,
-    name: 'CarTitle',
-    title: 'Car title?',
-    options: ['Clean', 'salvage', 'Rebuilt'],
-    answer: '',
-    type: Questiontype.radio,
-    isRequired: true,
-    isHidden: false,
-  },
-  {
-    id: 2,
-    name: 'Ownership',
-    title: 'Ownership?',
-    options: ['Own', 'Lease', 'Re-finance'],
-    answer: '',
-    type: Questiontype.radio,
-    isRequired: true,
-    isHidden: false,
-  },
-  {
-    id: 2,
-    name: 'mileage',
-    title: 'What is the mileage of your car?',
-    options: [],
-    answer: '',
-    type: Questiontype.text,
-    isRequired: true,
-    isHidden: false,
-  },
-  {
-    id: 2,
-    name: 'color',
-    title: 'What is the colour of your car?',
-    options: ['red', 'green', 'yellow', 'purple', 'blue'],
-    answer: '',
-    type: Questiontype.DorpBown,
-    isRequired: true,
-    isHidden: false,
-  },
-];
-
-export class IQuestion {
-  constructor() {}
-  id: Number | undefined;
-  name: string | undefined;
-  title: String | undefined;
-  options: string[] | undefined;
-  answer: String | undefined;
-  type: Questiontype | undefined;
-  isRequired: boolean | undefined;
-  isHidden: boolean | undefined;
-}
