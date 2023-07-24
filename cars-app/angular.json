@@ -23,7 +23,8 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "src/s2.css",
-              "node_modules/bootstrap/scss/bootstrap.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "node_modules/ngx-ui-switch/ui-switch.component.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"

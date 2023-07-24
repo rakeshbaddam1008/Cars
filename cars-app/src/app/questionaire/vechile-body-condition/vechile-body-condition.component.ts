@@ -9,7 +9,7 @@ import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 })
 export class VechileBodyConditionComponent {
   public vechileCondition: IVechileConditionQuestionaire;
-  selectVechileDetails: import('c:/Users/rakes/OneDrive/Documents/CarProject/code/Cars/cars-app/src/app/models/ISellerVechileDetails').ISellerVechileDetails;
+  selectVechileDetails: import('src/app/models/ISellerVechileDetails').ISellerVechileDetails;
 
   constructor(public _store: SellCarStoreService) {
     this.vechileCondition = new IVechileConditionQuestionaire();

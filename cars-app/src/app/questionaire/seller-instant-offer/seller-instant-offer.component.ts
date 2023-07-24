@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import { IVechileModelDetails } from 'src/app/models/IVechile';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
@@ -12,8 +12,15 @@ export class SellerInstantOfferComponent {
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
 
-  constructor(public _store: SellCarStoreService) {
+  @Input() srcImages : string = '';
+  
+  constructor(public _store: SellCarStoreService,) {
     // this._store.loadSellerDetails();
     this.selectVechileDetails = this._store.sellerCompleteDetails.vechile;
   }
+
+  ngOnInit() :void {
+  }
+
+  
 }

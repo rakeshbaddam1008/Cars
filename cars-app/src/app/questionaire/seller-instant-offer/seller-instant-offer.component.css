@@ -337,10 +337,10 @@
   transition: top 0.2s ease;
 }
 .vehica-car-card-row__price-desktop {
-  font-size: 45px;
+  font-size: 40px;
   line-height: 36px;
   font-weight: 800;
-  color: #ff4605;
+  color: #08a182;
   text-align: right;
   white-space: nowrap;
   /* margin-top: auto; */
@@ -420,6 +420,7 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
+  object-fit: cover; 
 }
 *,
 :after,
@@ -436,12 +437,12 @@ img {
 img {
   overflow-clip-margin: content-box;
   overflow: clip;
+   
 }
 
 .offer-btn {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bolder;
-  font-size: x-large;
+  font-weight: 600;
+  font-size: larger;
+  cursor: pointer !important;
 }

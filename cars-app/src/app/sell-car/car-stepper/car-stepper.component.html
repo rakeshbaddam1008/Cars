@@ -10,8 +10,8 @@
   }}
 </div>
 <div class="car-stepper-content">
-  <mat-stepper #stepper labelPosition="bottom">
-    <mat-step label="Vechile Details" state="phone">
+  <mat-stepper #stepper labelPosition="bottom" (selectionChange)="onStepChange($event)" >
+    <mat-step label="Vechile Details" >
       <app-vechile-details></app-vechile-details>
       <mat-divider></mat-divider>
       <div class="w-100">
@@ -22,7 +22,7 @@
         </div>
       </div>
     </mat-step>
-    <mat-step label="Vechile Condition" state="chat">
+    <mat-step label="Vechile Condition" >
       <app-vechile-condition></app-vechile-condition>
 
       <mat-divider></mat-divider>
@@ -37,7 +37,7 @@
         </div>
       </div>
     </mat-step>
-    <mat-step label="Vechile Body Condition" state="chat">
+    <mat-step label="Vechile Body Condition" >
       <app-vechile-body-condition></app-vechile-body-condition>
 
       <mat-divider></mat-divider>
@@ -111,15 +111,15 @@
       </div>
     </mat-step>
     <mat-step label="Instant Offer">
-      <app-seller-instant-offer></app-seller-instant-offer>
+      <app-seller-instant-offer [srcImages]="srcImages"></app-seller-instant-offer>
     </mat-step>
 
     <!-- Icon overrides. -->
-    <ng-template matStepperIcon="phone">
+    <!-- <ng-template matStepperIcon="phone">
       <mat-icon>call_end</mat-icon>
     </ng-template>
     <ng-template matStepperIcon="chat">
       <mat-icon>forum</mat-icon>
-    </ng-template>
+    </ng-template> -->
   </mat-stepper>
 </div>

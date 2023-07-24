@@ -32,7 +32,7 @@
     class="vehica-car-card-row-wrapper vehica-car"
   >
     <div class="vehica-car-card-row">
-      <a class="vehica-car-card-link"></a>
+      <!-- <a class="vehica-car-card-link"></a> -->
       <div class="vehica-car-card-row__inner">
         <div class="vehica-car-card-row__image">
           <div class="vehica-car-card__featured">
@@ -41,7 +41,7 @@
           <div class="vehica-car-card__image-bg">
             <div class="vehica-car-card__image" style="padding-top: 55.5224%">
               <img
-                src="../../../assets/images/IMG_3302.PNG"
+                [src]="srcImages"
                 data-sizes="auto"
                 alt="Bentley Mulsanne 4-door sedan blue"
                 class="lazyautosizes lazyloaded"
@@ -150,23 +150,48 @@
               Nashville, TN, USA
             </span>
           </div>
+
+          <div class="container mt-5">
+            <div class="row ">
+              <!-- <div class="float-left">
+                <div class="vehica-car-card-row__favorite ">
+                  <i class="far fa-star"></i>
+                </div>
+              </div> -->
+              <div class="vehica-car-card-row__price-desktop ">$14,900</div>
+              <div class="vehica-car-card-row__calculate ">
+                <a title="" target="_blank"><span>Best Deal</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col">
+              <button type="button" class="btn float-left btn-outline-success offer-btn">
+                <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="btn  float-right btn-outline-danger offer-btn">
+                <mat-icon>thumb_down</mat-icon> &nbsp; Reject 
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="vehica-car-card-row__right">
+        <!-- <div class="vehica-car-card-row__right">
           <div>
             <div class="vehica-car-card-row__favorite">
               <i class="far fa-star"></i>
             </div>
-            <!---->
           </div>
           <div class="vehica-car-card-row__price-desktop">$14,900</div>
           <div class="vehica-car-card-row__calculate">
             <a title="" target="_blank"><span>Best Deal</span></a>
           </div>
-        </div>
+        </div> -->
 
         <br />
       </div>
-      <div class="row mr-10">
+      <!-- <div class="row mr-10">
         <div class="col-md-6"></div>
         <div class="col-md-3">
           <button type="button" class="btn btn-success offer-btn">
@@ -178,7 +203,7 @@
             <mat-icon>thumb_down</mat-icon> &nbsp; Reject
           </button>
         </div>
-      </div>
+      </div> -->
       <br />
       <br />
     </div>

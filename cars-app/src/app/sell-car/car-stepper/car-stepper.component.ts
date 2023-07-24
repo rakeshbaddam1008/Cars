@@ -21,6 +21,9 @@ export class CarStepperComponent {
   });
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
+  srcImages : string = '';
+  images : string[] = ['../../../assets/images/IMG_3302.PNG','../../../assets/images/IMG_3303.PNG','../../../assets/images/IMG_3304.PNG','../../../assets/images/IMG_3305.PNG']
+
 
   @ViewChild('stepper') private myStepper!: MatStepper;
 
@@ -45,7 +48,7 @@ export class CarStepperComponent {
     
     stepperHeaderElements.forEach((headerElement, index) => {
       const color = this.getStepIconColor(index);
-      this.renderer.setStyle(headerElement, 'background-color', color);
+       this.renderer.setStyle(headerElement, 'background-color', color);
     });
   }
 
@@ -61,6 +64,16 @@ export class CarStepperComponent {
         return '#ffd800'; // green
       default:
         return '#10ff0a'; 
+    }
+  }
+
+  imageRandom() :string {
+    let img = this.images[Math.floor(Math.random() *    this.images.length)];
+    return img;
+  }
+  onStepChange(event: any){
+    if(event.selectedIndex == 5) {
+      this.srcImages = this.imageRandom();
     }
   }
 

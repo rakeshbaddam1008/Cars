@@ -32,6 +32,7 @@ import { SwitchHtmlComponent } from './common/switch-html/switch-html.component'
 import { VechileBodyConditionComponent } from './questionaire/vechile-body-condition/vechile-body-condition.component';
 import { AlertComponent } from './common/alert/alert.component';
 import { ReviewPageComponent } from './questionaire/review-page/review-page.component';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ReviewPageComponent } from './questionaire/review-page/review-page.comp
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    UiSwitchModule
   ],
   providers: [],
   bootstrap: [AppComponent],

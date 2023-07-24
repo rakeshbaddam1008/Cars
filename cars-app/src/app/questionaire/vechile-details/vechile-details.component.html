@@ -7,22 +7,16 @@
 >
   <mat-card class="question-card ml-auto mr-auto">
     <mat-card-content>
-      <label class="question-label" id="example-radio-group-label"
+
+      <div class="row">
+        <div class="col-6 d-flex align-items-center">
+          <label class="h6" id="example-radio-group-label"
         >Title?</label
       >
       &nbsp; &nbsp;
-
-      <!-- <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="vechileQuestionaire.hasCarTitle"
-      >
-        <mat-radio-button [value]="true">yes</mat-radio-button>
-        <mat-radio-button [value]="false">no</mat-radio-button>
-      </mat-radio-group> -->
-
-      <!-- <ng-container *ngIf="vechileQuestionaire.hasCarTitle"> -->
-      <mat-radio-group
+        </div>
+        <div class="col-6 d-flex align-items-center">
+          <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
         [(ngModel)]="vechileQuestionaire.carTitle"
@@ -36,6 +30,38 @@
           {{ option }}
         </mat-radio-button>
       </mat-radio-group>
+        </div>
+        
+      </div>
+      <!-- <label class="h6" id="example-radio-group-label"
+        >Title?</label
+      >
+      &nbsp; &nbsp; -->
+
+      <!-- <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileQuestionaire.hasCarTitle"
+      >
+        <mat-radio-button [value]="true">yes</mat-radio-button>
+        <mat-radio-button [value]="false">no</mat-radio-button>
+      </mat-radio-group> -->
+
+      <!-- <ng-container *ngIf="vechileQuestionaire.hasCarTitle"> -->
+      <!-- <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="vechileQuestionaire.carTitle"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          name="Question.name"
+          *ngFor="let option of CarTitleOptions"
+          [value]="option"
+        >
+          {{ option }}
+        </mat-radio-button>
+      </mat-radio-group> -->
       <!-- </ng-container> -->
     </mat-card-content>
   </mat-card>
@@ -46,13 +72,16 @@
   >
     <mat-card class="question-card ml-auto mr-auto">
       <mat-card-content>
-        <label class="question-label" id="example-radio-group-label"
+        <div class="row">
+          <div class="col-6 d-flex align-items-center">
+        <label class="h6" id="example-radio-group-label"
           >Do you currently have a loan on your
           {{ selectVechileDetails?.make }}?
         </label>
 
         &nbsp; &nbsp;
-
+      </div>
+      <div class="col-6 d-flex align-items-center">
         <mat-radio-group
           aria-labelledby="example-radio-group-label"
           class="example-radio-group"
@@ -61,6 +90,8 @@
           <mat-radio-button [value]="true">yes</mat-radio-button>
           <mat-radio-button [value]="false">no</mat-radio-button>
         </mat-radio-group>
+        </div>
+      </div>
         <!-- 
         <mat-radio-group
           aria-labelledby="example-radio-group-label"
@@ -81,11 +112,14 @@
 
     <mat-card class="question-card ml-auto mr-auto">
       <mat-card-content>
-        <label class="question-label" id="example-radio-group-label"
+        <div class="row">
+          <div class="col-6 d-flex align-items-center">
+        <label class="h6" id="example-radio-group-label"
           >Mileage?</label
         >
         &nbsp; &nbsp;
-
+      </div>
+      <div class="col-6 d-flex align-items-center">
         <mat-form-field appearance="outline" class="question-form-control">
           <input
             matInput
@@ -93,16 +127,21 @@
             placeholder="Mileage ex. 123456"
           />
         </mat-form-field>
+        </div>
+      </div>
       </mat-card-content>
     </mat-card>
 
     <mat-card class="question-card ml-auto mr-auto">
       <mat-card-content>
-        <label class="question-label" id="example-radio-group-label"
+        <div class="row">
+          <div class="col-6 d-flex align-items-center">
+        <label class="h6" id="example-radio-group-label"
           >What is the color of your {{ selectVechileDetails?.make }}?
         </label>
         &nbsp; &nbsp;
-
+      </div>
+      <div class="col-6 d-flex align-items-center">
         <mat-form-field appearance="outline" class="question-form-control">
           <mat-select
             [(ngModel)]="vechileQuestionaire.color"
@@ -116,16 +155,20 @@
             >
           </mat-select>
         </mat-form-field>
+        </div></div>
       </mat-card-content>
     </mat-card>
 
     <mat-card class="question-card ml-auto mr-auto">
       <mat-card-content>
-        <label class="question-label" id="example-radio-group-label"
+        <div class="row">
+          <div class="col-6 d-flex align-items-center">
+        <label class="h6" id="example-radio-group-label"
           >What is your vehicle pickup zipCode?</label
         >
         &nbsp; &nbsp;
-
+      </div>
+      <div class="col-6 d-flex align-items-center">
         <mat-form-field appearance="outline" class="question-form-control">
           <input
             matInput
@@ -133,6 +176,7 @@
             placeholder="Zip ex. 28215"
           />
         </mat-form-field>
+        </div></div>
       </mat-card-content>
     </mat-card>
     &nbsp;

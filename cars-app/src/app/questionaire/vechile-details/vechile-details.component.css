@@ -1,4 +1,4 @@
-.example-radio-group {
+/* .example-radio-group {
   display: flex;
   flex-direction: row;
   margin: 15px 0;
@@ -6,7 +6,7 @@
   line-height: 25px;
   font-size: 30px;
   font-weight: 600;
-}
+} */
 
 .question-label {
   font-size: 20px;
@@ -41,7 +41,7 @@
   text-align: center;
   background-color: white;
 }
-.example-radio-group {
+/* .example-radio-group {
   display: flex;
   flex-direction: row;
   margin: 5px 0;
@@ -49,7 +49,7 @@
   line-height: 20px;
   font-size: 25px;
   font-weight: 600;
-}
+} */
 
 .question-label {
   font-size: 18px;
@@ -68,7 +68,7 @@
 }
 
 .question-card {
-  max-width: 80%;
+  max-width: 100%;
   min-width: 300px;
   margin-bottom: 25px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
