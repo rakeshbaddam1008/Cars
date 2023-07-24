@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IVechileConditionQuestionaire } from '../questionsJson';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { IVechileModelDetails } from 'src/app/models/IVechile';
+import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
   selector: 'app-vechile-condition',
@@ -33,5 +34,8 @@ export class VechileConditionComponent {
 
   doesCarDriveEvent(event: boolean) {
     this.vechileCondition.doesCarDrive = event;
+  }
+  onSliderChange(event: MatSliderChange) {
+    console.log(event.value);
   }
 }

@@ -16,6 +16,7 @@
       <mat-slide-toggle
         [(ngModel)]="vechileCondition.doesCarDrive"
       ></mat-slide-toggle>
+
       <!-- <toggle-button
         class="question-slider"
         [inputValue]="vechileCondition.doesCarDrive"
@@ -149,13 +150,17 @@
       <ng-container
         *ngIf="vechileCondition.externalConditions.doesBodyDamage"
       ></ng-container>
+
       <mat-slider
-        [(ngModel)]="vechileCondition.externalConditions.doesBodyDamageSeverity"
-        thumbLabel
-        min="1"
+        class="example-margin"
         max="5"
-      ></mat-slider
-      ><br />
+        min="1"
+        step="step"
+        thumbLabel="true"
+        tickInterval="1"
+        [(ngModel)]="vechileCondition.externalConditions.doesBodyDamageSeverity"
+      >
+      </mat-slider>
     </mat-card-content>
     <!-- Noticeable Dings/Dents/Scratches on your [Make]?	 -->
     <!-- vechileCondition.externalConditions.NoticeableDingsDentsScratches -->
