@@ -38,4 +38,11 @@ export class VechileConditionComponent {
   onSliderChange(event: MatSliderChange) {
     console.log(event.value);
   }
+
+  onChangeDoesCarDrive(event : boolean) {
+    if(!event) {
+      this.vechileCondition.doesCarStart = true;
+      this.vechileCondition.carEngineandTransmission = true;
+    }
+  }
 }

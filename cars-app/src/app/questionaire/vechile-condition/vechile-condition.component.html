@@ -16,6 +16,7 @@
         uncheckedLabel="No"
         checkedLabel="Yes"
         size="medium"
+        (ngModelChange)="onChangeDoesCarDrive($event)"
         [ngStyle]="{
           color: vechileCondition.doesCarDrive ? 'white' : 'black'
         }"

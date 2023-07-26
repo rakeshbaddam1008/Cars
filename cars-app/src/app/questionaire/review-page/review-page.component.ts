@@ -27,14 +27,14 @@ export class ReviewPageComponent {
   }
 
   ngOnInit() {
-    this.isLoading = true;
-    this._nhtsaervice.getInstantOffer(this._store.sellerCompleteDetails).subscribe((res) => {
-      setTimeout( () =>this.isLoading = false, 3000);
-      // this.offerPrice = Math.floor(Math.random() * 300000);
-    },error => {
-      this.isLoading = false;
-      this.alertService.error('Error Occured while fetching instance offer: ', error.message)
-    })
+    // this.isLoading = true;
+    // this._nhtsaervice.getInstantOffer(this._store.sellerCompleteDetails).subscribe((res) => {
+    //   setTimeout( () =>this.isLoading = false, 3000);
+    //   // this.offerPrice = Math.floor(Math.random() * 300000);
+    // },error => {
+    //   this.isLoading = false;
+    //   this.alertService.error('Error Occured while fetching instance offer: ', error.message)
+    // })
   }
 
   routeToStepperIndex(index: number) {
