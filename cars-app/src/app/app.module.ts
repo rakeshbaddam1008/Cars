@@ -34,6 +34,7 @@ import { AlertComponent } from './common/alert/alert.component';
 import { ReviewPageComponent } from './questionaire/review-page/review-page.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
 import { YesNoPipe } from './pipes/yes-no.pipe';
+import { CarLoaderComponent } from './common/car-loader/car-loader.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { YesNoPipe } from './pipes/yes-no.pipe';
     AlertComponent,
     ReviewPageComponent,
     YesNoPipe,
+    CarLoaderComponent,
   ],
   imports: [
     BrowserModule,

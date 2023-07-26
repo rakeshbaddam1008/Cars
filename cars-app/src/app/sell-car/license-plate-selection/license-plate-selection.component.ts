@@ -18,6 +18,7 @@ export class LicensePlateSelectionComponent implements OnInit {
   states: string[] = [];
   filteredOptions: Observable<string[]> = of([]);
   myStateControl = new FormControl();
+  isLoading : boolean = false;
 
   licensePlateSelection = new FormGroup({
     licensePlate: new FormControl('', Validators.required),
@@ -59,6 +60,7 @@ export class LicensePlateSelectionComponent implements OnInit {
   //Handle Errors if we submit
   onSubmit(): void {
     // this.getErrorMessage()
+    this.isLoading = true
     this._nhtsa
       .getVechileDetailsByRegistrationDetails(
         this.licensePlateSelection.controls.licensePlate.value ?? '',
@@ -68,10 +70,12 @@ export class LicensePlateSelectionComponent implements OnInit {
         (res) => {
           this._sellCarService.sellerCompleteDetails.carDetails =
             res.licensePlateLookup;
+            this.isLoading = false
           this.router.navigate(['/questionaire']);
         },
         (error) => {
           this.alertService.error(error.message);
+          this.isLoading = false
         }
       );
   }

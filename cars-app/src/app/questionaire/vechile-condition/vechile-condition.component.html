@@ -7,7 +7,7 @@
 >
   <mat-card class="question-card ml-auto mr-auto">
     <mat-card-content>
-      <label class="h6 required--after" id="example-radio-group-label">
+      <label class="content-title required--after" id="example-radio-group-label">
         Does your {{ selectedMake }} drive?</label
       >
 
@@ -46,7 +46,7 @@
   <ng-container *ngIf="!vechileCondition.doesCarDrive">
     <mat-card class="question-card ml-auto mr-auto">
       <mat-card-content>
-        <label class="h6" id="example-radio-group-label"
+        <label class="content-title" id="example-radio-group-label"
           >Does your {{ selectedMake }} start?</label
         >
         &nbsp;&nbsp;
@@ -74,7 +74,7 @@
 
     <mat-card class="question-card ml-auto mr-auto">
       <mat-card-content>
-        <label class="h6" id="example-radio-group-label"
+        <label class="content-title" id="example-radio-group-label"
           >Are the engines and transmission in the {{ selectedMake }}?</label
         >
 
@@ -100,7 +100,7 @@
   <!-- $7a -->
   <mat-card class="question-card ml-auto mr-auto">
     <mat-card-content>
-      <label class="h6" id="example-radio-group-label"
+      <label class="content-title" id="example-radio-group-label"
         >Does your {{ selectedMake }} have any mechanical issues?</label
       >
       <ui-switch

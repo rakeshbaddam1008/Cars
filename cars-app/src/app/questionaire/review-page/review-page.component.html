@@ -21,40 +21,40 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">Title?</h4>
+            <label class="content-title mb-0">Title?</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.vehicleDetails?.carTitle }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">
+            <label class="content-title mb-0">
               Do you currently have a loan on your [Make]?
-            </h4>
+            </label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.vehicleDetails?.carLoan | yesNo }}
+              {{ sellerCarDetails.vehicleDetails?.carLoan | yesNo }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">Mileage?</h4>
+            <label class="content-title mb-0">Mileage?</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.vehicleDetails?.mileage }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">What is the color of your [Make]?</h4>
+            <label class="content-title mb-0">What is the color of your [Make]?</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.vehicleDetails?.color }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">What is your zipCode?</h4>
+            <label class="content-title mb-0">What is your zipCode?</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.vehicleDetails?.zipCode }}
             </div>
           </div>
 
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">Vehicle transmission type?</h4>
+            <label class="content-title mb-0">Vehicle transmission type?</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.vehicleDetails?.vechileTransmissionType }}
             </div>
@@ -79,9 +79,9 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">
+            <label class="content-title mb-0">
               Are all of the wheels inflated on your {{ selectedMake }} ?
-            </h4>
+            </label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.externalConditions
@@ -90,9 +90,9 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">
+            <label class="content-title mb-0">
               Any glass or lights cracked or broken on your {{ selectedMake }} ?
-            </h4>
+            </label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.externalConditions
@@ -101,7 +101,7 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">Does it have any body damage?</h4>
+            <label class="content-title mb-0">Does it have any body damage?</label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.externalConditions
@@ -110,7 +110,7 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">Severity of Body Damages?</h4>
+            <label class="content-title mb-0">Severity of Body Damages?</label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.externalConditions
@@ -143,9 +143,9 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">
+            <label class="content-title mb-0">
               Noticeable Dings/Dents/Scratches on your {{ selectedMake }} ?
-            </h4>
+            </label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.externalConditions
@@ -154,7 +154,7 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">Body panels intact?</h4>
+            <label class="content-title mb-0">Body panels intact?</label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.externalConditions
@@ -163,7 +163,7 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">Are the airbags deployed or missing?</h4>
+            <label class="content-title mb-0">Are the airbags deployed or missing?</label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.externalConditions
@@ -172,9 +172,9 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">
+            <label class="content-title mb-0">
               Did your {{ selectedMake }} ever suffer flood or fire damage?
-            </h4>
+            </label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.externalConditions
@@ -183,9 +183,9 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">
+            <label class="content-title mb-0">
               Is the interior of your {{ selectedMake }} intact?
-            </h4>
+            </label>
             <div class="text-secondary">
               {{
                 sellerCarDetails?.vehicleCondition?.DoesInteriorIntact | yesNo
@@ -210,25 +210,25 @@
       <div class="container">
         <div class="row">
           <div class="col-6 text-start p-2">
-            <h4 class="h6 mb-0">Full Name:</h4>
+            <label class="content-title mb-0">Full Name:</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.contact?.fullName }}
             </div>
           </div>
           <div class="col-6 text-start p-2">
-            <h4 class="h6 mb-0">Email</h4>
+            <label class="content-title mb-0">Email</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.contact?.email }}
             </div>
           </div>
           <div class="col-6 text-start p-2">
-            <h4 class="h6 mb-0">Phone Number</h4>
+            <label class="content-title mb-0">Phone Number</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.contact?.mobile }}
             </div>
           </div>
           <div class="col-6 text-start p-2">
-            <h4 class="h6 mb-0">Zip code</h4>
+            <label class="content-title mb-0">Zip code</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.contact?.zipCode }}
             </div>

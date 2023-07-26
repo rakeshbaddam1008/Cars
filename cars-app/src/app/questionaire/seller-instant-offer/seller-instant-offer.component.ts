@@ -11,6 +11,7 @@ import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 export class SellerInstantOfferComponent {
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
+  isLoading : boolean = true
 
   @Input() srcImages: string = '';
 
@@ -19,5 +20,8 @@ export class SellerInstantOfferComponent {
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    setTimeout( () =>this.isLoading = false, 10000);
+  }
 }

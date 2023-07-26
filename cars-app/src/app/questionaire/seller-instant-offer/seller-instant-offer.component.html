@@ -1,4 +1,5 @@
-<div style="background-color: whitesmoke; padding: 25px">
+<app-car-loader *ngIf="isLoading"></app-car-loader>
+<div *ngIf="!isLoading" style="background-color: whitesmoke; padding: 25px">
   <!--  -->
   <!-- <mat-card class="question-card">
     <mat-card-content>
@@ -166,12 +167,12 @@
           </div>
           <div class="row mt-5">
             <div class="col">
-              <button type="button" class="btn float-left btn-outline-success offer-btn">
+              <button type="button" class="btn float-left btn-success offer-btn">
                 <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer
               </button>
             </div>
             <div class="col">
-              <button type="button" class="btn  float-right btn-outline-danger offer-btn">
+              <button type="button" class="btn  float-right btn-danger offer-btn">
                 <mat-icon>thumb_down</mat-icon> &nbsp; Reject 
               </button>
             </div>

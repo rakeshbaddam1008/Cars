@@ -17,6 +17,8 @@ import { NHTSAService } from 'src/app/services/nhtsa-service';
   styleUrls: ['./vin-selection.component.css'],
 })
 export class VinSelectionComponent {
+
+  isLoading : boolean = false;
   constructor(
     public dataService: SellCarStoreService,
     private router: Router,
@@ -29,6 +31,7 @@ export class VinSelectionComponent {
   go() {
     // this.validateVinNumber();
     // if(this.getErrorMessage() == '') {
+      this.isLoading = true;
     this._nhtsaervice
       .getVechileDetailsByVIN(this.vin.value ?? '')
       .then((s) => {
@@ -38,9 +41,11 @@ export class VinSelectionComponent {
           year: parseInt(s.ModelYear),
           trim: '',
         });
+        this.isLoading = false;
         this.router.navigate(['/questionaire']);
       })
       .catch((e) => {
+        this.isLoading = false;
         this.alertService.error(e);
       });
     // }

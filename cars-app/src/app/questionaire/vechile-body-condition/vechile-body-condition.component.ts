@@ -37,4 +37,9 @@ export class VechileBodyConditionComponent {
   onSliderChange(event: MatSliderChange) {
     console.log(event.value);
   }
+  onChangeEventBodyDamage(event : any) {
+    if(!event) {
+      this.vechileCondition.externalConditions.doesBodyDamageSeverity = 5
+    }
+  } 
 }

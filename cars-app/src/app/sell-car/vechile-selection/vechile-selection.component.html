@@ -1,3 +1,6 @@
+<app-car-loader *ngIf="isLoading"></app-car-loader>
+
+
 <form [formGroup]="manualVechileSelectionForm" (submit)="onSubmit()">
   <div class="container-fluid" style="padding-top: 15px">
     <div class="row">

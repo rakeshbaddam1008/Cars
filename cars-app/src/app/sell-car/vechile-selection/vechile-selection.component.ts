@@ -23,6 +23,7 @@ export class VechileSelectionComponent {
   thumbLabel = false;
   value = 0;
   VechileRegisterationList: Number[];
+  isLoading : boolean = false
 
   makesList: Observable<string[]>;
   modelList: Observable<string[]>;
@@ -76,6 +77,8 @@ export class VechileSelectionComponent {
   trimSelectionChange() {}
 
   onSubmit(): void {
+    this.isLoading = true;
+    setTimeout( () =>this.isLoading = false, 10000);
     // this._nhtsa
     //   .getVechileDetailsByRegistrationDetails(
     //     this.licensePlateSelection.value.licensePlate.value ?? '',
