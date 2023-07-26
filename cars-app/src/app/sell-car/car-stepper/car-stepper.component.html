@@ -10,34 +10,34 @@
   }}
 </div>
 <div class="car-stepper-content">
-  <mat-stepper #stepper labelPosition="bottom" (selectionChange)="onStepChange($event)" >
-    <mat-step label="Vechile Details" >
+  <mat-stepper #stepper (selectionChange)="onStepChange($event)">
+    <mat-step label="Vechile Details">
       <app-vechile-details></app-vechile-details>
       <mat-divider></mat-divider>
       <div class="w-100">
         <div class="row m-0">
-          <div class="col-12 d-flex m-0 mt-3 p-0">
+          <div class="col-11 d-flex m-0 mt-3 p-0 offset-md-2">
             <button matStepperNext class="btn ml-auto btn-next">Next</button>
           </div>
         </div>
       </div>
     </mat-step>
-    <mat-step label="Vechile Condition" >
+    <mat-step label="Vechile Condition">
       <app-vechile-condition></app-vechile-condition>
 
       <mat-divider></mat-divider>
       <div class="w-100">
         <div class="row m-0">
-          <div class="col-6 d-flex m-0 mt-3 p-0">
+          <div class="col-5 offset-1 d-flex m-0 mt-3 p-0">
             <button matStepperPrevious class="btn btn-back">Back</button>
           </div>
-          <div class="col-6 d-flex m-0 mt-3 p-0">
+          <div class="col-5 offset-1 d-flex m-0 mt-3 p-0">
             <button matStepperNext class="btn ml-auto btn-next">Next</button>
           </div>
         </div>
       </div>
     </mat-step>
-    <mat-step label="Vechile Body Condition" >
+    <mat-step label="Vechile Body Condition">
       <app-vechile-body-condition></app-vechile-body-condition>
 
       <mat-divider></mat-divider>
@@ -111,7 +111,9 @@
       </div>
     </mat-step>
     <mat-step label="Instant Offer">
-      <app-seller-instant-offer [srcImages]="srcImages"></app-seller-instant-offer>
+      <app-seller-instant-offer
+        [srcImages]="srcImages"
+      ></app-seller-instant-offer>
     </mat-step>
 
     <!-- Icon overrides. -->

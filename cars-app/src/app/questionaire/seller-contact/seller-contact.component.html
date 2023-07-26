@@ -15,23 +15,43 @@
 
         <mat-form-field appearance="outline">
           <mat-label>Full Name</mat-label>
-          <input matNativeControl matInput type="text" />
+          <input
+            matNativeControl
+            matInput
+            type="text"
+            [(ngModel)]="selectedContact.fullName"
+          />
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matNativeControl matInput type="email" />
+          <input
+            matNativeControl
+            matInput
+            type="email"
+            [(ngModel)]="selectedContact.email"
+          />
         </mat-form-field>
 
         <mat-form-field appearance="outline">
           <mat-label>Phone Number</mat-label>
-          <input matNativeControl matInput type="tel" />
+          <input
+            matNativeControl
+            matInput
+            type="tel"
+            [(ngModel)]="selectedContact.mobile"
+          />
         </mat-form-field>
 
-        <!-- <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline">
           <mat-label>Zip Code</mat-label>
-          <input matNativeControl matInput type="number" />
-        </mat-form-field> -->
+          <input
+            matNativeControl
+            matInput
+            type="number"
+            [(ngModel)]="selectedContact.zipCode"
+          />
+        </mat-form-field>
         <div class="container">
           <!-- First Row -->
           <div class="row">

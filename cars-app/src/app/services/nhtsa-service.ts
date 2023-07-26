@@ -9,10 +9,12 @@ import {
   getAllModel_URL,
   getAllState_URL,
   getAlltrim_URL,
+  getSellerOffer_URL,
   getVechileDetailssByLicenseNumberURL,
   getlocalhostURL,
 } from '../constants.ts/constants';
 import { IState } from '../models/IState';
+import { ISellerVechileDetails } from '../models/ISellerVechileDetails';
 
 @Injectable({
   providedIn: 'root',
@@ -68,6 +70,13 @@ export class NHTSAService {
       environment.apiURL +
         getVechileDetailssByLicenseNumberURL(licensePlate, state),
       httpOptions
+    );
+  }
+
+  getInstantOffer(sellerCompleteDetails: ISellerVechileDetails) {
+    return this.http.post<string>(
+      environment.apiURL + getSellerOffer_URL(),
+      sellerCompleteDetails
     );
   }
 }

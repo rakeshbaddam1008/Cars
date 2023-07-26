@@ -420,7 +420,7 @@ img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
-  object-fit: cover; 
+  object-fit: cover;
 }
 *,
 :after,
@@ -437,12 +437,15 @@ img {
 img {
   overflow-clip-margin: content-box;
   overflow: clip;
-   
 }
 
 .offer-btn {
   display: flex;
+  align-items: center;
+  line-height: 50px;
+  font-size: 20px !important;
   font-weight: 600;
+  width: 200px;
   font-size: larger;
   cursor: pointer !important;
 }

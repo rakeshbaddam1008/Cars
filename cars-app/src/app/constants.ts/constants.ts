@@ -253,6 +253,7 @@ export const getlocalhostURL = (registerationNumber: string, state: string) =>
   `http://localhost:3000/carizma/consumer-api/MOHAMAD-LPDHNQA4M/${state}/${registerationNumber}`;
 
 export const getAllState_URL = () => `/carizma/us-states-region`;
+export const getSellerOffer_URL = () => `/carizma/instant-offer`;
 
 //localhost:3000/carizma/vehicle-info/make/200
 export const VechileYears: Number[] = [

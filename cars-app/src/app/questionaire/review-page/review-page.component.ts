@@ -10,14 +10,17 @@ import { ReviewService } from 'src/app/services/review.service';
 })
 export class ReviewPageComponent {
   sellerCarDetails: ISellerVechileDetails;
+  selectedMake?: string = '';
 
   checked: boolean = true;
   constructor(
     private reviewService: ReviewService,
     public _store: SellCarStoreService
   ) {
+    this.selectedMake = this._store.sellerCompleteDetails.carDetails?.make;
     this.sellerCarDetails = _store.sellerCompleteDetails;
   }
+
   routeToStepperIndex(index: number) {
     this.reviewService.setStepperIndex(index);
   }
