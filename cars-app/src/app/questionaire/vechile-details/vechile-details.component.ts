@@ -13,13 +13,15 @@ import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
   styleUrls: ['./vechile-details.component.css'],
 })
 export class VechileDetailsComponent {
-  sellerDetails: ISellerVechileDetails | undefined;
+  // sellerDetails: ISellerVechileDetails;
+  vechileQuestionaire: IVechileDetailQuestionaire;
+
   selectVechileDetails?: IVechileModelDetails;
   @Input() formData: FormData[] | undefined;
   form: FormGroup;
   submitted: boolean | undefined;
-  vechileQuestionaire: IVechileDetailQuestionaire;
 
+  carTransmissionTypes = ['manual', 'automatic', 'others'];
   CarTitleOptions: string[] = ['Clean', 'Salvage/Rebuilt', 'Junk', 'No Title'];
   CarOwnershipOptions: string[] = ['Yes', 'No']; //['Own', 'Lease', 'Re-finance'];
   CarColorOptions: string[] = [
@@ -39,11 +41,10 @@ export class VechileDetailsComponent {
     public _nhtsaervice: NHTSAService,
     public _store: SellCarStoreService
   ) {
-    this.vechileQuestionaire = new IVechileDetailQuestionaire();
     const formGroup = {};
-    this.selectVechileDetails = this._store.sellerCompleteDetails.vechile;
-
     this.form = new FormGroup(formGroup);
+    this.vechileQuestionaire = this._store.sellerCompleteDetails.vehicleDetails;
+    this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
   }
 
   submitForm() {}

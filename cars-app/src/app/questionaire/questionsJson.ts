@@ -6,38 +6,48 @@ enum Questiontype {
 }
 
 export class IVechileDetailQuestionaire {
+  constructor() {
+    this.vechileTransmissionType = 'automatic';
+  }
   carTitle?: string;
-  carLoan?: boolean;
+  carLoan: boolean = false;
   mileage?: Number;
   color?: string;
   zipCode?: string;
+  vechileTransmissionType: string;
 }
+export class IContact {
+  fullName?: string;
+  email?: string;
+  mobile?: string;
+  zipCode?: string;
+}
+
 export class IVechileConditionQuestionaire {
   constructor() {
     this.externalConditions = new IVechileConditionExteriorQuestionaire();
   }
-  doesCarDrive?: boolean;
-  doesCarStart?: boolean;
-  carEngineandTransmission?: boolean;
+  doesCarDrive?: boolean = true;
+  doesCarStart?: boolean = true;
+  carEngineandTransmission?: boolean = true;
   doesCarHaveMechanicalIssues?: boolean;
+  DoesInteriorIntact?: boolean = false;
+
   //External Conditions
 
   externalConditions: IVechileConditionExteriorQuestionaire;
 }
 export class IVechileConditionExteriorQuestionaire {
-  doesAllCarWheelInflated?: boolean;
-  doesAllGlassorLightCracked?: boolean;
-  doesBodyDamage?: boolean;
-  doesBodyDamageSeverity?: number;
-  NoticeableDingsDentsScratches?: boolean;
-  doesBodyPanelIntact?: boolean;
-  doesAirbagsDeployedOrMissing?: boolean;
+  doesAllCarWheelInflated?: boolean = false;
+  doesAllGlassorLightCracked?: boolean = false;
+  doesBodyDamage?: boolean = false;
+  doesBodyDamageSeverity?: number = 1;
+  NoticeableDingsDentsScratches?: boolean = false;
+  doesBodyPanelIntact?: boolean = false;
+  doesAirbagsDeployedOrMissing?: boolean = false;
   // Did your [Make] ever suffer flood or fire damage?
-  DoesCarSufferedFloodorFireDamage?: boolean;
+  DoesCarSufferedFloodorFireDamage?: boolean = false;
   // Is the interior of your [Make] intact?
-  DoesInteriorIntact?: boolean;
-  // Vehicle transmission type?
-  vechileTransmissionType?: string;
 }
 
 export const CarTitleOptions: string[] = ['Clean', 'salvage', 'Rebuilt'];

@@ -1,137 +1,269 @@
-<!-- <div
-  style="
-    background-color: rgb(247, 247, 247);
-    padding: 25px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
-  "
->
-  <h1>Body Car Condition</h1>
-  <mat-divider style="padding: 10px"></mat-divider>
+<mat-card class="question-card ml-auto mr-auto">
+  <mat-card-content>
+    <label class="h6" id="example-radio-group-label"
+      >Are all of the wheels inflated on your {{ selectedMake }} ?
+    </label>
+    <ui-switch
+      class="question-slider"
+      uncheckedLabel="No"
+      checkedLabel="Yes"
+      size="medium"
+      [(ngModel)]="vechileCondition.externalConditions.doesAllCarWheelInflated"
+      [ngStyle]="{
+        color: vechileCondition.externalConditions.doesAllCarWheelInflated
+          ? 'white'
+          : 'black'
+      }"
+    ></ui-switch>
+    <!-- <span style="float: right; margin-left: auto">
+        <mat-slide-toggle
+          [(ngModel)]="
+            vechileCondition.externalConditions.doesAllCarWheelInflated
+          "
+        ></mat-slide-toggle>
+      </span> -->
+    <!-- <mat-slide-toggle
+        class="question-slider"
+        [(ngModel)]="vechileCondition.externalConditions.doesPanelsIntact"
+      ></mat-slide-toggle> -->
 
-  <mat-card class="question-card ml-auto mr-auto">
-    <mat-card-content>
-      <label class="question-label" id="example-radio-group-label">Front</label>
-      <br />
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="vechileCondition.bodyCondition.Front"
-      >
-        <mat-radio-button
-          class="example-radio-button"
-          *ngFor="let option of BodyDamageOptions"
-          [value]="option"
-        >
-          {{ option }}
-        </mat-radio-button>
-      </mat-radio-group>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="question-card ml-auto mr-auto">
-    <mat-card-content>
-      <label class="question-label" id="example-radio-group-label">Rear</label>
-      <br />
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="vechileCondition.bodyCondition.Rear"
-      >
-        <mat-radio-button
-          class="example-radio-button"
-          *ngFor="let option of BodyDamageOptions"
-          [value]="option"
-        >
-          {{ option }}
-        </mat-radio-button>
-      </mat-radio-group>
-    </mat-card-content>
-  </mat-card>
+    <!-- <br /> -->
+  </mat-card-content>
+</mat-card>
 
-  <mat-card class="question-card ml-auto mr-auto">
-    <mat-card-content>
-      <label class="question-label" id="example-radio-group-label"
-        >Left Side</label
-      >
-      <br />
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="vechileCondition.bodyCondition.LeftSide"
-      >
-        <mat-radio-button
-          class="example-radio-button"
-          *ngFor="let option of BodyDamageOptions"
-          [value]="option"
-        >
-          {{ option }}
-        </mat-radio-button>
-      </mat-radio-group>
-    </mat-card-content>
-  </mat-card>
+<mat-card class="question-card ml-auto mr-auto">
+  <mat-card-content>
+    <label class="h6" id="example-radio-group-label"
+      >Any glass or lights cracked or broken on your {{ selectedMake }} ?
+    </label>
+    <ui-switch
+      class="question-slider"
+      uncheckedLabel="No"
+      checkedLabel="Yes"
+      size="medium"
+      [(ngModel)]="
+        vechileCondition.externalConditions.doesAllGlassorLightCracked
+      "
+      [ngStyle]="{
+        color: vechileCondition.externalConditions.doesAllGlassorLightCracked
+          ? 'white'
+          : 'black'
+      }"
+    ></ui-switch>
+    <!-- <span style="float: right; margin-left: auto">
+        <mat-slide-toggle
+          [(ngModel)]="
+            vechileCondition.externalConditions.doesAllGlassorLightCracked
+          "
+        ></mat-slide-toggle>
+      </span> -->
 
-  <mat-card class="question-card ml-auto mr-auto">
-    <mat-card-content>
-      <label class="question-label" id="example-radio-group-label"
-        >Right Side</label
-      >
-      <br />
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="vechileCondition.bodyCondition.RightSide"
-      >
-        <mat-radio-button
-          class="example-radio-button"
-          *ngFor="let option of BodyDamageOptions"
-          [value]="option"
-        >
-          {{ option }}
-        </mat-radio-button>
-      </mat-radio-group>
-    </mat-card-content>
-  </mat-card>
+    <!-- <br /> -->
+  </mat-card-content>
+</mat-card>
 
-  <mat-card class="question-card ml-auto mr-auto">
-    <mat-card-content>
-      <label class="question-label" id="example-radio-group-label"
-        >Damage to radiator or cooling</label
-      >
-      <br />
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="vechileCondition.bodyCondition.DamagetoRadiatorCooling"
-      >
-        <mat-radio-button
-          class="example-radio-button"
-          *ngFor="let option of BodyDamageOptions"
-          [value]="option"
-        >
-          {{ option }}
-        </mat-radio-button>
-      </mat-radio-group>
-    </mat-card-content>
-  </mat-card>
+<mat-card class="question-card ml-auto mr-auto">
+  <mat-card-content>
+    <label class="h6" id="example-radio-group-label"
+      >Does it have any body damage?
+    </label>
 
+    <ui-switch
+      class="question-slider"
+      uncheckedLabel="No"
+      checkedLabel="Yes"
+      size="medium"
+      [ngStyle]="{
+        color: vechileCondition.externalConditions.doesBodyDamage
+          ? 'white'
+          : 'black'
+      }"
+      [(ngModel)]="vechileCondition.externalConditions.doesBodyDamage"
+    ></ui-switch>
+  </mat-card-content>
+  <!-- Noticeable Dings/Dents/Scratches on your [Make]?	 -->
+  <!-- vechileCondition.externalConditions.NoticeableDingsDentsScratches -->
+</mat-card>
+
+<ng-container *ngIf="vechileCondition.externalConditions.doesBodyDamage">
   <mat-card class="question-card ml-auto mr-auto">
     <mat-card-content>
-      <label class="question-label" id="example-radio-group-label">
-        Noticeable Dings/Dents/Scratches?
+      <label class="h6" id="example-radio-group-label"
+        >Severity of Body Damages?
       </label>
-      <br />
-      <mat-radio-group
+
+      <mat-slider
+        class="example-margin"
+        max="5"
+        min="1"
+        step="step"
+        discrete="true"
+        showTickMarks="true"
+        tickInterval="1"
+      >
+        <input
+          matSliderThumb
+          [(ngModel)]="
+            vechileCondition.externalConditions.doesBodyDamageSeverity
+          "
+          #slider
+        />
+      </mat-slider>
+
+      <!-- <span style="float: right; margin-left: auto">
+        <mat-slide-toggle
+          [(ngModel)]="vechileCondition.externalConditions.doesBodyDamage"
+        ></mat-slide-toggle>
+      </span> -->
+    </mat-card-content>
+    <!-- Noticeable Dings/Dents/Scratches on your [Make]?	 -->
+    <!-- vechileCondition.externalConditions.NoticeableDingsDentsScratches -->
+  </mat-card>
+</ng-container>
+
+<mat-card class="question-card ml-auto mr-auto">
+  <mat-card-content>
+    <label class="h6" id="example-radio-group-label"
+      >Noticeable Dings/Dents/Scratches on your {{ selectedMake }} ?
+    </label>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      [(ngModel)]="
+        vechileCondition.externalConditions.NoticeableDingsDentsScratches
+      "
+    >
+      <mat-radio-button
+        class="example-radio-button"
+        name="Question.name"
+        *ngFor="let option of BodyNoticableDentsScratcheOptions"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-radio-button>
+    </mat-radio-group>
+    <!-- <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
-        [(ngModel)]="vechileCondition.bodyCondition.DamagetoRadiatorCooling"
+        [(ngModel)]="vechileQuestionaire.hasCarTitle"
       >
-        <mat-radio-button
-          class="example-radio-button"
-          *ngFor="let option of BodyDamageDentScratchOptions"
-          [value]="option"
-        >
-          {{ option }}
-        </mat-radio-button>
-      </mat-radio-group>
-    </mat-card-content>
-  </mat-card>
-</div> -->
+        <mat-radio-button [value]="true">yes</mat-radio-button>
+        <mat-radio-button [value]="false">no</mat-radio-button>
+      </mat-radio-group> -->
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="question-card ml-auto mr-auto">
+  <mat-card-content>
+    <label class="h6" id="example-radio-group-label"
+      >Body panels intact?
+    </label>
+    <ui-switch
+      class="question-slider"
+      uncheckedLabel="No"
+      checkedLabel="Yes"
+      size="medium"
+      [(ngModel)]="vechileCondition.externalConditions.doesBodyPanelIntact"
+      [ngStyle]="{
+        color: vechileCondition.externalConditions.doesBodyPanelIntact
+          ? 'white'
+          : 'black'
+      }"
+      NoticeableDingsDentsScratches
+    ></ui-switch>
+    <!-- <span style="float: right; margin-left: auto">
+        <mat-slide-toggle
+          [(ngModel)]="vechileCondition.externalConditions.doesBodyPanelIntact"
+        ></mat-slide-toggle>
+      </span> -->
+
+    <br />
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="question-card ml-auto mr-auto">
+  <mat-card-content>
+    <label class="h6" id="example-radio-group-label"
+      >Are the airbags deployed or missing?
+    </label>
+    <ui-switch
+      class="question-slider"
+      uncheckedLabel="No"
+      checkedLabel="Yes"
+      size="medium"
+      [(ngModel)]="
+        vechileCondition.externalConditions.doesAirbagsDeployedOrMissing
+      "
+      [ngStyle]="{
+        color: vechileCondition.externalConditions.doesAirbagsDeployedOrMissing
+          ? 'white'
+          : 'black'
+      }"
+    ></ui-switch>
+    <!-- <span style="float: right; margin-left: auto">
+        <mat-slide-toggle
+          [(ngModel)]="
+            vechileCondition.externalConditions.doesAirbagsDeployedOrMissing
+          "
+        ></mat-slide-toggle>
+      </span> -->
+
+    <br />
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="question-card ml-auto mr-auto">
+  <mat-card-content>
+    <label class="h6" id="example-radio-group-label">
+      Did your {{ selectedMake }} ever suffer flood or fire damage?
+    </label>
+    <ui-switch
+      class="question-slider"
+      uncheckedLabel="No"
+      checkedLabel="Yes"
+      size="medium"
+      [(ngModel)]="
+        vechileCondition.externalConditions.DoesCarSufferedFloodorFireDamage
+      "
+      [ngStyle]="{
+        color: vechileCondition.externalConditions
+          .DoesCarSufferedFloodorFireDamage
+          ? 'white'
+          : 'black'
+      }"
+    ></ui-switch>
+    <!-- <span style="float: right; margin-left: auto">
+        <mat-slide-toggle
+          [(ngModel)]="
+            vechileCondition.externalConditions.DoesCarSufferedFloodorFireDamage
+          "
+        ></mat-slide-toggle>
+      </span> -->
+
+    <br />
+  </mat-card-content>
+</mat-card>
+<mat-card class="question-card ml-auto mr-auto">
+  <mat-card-content>
+    <label class="h6" id="example-radio-group-label">
+      Is the interior of your {{ selectedMake }} intact?
+    </label>
+    <ui-switch
+      class="question-slider"
+      uncheckedLabel="No"
+      checkedLabel="Yes"
+      size="medium"
+      [(ngModel)]="vechileCondition.DoesInteriorIntact"
+      [ngStyle]="{
+        color: vechileCondition.DoesInteriorIntact ? 'white' : 'black'
+      }"
+    ></ui-switch>
+    <!-- <span style="float: right; margin-left: auto">
+        <mat-slide-toggle
+          [(ngModel)]="vechileCondition.externalConditions.DoesInteriorIntact"
+        ></mat-slide-toggle>
+      </span> -->
+
+    <br />
+  </mat-card-content>
+</mat-card>

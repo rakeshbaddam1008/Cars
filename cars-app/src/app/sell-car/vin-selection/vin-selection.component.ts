@@ -22,38 +22,40 @@ export class VinSelectionComponent {
     private router: Router,
     private _nhtsaervice: NHTSAService,
     private _bottomSheet: MatBottomSheet,
-    public alertService: AlertService,
+    public alertService: AlertService
   ) {}
   vin = new FormControl('', [Validators.required, Validators.minLength(17)]);
 
   go() {
     // this.validateVinNumber();
     // if(this.getErrorMessage() == '') {
-      this._nhtsaervice.getVechileDetailsByVIN(this.vin.value ?? '').then((s) => {
+    this._nhtsaervice
+      .getVechileDetailsByVIN(this.vin.value ?? '')
+      .then((s) => {
         this.dataService.setCurrentSellVechileDetails({
           make: s.Make,
           model: s.Model,
           year: parseInt(s.ModelYear),
-          style: '',
-          mileage: 0,
           trim: '',
         });
         this.router.navigate(['/questionaire']);
-      }).catch((e) => {
-        this.alertService.error(e)
       })
+      .catch((e) => {
+        this.alertService.error(e);
+      });
     // }
-    
   }
   getErrorMessage() {
     let message = '';
     if (this.vin.hasError('required')) {
-      message = 'You must enter a value'
+      message = 'You must enter a value';
       // this.alertService.error(message)
       return message;
     }
-    this.vin.hasError('minlength')? message ='Not a valid VIN. VIN should be 17 alpha numeric charactes' : message = '';
-    if(message != '') {
+    this.vin.hasError('minlength')
+      ? (message = 'Not a valid VIN. VIN should be 17 alpha numeric charactes')
+      : (message = '');
+    if (message != '') {
       // this.alertService.error(message);
     }
     return message;

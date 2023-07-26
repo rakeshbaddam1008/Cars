@@ -21,9 +21,13 @@ export class CarStepperComponent {
   });
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
-  srcImages : string = '';
-  images : string[] = ['../../../assets/images/IMG_3302.PNG','../../../assets/images/IMG_3303.PNG','../../../assets/images/IMG_3304.PNG','../../../assets/images/IMG_3305.PNG']
-
+  srcImages: string = '';
+  images: string[] = [
+    '../../../assets/images/IMG_3302.PNG',
+    '../../../assets/images/IMG_3303.PNG',
+    '../../../assets/images/IMG_3304.PNG',
+    '../../../assets/images/IMG_3305.PNG',
+  ];
 
   @ViewChild('stepper') private myStepper!: MatStepper;
 
@@ -34,21 +38,24 @@ export class CarStepperComponent {
     private reviewService: ReviewService
   ) {
     // this._store.loadSellerDetails();
-    this.selectVechileDetails = this._store.sellerCompleteDetails.vechile;
+    this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
   }
 
   ngOnInit() {
-    this.reviewService.getStepperIndex().pipe(takeUntil(this.onDestroy$)).subscribe((index: number) => {
-      this.myStepper.selectedIndex = index;
-    })
+    this.reviewService
+      .getStepperIndex()
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe((index: number) => {
+        this.myStepper.selectedIndex = index;
+      });
   }
 
   ngAfterViewInit() {
     const stepperHeaderElements = document.querySelectorAll('.mat-step-icon');
-    
+
     stepperHeaderElements.forEach((headerElement, index) => {
       const color = this.getStepIconColor(index);
-       this.renderer.setStyle(headerElement, 'background-color', color);
+      this.renderer.setStyle(headerElement, 'background-color', color);
     });
   }
 
@@ -56,23 +63,23 @@ export class CarStepperComponent {
     switch (stepIndex) {
       case 0:
         return '#ff0000'; // Red
-      case 1 :
-      case 2 :
+      case 1:
+      case 2:
       case 3:
         return '#ffd800'; // yellow
       case 4:
         return '#ffd800'; // green
       default:
-        return '#10ff0a'; 
+        return '#10ff0a';
     }
   }
 
-  imageRandom() :string {
-    let img = this.images[Math.floor(Math.random() *    this.images.length)];
+  imageRandom(): string {
+    let img = this.images[Math.floor(Math.random() * this.images.length)];
     return img;
   }
-  onStepChange(event: any){
-    if(event.selectedIndex == 5) {
+  onStepChange(event: any) {
+    if (event.selectedIndex == 5) {
       this.srcImages = this.imageRandom();
     }
   }

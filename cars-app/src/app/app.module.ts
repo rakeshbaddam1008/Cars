@@ -33,6 +33,7 @@ import { VechileBodyConditionComponent } from './questionaire/vechile-body-condi
 import { AlertComponent } from './common/alert/alert.component';
 import { ReviewPageComponent } from './questionaire/review-page/review-page.component';
 import { UiSwitchModule } from 'ngx-ui-switch';
+import { YesNoPipe } from './pipes/yes-no.pipe';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     VechileBodyConditionComponent,
     AlertComponent,
     ReviewPageComponent,
+    YesNoPipe,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,7 @@ import { UiSwitchModule } from 'ngx-ui-switch';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    UiSwitchModule
+    UiSwitchModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IVechileConditionQuestionaire } from '../questionsJson';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
+import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
   selector: 'app-vechile-body-condition',
@@ -8,16 +9,13 @@ import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
   styleUrls: ['./vechile-body-condition.component.css'],
 })
 export class VechileBodyConditionComponent {
+  selectedMake?: string = '';
   public vechileCondition: IVechileConditionQuestionaire;
-  selectVechileDetails: import('src/app/models/ISellerVechileDetails').ISellerVechileDetails;
-
   constructor(public _store: SellCarStoreService) {
-    this.vechileCondition = new IVechileConditionQuestionaire();
-
-    this.selectVechileDetails = this._store.sellerCompleteDetails;
-
-    this.vechileCondition = new IVechileConditionQuestionaire();
+    this.selectedMake = this._store.sellerCompleteDetails.carDetails?.make;
+    this.vechileCondition = this._store.sellerCompleteDetails.vehicleCondition;
   }
+
   EngineRepairOptions: string[] = ['Engine repairs', "I don't know"];
   carEngineTransmissionOptions: string[] = [
     'Engine is partly taken apart.',
@@ -30,4 +28,13 @@ export class VechileBodyConditionComponent {
     '4 to 6 ',
     '7 and more',
   ];
+
+  BodyNoticableDentsScratcheOptions = ['less than 3', '4 to 6', '7 and more'];
+
+  doesCarDriveEvent(event: boolean) {
+    this.vechileCondition.doesCarDrive = event;
+  }
+  onSliderChange(event: MatSliderChange) {
+    console.log(event.value);
+  }
 }

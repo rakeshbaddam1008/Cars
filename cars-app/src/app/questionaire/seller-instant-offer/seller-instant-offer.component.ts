@@ -12,15 +12,12 @@ export class SellerInstantOfferComponent {
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
 
-  @Input() srcImages : string = '';
-  
-  constructor(public _store: SellCarStoreService,) {
+  @Input() srcImages: string = '';
+
+  constructor(public _store: SellCarStoreService) {
     // this._store.loadSellerDetails();
-    this.selectVechileDetails = this._store.sellerCompleteDetails.vechile;
+    this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
   }
 
-  ngOnInit() :void {
-  }
-
-  
+  ngOnInit(): void {}
 }

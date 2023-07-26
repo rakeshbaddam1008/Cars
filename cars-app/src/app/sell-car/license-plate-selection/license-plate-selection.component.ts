@@ -31,10 +31,13 @@ export class LicensePlateSelectionComponent implements OnInit {
     private _nhtsa: NHTSAService,
     private alertService: AlertService
   ) {
-    this._dataService.getUSStates().subscribe((res) => {
-      this.states = res;
-      // this.filteredOptions = of(this.states);
-    },error =>  this.alertService.error(error.message));
+    this._dataService.getUSStates().subscribe(
+      (res) => {
+        this.states = res;
+        // this.filteredOptions = of(this.states);
+      },
+      (error) => this.alertService.error(error.message)
+    );
 
     // pipe(ap((r) => r.code);
     // });
@@ -61,13 +64,15 @@ export class LicensePlateSelectionComponent implements OnInit {
         this.licensePlateSelection.controls.licensePlate.value ?? '',
         this.myStateControl.value ?? ''
       )
-      .subscribe((res) => {
-        this._sellCarService.sellerCompleteDetails.vechile =
-          res.licensePlateLookup;
-        this.router.navigate(['/questionaire']);
-      },(error) => {
-        this.alertService.error(error.message)
-      })
+      .subscribe(
+        (res) => {
+          this._sellCarService.sellerCompleteDetails.carDetails =
+            res.licensePlateLookup;
+          this.router.navigate(['/questionaire']);
+        },
+        (error) => {
+          this.alertService.error(error.message);
+        }
+      );
   }
-
 }

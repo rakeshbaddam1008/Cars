@@ -4,6 +4,12 @@ import { Injectable } from '@angular/core';
 import { ISellerVechileDetails } from '../models/ISellerVechileDetails';
 // import { QuestionaireVechileConditionDetails } from '../questionaire/vechile-condition-Json';
 import { IVechileModelDetails } from '../models/IVechile';
+import {
+  IContact,
+  IVechileConditionExteriorQuestionaire,
+  IVechileConditionQuestionaire,
+  IVechileDetailQuestionaire,
+} from '../questionaire/questionsJson';
 
 @Injectable({ providedIn: 'root' })
 export class SellCarStoreService {
@@ -21,6 +27,7 @@ export class SellCarStoreService {
 
   constructor() {
     this.sellerCompleteDetails = new ISellerVechileDetails();
+    this.loadSellerDetails();
   }
   // the getter will return the last value emitted in _todos subject
   // get todos(): IQuestion[] {
@@ -28,13 +35,17 @@ export class SellCarStoreService {
   // }
 
   loadSellerDetails() {
-    // this.sellerCompleteDetails.VechileDetails = QuestionaireVechileDetails;
+    this.sellerCompleteDetails.carDetails = new IVechileModelDetails();
 
-    this.sellerCompleteDetails.contactDetails = '';
+    this.sellerCompleteDetails.contact = new IContact();
+    this.sellerCompleteDetails.vehicleCondition =
+      new IVechileConditionQuestionaire();
+    this.sellerCompleteDetails.vehicleDetails =
+      new IVechileDetailQuestionaire();
   }
 
   setCurrentSellVechileDetails(vechileDetails: IVechileModelDetails) {
-    this.sellerCompleteDetails.vechile = vechileDetails;
+    this.sellerCompleteDetails.carDetails = vechileDetails;
   }
   // assigning a value to this.todos will push it onto the observable
   // and down to all of its subsribers (ex: this.todos = [])

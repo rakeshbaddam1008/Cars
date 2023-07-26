@@ -66,6 +66,7 @@
 .question-slider {
   align-items: center;
   float: right;
+  color: white;
 }
 .question-float-right {
   flex-flow: end;
@@ -83,7 +84,6 @@
   width: 60%;
   margin: 3px;
 }
-
 
 .breadcrumb {
   color: #0a3453;

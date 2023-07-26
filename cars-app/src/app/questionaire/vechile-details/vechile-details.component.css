@@ -50,7 +50,13 @@
   font-size: 25px;
   font-weight: 600;
 } */
-
+mat-form-field {
+  padding: 3px 1px;
+}
+mat-form-field {
+  width: 80%;
+  height: 80%;
+}
 .question-label {
   font-size: 18px;
   font-weight: 500;

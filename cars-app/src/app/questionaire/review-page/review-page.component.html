@@ -9,7 +9,9 @@
     <mat-card class="mat-card">
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Vehicle Details</span>
-        <a (click)="routeToStepperIndex(0)" class="content-edit text-primary ml-auto"
+        <a
+          (click)="routeToStepperIndex(0)"
+          class="content-edit text-primary ml-auto"
           >edit</a
         >
       </div>
@@ -20,33 +22,43 @@
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
             <h4 class="h6 mb-0">Title?</h4>
-            <div class="text-secondary">Clean</div>
+            <div class="text-secondary">
+              {{ sellerCarDetails?.vehicleDetails?.carTitle }}
+            </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
             <h4 class="h6 mb-0">
               Do you currently have a loan on your [Make]?
             </h4>
-            <div class="text-secondary">Yes</div>
+            <div class="text-secondary">
+              {{ sellerCarDetails?.vehicleDetails?.carLoan | yesNo }}
+            </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
             <h4 class="h6 mb-0">Mileage?</h4>
-            <div class="text-secondary">1234</div>
+            <div class="text-secondary">
+              {{ sellerCarDetails?.vehicleDetails?.mileage }}
+            </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
             <h4 class="h6 mb-0">What is the color of your [Make]?</h4>
-            <div class="text-secondary">Blue</div>
+            <div class="text-secondary">
+              {{ sellerCarDetails?.vehicleDetails?.color }}
+            </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
             <h4 class="h6 mb-0">What is your zipCode?</h4>
-            <div class="text-secondary">12345</div>
+            <div class="text-secondary">
+              {{ sellerCarDetails?.vehicleDetails?.zipCode }}
+            </div>
           </div>
+
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <h4 class="h6 mb-0">Does your [Make] drive?</h4>
-            <div class="text-secondary">Yes</div>
+            <h4 class="h6 mb-0">Vehicle transmission type?</h4>
+            <div class="text-secondary">
+              {{ sellerCarDetails?.vehicleDetails?.vechileTransmissionType }}
+            </div>
           </div>
-          <!-- <div class="col-md-3 border text-center p-2">
-                    Data 4
-                </div> -->
         </div>
       </div>
     </mat-card>
@@ -55,7 +67,9 @@
     <mat-card class="mat-card">
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Vehicle Condition</span>
-        <a (click)="routeToStepperIndex(1)" class="content-edit text-primary ml-auto"
+        <a
+          (click)="routeToStepperIndex(1)"
+          class="content-edit text-primary ml-auto"
           >edit</a
         >
       </div>
@@ -97,7 +111,9 @@
     <mat-card class="mat-card">
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Vehicle Body Condition</span>
-        <a (click)="routeToStepperIndex(2)" class="content-edit text-primary ml-auto"
+        <a
+          (click)="routeToStepperIndex(2)"
+          class="content-edit text-primary ml-auto"
           >edit</a
         >
       </div>
@@ -154,41 +170,14 @@
     <mat-card class="mat-card">
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Contact Information</span>
-        <a (click)="routeToStepperIndex(3)" class="content-edit text-primary ml-auto"
+        <a
+          (click)="routeToStepperIndex(3)"
+          class="content-edit text-primary ml-auto"
           >edit</a
         >
       </div>
 
       <div class="container">
-        <!-- First Row -->
-        <!-- <div class="row align-items-center">
-                    
-                    <div class="col-md-6 text-right pr-0">
-                        <h4 for="full-name" class="h6 mb-0">Full Name:</h4>
-                    </div>
-                    <div class="col-md-6 pl-0">
-                        <span class="text-secondary">Mohammed Mukthar</span>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    
-                    <div class="col-md-6 text-right pr-0">
-                        <h4 for="full-name" class="h6 mb-0">Email:</h4>
-                    </div>
-                    <div class="col-md-6 pl-0">
-                        <span class="text-secondary">mukthar@abc.com</span>
-                    </div>
-                </div>
-                <div class="row align-items-center">
-                    
-                    <div class="col-md-6 text-right pr-0">
-                        <h4 for="full-name" class="h6 mb-0">Phone Number:</h4>
-                    </div>
-                    <div class="col-md-6 pl-0">
-                        <span class="text-secondary">+123456789</span>
-                    </div>
-                </div> -->
-
         <div class="row">
           <div class="col-6 text-start p-2">
             <h4 class="h6 mb-0">Full Name:</h4>
@@ -208,28 +197,39 @@
   </div>
   <div class="mat-card-cvr">
     <mat-card class="mat-card">
-      
-
       <div class="container">
         <!-- First Row -->
         <div class="row">
           <!-- Box 1 -->
-          <div class="col-sm-12 col-md-12  p-2">
-            <p class="text-left font-weight-light">We reserve the right to modify or cancel this offer if the condition of the vehicle does not meet the description of the vehicle provided. 
-                Offer is valid for seven days or 500 miles whichever comes first.
-                By clicking submit I hereby accept all <a class="text-danger font-weight-bold" style="text-decoration: none;">terms and conditions.</a>
+          <div class="col-sm-12 col-md-12 p-2">
+            <p class="text-left font-weight-light">
+              We reserve the right to modify or cancel this offer if the
+              condition of the vehicle does not meet the description of the
+              vehicle provided. Offer is valid for seven days or 500 miles
+              whichever comes first. By clicking submit I hereby accept all
+              <a
+                class="text-danger font-weight-bold"
+                style="text-decoration: none"
+                >terms and conditions.</a
+              >
             </p>
           </div>
         </div>
         <div class="row px-0">
-            <div class="col-sm-12 checkbox">
-                <div class="form-check">
-                    <input class="form-check-input custom-checkbox-style col-form-label-lg"    type="checkbox" [value]="checked" id="defaultCheck1">
-                    <label class="form-check-label" for="defaultCheck1">
-                        The information I provided is correct to the best of my knowledge.
-                    </label>
-                  </div>
+          <div class="col-sm-12 checkbox">
+            <div class="form-check">
+              <input
+                class="form-check-input custom-checkbox-style col-form-label-lg"
+                type="checkbox"
+                [value]="checked"
+                id="defaultCheck1"
+              />
+              <label class="form-check-label" for="defaultCheck1">
+                The information I provided is correct to the best of my
+                knowledge.
+              </label>
             </div>
+          </div>
         </div>
       </div>
     </mat-card>

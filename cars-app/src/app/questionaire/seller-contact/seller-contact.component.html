@@ -9,7 +9,9 @@
     <mat-card-content>
       <div fxLayout="column" class="seller-contact">
         <!-- <h2>Where should we send your Instant Cash Offer?</h2> -->
-        <span class="breadcrumb">Where should we send your Instant Cash Offer?</span>
+        <span class="breadcrumb"
+          >Where should we send your Instant Cash Offer?</span
+        >
 
         <mat-form-field appearance="outline">
           <mat-label>Full Name</mat-label>
@@ -25,22 +27,34 @@
           <mat-label>Phone Number</mat-label>
           <input matNativeControl matInput type="tel" />
         </mat-form-field>
-        <!-- 
-        <mat-form-field appearance="outline">
+
+        <!-- <mat-form-field appearance="outline">
           <mat-label>Zip Code</mat-label>
           <input matNativeControl matInput type="number" />
         </mat-form-field> -->
         <div class="container">
           <!-- First Row -->
-          <div class="row ">
-              <div class="col-sm-12 checkbox d-flex justify-content-center">
-                  <div class="form-check w-50 text-justify">
-                      <input class="form-check-input custom-checkbox-style col-form-label-lg"    type="checkbox" [value]="checked" id="defaultCheck1">
-                      <label class="form-check-label text-justify" for="defaultCheck1">
-                        I verify that the above listed phone number is mine and I consent to receive automated and pre-recorded/artificial calls, including text messages, relating to my vehicle and my relationship with Carizma. Message and Data rates may apply. Reply “STOP” to end further messages.
-                      </label>
-                    </div>
+          <div class="row">
+            <div class="col-sm-12 checkbox d-flex justify-content-center">
+              <div class="form-check w-50 text-justify">
+                <input
+                  class="form-check-input custom-checkbox-style col-form-label-lg"
+                  type="checkbox"
+                  [value]="checked"
+                  id="defaultCheck1"
+                />
+                <label
+                  class="form-check-label text-justify"
+                  for="defaultCheck1"
+                >
+                  I verify that the above listed phone number is mine and I
+                  consent to receive automated and pre-recorded/artificial
+                  calls, including text messages, relating to my vehicle and my
+                  relationship with Carizma. Message and Data rates may apply.
+                  Reply “STOP” to end further messages.
+                </label>
               </div>
+            </div>
           </div>
         </div>
       </div>
