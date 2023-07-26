@@ -27,6 +27,10 @@ body {
 }
 
 .content-title {
-  font-size: 1.2rem;
-  font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 480;
+}
+
+.switch.checked {
+  background: #2a9d8f !important;
 }
