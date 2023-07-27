@@ -14,7 +14,14 @@
     <mat-step label="Vechile Details">
       <app-vechile-details></app-vechile-details>
       <mat-divider></mat-divider>
-      <div class="w-100">
+      <div *ngIf="reviewService.activateContactPage" class="w-100">
+        <div class="row m-0">
+          <div class="col-12 d-flex m-0 mt-3 p-0">
+            <button routerLink="/contact-us" class="btn ml-auto btn-next">Next</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!reviewService.activateContactPage" class="w-100">
         <div class="row m-0">
           <div class="col-12 d-flex m-0 mt-3 p-0">
             <button matStepperNext class="btn ml-auto btn-next">Next</button>

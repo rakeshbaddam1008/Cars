@@ -25,6 +25,7 @@
               name="Question.name"
               *ngFor="let option of CarTitleOptions"
               [value]="option"
+              (change)="radioChange($event)"
             >
               {{ option }}
             </mat-radio-button>

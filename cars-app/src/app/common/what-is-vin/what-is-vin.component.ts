@@ -12,4 +12,5 @@ export class WhatIsVinComponent {
     this._bottomSheetRef.dismiss();
     event.preventDefault();
   }
+  
 }

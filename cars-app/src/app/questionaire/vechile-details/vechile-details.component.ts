@@ -6,6 +6,7 @@ import { IVechileDetailQuestionaire } from '../questionsJson';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
+import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
   selector: 'app-vechile-details',
@@ -39,7 +40,8 @@ export class VechileDetailsComponent {
 
   constructor(
     public _nhtsaervice: NHTSAService,
-    public _store: SellCarStoreService
+    public _store: SellCarStoreService,
+    public reviewService: ReviewService
   ) {
     const formGroup = {};
     this.form = new FormGroup(formGroup);
@@ -47,5 +49,11 @@ export class VechileDetailsComponent {
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
   }
 
-  submitForm() {}
+  radioChange(event: any) {
+    if(event.value === 'No Title') {
+      this.reviewService.activateContactPage = true;
+    } else {
+      this.reviewService.activateContactPage = false;
+    }
+  }
 }

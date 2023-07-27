@@ -35,6 +35,7 @@ export class LicensePlateSelectionComponent implements OnInit {
   ) {
     this._dataService.getUSStates().subscribe(
       (res) => {
+        console.log(res)
         this.states = res;
         // this.filteredOptions = of(this.states);
       },

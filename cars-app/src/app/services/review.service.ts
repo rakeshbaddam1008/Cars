@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export class ReviewService {
     private subject = new Subject<number>();
     stepperIndex: number = 0
+    activateContactPage: boolean = false;
     
     constructor() { }
 

@@ -35,7 +35,7 @@ export class CarStepperComponent {
     private _formBuilder: FormBuilder,
     public _store: SellCarStoreService,
     private renderer: Renderer2,
-    private reviewService: ReviewService
+    public reviewService: ReviewService
   ) {
     // this._store.loadSellerDetails();
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
