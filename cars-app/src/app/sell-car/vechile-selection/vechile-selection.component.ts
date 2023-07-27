@@ -23,7 +23,7 @@ export class VechileSelectionComponent {
   thumbLabel = false;
   value = 0;
   VechileRegisterationList: Number[];
-  isLoading : boolean = false
+  isLoading: boolean = false;
 
   makesList: Observable<string[]>;
   modelList: Observable<string[]>;
@@ -50,6 +50,7 @@ export class VechileSelectionComponent {
     this.yearSelected?.setValue(e?.value, {
       emitEvent: true,
     });
+
     this.makesList = this._service.getMakes(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990
     );
@@ -69,7 +70,7 @@ export class VechileSelectionComponent {
     this.trimList = this._service.getTrim(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990,
       this.manualVechileSelectionForm.value.selectedMake ?? '',
-      this.manualVechileSelectionForm.value.selectedStyle ?? ''
+      this.manualVechileSelectionForm.value.selectedModel ?? ''
     );
   }
   selectedTrim: string = '';
@@ -78,7 +79,7 @@ export class VechileSelectionComponent {
 
   onSubmit(): void {
     this.isLoading = true;
-    setTimeout( () =>this.isLoading = false, 10000);
+    setTimeout(() => (this.isLoading = false), 10000);
     // this._nhtsa
     //   .getVechileDetailsByRegistrationDetails(
     //     this.licensePlateSelection.value.licensePlate.value ?? '',
