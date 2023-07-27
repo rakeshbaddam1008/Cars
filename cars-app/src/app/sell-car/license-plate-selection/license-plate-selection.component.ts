@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, map, of, startWith } from 'rxjs';
 import { IState } from 'src/app/models/IState';
+import { IVechileModelDetails } from 'src/app/models/IVechile';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { AlertService } from 'src/app/services/alert.service';
 import { CommondataSellService } from 'src/app/services/commondata-sell.service';
@@ -18,7 +19,7 @@ export class LicensePlateSelectionComponent implements OnInit {
   states: string[] = [];
   filteredOptions: Observable<string[]> = of([]);
   myStateControl = new FormControl();
-  isLoading : boolean = false;
+  isLoading: boolean = false;
 
   licensePlateSelection = new FormGroup({
     licensePlate: new FormControl('', Validators.required),
@@ -59,8 +60,11 @@ export class LicensePlateSelectionComponent implements OnInit {
 
   //Handle Errors if we submit
   onSubmit(): void {
+    if (!this.licensePlateSelection.valid) {
+      return;
+    }
     // this.getErrorMessage()
-    this.isLoading = true
+    this.isLoading = true;
     this._nhtsa
       .getVechileDetailsByRegistrationDetails(
         this.licensePlateSelection.controls.licensePlate.value ?? '',
@@ -68,14 +72,18 @@ export class LicensePlateSelectionComponent implements OnInit {
       )
       .subscribe(
         (res) => {
-          this._sellCarService.sellerCompleteDetails.carDetails =
-            res.licensePlateLookup;
-            this.isLoading = false
+          let carSelection: IVechileModelDetails = res.licensePlateLookup;
+          this.isLoading = false;
+          carSelection.plateNumber =
+            this.licensePlateSelection.controls.licensePlate.value ?? '';
+          carSelection.state = this.myStateControl.value;
+          this._sellCarService.sellerCompleteDetails.carDetails = carSelection;
+
           this.router.navigate(['/questionaire']);
         },
         (error) => {
           this.alertService.error(error.message);
-          this.isLoading = false
+          this.isLoading = false;
         }
       );
   }

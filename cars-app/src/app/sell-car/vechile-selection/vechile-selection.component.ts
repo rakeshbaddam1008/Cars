@@ -5,8 +5,11 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { VechileYears } from 'src/app/constants.ts/constants';
+import { IVechileModelDetails } from 'src/app/models/IVechile';
+import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
 
 @Component({
@@ -31,7 +34,11 @@ export class VechileSelectionComponent {
 
   manualVechileSelectionForm: FormGroup;
 
-  constructor(private _service: NHTSAService) {
+  constructor(
+    private _service: NHTSAService,
+    public _store: SellCarStoreService,
+    public router: Router
+  ) {
     this.VechileRegisterationList = VechileYears;
     this.makesList = of([]);
     this.modelList = of([]);
@@ -80,13 +87,20 @@ export class VechileSelectionComponent {
   onSubmit(): void {
     this.isLoading = true;
     setTimeout(() => (this.isLoading = false), 10000);
-    // this._nhtsa
-    //   .getVechileDetailsByRegistrationDetails(
-    //     this.licensePlateSelection.value.licensePlate.value ?? '',
-    //     this.licensePlateSelection.value.selectedState.value ?? ''
-    //   )
-    //   .subscribe((res) => {
-    //     this._sellCarService.sellerCompleteDetails.vechile = res;
-    //   });
+
+    let carSelection = new IVechileModelDetails();
+    carSelection.make = this.manualVechileSelectionForm.value.selectedMake;
+    carSelection.model = this.manualVechileSelectionForm.value.selectedModel;
+    carSelection.trim = this.manualVechileSelectionForm.value.selectedTrim;
+    carSelection.year = this.manualVechileSelectionForm.value.yearSelected;
+    //     year?: Number;
+    // make?: string;
+    // model?: string;
+    // trim?: string;
+    // vin?: string;
+    // plateNumber?: string;
+    // state?: string;
+    this._store.setCurrentCarSlection(carSelection);
+    this.router.navigate(['/questionaire']);
   }
 }

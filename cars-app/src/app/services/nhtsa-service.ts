@@ -46,6 +46,7 @@ export class NHTSAService {
   }
 
   getTrim(year: Number, make: string, model: string): Observable<string[]> {
+    console.log(model);
     return this.http.get<string[]>(
       environment.apiURL + getAlltrim_URL(year, make, model)
     );

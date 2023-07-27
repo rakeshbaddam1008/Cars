@@ -15,8 +15,8 @@ body {
 .mat-step-text-label {
   text-overflow: ellipsis;
   overflow: hidden;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 599;
+  font-size: 20px;
 }
 .required--before::before {
   content: "*";

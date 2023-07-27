@@ -34,6 +34,9 @@ export class SellCarStoreService {
   //   return this._todos.getValue();
   // }
 
+  setCurrentCarSlection(carSelection: IVechileModelDetails) {
+    this.sellerCompleteDetails.carDetails = carSelection;
+  }
   loadSellerDetails() {
     this.sellerCompleteDetails.carDetails = new IVechileModelDetails();
 
