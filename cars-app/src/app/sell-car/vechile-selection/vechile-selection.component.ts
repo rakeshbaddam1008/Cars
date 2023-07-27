@@ -66,11 +66,11 @@ export class VechileSelectionComponent {
     this.trimList = of([]);
   }
 
-  modelSelectionChange() {
+  modelSelectionChange(e: any) {
     this.trimList = this._service.getTrim(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990,
       this.manualVechileSelectionForm.value.selectedMake ?? '',
-      this.manualVechileSelectionForm.value.selectedModel ?? ''
+      e?.value ?? this.manualVechileSelectionForm.value.selectedModel ?? ''
     );
   }
   selectedTrim: string = '';
