@@ -121,25 +121,33 @@
 
   <mat-card class="question-card ml-auto mr-auto">
     <mat-card-content>
-      <label class="content-title" id="example-radio-group-label"
-        >Noticeable Dings/Dents/Scratches on your {{ selectedMake }} ?
-      </label>
-      <mat-radio-group
-        aria-labelledby="example-radio-group-label"
-        class="example-radio-group"
-        [(ngModel)]="
-          vechileCondition.externalConditions.NoticeableDingsDentsScratches
-        "
-      >
-        <mat-radio-button
-          class="example-radio-button"
-          name="Question.name"
-          *ngFor="let option of BodyNoticableDentsScratcheOptions"
-          [value]="option"
+      <div class="row">
+        <div
+          class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center"
         >
-          {{ option }}
-        </mat-radio-button>
-      </mat-radio-group>
+          <label class="content-title" id="example-radio-group-label"
+            >Noticeable Dings/Dents/Scratches on your {{ selectedMake }} ?
+          </label>
+        </div>
+        <div class="col-6 d-flex align-items-center">
+          <mat-radio-group
+            aria-labelledby="example-radio-group-label"
+            class="example-radio-group"
+            [(ngModel)]="
+              vechileCondition.externalConditions.NoticeableDingsDentsScratches
+            "
+          >
+            <mat-radio-button
+              class="example-radio-button"
+              name="Question.name"
+              *ngFor="let option of BodyNoticableDentsScratcheOptions"
+              [value]="option"
+            >
+              {{ option }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
       <!-- <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
