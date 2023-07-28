@@ -57,6 +57,7 @@ export class VechileSelectionComponent {
     this.yearSelected?.setValue(e?.value, {
       emitEvent: true,
     });
+    this.makesList = of([]);
 
     this.makesList = this._service.getMakes(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990
