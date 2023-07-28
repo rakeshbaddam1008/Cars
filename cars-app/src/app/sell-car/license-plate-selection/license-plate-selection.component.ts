@@ -35,7 +35,7 @@ export class LicensePlateSelectionComponent implements OnInit {
   ) {
     this._dataService.getUSStates().subscribe(
       (res) => {
-        console.log(res)
+        console.log(res);
         this.states = res;
         // this.filteredOptions = of(this.states);
       },
@@ -61,7 +61,10 @@ export class LicensePlateSelectionComponent implements OnInit {
 
   //Handle Errors if we submit
   onSubmit(): void {
-    if (!this.licensePlateSelection.valid) {
+    if (
+      !this.licensePlateSelection.controls.licensePlate.valid &&
+      !this.myStateControl.value
+    ) {
       return;
     }
     // this.getErrorMessage()

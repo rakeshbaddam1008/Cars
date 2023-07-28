@@ -64,8 +64,6 @@
           >
             {{
               " " +
-                selectVechileDetails?.year +
-                " " +
                 selectVechileDetails?.make +
                 " " +
                 selectVechileDetails?.model
@@ -102,37 +100,17 @@
                 ></span
               ></span
             >
-            <span class="vehica-car-card-row__secondary-attribute"
-              ><span class="vehica-car-card-row__secondary-attribute__value"
-                ><span>LED headlights</span>
-                <span class="vehica-car-card-row__secondary-attribute__comma"
-                  >,</span
-                ></span
-              ></span
-            >
-            <span class="vehica-car-card-row__secondary-attribute"
-              ><span class="vehica-car-card-row__secondary-attribute__value"
-                ><span>Navigation System</span>
-                <span class="vehica-car-card-row__secondary-attribute__comma"
-                  >,</span
-                ></span
-              ></span
-            >
-            <span class="vehica-car-card-row__secondary-attribute"
-              ><span class="vehica-car-card-row__secondary-attribute__value"
-                ><span>Reversing camera</span>
-                <span class="vehica-car-card-row__secondary-attribute__comma"
-                  >,</span
-                ></span
-              ></span
-            >
           </div>
           <div class="vehica-car-card__info">
             <div class="vehica-car-card__info__single">
-              <i class="fas fa-circle"></i> <span>2017</span>
+              <i class="fas fa-circle"></i>
+              <span>{{ selectVechileDetails?.year }}</span>
             </div>
             <div class="vehica-car-card__info__single">
-              <i class="fas fa-circle"></i> <span>210,000 miles</span>
+              <i class="fas fa-circle"></i>
+              <span
+                >{{ this.sellerDetails?.vehicleDetails?.mileage }} miles</span
+              >
             </div>
             <!-- <div class="vehica-car-card__info__single">
               <i class="fas fa-circle"></i> <span>Manual</span>
@@ -148,32 +126,40 @@
             <span class="vehica-car-card-row__info-more__label">
               Location: </span
             ><span class="vehica-car-card-row__info-more__value">
-              Nashville, TN, USA
+              {{ this.sellerDetails?.vehicleDetails?.zipCode }}
             </span>
           </div>
 
           <div class="container mt-5">
-            <div class="row ">
+            <div class="row">
               <!-- <div class="float-left">
                 <div class="vehica-car-card-row__favorite ">
                   <i class="far fa-star"></i>
                 </div>
               </div> -->
-              <div class="vehica-car-card-row__price-desktop ">$14,900</div>
-              <div class="vehica-car-card-row__calculate ">
+              <div class="vehica-car-card-row__price-desktop">
+                {{ offerPrice | currency }}
+              </div>
+              <div class="vehica-car-card-row__calculate">
                 <a title="" target="_blank"><span>Best Deal</span></a>
               </div>
             </div>
           </div>
           <div class="row mt-5">
             <div class="col">
-              <button type="button" class="btn float-left btn-success offer-btn">
+              <button
+                type="button"
+                class="btn float-left btn-success offer-btn"
+              >
                 <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer
               </button>
             </div>
             <div class="col">
-              <button type="button" class="btn  float-right btn-danger offer-btn">
-                <mat-icon>thumb_down</mat-icon> &nbsp; Reject 
+              <button
+                type="button"
+                class="btn float-right btn-danger offer-btn"
+              >
+                <mat-icon>thumb_down</mat-icon> &nbsp; Reject
               </button>
             </div>
           </div>
