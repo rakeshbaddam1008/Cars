@@ -13,9 +13,13 @@
   font-weight: 600;
 }
 
-.question-label:after {
-  /* content: ":"; */
+.question-slider {
+  align-items: center;
+  float: right;
+  color: white;
 }
+
+
 
 .question-value {
   font-size: 15px;
