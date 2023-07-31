@@ -14,7 +14,7 @@
           <label class="content-title" id="example-radio-group-label">Title?</label>
           &nbsp; &nbsp;
         </div>
-        <div class="col-6 d-flex align-items-center">
+        <div class="col-6 d-flex align-items-center justify-content-end">
           <mat-radio-group
             aria-labelledby="example-radio-group-label"
             class="example-radio-group"
@@ -81,7 +81,19 @@
 
             &nbsp; &nbsp;
           </div>
-          <div class="col-6 d-flex align-items-center">
+          <div class="col-6 d-flex align-items-center justify-content-end">
+            <ui-switch
+          uncheckedLabel="No"
+          checkedLabel="Yes"
+          size="medium"
+          [ngStyle]="{
+            color: vechileQuestionaire.carLoan ? 'white' : 'black'
+          }"
+          [(ngModel)]="vechileQuestionaire.carLoan"
+        ></ui-switch>
+          </div>
+          
+          <!-- <div class="col-6 d-flex align-items-center">
             <mat-radio-group
               aria-labelledby="example-radio-group-label"
               class="example-radio-group"
@@ -90,7 +102,7 @@
               <mat-radio-button [value]="true">yes</mat-radio-button>
               <mat-radio-button [value]="false">no</mat-radio-button>
             </mat-radio-group>
-          </div>
+          </div> -->
         </div>
       </mat-card-content>
     </mat-card>
@@ -102,7 +114,7 @@
             <label class="content-title" id="example-radio-group-label">Mileage?</label>
             &nbsp; &nbsp;
           </div>
-          <div class="col-6 d-flex align-items-center;">
+          <div class="col-6 d-flex align-items-center justify-content-end">
             <mat-form-field appearance="outline" class="question-form-control">
               <input
                 matInput
@@ -124,7 +136,7 @@
             </label>
             &nbsp; &nbsp;
           </div>
-          <div class="col-6 d-flex align-items-center">
+          <div class="col-6 d-flex align-items-center justify-content-end">
             <mat-form-field appearance="outline" class="question-form-control">
               <mat-select
                 [(ngModel)]="vechileQuestionaire.color"
@@ -152,7 +164,7 @@
             >
             &nbsp; &nbsp;
           </div>
-          <div class="col-6 d-flex align-items-center">
+          <div class="col-6 d-flex align-items-center justify-content-end">
             <mat-form-field appearance="outline" class="question-form-control">
               <input
                 matInput
@@ -174,7 +186,7 @@
             </label>
             &nbsp; &nbsp;
           </div>
-          <div class="col-6 d-flex align-items-center">
+          <div class="col-6 d-flex align-items-center justify-content-end">
             <mat-radio-group
               aria-labelledby="example-radio-group-label"
               class="example-radio-group"

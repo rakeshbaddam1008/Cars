@@ -22,6 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import {
   MatBottomSheet,
@@ -54,7 +55,8 @@ import {
     MatSlideToggleModule,
     MatAutocompleteModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   exports: [
     MatTabsModule,
@@ -79,7 +81,8 @@ import {
     MatSlideToggleModule,
     MatAutocompleteModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule,
   ],
 })
 export class MaterialModule {}
