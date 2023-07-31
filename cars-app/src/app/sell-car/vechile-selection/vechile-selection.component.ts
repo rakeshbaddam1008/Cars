@@ -66,7 +66,7 @@ export class VechileSelectionComponent {
     this.trimList = of([]);
   }
 
-  groupBy(list: Imake[], key: string): Map<string, Array<any>> {
+  groupBy(list: any[], key: string): Map<string, Array<any>> {
     let map = new Map();
     list.map((val) => {
       if (!map.has(val[key])) {

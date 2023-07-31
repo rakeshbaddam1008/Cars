@@ -37,6 +37,7 @@ import { YesNoPipe } from './pipes/yes-no.pipe';
 import { CarLoaderComponent } from './common/car-loader/car-loader.component';
 import { ContactComponent } from './common/contact/contact.component';
 import { DialogComponent } from './common/dialog/dialog.component';
+import { LoginComponent } from './common/login/login.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { DialogComponent } from './common/dialog/dialog.component';
     CarLoaderComponent,
     ContactComponent,
     DialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

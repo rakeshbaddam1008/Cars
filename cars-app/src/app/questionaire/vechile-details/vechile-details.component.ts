@@ -1,9 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
 import { CommondataSellService } from 'src/app/services/commondata-sell.service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
 import { IVechileDetailQuestionaire } from '../questionsJson';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import { ReviewService } from 'src/app/services/review.service';
@@ -19,7 +19,9 @@ export class VechileDetailsComponent {
 
   selectVechileDetails?: IVechileModelDetails;
   @Input() formData: FormData[] | undefined;
-  form: FormGroup;
+  @Output() stepOneValidated = new EventEmitter<boolean>();
+
+  
   submitted: boolean | undefined;
 
   carTransmissionTypes = ['manual', 'automatic', 'others'];
@@ -37,16 +39,23 @@ export class VechileDetailsComponent {
     'Yellow',
     'other',
   ];
-
+  vehicleDetailsFormGroup:FormGroup = new FormGroup({});
   constructor(
     public _nhtsaervice: NHTSAService,
     public _store: SellCarStoreService,
     public reviewService: ReviewService
   ) {
-    const formGroup = {};
-    this.form = new FormGroup(formGroup);
     this.vechileQuestionaire = this._store.sellerCompleteDetails.vehicleDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
+
+    this.vehicleDetailsFormGroup = new FormGroup({
+      carTitle: new FormControl(this.vechileQuestionaire.carTitle,Validators.required),
+      carLoan: new FormControl(this.vechileQuestionaire.carLoan, Validators.required),
+      mileage: new FormControl(this.vechileQuestionaire.mileage,[Validators.required]),
+      color: new FormControl(this.vechileQuestionaire?.color,Validators.required),
+      zipCode: new FormControl(this.vechileQuestionaire?.zipCode,[Validators.required, Validators.minLength(5)]),
+      vechileTransmissionType: new FormControl(this.vechileQuestionaire?.vechileTransmissionType,Validators.required),
+    });
   }
 
   radioChange(event: any) {
@@ -55,5 +64,22 @@ export class VechileDetailsComponent {
     } else {
       this.reviewService.activateContactPage = false;
     }
+  }
+  onSubmit(){
+    if(this.vehicleDetailsFormGroup.valid) {
+      this.stepOneValidated.emit(true);
+      this._store.sellerCompleteDetails.vehicleDetails = this.vechileQuestionaire
+    }else {
+      this.stepOneValidated.emit(false);
+    }
+    console.log(this.vechileQuestionaire)
+  }
+
+  ngOnInit(){
+    this.vehicleDetailsFormGroup.valueChanges.subscribe((formData) => {
+      this.vechileQuestionaire = {...formData}
+      console.log(this.vechileQuestionaire)
+      this.onSubmit()
+    })
   }
 }

@@ -7,6 +7,7 @@ import { ViewEncapsulation, Renderer2 } from '@angular/core';
 import { ReviewService } from 'src/app/services/review.service';
 import { Subject, takeUntil } from 'rxjs';
 import { MatStepper } from '@angular/material/stepper';
+import { VechileDetailsComponent } from 'src/app/questionaire/vechile-details/vechile-details.component';
 
 @Component({
   selector: 'app-car-stepper',
@@ -16,11 +17,13 @@ import { MatStepper } from '@angular/material/stepper';
 })
 export class CarStepperComponent {
   private onDestroy$: Subject<void> = new Subject<void>();
+
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
+  validator!: boolean;
   srcImages: string = '';
   images: string[] = [
     '../../../assets/images/IMG_3302.PNG',
@@ -30,6 +33,7 @@ export class CarStepperComponent {
   ];
 
   @ViewChild('stepper') private myStepper!: MatStepper;
+  @ViewChild(VechileDetailsComponent) vechileDetailsComponent!: VechileDetailsComponent;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -57,6 +61,10 @@ export class CarStepperComponent {
       const color = this.getStepIconColor(index);
       this.renderer.setStyle(headerElement, 'background-color', color);
     });
+
+    
+    
+
   }
 
   getStepIconColor(stepIndex: number): string {
@@ -82,6 +90,11 @@ export class CarStepperComponent {
     if (event.selectedIndex == 5) {
       this.srcImages = this.imageRandom();
     }
+  }
+
+  validateStepperOne(event:boolean) {
+    this.validator = event;
+    console.log(this.validator)
   }
 
   public ngOnDestroy(): void {

@@ -72,7 +72,7 @@
 }
 
 .question-card {
-  max-width: 80%;
+  max-width: 100%;
   min-width: 300px;
   margin-bottom: 25px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
@@ -89,11 +89,16 @@
   transform: none !important;
   border-radius: 50% 50% 50% !important;
   background-color: #2a9d8f !important;
+  color: white !important;
 
 }
 
 ::ng-deep .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label, .mat-accent .mat-slider-track-fill {
   background-color: #2a9d8f !important;
+  color: white !important;
+}
+::ng-deep .mdc-slider__tick-marks {
+  font-size: 50px !important;
 }
 
 .mat-mdc-slider {
@@ -102,8 +107,8 @@
   --mdc-slider-hover-handle-color: #2a9d8f;
   --mdc-slider-active-track-color: #2a9d8f;
   --mdc-slider-inactive-track-color: #2a9d8f;
-  --mdc-slider-with-tick-marks-active-container-color: #64bd63;
-  --mdc-slider-with-tick-marks-inactive-container-color: #64bd63;
+  --mdc-slider-with-tick-marks-active-container-color: #ffffff;
+  --mdc-slider-with-tick-marks-inactive-container-color: #000000;
   --mat-mdc-slider-ripple-color: #2a9d8f;
   --mat-mdc-slider-hover-ripple-color: #38b8870d;
   --mat-mdc-slider-focus-ripple-color: #38b89233;
