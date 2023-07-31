@@ -66,6 +66,19 @@ export class VechileSelectionComponent {
     this.trimList = of([]);
   }
 
+  groupBy(list: Imake[], key: string): Map<string, Array<any>> {
+    let map = new Map();
+    list.map((val) => {
+      if (!map.has(val[key])) {
+        map.set(
+          val[key],
+          list.filter((data) => data[key] == val[key])
+        );
+      }
+    });
+    return map;
+  }
+
   makeSelectionChange() {
     this.modelList = this._service.getModel(
       this.manualVechileSelectionForm.value.yearSelected,
