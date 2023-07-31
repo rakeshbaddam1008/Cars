@@ -35,9 +35,15 @@ export class LicensePlateSelectionComponent implements OnInit {
   ) {
     this._dataService.getUSStates().subscribe(
       (res) => {
+        
+
         console.log(res);
-        this.states = res;
-        // this.filteredOptions = of(this.states);
+        this.states = res.sort();
+        this.filteredOptions = this.myStateControl.valueChanges.pipe(
+          startWith(''),
+          map((value) => this._filter(value))
+        );
+
       },
       (error) => this.alertService.error(error.message)
     );
@@ -46,15 +52,12 @@ export class LicensePlateSelectionComponent implements OnInit {
     // });
   }
   ngOnInit(): void {
-    this.filteredOptions = this.myStateControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => this._filter(value))
-    );
+    
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return this.states?.filter((option) =>
+    return filterValue==''?this.states: this.states?.filter((option) =>
       option.toLowerCase().includes(filterValue)
     );
   }
