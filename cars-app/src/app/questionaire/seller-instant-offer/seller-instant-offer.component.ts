@@ -26,12 +26,18 @@ export class SellerInstantOfferComponent {
   }
 
   ngOnInit(): void {
+    
     setTimeout(() => (this.isLoading = false), 1000);
 
+   
+  }
+
+  //TODO:Move this change to service and call on review page next click.
+  ngOnChanges(){
     this.nhtsa
-      .getInstantOffer(this._store.sellerCompleteDetails)
-      .subscribe((res) => {
-        this.offerPrice = res.instant_offer_price;
-      });
+    .getInstantOffer(this._store.sellerCompleteDetails)
+    .subscribe((res) => {
+      this.offerPrice = res.instant_offer_price;
+    });
   }
 }

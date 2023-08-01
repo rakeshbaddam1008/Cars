@@ -31,7 +31,8 @@ export class LicensePlateSelectionComponent implements OnInit {
     public _sellCarService: SellCarStoreService,
     private router: Router,
     private _nhtsa: NHTSAService,
-    private alertService: AlertService
+    private alertService: AlertService,
+
   ) {
     this._dataService.getUSStates().subscribe(
       (res) => {
@@ -60,7 +61,7 @@ export class LicensePlateSelectionComponent implements OnInit {
     return filterValue==''?this.states: this.states?.filter((option) =>
       option.toLowerCase().includes(filterValue)
     );
-
+  }
   
 
   //Handle Errors if we submit
@@ -85,7 +86,9 @@ export class LicensePlateSelectionComponent implements OnInit {
           carSelection.plateNumber =
             this.licensePlateSelection.controls.licensePlate.value ?? '';
           carSelection.state = this.myStateControl.value;
-          this._sellCarService.sellerCompleteDetails.carDetails = carSelection;
+
+          this._sellCarService.setCurrentSellVechileDetails(carSelection);
+
 
           this.router.navigate(['/questionaire']);
         },

@@ -31,6 +31,7 @@ export class VinSelectionComponent {
     //this.validateVinNumber();
     if (this.getErrorMessage() == '') {
       this.isLoading = true;
+    
       this._nhtsaervice
         .getVechileDetailsByVIN(this.vin.value ?? '')
         .then((s) => {
@@ -41,7 +42,9 @@ export class VinSelectionComponent {
             trim: '',
             vin: this.vin.value ?? '',
           });
+
           this.isLoading = false;
+          
           this.router.navigate(['/questionaire']);
         })
         .catch((e) => {

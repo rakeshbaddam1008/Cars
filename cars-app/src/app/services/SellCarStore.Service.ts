@@ -34,9 +34,6 @@ export class SellCarStoreService {
   //   return this._todos.getValue();
   // }
 
-  setCurrentCarSlection(carSelection: IVechileModelDetails) {
-    this.sellerCompleteDetails.carDetails = carSelection;
-  }
   loadSellerDetails() {
     this.sellerCompleteDetails.carDetails = new IVechileModelDetails();
 
@@ -47,7 +44,12 @@ export class SellCarStoreService {
       new IVechileDetailQuestionaire();
   }
 
+  resetSelectedData(){
+    this.sellerCompleteDetails=new ISellerVechileDetails();
+  }
   setCurrentSellVechileDetails(vechileDetails: IVechileModelDetails) {
+    //To reset previous collections
+   this.resetSelectedData();
     this.sellerCompleteDetails.carDetails = vechileDetails;
   }
   // assigning a value to this.todos will push it onto the observable
