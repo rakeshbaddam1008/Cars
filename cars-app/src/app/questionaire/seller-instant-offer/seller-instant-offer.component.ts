@@ -13,7 +13,7 @@ export class SellerInstantOfferComponent {
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
   isLoading: boolean = true;
-  offerPrice: string = '19865';
+  offerPrice: number = 19865;
 
   @Input() srcImages: string = '';
 
@@ -31,7 +31,7 @@ export class SellerInstantOfferComponent {
     this.nhtsa
       .getInstantOffer(this._store.sellerCompleteDetails)
       .subscribe((res) => {
-        this.offerPrice = res;
+        this.offerPrice = res.instant_offer_price;
       });
   }
 }

@@ -34,9 +34,18 @@
             name="selectedMake"
             (selectionChange)="makeSelectionChange()"
           >
-            <mat-option *ngFor="let make of makesList | async" [value]="make">
+          <mat-optgroup style="  font-weight: bold;" *ngFor="let group of makesList|async" [label]="group.groupName"
+         >
+            <mat-option *ngFor="let make of group.makes" [value]="make">
               {{ make }}
             </mat-option>
+            </mat-optgroup>
+            <!-- <mat-optgroup *ngFor="let group of makesList|async" label="All Makes"
+            >
+               <mat-option *ngFor="let make of makesList | async" [value]="make">
+                 {{ make }}
+               </mat-option>
+               </mat-optgroup> -->
           </mat-select>
         </mat-form-field>
       </div>

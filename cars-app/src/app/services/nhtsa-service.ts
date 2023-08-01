@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DecodeVinValues } from '@shaggytools/nhtsa-api-wrapper';
-import { IVechileData, IVechileLicenseData } from '../models/IVechile';
+import { IOfferData, IVechileData, IVechileLicenseData } from '../models/IVechile';
 import { Observable, map, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
@@ -13,7 +13,7 @@ import {
   getVechileDetailssByLicenseNumberURL,
   getlocalhostURL,
 } from '../constants.ts/constants';
-import { IState } from '../models/IState';
+import { IMake, IState } from '../models/IState';
 import { ISellerVechileDetails } from '../models/ISellerVechileDetails';
 
 @Injectable({
@@ -37,6 +37,10 @@ export class NHTSAService {
 
   getMakes(year: Number): Observable<string[]> {
     return this.http.get<string[]>(environment.apiURL + getAllMakes_URL(year));
+  }
+
+  getAllMakes(year: Number): Observable<IMake[]> {
+    return this.http.get<IMake[]>(environment.apiURL + getAllMakes_URL(year));
   }
 
   getModel(year: Number, make: string): Observable<string[]> {
@@ -74,8 +78,8 @@ export class NHTSAService {
     );
   }
 
-  getInstantOffer(sellerCompleteDetails: ISellerVechileDetails) {
-    return this.http.post<string>(
+  getInstantOffer(sellerCompleteDetails: ISellerVechileDetails):Observable<IOfferData> {
+    return this.http.post<IOfferData>(
       environment.apiURL + getSellerOffer_URL(),
       sellerCompleteDetails
     );

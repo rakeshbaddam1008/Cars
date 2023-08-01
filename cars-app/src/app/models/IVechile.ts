@@ -21,3 +21,10 @@ export interface IVechileData {
   Make?: string;
   Model?: string;
 }
+
+export interface IOfferData
+{
+  "seller_id": number;
+  "vehicle_id": number;
+  "instant_offer_price": number;
+}

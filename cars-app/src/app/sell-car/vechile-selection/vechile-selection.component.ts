@@ -8,6 +8,7 @@ import {
 import { Route, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { VechileYears } from 'src/app/constants.ts/constants';
+import { IMake } from 'src/app/models/IState';
 import { IVechileModelDetails } from 'src/app/models/IVechile';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
@@ -28,7 +29,7 @@ export class VechileSelectionComponent {
   VechileRegisterationList: Number[];
   isLoading: boolean = false;
 
-  makesList: Observable<string[]>;
+  makesList: Observable<groupMakesData[]>;
   modelList: Observable<string[]>;
   trimList: Observable<string[]>;
 
@@ -59,11 +60,24 @@ export class VechileSelectionComponent {
     });
     this.makesList = of([]);
 
-    this.makesList = this._service.getMakes(
+    // this.makesList =
+     this._service.getAllMakes(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990
-    );
+    ).subscribe(s=>{
+      this.makesList =of( this.groupBy(s));
+    });
     this.modelList = of([]);
     this.trimList = of([]);
+  }
+  
+  groupBy(list: IMake[]): groupMakesData[] {
+
+    let groupData:groupMakesData[]=[];
+
+    groupData.push({groupName:"Popular",makes:list.filter(s=>s.isPopuplarmake=="Y").map(s=>s.make)} as groupMakesData);
+    groupData.push({groupName:  "All Makes", makes:list.filter(s=>s.isPopuplarmake=="N").map(s=>s.make) }as groupMakesData);
+
+    return groupData;
   }
 
   makeSelectionChange() {
@@ -104,4 +118,10 @@ export class VechileSelectionComponent {
     this._store.setCurrentCarSlection(carSelection);
     this.router.navigate(['/questionaire']);
   }
+}
+
+
+export class groupMakesData{
+  groupName!:string;
+  makes!:string[];
 }
