@@ -17,11 +17,15 @@ mat-form-field {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.2;
-  padding-bottom: 16px;
+  padding-bottom: 20px;
   padding-left: 32px;
   padding-right: 32px;
   padding-top: 16px;
+}.btn-go:hover{
+  background: linear-gradient(90deg, #022c41 -48.75%, #02a0d4 153.75%);
+  box-shadow: 2px 1px 5px #02a0d4 ;
 }
+
 .column {
   display: flex;
   flex-direction: column;

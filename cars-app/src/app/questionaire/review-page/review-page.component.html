@@ -13,7 +13,10 @@
           <div class="grow-container ">
             <a
             (click)="routeToStepperIndex(0)"
-            class="to-twitter circle-button "
+            #tooltip="matTooltip"
+            matTooltip="Vehicle Details"
+            matTooltipPosition="above"
+            class="to-twitter circle-button"
             ><mat-icon>edit</mat-icon>
           </a>
           </div>
@@ -27,7 +30,7 @@
           <div class="col-sm-12 col-md-6 text-start p-2">
             <label class="content-title mb-0">Title?</label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.vehicleDetails?.carTitle }}
+              {{ sellerCarDetails.vehicleDetails.carTitle }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
@@ -75,6 +78,9 @@
           <div class="grow-container ">
             <a
             (click)="routeToStepperIndex(1)"
+            #tooltip="matTooltip"
+            matTooltip="Vehicle Condition"
+            matTooltipPosition="above"
             class="to-twitter circle-button "
             ><mat-icon>edit</mat-icon>
           </a>
@@ -144,6 +150,9 @@
           <div class="grow-container ">
             <a
             (click)="routeToStepperIndex(2)"
+            #tooltip="matTooltip"
+            matTooltip="Vehicle Body Condition"
+            matTooltipPosition="above"
             class="to-twitter circle-button "
             ><mat-icon>edit</mat-icon>
           </a>
@@ -217,6 +226,9 @@
           <div class="grow-container ">
             <a
             (click)="routeToStepperIndex(3)"
+            #tooltip="matTooltip"
+            matTooltip="Contact Information"
+            matTooltipPosition="above"
             class="to-twitter circle-button "
             ><mat-icon>edit</mat-icon>
           </a>

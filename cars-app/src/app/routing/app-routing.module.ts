@@ -4,6 +4,7 @@ import { HomeComponent } from '../home/home.component';
 import { CarStepperComponent } from '../sell-car/car-stepper/car-stepper.component';
 import { SellCarHomeComponent } from '../sell-car/sell-car-home/sell-car-home.component';
 import { ContactComponent } from '../common/contact/contact.component';
+import { LoginComponent } from '../common/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'contact-us', component: ContactComponent},
   { path: 'sell-car', component: SellCarHomeComponent },
   { path: '', redirectTo: '/sell-car', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -26,14 +26,104 @@
       </div>
     </mat-card-content>
   </mat-card> -->
+  <div class="container">
+    <mat-card>
+      <mat-card-content style="overflow: hidden;">
+        <div class="row">
+          
+          <div class="col-sm-12 col-md-3 col-lg-3" >
+            <div class="card shadow-md">
+              <div  style="background-color: #eff0f1; border-radius: 4px;">
+                <div class="vehica-car-card__featured">
+                  <div class="vehica-car-card__featured__inner">Best Offer</div>
+                </div>
+                <img
+                    [src]="srcImages"
+                    data-sizes="auto"
+                    alt="Bentley Mulsanne 4-door sedan blue"
+                    class="lazyautosizes lazyloaded"
+                  />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-9 col-lg-9">
+            <div class="row  mb-0 mt-3">
+              <span
+                title="Bentley Mulsanne 4-door sedan blue"
+                class="vehica-car-card-row__name"
+              >
+                {{
+                  " " +
+                    selectVechileDetails?.make +
+                    " " +
+                    selectVechileDetails?.model
+                }}
+              </span>
+              <div class=" blockquote">
+                <span>Blind spot alert,</span>
+                <span>Bluetooth,</span>
+                <span>Keyless start</span>
+                  
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="display-inline-block">
+                <span class="car-make">{{ selectVechileDetails?.year }}</span>
+                <span class="h6 ml-2 text-secondary"
+                  >{{ this.sellerDetails?.vehicleDetails?.mileage }} miles</span>
+              </div>
+             
+            </div>
+            <div class="row mt-3">
+              <div style="font-weight: 400;">
+                <span class="h6 text-secondary text-danger">Location :  </span>
+                <span class="vehica-car-card-row__info-more__value">
+                  {{ this.sellerDetails?.vehicleDetails?.zipCode }}
+                </span>
+              </div>
+            </div>
+            <div class="container mt-5">
+              <div class="row text-right">
+                <div class="vehica-car-card-row__price-desktop">
+                  {{ offerPrice | currency }}
+                </div>
+                <div class="vehica-car-card-row__calculate">
+                  <a title="" target="_blank"><span>Best Deal</span></a>
+                </div>
+              </div>
 
-  <div
+              
+            </div>
+            <div class="row mt-5">
+              <div class="col-sm-6 col-md-8  col-lg-8 d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn float-left btn-success offer-btn"
+                >
+                  <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer
+                </button>
+              </div>
+              <div class="col-sm-6 col-md-4  col-lg-4 d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn float-right btn-danger offer-btn"
+                >
+                  <mat-icon>thumb_down</mat-icon> &nbsp; Reject
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- <div
     id="vehica-car-9664"
     data-id="9664"
     class="vehica-car-card-row-wrapper vehica-car"
   >
     <div class="vehica-car-card-row">
-      <!-- <a class="vehica-car-card-link"></a> -->
       <div class="vehica-car-card-row__inner">
         <div class="vehica-car-card-row__image">
           <div class="vehica-car-card__featured">
@@ -56,7 +146,6 @@
             </div>
           </div>
         </div>
-        <div><!----></div>
         <div class="vehica-car-row__content">
           <span
             title="Bentley Mulsanne 4-door sedan blue"
@@ -112,15 +201,7 @@
                 >{{ this.sellerDetails?.vehicleDetails?.mileage }} miles</span
               >
             </div>
-            <!-- <div class="vehica-car-card__info__single">
-              <i class="fas fa-circle"></i> <span>Manual</span>
-            </div>
-            <div class="vehica-car-card__info__single">
-              <i class="fas fa-circle"></i> <span>Petrol</span>
-            </div>
-            <div class="vehica-car-card__info__single">
-              <i class="fas fa-circle"></i> <span>Rear Wheel Drive</span>
-            </div> -->
+           
           </div>
           <div class="vehica-car-card-row__info-more">
             <span class="vehica-car-card-row__info-more__label">
@@ -132,11 +213,7 @@
 
           <div class="container mt-5">
             <div class="row">
-              <!-- <div class="float-left">
-                <div class="vehica-car-card-row__favorite ">
-                  <i class="far fa-star"></i>
-                </div>
-              </div> -->
+              
               <div class="vehica-car-card-row__price-desktop">
                 {{ offerPrice | currency }}
               </div>
@@ -164,36 +241,13 @@
             </div>
           </div>
         </div>
-        <!-- <div class="vehica-car-card-row__right">
-          <div>
-            <div class="vehica-car-card-row__favorite">
-              <i class="far fa-star"></i>
-            </div>
-          </div>
-          <div class="vehica-car-card-row__price-desktop">$14,900</div>
-          <div class="vehica-car-card-row__calculate">
-            <a title="" target="_blank"><span>Best Deal</span></a>
-          </div>
-        </div> -->
+        
 
         <br />
       </div>
-      <!-- <div class="row mr-10">
-        <div class="col-md-6"></div>
-        <div class="col-md-3">
-          <button type="button" class="btn btn-success offer-btn">
-            <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer
-          </button>
-        </div>
-        <div class="col-md-3">
-          <button type="button" class="btn btn-danger offer-btn">
-            <mat-icon>thumb_down</mat-icon> &nbsp; Reject
-          </button>
-        </div>
-      </div> -->
       <br />
       <br />
     </div>
     <br />
-  </div>
+  </div> -->
 </div>

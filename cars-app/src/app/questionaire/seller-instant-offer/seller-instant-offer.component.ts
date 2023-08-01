@@ -26,7 +26,7 @@ export class SellerInstantOfferComponent {
   }
 
   ngOnInit(): void {
-    setTimeout(() => (this.isLoading = false), 10000);
+    setTimeout(() => (this.isLoading = false), 1000);
 
     this.nhtsa
       .getInstantOffer(this._store.sellerCompleteDetails)

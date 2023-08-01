@@ -12,7 +12,7 @@
 <div class="car-stepper-content">
   <mat-stepper #stepper (selectionChange)="onStepChange($event)">
     <mat-step label="Vechile Details">
-      <app-vechile-details></app-vechile-details>
+      <app-vechile-details (stepOneValidated)="validateStepperOne($event)" ></app-vechile-details>
       <mat-divider></mat-divider>
       <div *ngIf="reviewService.activateContactPage" class="w-100">
         <div class="row m-0">
@@ -24,7 +24,7 @@
       <div *ngIf="!reviewService.activateContactPage" class="w-100">
         <div class="row m-0">
           <div class="col-12 d-flex m-0 mt-3 p-0">
-            <button matStepperNext class="btn ml-auto btn-next">Next</button>
+            <button matStepperNext [disabled]="!validator" class="btn ml-auto btn-next">Next</button>
           </div>
         </div>
       </div>

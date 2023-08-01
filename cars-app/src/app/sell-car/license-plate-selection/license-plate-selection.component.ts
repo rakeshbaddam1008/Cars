@@ -60,7 +60,8 @@ export class LicensePlateSelectionComponent implements OnInit {
     return filterValue==''?this.states: this.states?.filter((option) =>
       option.toLowerCase().includes(filterValue)
     );
-  }
+
+  
 
   //Handle Errors if we submit
   onSubmit(): void {
