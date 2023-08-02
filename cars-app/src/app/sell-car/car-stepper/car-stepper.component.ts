@@ -94,6 +94,7 @@ export class CarStepperComponent {
   }
 
   validateStepperOne(event: boolean) {
+
     this.validator = event;
   }
 

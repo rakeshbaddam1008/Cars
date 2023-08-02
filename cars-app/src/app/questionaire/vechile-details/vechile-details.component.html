@@ -105,8 +105,8 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
               <mat-form-field appearance="outline" class="question-form-control">
-                <input matInput type="number" maxlength="6" formControlName="mileage" required
-                  placeholder="Mileage ex. 123456" />
+                <input matInput type="number" maxlength="6" name="Mileage-field" autocomplete="doNotAutoComplete"
+                  formControlName="mileage" required placeholder="Mileage ex. 123456" />
                 <mat-error class="d-flex justify-content-end" *ngIf="vehicleDetailsFormGroup.get('mileage')?.invalid">
                   <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('required')">
                     Please provide mileage.
@@ -156,8 +156,8 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
               <mat-form-field appearance="outline" class="question-form-control">
-                <input matInput required type="number" formControlName="zipCode" maxlength="5"
-                  placeholder="Zip ex. 28213" />
+                <input matInput required type="number" name="zipcode-field" autocomplete="doNotAutoComplete"
+                  formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
                 <mat-error class="d-flex justify-content-end"
                   *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid">Please provide proper
                   Zipcode.</mat-error>

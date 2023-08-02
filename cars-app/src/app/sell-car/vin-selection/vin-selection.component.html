@@ -6,25 +6,13 @@
     <mat-grid-tile colspan="4" rowspan="1.5" style="padding-bottom: 5%">
       <mat-form-field appearance="outline" required>
         <mat-label>VIN</mat-label>
-        <input
-          matNativeControl
-          matInput
-          placeholder="Enter the 17-digit VIN"
-          maxlength="17"
-          [formControl]="vin"
-          required
-        />
-        <mat-error
-          style="z-index: 100; position: absolute"
-          *ngIf="vin.status == 'INVALID'"
-          >{{ getErrorMessage() }}</mat-error
-        >
+        <input matNativeControl matInput autocomplete="doNotAutoComplete" placeholder="Enter the 17-digit VIN"
+          name="VIN" maxlength="17" [formControl]="vin" required />
+        <mat-error style="z-index: 100; position: absolute" *ngIf="vin.status == 'INVALID'">{{ getErrorMessage()
+          }}</mat-error>
       </mat-form-field>
     </mat-grid-tile>
-    <mat-grid-tile colspan="4"
-      ><a class="mat-subtitle-2" (click)="openBottomSheet()"
-        >Where is my VIN?</a
-      >
+    <mat-grid-tile colspan="4"><a class="mat-subtitle-2" (click)="openBottomSheet()">Where is my VIN?</a>
     </mat-grid-tile>
     <mat-grid-tile colspan="4">
       <button mat-raised-button class="btn-go" color="primary" (click)="go()">
@@ -36,7 +24,7 @@
           </div>
         </div> -->
       </button>
-      
+
     </mat-grid-tile>
   </mat-grid-list>
 </form>

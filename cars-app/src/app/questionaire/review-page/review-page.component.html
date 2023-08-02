@@ -236,12 +236,12 @@
               {{ sellerCarDetails?.contact?.mobile }}
             </div>
           </div>
-          <div class="col-6 text-start p-2">
+          <!-- <div class="col-6 text-start p-2">
             <label class="content-title mb-0">Zip code</label>
             <div class="text-secondary">
               {{ sellerCarDetails?.contact?.zipCode }}
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </mat-card>
@@ -265,8 +265,8 @@
         <div class="row px-0">
           <div class="col-sm-12 checkbox">
             <div class="form-check">
-              <input class="form-check-input custom-checkbox-style col-form-label-lg" type="checkbox" [value]="checked"
-                id="defaultCheck1" />
+              <input class="form-check-input custom-checkbox-style col-form-label-lg" type="checkbox"
+                (change)="checkValue($event)" [(ngModel)]="checked" id="defaultCheck1" />
               <label class="form-check-label" for="defaultCheck1">
                 The information I provided is correct to the best of my
                 knowledge.

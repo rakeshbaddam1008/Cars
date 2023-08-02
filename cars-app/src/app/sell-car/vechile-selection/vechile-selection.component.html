@@ -20,8 +20,8 @@
         <!-- </mat-grid-tile> -->
         <!-- <mat-grid-tile colspan="2" (focusout)="validateTextField($event, 'Make')"> -->
         <mat-form-field appearance="outline">
-          <input type="text" placeholder="Select Make" aria-label="Number" matInput formControlName="selectedMake"
-            [formControl]="makelistControl" [matAutocomplete]="autoModel" required />
+          <input type="text" placeholder="Select Make" aria-label="Number" name="Make" matInput
+            formControlName="selectedMake" [formControl]="makelistControl" [matAutocomplete]="autoModel" required />
           <mat-autocomplete #autoModel="matAutocomplete" (optionSelected)="makeSelectionChange()">
             <mat-optgroup style="  font-weight: bold;" *ngFor="let group of makesList | async"
               [label]="group.groupName">

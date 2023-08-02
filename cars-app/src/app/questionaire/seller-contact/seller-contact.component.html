@@ -1,49 +1,51 @@
-<div
-  style="
+<div style="
     background-color: rgb(247, 247, 247);
     padding: 25px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
-  "
->
-  <mat-card class="question-card ml-auto mr-auto">
-    <mat-card-content>
-      <div fxLayout="column" class="seller-contact">
-        <!-- <h2>Where should we send your Instant Cash Offer?</h2> -->
-        <span class="breadcrumb" style="text-decoration: none !important"
-          >Where should we send your Instant Cash Offer?</span
-        >
+  ">
+  <form [formGroup]="contactFormGroup">
+    <mat-card class="question-card ml-auto mr-auto">
+      <mat-card-content>
+        <div fxLayout="column" class="seller-contact">
+          <!-- <h2>Where should we send your Instant Cash Offer?</h2> -->
+          <span class="breadcrumb" style="text-decoration: none !important">Where should we send your Instant Cash
+            Offer?</span>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Full Name</mat-label>
-          <input
-            matNativeControl
-            matInput
-            type="text"
-            [(ngModel)]="selectedContact.fullName"
-          />
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matNativeControl matInput name="fullName" type="text" formControlName="fullName" />
+            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('fullName')?.invalid">Please
+              provide
+              Full Name.</mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input
-            matNativeControl
-            matInput
-            type="email"
-            [(ngModel)]="selectedContact.email"
-          />
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matNativeControl name="email" matInput type="email" formControlName="email" />
+            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('email')?.invalid">
+              <span *ngIf="contactFormGroup.get('email')?.hasError('required')">
+                Email is required.
+              </span>
+              <span *ngIf="contactFormGroup.get('email')?.hasError('email')">
+                Please provide valid email.
+              </span>
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Phone Number</mat-label>
-          <input
-            matNativeControl
-            matInput
-            type="tel"
-            [(ngModel)]="selectedContact.mobile"
-          />
-        </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matNativeControl matInput name="mobile" type="tel" formControlName="mobile" />
+            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('mobile')?.invalid">
+              <span *ngIf="contactFormGroup.get('mobile')?.hasError('required')">
+                Phone Number is required.
+              </span>
+              <span *ngIf="contactFormGroup.get('mobile')?.hasError('pattern')">
+                Please provide valid phone number.
+              </span>
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="outline">
+          <!-- <mat-form-field appearance="outline">
           <mat-label>Zip Code</mat-label>
           <input
             matNativeControl
@@ -51,32 +53,27 @@
             type="number"
             [(ngModel)]="selectedContact.zipCode"
           />
-        </mat-form-field>
-        <div class="container">
-          <!-- First Row -->
-          <div class="row">
-            <div class="col-sm-12 checkbox d-flex justify-content-center">
-              <div class="form-check w-50 text-justify">
-                <input
-                  class="form-check-input custom-checkbox-style col-form-label-lg"
-                  type="checkbox"
-                  [value]="checked"
-                  id="defaultCheck1"
-                />
-                <label
-                  class="form-check-label text-justify"
-                  for="defaultCheck1"
-                >
-                  I verify that the above listed phone number is mine and I
-                  consent to receive automated and pre-recorded/artificial
-                  calls, including text messages, relating to my vehicle and my
-                  relationship with Carizma.
-                </label>
+        </mat-form-field> -->
+
+          <div class="container">
+            <!-- First Row -->
+            <div class="row">
+              <div class="col-sm-12 checkbox d-flex justify-content-center">
+                <div class="form-check w-50 text-justify">
+                  <input class="form-check-input custom-checkbox-style col-form-label-lg" type="checkbox"
+                    formControlName="checkbox" [value]="checked" id="defaultCheck1" />
+                  <label class="form-check-label text-justify" for="defaultCheck1">
+                    I verify that the above listed phone number is mine and I
+                    consent to receive automated and pre-recorded/artificial
+                    calls, including text messages, relating to my vehicle and my
+                    relationship with Carizma.
+                  </label>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </form>
 </div>
