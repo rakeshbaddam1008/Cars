@@ -51,6 +51,7 @@ export class SellerInstantOfferComponent {
   ngOnChanges() {
     this.nhtsa.getInstantOffer(this._store.sellerCompleteDetails).subscribe(
       (res) => {
+        this.currentOffer = res;
         this.offerPrice = res.instant_offer_price;
       },
       (err) => (this.offerPrice = 0)
