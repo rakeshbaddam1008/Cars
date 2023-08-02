@@ -18,6 +18,7 @@
   width: 69px;
   font-weight: bolder;
 }
+
 .btn-back {
   font: inherit;
   box-sizing: border-box;
@@ -40,6 +41,7 @@
   border-color: #757575 !important;
   cursor: pointer;
 }
+
 .btn-next {
   font: inherit;
   box-sizing: border-box;
@@ -61,4 +63,8 @@
   font-family: Arial, Helvetica, sans-serif;
   border-color: #757575 !important;
   cursor: pointer;
+}
+
+.mat-horizontal-stepper-header {
+  pointer-events: none !important;
 }

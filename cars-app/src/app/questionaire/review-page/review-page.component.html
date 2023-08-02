@@ -1,24 +1,17 @@
-<div
-  style="
+<div style="
     background-color: rgb(247, 247, 247);
     padding: 25px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
-  "
->
+  ">
   <div class="mat-card-cvr">
     <mat-card class="mat-card">
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Vehicle Details</span>
         <div class="ml-auto">
           <div class="grow-container ">
-            <a
-            (click)="routeToStepperIndex(0)"
-            #tooltip="matTooltip"
-            matTooltip="Vehicle Details"
-            matTooltipPosition="above"
-            class="to-twitter circle-button"
-            ><mat-icon>edit</mat-icon>
-          </a>
+            <a (click)="routeToStepperIndex(0)" #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above"
+              class="to-twitter circle-button"><mat-icon>edit</mat-icon>
+            </a>
           </div>
         </div>
       </div>
@@ -76,17 +69,12 @@
         <span class="breadcrumb">Vehicle Condition</span>
         <div class="ml-auto">
           <div class="grow-container ">
-            <a
-            (click)="routeToStepperIndex(1)"
-            #tooltip="matTooltip"
-            matTooltip="Vehicle Condition"
-            matTooltipPosition="above"
-            class="to-twitter circle-button "
-            ><mat-icon>edit</mat-icon>
-          </a>
+            <a (click)="routeToStepperIndex(1)" #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above"
+              class="to-twitter circle-button "><mat-icon>edit</mat-icon>
+            </a>
           </div>
         </div>
-        
+
       </div>
 
       <div class="container">
@@ -99,8 +87,8 @@
             </label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.externalConditions
-                  ?.doesAllCarWheelInflated | yesNo
+              sellerCarDetails?.vehicleCondition?.externalConditions
+              ?.doesAllCarWheelInflated | yesNo
               }}
             </div>
           </div>
@@ -110,8 +98,8 @@
             </label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.externalConditions
-                  ?.doesAllGlassorLightCracked | yesNo
+              sellerCarDetails?.vehicleCondition?.externalConditions
+              ?.doesAllGlassorLightCracked | yesNo
               }}
             </div>
           </div>
@@ -119,8 +107,8 @@
             <label class="content-title mb-0">Does it have any body damage?</label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.externalConditions
-                  ?.doesBodyDamage | yesNo
+              sellerCarDetails?.vehicleCondition?.externalConditions
+              ?.doesBodyDamage | yesNo
               }}
             </div>
           </div>
@@ -128,8 +116,8 @@
             <label class="content-title mb-0">Severity of Body Damages?</label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.externalConditions
-                  ?.doesBodyDamageSeverity
+              sellerCarDetails?.vehicleCondition?.externalConditions
+              ?.doesBodyDamageSeverity
               }}
             </div>
           </div>
@@ -148,14 +136,9 @@
         <span class="breadcrumb">Vehicle Body Condition</span>
         <div class="ml-auto">
           <div class="grow-container ">
-            <a
-            (click)="routeToStepperIndex(2)"
-            #tooltip="matTooltip"
-            matTooltip="Vehicle Body Condition"
-            matTooltipPosition="above"
-            class="to-twitter circle-button "
-            ><mat-icon>edit</mat-icon>
-          </a>
+            <a (click)="routeToStepperIndex(2)" #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above"
+              class="to-twitter circle-button "><mat-icon>edit</mat-icon>
+            </a>
           </div>
         </div>
       </div>
@@ -170,8 +153,8 @@
             </label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.externalConditions
-                  ?.NoticeableDingsDentsScratches | yesNo
+              sellerCarDetails?.vehicleCondition?.externalConditions
+              ?.NoticeableDingsDentsScratches | yesNo
               }}
             </div>
           </div>
@@ -179,8 +162,8 @@
             <label class="content-title mb-0">Body panels intact?</label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.externalConditions
-                  ?.doesBodyPanelIntact | yesNo
+              sellerCarDetails?.vehicleCondition?.externalConditions
+              ?.doesBodyPanelIntact | yesNo
               }}
             </div>
           </div>
@@ -188,8 +171,8 @@
             <label class="content-title mb-0">Are the airbags deployed or missing?</label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.externalConditions
-                  ?.doesAirbagsDeployedOrMissing | yesNo
+              sellerCarDetails?.vehicleCondition?.externalConditions
+              ?.doesAirbagsDeployedOrMissing | yesNo
               }}
             </div>
           </div>
@@ -199,8 +182,8 @@
             </label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.externalConditions
-                  ?.DoesCarSufferedFloodorFireDamage | yesNo
+              sellerCarDetails?.vehicleCondition?.externalConditions
+              ?.DoesCarSufferedFloodorFireDamage | yesNo
               }}
             </div>
           </div>
@@ -210,7 +193,7 @@
             </label>
             <div class="text-secondary">
               {{
-                sellerCarDetails?.vehicleCondition?.DoesInteriorIntact | yesNo
+              sellerCarDetails?.vehicleCondition?.DoesInteriorIntact | yesNo
               }}
             </div>
           </div>
@@ -224,18 +207,13 @@
         <span class="breadcrumb">Contact Information</span>
         <div class="ml-auto">
           <div class="grow-container ">
-            <a
-            (click)="routeToStepperIndex(3)"
-            #tooltip="matTooltip"
-            matTooltip="Contact Information"
-            matTooltipPosition="above"
-            class="to-twitter circle-button "
-            ><mat-icon>edit</mat-icon>
-          </a>
+            <a (click)="routeToStepperIndex(3)" #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above"
+              class="to-twitter circle-button "><mat-icon>edit</mat-icon>
+            </a>
           </div>
         </div>
-        
-        
+
+
       </div>
 
       <div class="container">
@@ -280,23 +258,15 @@
               condition of the vehicle does not meet the description of the
               vehicle provided. Offer is valid for seven days or 500 miles
               whichever comes first. By clicking submit I hereby accept all
-              <a
-                class="text-danger font-weight-bold"
-                style="text-decoration: none"
-                >terms and conditions.</a
-              >
+              <a class="text-danger font-weight-bold" style="text-decoration: none">terms and conditions.</a>
             </p>
           </div>
         </div>
         <div class="row px-0">
           <div class="col-sm-12 checkbox">
             <div class="form-check">
-              <input
-                class="form-check-input custom-checkbox-style col-form-label-lg"
-                type="checkbox"
-                [value]="checked"
-                id="defaultCheck1"
-              />
+              <input class="form-check-input custom-checkbox-style col-form-label-lg" type="checkbox" [value]="checked"
+                id="defaultCheck1" />
               <label class="form-check-label" for="defaultCheck1">
                 The information I provided is correct to the best of my
                 knowledge.

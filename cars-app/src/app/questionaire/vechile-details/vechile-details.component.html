@@ -1,50 +1,40 @@
-<div
-  style="
+<div style="
     background-color: rgb(247, 247, 247);
     padding: 25px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
-  "
->
-<form [formGroup]="vehicleDetailsFormGroup" (submit)="onSubmit()">
-  <mat-card class="question-card ml-auto mr-auto">
-    <mat-card-content>
-      
-      <div class="row">
-        <div
-          class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center"
-        >
-          <label class="content-title mb-0" id="example-radio-group-label">Title?</label>
-          &nbsp; &nbsp;
-          
+  ">
+  <form [formGroup]="vehicleDetailsFormGroup" (submit)="onSubmit()">
+    <mat-card class="question-card ml-auto mr-auto">
+      <mat-card-content>
+
+        <div class="row">
+          <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+            <label class="content-title mb-0" id="example-radio-group-label">Title?</label>
+            &nbsp; &nbsp;
+
+          </div>
+
+          <div class="col-6 d-flex align-items-center justify-content-end">
+            <mat-radio-group aria-labelledby="example-radio-group-label" required formControlName="carTitle">
+              <mat-radio-button class="example-radio-button" name="Question.name" *ngFor="let option of CarTitleOptions"
+                [value]="option" (change)="radioChange($event)">
+                {{ option }}
+              </mat-radio-button>
+            </mat-radio-group>
+
+          </div>
         </div>
-        
-        <div class="col-6 d-flex align-items-center justify-content-end">
-          <mat-radio-group
-            aria-labelledby="example-radio-group-label"
-            class="example-radio-group"
-            required
-            formControlName="carTitle"
-          >
-            <mat-radio-button
-              class="example-radio-button"
-              name="Question.name"
-              *ngFor="let option of CarTitleOptions"
-              [value]="option"
-              (change)="radioChange($event)"
-            >
-              {{ option }}
-            </mat-radio-button>
-          </mat-radio-group>
-          
-        </div>
-        <mat-error *ngIf="vehicleDetailsFormGroup.get('carTitle')?.invalid">Please select a Title.</mat-error>
-      </div>
-      <!-- <label class="content-title" id="example-radio-group-label"
+        <small all id="passwordHelp" class="text-danger d-flex justify-content-end"
+          *ngIf="vehicleDetailsFormGroup.get('carTitle')?.invalid">
+          Please select a Title.
+        </small>
+
+        <!-- <label class="content-title" id="example-radio-group-label"
         >Title?</label
       >
       &nbsp; &nbsp; -->
 
-      <!-- <mat-radio-group
+        <!-- <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
         [(ngModel)]="vechileQuestionaire.hasCarTitle"
@@ -53,8 +43,8 @@
         <mat-radio-button [value]="false">no</mat-radio-button>
       </mat-radio-group> -->
 
-      <!-- <ng-container *ngIf="vechileQuestionaire.hasCarTitle"> -->
-      <!-- <mat-radio-group
+        <!-- <ng-container *ngIf="vechileQuestionaire.hasCarTitle"> -->
+        <!-- <mat-radio-group
         aria-labelledby="example-radio-group-label"
         class="example-radio-group"
         [(ngModel)]="vechileQuestionaire.carTitle"
@@ -68,40 +58,31 @@
           {{ option }}
         </mat-radio-button>
       </mat-radio-group> -->
-      <!-- </ng-container> -->
-      <!-- <p>{{vehicleDetailsFormGroup.controls['title'].value | json}}</p> -->
-    </mat-card-content>
-  </mat-card>
-  <ng-container
-    *ngIf="
+        <!-- </ng-container> -->
+        <!-- <p>{{vehicleDetailsFormGroup.controls['title'].value | json}}</p> -->
+      </mat-card-content>
+    </mat-card>
+    <ng-container *ngIf="
       vehicleDetailsFormGroup.controls['carTitle'].value && 
       vehicleDetailsFormGroup.controls['carTitle'].value != 'No Title' 
-    "
-  > 
-    <mat-card class="question-card ml-auto mr-auto">
-      <mat-card-content>
-        <div class="row">
-          <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
-            <label class="content-title" id="example-radio-group-label"
-              >Do you currently have a loan on your
-              {{ selectVechileDetails?.make }}?
-            </label>
+    ">
+      <mat-card class="question-card ml-auto mr-auto">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+              <label class="content-title" id="example-radio-group-label">Do you currently have a loan on your
+                {{ selectVechileDetails?.make }}?
+              </label>
 
-            &nbsp; &nbsp;
-          </div>
-          <div class="col-6 d-flex align-items-center justify-content-end">
-            <ui-switch
-          uncheckedLabel="No"
-          checkedLabel="Yes"
-          size="medium"
-          [ngStyle]="{
+              &nbsp; &nbsp;
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+              <ui-switch uncheckedLabel="No" checkedLabel="Yes" size="medium" [ngStyle]="{
             color: vehicleDetailsFormGroup.controls['carLoan'].value ? 'white' : 'black'
-          }"
-          formControlName="carLoan"
-        ></ui-switch>
-          </div>
-          
-          <!-- <div class="col-6 d-flex align-items-center">
+          }" formControlName="carLoan"></ui-switch>
+            </div>
+
+            <!-- <div class="col-6 d-flex align-items-center">
             <mat-radio-group
               aria-labelledby="example-radio-group-label"
               class="example-radio-group"
@@ -111,119 +92,108 @@
               <mat-radio-button [value]="false">no</mat-radio-button>
             </mat-radio-group>
           </div> -->
-        </div>
-      </mat-card-content>
-    </mat-card>
+          </div>
+        </mat-card-content>
+      </mat-card>
 
-    <mat-card class="question-card ml-auto mr-auto">
-      <mat-card-content>
-        <div class="row">
-          <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
-            <label class="content-title" id="example-radio-group-label">Mileage?</label>
-            &nbsp; &nbsp;
+      <mat-card class="question-card ml-auto mr-auto">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+              <label class="content-title" id="example-radio-group-label">Mileage?</label>
+              &nbsp; &nbsp;
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+              <mat-form-field appearance="outline" class="question-form-control">
+                <input matInput type="number" maxlength="6" formControlName="mileage" required
+                  placeholder="Mileage ex. 123456" />
+                <mat-error class="d-flex justify-content-end" *ngIf="vehicleDetailsFormGroup.get('mileage')?.invalid">
+                  <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('required')">
+                    Please provide mileage.
+                  </span>
+                  <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('max')">
+                    Mileage Should be less than 400000.
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <!-- {{vehicleDetailsFormGroup.get('mileage'). | json}} -->
           </div>
-          <div class="col-6 d-flex align-items-center justify-content-end">
-            <mat-form-field appearance="outline" class="question-form-control">
-              <input
-                matInput
-                type="number"
-                maxlength="7"
-                formControlName="mileage"
-                required
-                placeholder="Mileage ex. 123456"
-              />
-            </mat-form-field>
-          </div>
-          <mat-error *ngIf="vehicleDetailsFormGroup.get('mileage')?.invalid">Please provide mileage.</mat-error>
-        </div>
-      </mat-card-content>
-    </mat-card>
+        </mat-card-content>
+      </mat-card>
 
-    <mat-card class="question-card ml-auto mr-auto">
-      <mat-card-content>
-        <div class="row">
-          <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
-            <label class="content-title" id="example-radio-group-label"
-              >What is the color of your {{ selectVechileDetails?.make }}?
-            </label>
-            &nbsp; &nbsp;
-          </div>
-          <div class="col-6 d-flex align-items-center justify-content-end">
-            <mat-form-field appearance="outline" class="question-form-control">
-              <mat-select
-                required
-                formControlName="color"
-                placeholder="ex. Select Color"
-              >
-                <mat-option
-                  *ngFor="let option of CarColorOptions"
-                  [value]="option"
-                  >{{ option }}</mat-option
-                >
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <mat-error *ngIf="vehicleDetailsFormGroup.get('color')?.invalid">Please select color of your Car.</mat-error>
-        </div>
-      </mat-card-content>
-    </mat-card>
+      <mat-card class="question-card ml-auto mr-auto">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
+              <label class="content-title" id="example-radio-group-label">What is the color of your {{
+                selectVechileDetails?.make }}?
+              </label>
+              &nbsp; &nbsp;
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+              <mat-form-field appearance="outline" class="question-form-control">
+                <mat-select required formControlName="color" placeholder="ex. Select Color">
+                  <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{ option }}</mat-option>
+                </mat-select>
+                <mat-error class="d-flex justify-content-end"
+                  *ngIf="vehicleDetailsFormGroup.get('color')?.invalid">Please select color of your
+                  Car.</mat-error>
 
-    <mat-card class="question-card ml-auto mr-auto">
-      <mat-card-content>
-        <div class="row">
-          <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
-            <label class="content-title" id="example-radio-group-label"
-              >What is your vehicle pickup zipCode?</label
-            >
-            &nbsp; &nbsp;
-          </div>
-          <div class="col-6 d-flex align-items-center justify-content-end">
-            <mat-form-field appearance="outline" class="question-form-control">
-              <input
-                matInput
-                required
-                formControlName="zipCode"
-                maxlength="5"
-                placeholder="Zip ex. 28213"
-              />
-            </mat-form-field>
-          </div>
-          <mat-error *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid">Please provide proper Zipcode.</mat-error>
-        </div>
-      </mat-card-content>
-    </mat-card>
+              </mat-form-field>
+            </div>
 
-    <mat-card class="question-card ml-auto mr-auto">
-      <mat-card-content>
-        <div class="row">
-          <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
-            <label class="content-title" id="example-radio-group-label">
-              Vehicle transmission type?
-            </label>
-            &nbsp; &nbsp;
           </div>
-          <div class="col-6 d-flex align-items-center justify-content-end">
-            <mat-radio-group
-              aria-labelledby="example-radio-group-label"
-              class="example-radio-group"
-              required
-              formControlName="vechileTransmissionType"
-            >
-              <mat-radio-button
-                class="example-radio-button"
-                name="Question.name"
-                *ngFor="let option of carTransmissionTypes"
-                [value]="option"
-              >
-                {{ option }}
-              </mat-radio-button>
-            </mat-radio-group>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="question-card ml-auto mr-auto">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
+              <label class="content-title" id="example-radio-group-label">What is your vehicle pickup zipCode?</label>
+              &nbsp; &nbsp;
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+              <mat-form-field appearance="outline" class="question-form-control">
+                <input matInput required type="number" formControlName="zipCode" maxlength="5"
+                  placeholder="Zip ex. 28213" />
+                <mat-error class="d-flex justify-content-end"
+                  *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid">Please provide proper
+                  Zipcode.</mat-error>
+              </mat-form-field>
+            </div>
+
           </div>
-          <mat-error *ngIf="vehicleDetailsFormGroup.get('vechileTransmissionType')?.invalid">Please provide trnasmission.</mat-error>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </ng-container>
-</form>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="question-card ml-auto mr-auto">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
+              <label class="content-title" id="example-radio-group-label">
+                Vehicle transmission type?
+              </label>
+              &nbsp; &nbsp;
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end">
+              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" required
+                formControlName="vechileTransmissionType">
+                <mat-radio-button class="example-radio-button" name="Question.name"
+                  *ngFor="let option of carTransmissionTypes" [value]="option">
+                  {{ option }}
+                </mat-radio-button>
+                <mat-error class="d-flex justify-content-end"
+                  *ngIf="vehicleDetailsFormGroup.get('vechileTransmissionType')?.invalid">Please provide
+                  trnasmission.</mat-error>
+              </mat-radio-group>
+            </div>
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </form>
 </div>
 <!-- {{ vechileQuestionaire | json }} -->

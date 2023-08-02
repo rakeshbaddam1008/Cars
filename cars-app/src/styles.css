@@ -4,20 +4,24 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 .required--after::after {
   content: "*";
   color: red;
 }
+
 .mat-step-text-label {
   text-overflow: ellipsis;
   overflow: hidden;
   font-weight: 599;
   font-size: 20px;
 }
+
 .required--before::before {
   content: "*";
   color: red;
@@ -42,8 +46,13 @@ body {
 
 
 .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
-  background-color:#64bd63 !important;
+  background-color: #64bd63 !important;
 }
+
 .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
   background-color: #64bd63 !important;
+}
+
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
 }

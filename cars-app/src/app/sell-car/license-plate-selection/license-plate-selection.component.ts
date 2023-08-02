@@ -48,15 +48,15 @@ export class LicensePlateSelectionComponent implements OnInit {
     // pipe(ap((r) => r.code);
     // });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return filterValue == ''
       ? this.states
       : this.states?.filter((option) =>
-          option.toLowerCase().includes(filterValue)
-        );
+        option.toLowerCase().includes(filterValue)
+      );
   }
 
   //Handle Errors if we submit

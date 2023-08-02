@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Route, Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of, startWith } from 'rxjs';
 import { VechileYears } from 'src/app/constants.ts/constants';
 import { IMake } from 'src/app/models/IState';
 import { IVechileModelDetails } from 'src/app/models/IVechile';
@@ -28,6 +28,10 @@ export class VechileSelectionComponent {
   value = 0;
   VechileRegisterationList: Number[];
   isLoading: boolean = false;
+  makelistControl = new FormControl();
+  modelControl = new FormControl();
+  makes: groupMakesData[] = [];
+  model: string[] = [];
 
   makesList: Observable<groupMakesData[]>;
   modelList: Observable<string[]>;
@@ -59,23 +63,29 @@ export class VechileSelectionComponent {
       emitEvent: true,
     });
     this.makesList = of([]);
-
+    this.makelistControl.setValue('');
+    this.modelControl.setValue('');
     // this.makesList =
-     this._service.getAllMakes(
+    this._service.getAllMakes(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990
-    ).subscribe(s=>{
-      this.makesList =of( this.groupBy(s));
+    ).subscribe(s => {
+      this.makes = this.groupBy(s);
+
+      this.makesList = this.makelistControl.valueChanges.pipe(
+        startWith(''),
+        map((value) => this._filter(value))
+      );
     });
     this.modelList = of([]);
     this.trimList = of([]);
   }
-  
+
   groupBy(list: IMake[]): groupMakesData[] {
 
-    let groupData:groupMakesData[]=[];
+    let groupData: groupMakesData[] = [];
 
-    groupData.push({groupName:"Popular",makes:list.filter(s=>s.isPopuplarmake=="Y").map(s=>s.make)} as groupMakesData);
-    groupData.push({groupName:  "All Makes", makes:list.filter(s=>s.isPopuplarmake=="N").map(s=>s.make) }as groupMakesData);
+    groupData.push({ groupName: "Popular", makes: list.filter(s => s.isPopuplarmake == "Y").map(s => s.make) } as groupMakesData);
+    groupData.push({ groupName: "All Makes", makes: list.filter(s => s.isPopuplarmake == "N").map(s => s.make) } as groupMakesData);
 
     return groupData;
   }
@@ -94,11 +104,19 @@ export class VechileSelectionComponent {
   // }
 
   makeSelectionChange() {
-    this.modelList = this._service.getModel(
+    this.modelControl.setValue('');
+    this.trimList = of([]);
+    this._service.getModel(
       this.manualVechileSelectionForm.value.yearSelected,
       this.manualVechileSelectionForm.value.selectedMake ?? ''
-    );
-    this.trimList = of([]);
+    ).subscribe((s) => {
+      this.model = s;
+      this.modelList = this.modelControl.valueChanges.pipe(
+        startWith(''),
+        map((value) => this._filterModel(value))
+      );
+    })
+
   }
 
   modelSelectionChange(e: any) {
@@ -110,15 +128,15 @@ export class VechileSelectionComponent {
   }
   selectedTrim: string = '';
 
-  trimSelectionChange() {}
+  trimSelectionChange() { }
 
   onSubmit(): void {
     this.isLoading = true;
     setTimeout(() => (this.isLoading = false), 10000);
 
     let carSelection = new IVechileModelDetails();
-    carSelection.make = this.manualVechileSelectionForm.value.selectedMake;
-    carSelection.model = this.manualVechileSelectionForm.value.selectedModel;
+    carSelection.make = this.makelistControl.value;
+    carSelection.model = this.modelControl.value;
     carSelection.trim = this.manualVechileSelectionForm.value.selectedTrim;
     carSelection.year = this.manualVechileSelectionForm.value.yearSelected;
     //     year?: Number;
@@ -128,13 +146,49 @@ export class VechileSelectionComponent {
     // vin?: string;
     // plateNumber?: string;
     // state?: string;
+
+    console.log(carSelection)
     this._store.setCurrentSellVechileDetails(carSelection);
     this.router.navigate(['/questionaire']);
   }
+
+  validateTextField(event: any, field: string) {
+    if (field === 'Make') {
+      this.makes.map(group => {
+        if (group.makes.some(item => this.makelistControl.value.toLowerCase() === item.toLowerCase())) {
+          return;
+        } else {
+          this.makelistControl.setValue('');
+          this.modelControl.setValue('');
+        }
+      });
+
+    }
+
+  }
+
+  private _filter(value: string): groupMakesData[] {
+    const filterValue = value.toLowerCase();
+
+    return this.makes.map(group => ({
+      groupName: group.groupName,
+      makes: group.makes.filter(make => make.toLowerCase().includes(filterValue))
+    })).filter(group => group.makes.length > 0);
+  }
+
+  private _filterModel(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return filterValue == ''
+      ? this.model
+      : this.model?.filter((option) =>
+        option.toLowerCase().includes(filterValue)
+      );
+  }
+
 }
 
 
-export class groupMakesData{
-  groupName!:string;
-  makes!:string[];
+export class groupMakesData {
+  groupName!: string;
+  makes!: string[];
 }

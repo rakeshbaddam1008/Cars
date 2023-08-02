@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import { IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
@@ -6,7 +6,7 @@ import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { ViewEncapsulation, Renderer2 } from '@angular/core';
 import { ReviewService } from 'src/app/services/review.service';
 import { Subject, takeUntil } from 'rxjs';
-import { MatStepper } from '@angular/material/stepper';
+import { MatStep, MatStepper } from '@angular/material/stepper';
 import { VechileDetailsComponent } from 'src/app/questionaire/vechile-details/vechile-details.component';
 
 @Component({
@@ -32,7 +32,8 @@ export class CarStepperComponent {
     '../../../assets/images/IMG_3305.PNG',
   ];
 
-  @ViewChild('stepper') private myStepper!: MatStepper;
+  @ViewChild('stepper') public myStepper!: MatStepper;
+  @ViewChildren(MatStep) steps!: QueryList<MatStep>;
   @ViewChild(VechileDetailsComponent) vechileDetailsComponent!: VechileDetailsComponent;
 
   constructor(
@@ -61,10 +62,10 @@ export class CarStepperComponent {
       const color = this.getStepIconColor(index);
       this.renderer.setStyle(headerElement, 'background-color', color);
     });
-
-    
-    
-
+    // this.steps.forEach((step) => {
+    //   step.editable = false;
+    //   step.completed = false;
+    // });
   }
 
   getStepIconColor(stepIndex: number): string {
@@ -92,9 +93,38 @@ export class CarStepperComponent {
     }
   }
 
-  validateStepperOne(event:boolean) {
+  validateStepperOne(event: boolean) {
     this.validator = event;
-    console.log(this.validator)
+  }
+
+  nextStep(index: number) {
+    // this.steps.forEach((step, i) => {
+    //   if (index == i) {
+    //     console.log(step)
+    //     step._completedOverride = true;
+    //   }
+    // })
+    this.myStepper.next();
+    // this.disableSteppers();
+  }
+
+  prevStep(index: number) {
+    // this.steps.forEach((step, i) => {
+    //   if (index == i) {
+    //     step.editable = true;
+    //   }
+    // })
+    this.myStepper.previous();
+    // this.disableSteppers();
+  }
+
+  disableSteppers() {
+    this.myStepper._steps.forEach((step, i) => {
+
+      step.completed = false;
+      step.editable = false;
+
+    })
   }
 
   public ngOnDestroy(): void {
