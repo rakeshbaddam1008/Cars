@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
-import { IVechileModelDetails } from 'src/app/models/IVechile';
+import {
+  IOfferData,
+  IOfferStatusData,
+  IVechileModelDetails,
+} from 'src/app/models/IVechile';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
 
@@ -14,18 +18,33 @@ export class SellerInstantOfferComponent {
   selectVechileDetails?: IVechileModelDetails;
   isLoading: boolean = true;
   offerPrice: number = 0;
+  currentOffer: IOfferData | undefined;
 
   @Input() srcImages: string = '';
 
   constructor(public _store: SellCarStoreService, public nhtsa: NHTSAService) {
     this.sellerDetails = this._store.sellerCompleteDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
-
     this.sellerDetails.vehicleDetails.mileage;
   }
 
   ngOnInit(): void {
     setTimeout(() => (this.isLoading = false), 1000);
+  }
+  accept() {
+    let offer: IOfferStatusData = new IOfferStatusData();
+    offer.seller_id = this.currentOffer?.seller_id;
+    offer.vehicle_id = this.currentOffer?.vehicle_id;
+    offer.acceptance_status = 'Approve';
+    this.nhtsa.RequestOffer(offer);
+  }
+
+  reject() {
+    let offer: IOfferStatusData = new IOfferStatusData();
+    offer.seller_id = this.currentOffer?.seller_id;
+    offer.vehicle_id = this.currentOffer?.vehicle_id;
+    offer.acceptance_status = 'Reject';
+    this.nhtsa.RequestOffer(offer);
   }
 
   //TODO:Move this change to service and call on review page next click.

@@ -22,9 +22,14 @@ export interface IVechileData {
   Model?: string;
 }
 
-export interface IOfferData
-{
-  "seller_id": number;
-  "vehicle_id": number;
-  "instant_offer_price": number;
+export interface IOfferData {
+  seller_id: number;
+  vehicle_id: number;
+  instant_offer_price: number;
+}
+
+export class IOfferStatusData {
+  seller_id?: number;
+  vehicle_id?: number;
+  acceptance_status?: string;
 }

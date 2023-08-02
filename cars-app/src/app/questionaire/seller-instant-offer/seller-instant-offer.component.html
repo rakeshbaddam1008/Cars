@@ -110,6 +110,7 @@
                   <button
                     type="button"
                     class="btn float-left btn-success offer-btn"
+                    (click)="accept()"
                   >
                     <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer
                   </button>
@@ -120,6 +121,7 @@
                   <button
                     type="button"
                     class="btn float-right btn-danger offer-btn"
+                    (click)="reject()"
                   >
                     <mat-icon>thumb_down</mat-icon> &nbsp; Reject
                   </button>

@@ -254,6 +254,7 @@ export const getlocalhostURL = (registerationNumber: string, state: string) =>
 
 export const getAllState_URL = () => `/carizma/us-states-region`;
 export const getSellerOffer_URL = () => `/carizma/instant-offer`;
+export const getRequestOffer_URL = () => `/carizma/acceptance-status`;
 
 //localhost:3000/carizma/vehicle-info/make/200
 export const VechileYears: Number[] = [
