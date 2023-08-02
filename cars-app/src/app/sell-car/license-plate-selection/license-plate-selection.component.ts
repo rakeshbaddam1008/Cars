@@ -31,20 +31,16 @@ export class LicensePlateSelectionComponent implements OnInit {
     public _sellCarService: SellCarStoreService,
     private router: Router,
     private _nhtsa: NHTSAService,
-    private alertService: AlertService,
-
+    private alertService: AlertService
   ) {
     this._dataService.getUSStates().subscribe(
       (res) => {
-        
-
         console.log(res);
         this.states = res.sort();
         this.filteredOptions = this.myStateControl.valueChanges.pipe(
           startWith(''),
           map((value) => this._filter(value))
         );
-
       },
       (error) => this.alertService.error(error.message)
     );
@@ -52,17 +48,16 @@ export class LicensePlateSelectionComponent implements OnInit {
     // pipe(ap((r) => r.code);
     // });
   }
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    return filterValue==''?this.states: this.states?.filter((option) =>
-      option.toLowerCase().includes(filterValue)
-    );
+    return filterValue == ''
+      ? this.states
+      : this.states?.filter((option) =>
+          option.toLowerCase().includes(filterValue)
+        );
   }
-  
 
   //Handle Errors if we submit
   onSubmit(): void {
@@ -81,14 +76,14 @@ export class LicensePlateSelectionComponent implements OnInit {
       )
       .subscribe(
         (res) => {
-          let carSelection: IVechileModelDetails = res.licensePlateLookup;
+          let carSelection: IVechileModelDetails =
+            res.licensePlateLookup as IVechileModelDetails;
           this.isLoading = false;
           carSelection.plateNumber =
             this.licensePlateSelection.controls.licensePlate.value ?? '';
           carSelection.state = this.myStateControl.value;
 
           this._sellCarService.setCurrentSellVechileDetails(carSelection);
-
 
           this.router.navigate(['/questionaire']);
         },

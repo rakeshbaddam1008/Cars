@@ -13,12 +13,11 @@ export class SellerInstantOfferComponent {
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
   isLoading: boolean = true;
-  offerPrice: number = 19865;
+  offerPrice: number = 0;
 
   @Input() srcImages: string = '';
 
   constructor(public _store: SellCarStoreService, public nhtsa: NHTSAService) {
-    // this._store.loadSellerDetails();
     this.sellerDetails = this._store.sellerCompleteDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
 
@@ -26,18 +25,16 @@ export class SellerInstantOfferComponent {
   }
 
   ngOnInit(): void {
-    
     setTimeout(() => (this.isLoading = false), 1000);
-
-   
   }
 
   //TODO:Move this change to service and call on review page next click.
-  ngOnChanges(){
-    this.nhtsa
-    .getInstantOffer(this._store.sellerCompleteDetails)
-    .subscribe((res) => {
-      this.offerPrice = res.instant_offer_price;
-    });
+  ngOnChanges() {
+    this.nhtsa.getInstantOffer(this._store.sellerCompleteDetails).subscribe(
+      (res) => {
+        this.offerPrice = res.instant_offer_price;
+      },
+      (err) => (this.offerPrice = 0)
+    );
   }
 }
