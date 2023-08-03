@@ -114,7 +114,7 @@ export class VechileSelectionComponent {
     this._service
       .getModel(
         this.manualVechileSelectionForm.value.yearSelected,
-        this.manualVechileSelectionForm.value.selectedMake ?? ''
+        this.manualVechileSelectionForm.value.selectedMake ?? 'TOYOTA'
       )
       .subscribe((s) => {
         this.model = s;
@@ -128,8 +128,10 @@ export class VechileSelectionComponent {
   modelSelectionChange(e: any) {
     this.trimList = this._service.getTrim(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990,
-      this.manualVechileSelectionForm.value.selectedMake ?? '',
-      e?.value ?? this.manualVechileSelectionForm.value.selectedModel ?? ''
+      this.manualVechileSelectionForm.value.selectedMake ?? 'TOYOTA',
+      e?.value ??
+        this.manualVechileSelectionForm.value.selectedModel ??
+        'COROLLA'
     );
   }
   selectedTrim: string = '';
