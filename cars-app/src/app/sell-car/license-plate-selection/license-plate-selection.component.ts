@@ -48,15 +48,15 @@ export class LicensePlateSelectionComponent implements OnInit {
     // pipe(ap((r) => r.code);
     // });
   }
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     return filterValue == ''
       ? this.states
       : this.states?.filter((option) =>
-        option.toLowerCase().includes(filterValue)
-      );
+          option.toLowerCase().includes(filterValue)
+        );
   }
 
   //Handle Errors if we submit
@@ -82,6 +82,10 @@ export class LicensePlateSelectionComponent implements OnInit {
           carSelection.plateNumber =
             this.licensePlateSelection.controls.licensePlate.value ?? '';
           carSelection.state = this.myStateControl.value;
+          // carSelection.make = '';
+          // carSelection.model = '';
+          // carSelection.trim = '';
+          // carSelection.vin = '';
 
           this._sellCarService.setCurrentSellVechileDetails(carSelection);
 
