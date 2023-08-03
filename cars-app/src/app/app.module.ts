@@ -38,6 +38,7 @@ import { CarLoaderComponent } from './common/car-loader/car-loader.component';
 import { ContactComponent } from './common/contact/contact.component';
 import { DialogComponent } from './common/dialog/dialog.component';
 import { LoginComponent } from './common/login/login.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -81,8 +82,9 @@ import { LoginComponent } from './common/login/login.component';
     ReactiveFormsModule,
     HttpClientModule,
     UiSwitchModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

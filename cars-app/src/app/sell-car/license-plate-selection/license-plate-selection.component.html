@@ -32,7 +32,7 @@
 
           <input type="text" placeholder="Select State" aria-label="Number" matInput name="State"
             formControlName="selectedState" [formControl]="myStateControl" [matAutocomplete]="auto" required />
-          <mat-error *ngIf="licensePlateSelection.status == 'INVALID'">State is required</mat-error>
+          <mat-error *ngIf="myStateControl.invalid">State is required</mat-error>
 
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option">

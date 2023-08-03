@@ -42,7 +42,7 @@ export class IVechileConditionExteriorQuestionaire {
   doesAllGlassorLightCracked?: boolean = false;
   doesBodyDamage?: boolean = false;
   doesBodyDamageSeverity?: number = 1;
-  NoticeableDingsDentsScratches?: boolean = false;
+  NoticeableDingsDentsScratches?: string = '7 and more';
   doesBodyPanelIntact?: boolean = false;
   doesAirbagsDeployedOrMissing?: boolean = false;
   // Did your [Make] ever suffer flood or fire damage?

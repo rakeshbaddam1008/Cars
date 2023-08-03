@@ -34,12 +34,11 @@ export class VechileBodyConditionComponent {
   doesCarDriveEvent(event: boolean) {
     this.vechileCondition.doesCarDrive = event;
   }
-  onSliderChange(event: MatSliderChange) {
-    console.log(event.value);
-  }
-  onChangeEventBodyDamage(event : any) {
-    if(!event) {
-      this.vechileCondition.externalConditions.doesBodyDamageSeverity = 5
+
+
+  onChangeEventBodyDamage(event: any) {
+    if (!event) {
+      this.vechileCondition.externalConditions.doesBodyDamageSeverity = 1
     }
-  } 
+  }
 }

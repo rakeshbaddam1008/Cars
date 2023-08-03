@@ -19,7 +19,7 @@ export class ReviewPageComponent {
   checked: boolean = false;
   @Output() reviewPageValidated = new EventEmitter<boolean>();
 
-  reviewCheckbox!: FormControl
+  reviewCheckbox = new FormControl(null, Validators.requiredTrue)
   constructor(
     private reviewService: ReviewService,
     public _store: SellCarStoreService,
@@ -40,13 +40,18 @@ export class ReviewPageComponent {
     //   this.isLoading = false;
     //   this.alertService.error('Error Occured while fetching instance offer: ', error.message)
     // })
-
+    // this.checked = this.reviewCheckbox.value
+    // if (this.reviewCheckbox.value) {
+    //   this.checkValue(this.reviewCheckbox.value)
+    // }
+    this.reviewCheckbox.valueChanges.subscribe(check => {
+      this.checkValue(check)
+    })
 
   }
-  checkValue(event: any) {
-    console.log(event.target.value)
-    this.checked = event.target.value
-    if (this.checked === true) {
+  checkValue(value: any) {
+    this.reviewService.reviewPageStepper = value
+    if (value) {
       this.reviewPageValidated.emit(true);
     } else {
       this.reviewPageValidated.emit(false);

@@ -1,94 +1,67 @@
 <div class="conatiner">
+  <form [formGroup]="contactFormGroup">
     <mat-card class="question-card mt-5 pt-2 ml-auto mr-auto">
-        <mat-card-content>
-          <div fxLayout="column" class="seller-contact">
-            <!-- <h2>Where should we send your Instant Cash Offer?</h2> -->
-            <span class="breadcrumb" style="text-decoration: none !important"
-              >Where should we send your Instant Cash Offer?</span
-            >
-    
-            <mat-form-field class="custom-glow" appearance="outline">
-              <mat-label>Full Name</mat-label>
-              <input
-                matNativeControl
-                matInput
-                
-                type="text"
-                [(ngModel)]="selectedContact.fullName"
-              />
-            </mat-form-field>
-    
-            <mat-form-field class="custom-glow" appearance="outline">
-              <mat-label>Email</mat-label>
-              <input
-                matNativeControl
-                matInput
-                type="email"
-                [(ngModel)]="selectedContact.email"
-              />
-            </mat-form-field>
-    
-            <mat-form-field class="custom-glow" appearance="outline">
-              <mat-label>Phone Number</mat-label>
-              <input
-                matNativeControl
-                matInput
-                type="tel"
-                [(ngModel)]="selectedContact.mobile"
-              />
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
-              <mat-label>Zip Code</mat-label>
-              <input
-                matNativeControl
-                matInput
-                type="number"
-                [(ngModel)]="selectedContact.zipCode"
-              />
-            </mat-form-field>
-            <div class="container">
-              <!-- First Row -->
-              <div class="row">
-                <div class="col-sm-12 checkbox d-flex justify-content-center">
-                  <div class="form-check w-50 text-justify">
-                    <input
-                      class="form-check-input custom-checkbox-style col-form-label-lg"
-                      type="checkbox"
-                      [value]="checked"
-                      id="defaultCheck1"
-                    />
-                    <label
-                      class="form-check-label text-justify"
-                      for="defaultCheck1"
-                    >
-                      I verify that the above listed phone number is mine and I
-                      consent to receive automated and pre-recorded/artificial
-                      calls, including text messages, relating to my vehicle and my
-                      relationship with Carizma.
-                    </label>
-                  </div>
+      <mat-card-content>
+        <div fxLayout="column" class="seller-contact">
+          <!-- <h2>Where should we send your Instant Cash Offer?</h2> -->
+          <span class="breadcrumb" style="text-decoration: none !important">Where should we send your Instant Cash
+            Offer?</span>
+
+          <mat-form-field class="custom-glow" appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matNativeControl matInput formControlName="fullName" type="text" />
+          </mat-form-field>
+
+          <mat-form-field class="custom-glow" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matNativeControl matInput type="email" formControlName="email" />
+          </mat-form-field>
+
+          <mat-form-field class="custom-glow" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matNativeControl matInput type="tel" formControlName="mobile" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Zip Code</mat-label>
+            <input matNativeControl matInput type="number" formControlName="zipCode" />
+          </mat-form-field>
+          <div class="container">
+            <!-- First Row -->
+            <div class="row">
+              <div class="col-sm-12 checkbox d-flex justify-content-center">
+                <div class="form-check w-50 text-justify">
+                  <input class="form-check-input custom-checkbox-style col-form-label-lg" type="checkbox"
+                    formControlName="checkbox" id="defaultCheck1" />
+                  <label class="form-check-label text-justify" for="defaultCheck1">
+                    I verify that the above listed phone number is mine and I
+                    consent to receive automated and pre-recorded/artificial
+                    calls, including text messages, relating to my vehicle and my
+                    relationship with Carizma.
+                  </label>
                 </div>
               </div>
-            </div>
-
-            <div class="container">
-              <div class="row">
-                <div class="float-center d-flex justify-content-center">
-
-                  <button mat-raised-button class="col-4 btn-go offer-button" color="primary" (click)="openDialog()" type="submit">
-                    GET MY OFFER
-                  </button>
-                </div>
-              </div>
-              
             </div>
           </div>
 
-        
-          
-        </mat-card-content>
-        
-      </mat-card>
+          <div class="container">
+            <div class="row">
+              <div class="float-center d-flex justify-content-center">
 
+                <button mat-raised-button class="col-4 btn-go offer-button" color="primary"
+                  (click)="validateContactDetails()" type="submit">
+                  GET MY OFFER
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </mat-card-content>
+
+    </mat-card>
+  </form>
 </div>

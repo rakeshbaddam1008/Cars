@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, map, of, startWith } from 'rxjs';
 import { VechileYears } from 'src/app/constants.ts/constants';
 import { IMake } from 'src/app/models/IState';
@@ -43,7 +44,8 @@ export class VechileSelectionComponent {
   constructor(
     private _service: NHTSAService,
     public _store: SellCarStoreService,
-    public router: Router
+    public router: Router,
+    private toaster: ToastrService,
   ) {
     this.VechileRegisterationList = VechileYears;
     this.makesList = of([]);
@@ -142,6 +144,10 @@ export class VechileSelectionComponent {
   trimSelectionChange() { }
 
   onSubmit(): void {
+
+    if (this.getErrorMessage()) {
+      return;
+    }
     this.isLoading = true;
     setTimeout(() => (this.isLoading = false), 10000);
 
@@ -163,6 +169,26 @@ export class VechileSelectionComponent {
     // state?: string;
     this._store.setCurrentSellVechileDetails(carSelection);
     this.router.navigate(['/questionaire']);
+  }
+
+  getErrorMessage() {
+    let invalid: boolean = true;
+    if (this.yearSelected?.invalid) {
+      // this.toaster.error('Please Select Year', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+      return invalid;
+    } else if (this.makelistControl.invalid) {
+      // this.toaster.error('Please Select Make', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+      return invalid;
+
+    } else if (this.modelControl.invalid) {
+      // this.toaster.error('Please Select Model', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+      return invalid;
+    } else if (this.selectedTrim.invalid) {
+      // this.toaster.error('Please Select Trim', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+      return invalid;
+    } else {
+      return false;
+    }
   }
 
   validateTextField(event: any, field: string) {

@@ -8,6 +8,9 @@ import { ReviewService } from 'src/app/services/review.service';
 import { Subject, takeUntil } from 'rxjs';
 import { MatStep, MatStepper } from '@angular/material/stepper';
 import { VechileDetailsComponent } from 'src/app/questionaire/vechile-details/vechile-details.component';
+import { ToastrService } from 'ngx-toastr';
+import { IVechileDetailQuestionaire } from 'src/app/questionaire/questionsJson';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-stepper',
@@ -21,6 +24,7 @@ export class CarStepperComponent {
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
+  instantOfferAPICall: boolean = false;
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
   validator!: boolean;
@@ -40,7 +44,9 @@ export class CarStepperComponent {
     private _formBuilder: FormBuilder,
     public _store: SellCarStoreService,
     private renderer: Renderer2,
-    public reviewService: ReviewService
+    public router: Router,
+    public reviewService: ReviewService,
+    private toaster: ToastrService,
   ) {
     // this._store.loadSellerDetails();
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
@@ -99,14 +105,25 @@ export class CarStepperComponent {
   }
 
   nextStep(index: number) {
-    // this.steps.forEach((step, i) => {
-    //   if (index == i) {
-    //     console.log(step)
-    //     step._completedOverride = true;
-    //   }
-    // })
-    this.myStepper.next();
+    if (this.reviewService.conatctPageStepper && index == 3) {
+      this.validator = true;
+    } else if (this.reviewService.reviewPageStepper && index == 4) {
+      this.validator = true;
+    }
+    if (this.validator || index == 1 || index == 2) {
+      if (index == 4) {
+        this.instantOfferAPICall = true;
+      }
+      this.myStepper.next();
+      this.validator = false
+    } else {
+      this.toaster.warning('Please fill all the required Fields', 'Warning', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+    }
+
+
+
     // this.disableSteppers();
+
   }
 
   prevStep(index: number) {
@@ -116,6 +133,9 @@ export class CarStepperComponent {
     //   }
     // })
     this.myStepper.previous();
+    if (index == 4) {
+      this.instantOfferAPICall = false;
+    }
     // this.disableSteppers();
   }
 
@@ -126,6 +146,12 @@ export class CarStepperComponent {
       step.editable = false;
 
     })
+  }
+
+  setNoTittleDefaultValue() {
+    this._store.sellerCompleteDetails.vehicleDetails.color = 'other';
+    this._store.sellerCompleteDetails.vehicleDetails.mileage = 300000;
+    this.router.navigateByUrl('contact-us')
   }
 
   public ngOnDestroy(): void {

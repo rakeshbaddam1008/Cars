@@ -1,29 +1,23 @@
 <div class="car-header class.mat-elevation-z8">
   Instant Cash Offer :
   {{
-    " " +
-      selectVechileDetails?.year +
-      " " +
-      selectVechileDetails?.make +
-      " " +
-      selectVechileDetails?.model
+  " " +
+  selectVechileDetails?.year +
+  " " +
+  selectVechileDetails?.make +
+  " " +
+  selectVechileDetails?.model
   }}
 </div>
 <div class="car-stepper-content">
-  <mat-horizontal-stepper
-    #stepper
-    (selectionChange)="onStepChange($event)"
-    linear
-  >
+  <mat-horizontal-stepper #stepper (selectionChange)="onStepChange($event)" linear>
     <mat-step label="Vechile Details">
-      <app-vechile-details
-        (stepOneValidated)="validateStepperOne($event)"
-      ></app-vechile-details>
+      <app-vechile-details (stepOneValidated)="validateStepperOne($event)"></app-vechile-details>
       <mat-divider></mat-divider>
       <div *ngIf="reviewService.activateContactPage" class="w-100">
         <div class="row m-0">
           <div class="col-12 d-flex m-0 mt-3 p-0">
-            <button routerLink="/contact-us" class="btn ml-auto btn-next">
+            <button (click)="setNoTittleDefaultValue()" class="btn ml-auto btn-next">
               Next
             </button>
           </div>
@@ -75,9 +69,7 @@
     </mat-step>
 
     <mat-step label="Contact Information">
-      <app-seller-contact
-        (contactStepValidation)="validateStepperOne($event)"
-      ></app-seller-contact>
+      <app-seller-contact (contactStepValidation)="validateStepperOne($event)"></app-seller-contact>
       <!-- <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button >Next</button>
@@ -122,9 +114,7 @@
       </div>
     </mat-step>
     <mat-step label="Review">
-      <app-review-page
-        (reviewPageValidated)="validateStepperOne($event)"
-      ></app-review-page>
+      <app-review-page (reviewPageValidated)="validateStepperOne($event)"></app-review-page>
       <mat-divider></mat-divider>
       <div class="w-100">
         <div class="row m-0">
@@ -140,10 +130,17 @@
       </div>
     </mat-step>
     <mat-step label="Instant Offer">
-      <app-seller-instant-offer
-        [srcImages]="srcImages"
-      ></app-seller-instant-offer>
+      <app-seller-instant-offer [callAPI]="instantOfferAPICall" [srcImages]="srcImages"></app-seller-instant-offer>
+      <mat-divider></mat-divider>
+      <div class="w-100">
+        <div class="row m-0">
+          <div class="col-6 d-flex m-0 mt-3 p-0">
+            <button class="btn btn-back" (click)="prevStep(4)">Back</button>
+          </div>
+        </div>
+      </div>
     </mat-step>
+
 
     <!-- Icon overrides. -->
     <!-- <ng-template matStepperIcon="phone">

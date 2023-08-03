@@ -8,8 +8,11 @@
         <mat-label>VIN</mat-label>
         <input matNativeControl matInput autocomplete="doNotAutoComplete" placeholder="Enter the 17-digit VIN"
           name="VIN" maxlength="17" [formControl]="vin" required />
-        <mat-error style="z-index: 100; position: absolute" *ngIf="vin.status == 'INVALID'">{{ getErrorMessage()
-          }}</mat-error>
+        <mat-error style="z-index: 100; position: absolute" *ngIf="vin.hasError('required')"> vin is
+          required</mat-error>
+        <mat-error style="z-index: 100; position: absolute" *ngIf="vin.hasError('maxlength')">Please provide Valid
+          VIN</mat-error>
+
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile colspan="4"><a class="mat-subtitle-2" (click)="openBottomSheet()">Where is my VIN?</a>

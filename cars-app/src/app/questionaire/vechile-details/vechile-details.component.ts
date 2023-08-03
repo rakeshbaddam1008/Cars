@@ -43,7 +43,7 @@ export class VechileDetailsComponent {
   constructor(
     public _nhtsaervice: NHTSAService,
     public _store: SellCarStoreService,
-    public reviewService: ReviewService
+    public reviewService: ReviewService,
   ) {
     this.vechileQuestionaire = this._store.sellerCompleteDetails.vehicleDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
@@ -53,7 +53,7 @@ export class VechileDetailsComponent {
       carLoan: new FormControl(this.vechileQuestionaire.carLoan, Validators.required),
       mileage: new FormControl(this.vechileQuestionaire.mileage, [Validators.required, Validators.max(400000)]),
       color: new FormControl(this.vechileQuestionaire?.color, Validators.required),
-      zipCode: new FormControl(this.vechileQuestionaire?.zipCode, [Validators.required, Validators.minLength(5)]),
+      zipCode: new FormControl(this.vechileQuestionaire?.zipCode, [Validators.required, Validators.pattern(/(^\d{5}$)|(^\d{5}-\d{4}$)/)]),
       vechileTransmissionType: new FormControl(this.vechileQuestionaire?.vechileTransmissionType, Validators.required),
     });
   }

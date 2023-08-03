@@ -36,26 +36,19 @@
                 <div class="vehica-car-card__featured">
                   <div class="vehica-car-card__featured__inner">Best Offer</div>
                 </div>
-                <img
-                  [src]="srcImages"
-                  data-sizes="auto"
-                  alt="Bentley Mulsanne 4-door sedan blue"
-                  class="lazyautosizes lazyloaded"
-                />
+                <img [src]="srcImages" data-sizes="auto" alt="Bentley Mulsanne 4-door sedan blue"
+                  class="lazyautosizes lazyloaded" />
               </div>
             </div>
           </div>
           <div class="col-sm-12 col-md-9 col-lg-9">
             <div class="row mb-0 mt-3">
-              <span
-                title="Bentley Mulsanne 4-door sedan blue"
-                class="vehica-car-card-row__name"
-              >
+              <span title="Bentley Mulsanne 4-door sedan blue" class="vehica-car-card-row__name">
                 {{
-                  " " +
-                    selectVechileDetails?.make +
-                    " " +
-                    selectVechileDetails?.model
+                " " +
+                selectVechileDetails?.make +
+                " " +
+                selectVechileDetails?.model
                 }}
               </span>
               <div class="blockquote">
@@ -67,15 +60,12 @@
             <div class="row mt-3">
               <div class="display-inline-block">
                 <span class="car-make">{{ selectVechileDetails?.year }}</span>
-                <span class="h6 ml-2 text-secondary"
-                  >{{ this.sellerDetails?.vehicleDetails?.mileage }} miles</span
-                >
+                <span class="h6 ml-2 text-secondary">{{ this.sellerDetails?.vehicleDetails?.mileage }} miles</span>
               </div>
             </div>
             <div class="row mt-3">
               <div style="font-weight: 400">
-                <span class="h6 text-secondary text-danger"
-                  >Location Zip Code :
+                <span class="h6 text-secondary text-danger">Location Zip Code :
                 </span>
                 <span class="vehica-car-card-row__info-more__value">
                   {{ this.sellerDetails?.vehicleDetails?.zipCode }}
@@ -87,12 +77,12 @@
               <div class="col-12 alert alert-warning" role="alert">
                 <h2>
                   <strong>
-                    Unable to calculate the instant offer at the moment </strong
-                  >and our customer care team will reach out to you shortly.
+                    Unable to calculate the instant offer at the moment </strong>and our customer care team will reach
+                  out to you shortly.
                 </h2>
               </div>
             </ng-container>
-            <div class="container mt-5" *ngIf="offerPrice > 0">
+            <div class="container mt-5" *ngIf="offerPrice && offerPrice <= 1">
               <div class="row text-right">
                 <div class="vehica-car-card-row__price-desktop">
                   {{ offerPrice | currency }}
@@ -104,25 +94,13 @@
             </div>
             <div class="row mt-5">
               <ng-container *ngIf="offerPrice > 0">
-                <div
-                  class="col-sm-6 col-md-8 col-lg-8 d-flex justify-content-end"
-                >
-                  <button
-                    type="button"
-                    class="btn float-left btn-success offer-btn"
-                    (click)="accept()"
-                  >
+                <div class="col-sm-6 col-md-8 col-lg-8 d-flex justify-content-end">
+                  <button type="button" class="btn float-left btn-success offer-btn" (click)="accept()">
                     <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer
                   </button>
                 </div>
-                <div
-                  class="col-sm-6 col-md-4 col-lg-4 d-flex justify-content-end"
-                >
-                  <button
-                    type="button"
-                    class="btn float-right btn-danger offer-btn"
-                    (click)="reject()"
-                  >
+                <div class="col-sm-6 col-md-4 col-lg-4 d-flex justify-content-end">
+                  <button type="button" class="btn float-right btn-danger offer-btn" (click)="reject()">
                     <mat-icon>thumb_down</mat-icon> &nbsp; Reject
                   </button>
                 </div>

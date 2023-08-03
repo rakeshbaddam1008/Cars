@@ -46,7 +46,7 @@ export class SellCarStoreService {
 
   setCurrentSellVechileDetails(vechileDetails: IVechileModelDetails) {
     //To reset previous collections
-   this.loadSellerDetails();
+    this.loadSellerDetails();
     this.sellerCompleteDetails.carDetails = vechileDetails;
   }
   // assigning a value to this.todos will push it onto the observable

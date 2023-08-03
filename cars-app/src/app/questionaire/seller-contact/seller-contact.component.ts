@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { IContact } from '../questionsJson';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
   selector: 'app-seller-contact',
@@ -14,7 +15,7 @@ export class SellerContactComponent {
   @Output() contactStepValidation = new EventEmitter<boolean>();
 
   selectedContact: IContact;
-  constructor(public _store: SellCarStoreService) {
+  constructor(public _store: SellCarStoreService, public reviewService: ReviewService) {
     this.selectedContact = this._store.sellerCompleteDetails.contact;
     this.contactFormGroup = new FormGroup({
       fullName: new FormControl(
@@ -35,8 +36,8 @@ export class SellerContactComponent {
 
   onSubmit() {
     if (this.contactFormGroup.valid) {
-      this.contactStepValidation.emit(true);
       this._store.sellerCompleteDetails.contact = this.selectedContact;
+      this.contactStepValidation.emit(true);
     } else {
       this.contactStepValidation.emit(false);
     }
@@ -47,6 +48,7 @@ export class SellerContactComponent {
       this.selectedContact.email = formData.email;
       this.selectedContact.fullName = formData.fullName;
       this.selectedContact.mobile = formData.mobile;
+      this.reviewService.conatctPageStepper = formData.checkbox
       this.onSubmit();
     });
   }

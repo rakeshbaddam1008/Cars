@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import {
   IOfferData,
@@ -17,12 +18,13 @@ export class SellerInstantOfferComponent {
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
   isLoading: boolean = true;
-  offerPrice: number = 0;
+  offerPrice!: number;
   currentOffer: IOfferData | undefined;
 
   @Input() srcImages: string = '';
+  @Input() callAPI: boolean = false;
 
-  constructor(public _store: SellCarStoreService, public nhtsa: NHTSAService) {
+  constructor(public _store: SellCarStoreService, public toaster: ToastrService, public nhtsa: NHTSAService) {
     this.sellerDetails = this._store.sellerCompleteDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
     this.sellerDetails.vehicleDetails.mileage;
@@ -49,12 +51,18 @@ export class SellerInstantOfferComponent {
 
   //TODO:Move this change to service and call on review page next click.
   ngOnChanges() {
-    this.nhtsa.getInstantOffer(this._store.sellerCompleteDetails).subscribe(
-      (res) => {
-        this.currentOffer = res;
-        this.offerPrice = res.instant_offer_price;
-      },
-      (err) => (this.offerPrice = 0)
-    );
+    if (this.callAPI) {
+      this.nhtsa.getInstantOffer(this._store.sellerCompleteDetails).subscribe(
+        (res) => {
+          this.currentOffer = res;
+          this.offerPrice = res.instant_offer_price;
+        },
+        (err) => {
+          this.offerPrice = 0;
+          // this.toaster.warning('Unable to calculate the instant offer at the moment and our customer care team will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+        }
+      );
+    }
+
   }
 }
