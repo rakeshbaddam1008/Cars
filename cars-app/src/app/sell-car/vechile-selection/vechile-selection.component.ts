@@ -144,7 +144,7 @@ export class VechileSelectionComponent {
     carSelection.make = this.makelistControl.value;
     carSelection.model = this.modelControl.value;
     carSelection.trim = this.manualVechileSelectionForm.value.selectedTrim;
-    //carSelection.year = this.manualVechileSelectionForm.value.yearSelected;
+    carSelection.year = this.manualVechileSelectionForm.value.yearSelected;
 
     carSelection.plateNumber = '';
     carSelection.state = '';
