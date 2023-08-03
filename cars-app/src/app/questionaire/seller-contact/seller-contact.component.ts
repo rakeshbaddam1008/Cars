@@ -17,17 +17,26 @@ export class SellerContactComponent {
   constructor(public _store: SellCarStoreService) {
     this.selectedContact = this._store.sellerCompleteDetails.contact;
     this.contactFormGroup = new FormGroup({
-      fullName: new FormControl(this.selectedContact.fullName, Validators.required),
-      email: new FormControl(this.selectedContact.email, [Validators.required, Validators.email]),
-      mobile: new FormControl(this.selectedContact.mobile, [Validators.required, Validators.pattern(/^[0-9\-]*$/)]),
-      checkbox: new FormControl(this.checked, Validators.requiredTrue)
-    })
+      fullName: new FormControl(
+        this.selectedContact.fullName,
+        Validators.required
+      ),
+      email: new FormControl(this.selectedContact.email, [
+        Validators.required,
+        Validators.email,
+      ]),
+      mobile: new FormControl(this.selectedContact.mobile, [
+        Validators.required,
+        Validators.pattern(/^[0-9\-]*$/),
+      ]),
+      checkbox: new FormControl(this.checked, Validators.requiredTrue),
+    });
   }
 
   onSubmit() {
     if (this.contactFormGroup.valid) {
       this.contactStepValidation.emit(true);
-      this._store.sellerCompleteDetails.contact = this.selectedContact
+      this._store.sellerCompleteDetails.contact = this.selectedContact;
     } else {
       this.contactStepValidation.emit(false);
     }
@@ -36,8 +45,14 @@ export class SellerContactComponent {
   ngOnInit() {
     this.contactFormGroup.markAllAsTouched();
     this.contactFormGroup.valueChanges.subscribe((formData) => {
-      this.selectedContact = { ...formData }
-      this.onSubmit()
-    })
+      this.selectedContact.fullName =
+        this.contactFormGroup.controls['fullName'].value;
+      this.selectedContact.email =
+        this.contactFormGroup.controls['email'].value;
+      this.selectedContact.mobile =
+        this.contactFormGroup.controls['mobile'].value;
+
+      this.onSubmit();
+    });
   }
 }
