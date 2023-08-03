@@ -31,7 +31,7 @@ export class VinSelectionComponent {
     //this.validateVinNumber();
     if (this.getErrorMessage() == '') {
       this.isLoading = true;
-    
+
       this._nhtsaervice
         .getVechileDetailsByVIN(this.vin.value ?? '')
         .then((s) => {
@@ -39,12 +39,14 @@ export class VinSelectionComponent {
             make: s.Make,
             model: s.Model,
             year: parseInt(s.ModelYear),
+            state: '',
+            plateNumber: '',
             trim: '',
             vin: this.vin.value ?? '',
           });
 
           this.isLoading = false;
-          
+
           this.router.navigate(['/questionaire']);
         })
         .catch((e) => {

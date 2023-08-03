@@ -66,26 +66,31 @@ export class VechileSelectionComponent {
     this.makelistControl.setValue('');
     this.modelControl.setValue('');
     // this.makesList =
-    this._service.getAllMakes(
-      this.manualVechileSelectionForm.value.yearSelected ?? 1990
-    ).subscribe(s => {
-      this.makes = this.groupBy(s);
+    this._service
+      .getAllMakes(this.manualVechileSelectionForm.value.yearSelected ?? 1990)
+      .subscribe((s) => {
+        this.makes = this.groupBy(s);
 
-      this.makesList = this.makelistControl.valueChanges.pipe(
-        startWith(''),
-        map((value) => this._filter(value))
-      );
-    });
+        this.makesList = this.makelistControl.valueChanges.pipe(
+          startWith(''),
+          map((value) => this._filter(value))
+        );
+      });
     this.modelList = of([]);
     this.trimList = of([]);
   }
 
   groupBy(list: IMake[]): groupMakesData[] {
-
     let groupData: groupMakesData[] = [];
 
-    groupData.push({ groupName: "Popular", makes: list.filter(s => s.isPopuplarmake == "Y").map(s => s.make) } as groupMakesData);
-    groupData.push({ groupName: "All Makes", makes: list.filter(s => s.isPopuplarmake == "N").map(s => s.make) } as groupMakesData);
+    groupData.push({
+      groupName: 'Popular',
+      makes: list.filter((s) => s.isPopuplarmake == 'Y').map((s) => s.make),
+    } as groupMakesData);
+    groupData.push({
+      groupName: 'All Makes',
+      makes: list.filter((s) => s.isPopuplarmake == 'N').map((s) => s.make),
+    } as groupMakesData);
 
     return groupData;
   }
@@ -106,17 +111,18 @@ export class VechileSelectionComponent {
   makeSelectionChange() {
     this.modelControl.setValue('');
     this.trimList = of([]);
-    this._service.getModel(
-      this.manualVechileSelectionForm.value.yearSelected,
-      this.manualVechileSelectionForm.value.selectedMake ?? ''
-    ).subscribe((s) => {
-      this.model = s;
-      this.modelList = this.modelControl.valueChanges.pipe(
-        startWith(''),
-        map((value) => this._filterModel(value))
-      );
-    })
-
+    this._service
+      .getModel(
+        this.manualVechileSelectionForm.value.yearSelected,
+        this.manualVechileSelectionForm.value.selectedMake ?? ''
+      )
+      .subscribe((s) => {
+        this.model = s;
+        this.modelList = this.modelControl.valueChanges.pipe(
+          startWith(''),
+          map((value) => this._filterModel(value))
+        );
+      });
   }
 
   modelSelectionChange(e: any) {
@@ -128,7 +134,7 @@ export class VechileSelectionComponent {
   }
   selectedTrim: string = '';
 
-  trimSelectionChange() { }
+  trimSelectionChange() {}
 
   onSubmit(): void {
     this.isLoading = true;
@@ -139,6 +145,10 @@ export class VechileSelectionComponent {
     carSelection.model = this.modelControl.value;
     carSelection.trim = this.manualVechileSelectionForm.value.selectedTrim;
     carSelection.year = this.manualVechileSelectionForm.value.yearSelected;
+
+    carSelection.plateNumber = '';
+    carSelection.state = '';
+    carSelection.vin = '';
     //     year?: Number;
     // make?: string;
     // model?: string;
@@ -147,33 +157,40 @@ export class VechileSelectionComponent {
     // plateNumber?: string;
     // state?: string;
 
-    console.log(carSelection)
+    console.log(carSelection);
     this._store.setCurrentSellVechileDetails(carSelection);
     this.router.navigate(['/questionaire']);
   }
 
   validateTextField(event: any, field: string) {
     if (field === 'Make') {
-      this.makes.map(group => {
-        if (group.makes.some(item => this.makelistControl.value.toLowerCase() === item.toLowerCase())) {
+      this.makes.map((group) => {
+        if (
+          group.makes.some(
+            (item) =>
+              this.makelistControl.value.toLowerCase() === item.toLowerCase()
+          )
+        ) {
           return;
         } else {
           this.makelistControl.setValue('');
           this.modelControl.setValue('');
         }
       });
-
     }
-
   }
 
   private _filter(value: string): groupMakesData[] {
     const filterValue = value.toLowerCase();
 
-    return this.makes.map(group => ({
-      groupName: group.groupName,
-      makes: group.makes.filter(make => make.toLowerCase().includes(filterValue))
-    })).filter(group => group.makes.length > 0);
+    return this.makes
+      .map((group) => ({
+        groupName: group.groupName,
+        makes: group.makes.filter((make) =>
+          make.toLowerCase().includes(filterValue)
+        ),
+      }))
+      .filter((group) => group.makes.length > 0);
   }
 
   private _filterModel(value: string): string[] {
@@ -181,12 +198,10 @@ export class VechileSelectionComponent {
     return filterValue == ''
       ? this.model
       : this.model?.filter((option) =>
-        option.toLowerCase().includes(filterValue)
-      );
+          option.toLowerCase().includes(filterValue)
+        );
   }
-
 }
-
 
 export class groupMakesData {
   groupName!: string;
