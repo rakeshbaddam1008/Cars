@@ -1,30 +1,40 @@
 <div class="car-header class.mat-elevation-z8">
   Instant Cash Offer :
   {{
-  " " +
-  selectVechileDetails?.year +
-  " " +
-  selectVechileDetails?.make +
-  " " +
-  selectVechileDetails?.model
+    " " +
+      selectVechileDetails?.year +
+      " " +
+      selectVechileDetails?.make +
+      " " +
+      selectVechileDetails?.model
   }}
 </div>
 <div class="car-stepper-content">
-  <mat-horizontal-stepper #stepper (selectionChange)="onStepChange($event)" linear>
+  <mat-horizontal-stepper
+    #stepper
+    (selectionChange)="onStepChange($event)"
+    linear
+  >
     <mat-step label="Vechile Details">
-      <app-vechile-details (stepOneValidated)="validateStepperOne($event)"></app-vechile-details>
+      <app-vechile-details
+        (stepOneValidated)="validateStepperOne($event)"
+      ></app-vechile-details>
       <mat-divider></mat-divider>
       <div *ngIf="reviewService.activateContactPage" class="w-100">
         <div class="row m-0">
           <div class="col-12 d-flex m-0 mt-3 p-0">
-            <button routerLink="/contact-us" class="btn ml-auto btn-next">Next</button>
+            <button routerLink="/contact-us" class="btn ml-auto btn-next">
+              Next
+            </button>
           </div>
         </div>
       </div>
       <div *ngIf="!reviewService.activateContactPage" class="w-100">
         <div class="row m-0">
           <div class="col-12 d-flex m-0 mt-3 p-0">
-            <button [disabled]="!validator" (click)="nextStep(0)" class="btn ml-auto btn-next">Next</button>
+            <button (click)="nextStep(0)" class="btn ml-auto btn-next">
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -39,7 +49,9 @@
             <button class="btn btn-back" (click)="prevStep(0)">Back</button>
           </div>
           <div class="col-6 d-flex m-0 mt-3 p-0">
-            <button class="btn ml-auto btn-next" (click)="nextStep(1)">Next</button>
+            <button class="btn ml-auto btn-next" (click)="nextStep(1)">
+              Next
+            </button>
           </div>
         </div>
       </div>
@@ -54,14 +66,18 @@
             <button class="btn btn-back" (click)="prevStep(1)">Back</button>
           </div>
           <div class="col-6 d-flex m-0 mt-3 p-0">
-            <button class="btn ml-auto btn-next" (click)="nextStep(2)">Next</button>
+            <button class="btn ml-auto btn-next" (click)="nextStep(2)">
+              Next
+            </button>
           </div>
         </div>
       </div>
     </mat-step>
 
     <mat-step label="Contact Information">
-      <app-seller-contact (contactStepValidation)="validateStepperOne($event)"></app-seller-contact>
+      <app-seller-contact
+        (contactStepValidation)="validateStepperOne($event)"
+      ></app-seller-contact>
       <!-- <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button >Next</button>
@@ -98,13 +114,17 @@
             <button class="btn btn-back" (click)="prevStep(2)">Back</button>
           </div>
           <div class="col-6 d-flex m-0 mt-3 p-0">
-            <button class="btn ml-auto btn-next" [disabled]="!validator" (click)="nextStep(3)">Next</button>
+            <button class="btn ml-auto btn-next" (click)="nextStep(3)">
+              Next
+            </button>
           </div>
         </div>
       </div>
     </mat-step>
     <mat-step label="Review">
-      <app-review-page (reviewPageValidated)="validateStepperOne($event)"></app-review-page>
+      <app-review-page
+        (reviewPageValidated)="validateStepperOne($event)"
+      ></app-review-page>
       <mat-divider></mat-divider>
       <div class="w-100">
         <div class="row m-0">
@@ -112,13 +132,17 @@
             <button class="btn btn-back" (click)="prevStep(3)">Back</button>
           </div>
           <div class="col-6 d-flex m-0 mt-3 p-0">
-            <button class="btn ml-auto btn-next" [disabled]="!validator" (click)="nextStep(4)">Next</button>
+            <button class="btn ml-auto btn-next" (click)="nextStep(4)">
+              Next
+            </button>
           </div>
         </div>
       </div>
     </mat-step>
     <mat-step label="Instant Offer">
-      <app-seller-instant-offer [srcImages]="srcImages"></app-seller-instant-offer>
+      <app-seller-instant-offer
+        [srcImages]="srcImages"
+      ></app-seller-instant-offer>
     </mat-step>
 
     <!-- Icon overrides. -->
