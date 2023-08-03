@@ -43,15 +43,10 @@ export class SellerContactComponent {
   }
 
   ngOnInit() {
-    this.contactFormGroup.markAllAsTouched();
     this.contactFormGroup.valueChanges.subscribe((formData) => {
-      this.selectedContact.fullName =
-        this.contactFormGroup.controls['fullName'].value;
-      this.selectedContact.email =
-        this.contactFormGroup.controls['email'].value;
-      this.selectedContact.mobile =
-        this.contactFormGroup.controls['mobile'].value;
-
+      this.selectedContact.email = formData.email;
+      this.selectedContact.fullName = formData.fullName;
+      this.selectedContact.mobile = formData.mobile;
       this.onSubmit();
     });
   }

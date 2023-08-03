@@ -22,7 +22,7 @@
         <mat-form-field appearance="outline">
           <input type="text" placeholder="Select Make" aria-label="Number" name="Make" matInput
             formControlName="selectedMake" [formControl]="makelistControl" [matAutocomplete]="autoModel" required />
-          <mat-autocomplete #autoModel="matAutocomplete" (optionSelected)="makeSelectionChange()">
+          <mat-autocomplete #autoModel="matAutocomplete" (optionSelected)="makeSelectionChange($event)">
             <mat-optgroup style="  font-weight: bold;" *ngFor="let group of makesList | async"
               [label]="group.groupName">
               <mat-option *ngFor="let make of group.makes" [value]="make">
@@ -76,7 +76,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Trim</mat-label>
 
-          <mat-select matNativeControl formControlNameame="selectedStyle" name="trim"
+          <mat-select matNativeControl [formControl]="selectedTrim" name="trim"
             (selectionChange)="trimSelectionChange()">
             <mat-option *ngFor="let trim of trimList | async" [value]="trim">
               {{ trim }}

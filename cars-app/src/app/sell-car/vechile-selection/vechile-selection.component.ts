@@ -30,6 +30,7 @@ export class VechileSelectionComponent {
   isLoading: boolean = false;
   makelistControl = new FormControl();
   modelControl = new FormControl();
+  selectedTrim = new FormControl();
   makes: groupMakesData[] = [];
   model: string[] = [];
 
@@ -108,9 +109,11 @@ export class VechileSelectionComponent {
   //   return map;
   // }
 
-  makeSelectionChange() {
+  makeSelectionChange(event: any) {
     this.modelControl.setValue('');
     this.trimList = of([]);
+
+    this.manualVechileSelectionForm.controls['selectedMake'].setValue(this.makelistControl.value)
     this._service
       .getModel(
         this.manualVechileSelectionForm.value.yearSelected,
@@ -126,17 +129,17 @@ export class VechileSelectionComponent {
   }
 
   modelSelectionChange(e: any) {
+    this.manualVechileSelectionForm.controls['selectedModel'].setValue(this.modelControl.value)
+
     this.trimList = this._service.getTrim(
       this.manualVechileSelectionForm.value.yearSelected ?? 1990,
-      this.manualVechileSelectionForm.value.selectedMake ?? 'TOYOTA',
-      e?.value ??
-        this.manualVechileSelectionForm.value.selectedModel ??
-        'COROLLA'
+      this.makelistControl.value ?? 'TOYOTA',
+      this.modelControl.value ??
+      'COROLLA'
     );
   }
-  selectedTrim: string = '';
 
-  trimSelectionChange() {}
+  trimSelectionChange() { }
 
   onSubmit(): void {
     this.isLoading = true;
@@ -145,7 +148,7 @@ export class VechileSelectionComponent {
     let carSelection = new IVechileModelDetails();
     carSelection.make = this.makelistControl.value;
     carSelection.model = this.modelControl.value;
-    carSelection.trim = this.manualVechileSelectionForm.value.selectedTrim;
+    carSelection.trim = this.selectedTrim.value;
     carSelection.year = this.manualVechileSelectionForm.value.yearSelected;
 
     carSelection.plateNumber = '';
@@ -158,8 +161,6 @@ export class VechileSelectionComponent {
     // vin?: string;
     // plateNumber?: string;
     // state?: string;
-
-    console.log(carSelection);
     this._store.setCurrentSellVechileDetails(carSelection);
     this.router.navigate(['/questionaire']);
   }
@@ -200,8 +201,8 @@ export class VechileSelectionComponent {
     return filterValue == ''
       ? this.model
       : this.model?.filter((option) =>
-          option.toLowerCase().includes(filterValue)
-        );
+        option.toLowerCase().includes(filterValue)
+      );
   }
 }
 

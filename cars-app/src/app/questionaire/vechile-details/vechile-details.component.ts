@@ -75,7 +75,6 @@ export class VechileDetailsComponent {
   }
 
   ngOnInit() {
-    this.vehicleDetailsFormGroup.markAllAsTouched();
     this.vehicleDetailsFormGroup.valueChanges.subscribe((formData) => {
       this.vechileQuestionaire = { ...formData }
       this.onSubmit()
