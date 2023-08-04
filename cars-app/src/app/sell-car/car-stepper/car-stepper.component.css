@@ -65,6 +65,14 @@
   cursor: pointer;
 }
 
+.btn-next:hover {
+  box-shadow: 2px 5px 4px #767676;
+}
+
+.btn-back:hover {
+  box-shadow: 2px 5px 4px #767676;
+}
+
 .mat-horizontal-stepper-header {
   pointer-events: none !important;
 }

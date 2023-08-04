@@ -1,5 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { DialogComponent } from 'src/app/common/dialog/dialog.component';
+import { contact_title, conatc_message, accept_title, accept_message } from 'src/app/constants.ts/constants';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import {
   IOfferData,
@@ -8,6 +12,7 @@ import {
 } from 'src/app/models/IVechile';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
+import { ReviewService } from 'src/app/services/review.service';
 
 @Component({
   selector: 'app-seller-instant-offer',
@@ -17,7 +22,7 @@ import { NHTSAService } from 'src/app/services/nhtsa-service';
 export class SellerInstantOfferComponent {
   sellerDetails: ISellerVechileDetails | undefined;
   selectVechileDetails?: IVechileModelDetails;
-  isLoading: boolean = true;
+  isLoading: boolean = false;
   offerPrice!: number;
   currentOffer: IOfferData | undefined;
 
@@ -27,7 +32,10 @@ export class SellerInstantOfferComponent {
   constructor(
     public _store: SellCarStoreService,
     public toaster: ToastrService,
-    public nhtsa: NHTSAService
+    public nhtsa: NHTSAService,
+    public reviewService: ReviewService,
+    public dialog: MatDialog,
+    public router: Router
   ) {
     this.sellerDetails = this._store.sellerCompleteDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
@@ -35,41 +43,74 @@ export class SellerInstantOfferComponent {
   }
 
   ngOnInit(): void {
-    setTimeout(() => (this.isLoading = false), 1000);
+
   }
   accept() {
+    this.isLoading = true;
     let offer: IOfferStatusData = new IOfferStatusData();
-    offer.seller_id = this.currentOffer?.seller_id;
-    offer.vehicle_id = this.currentOffer?.vehicle_id;
+    offer.seller_id = this.reviewService.currentOffer?.seller_id;
+    offer.vehicle_id = this.reviewService.currentOffer?.vehicle_id;
     offer.acceptance_status = 'Approve';
     this.nhtsa
       .RequestOffer(offer)
-      .subscribe((s) => alert('sucesfully Accepted the offer.'));
+      .subscribe((s) => {
+        setTimeout(() => (this.isLoading = false), 1000);
+        // this.toaster.war('Successfully Accepted teh offer.', 'Congratulations', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+        this.openDialog('accept')
+      }, (error) => this.openDialog('accept'));
   }
 
   reject() {
     let offer: IOfferStatusData = new IOfferStatusData();
-    offer.seller_id = this.currentOffer?.seller_id;
-    offer.vehicle_id = this.currentOffer?.vehicle_id;
+    offer.seller_id = this.reviewService.currentOffer?.seller_id;
+    offer.vehicle_id = this.reviewService.currentOffer?.vehicle_id;
     offer.acceptance_status = 'Reject';
     this.nhtsa
       .RequestOffer(offer)
-      .subscribe((s) => alert('Rejected the offer.'));
+      .subscribe((s) => { this.openDialog('reject') }, (error) => { this.openDialog('reject') });
   }
 
-  //TODO:Move this change to service and call on review page next click.
-  ngOnChanges() {
-    if (this.callAPI) {
-      this.nhtsa.getInstantOffer(this._store.sellerCompleteDetails).subscribe(
-        (res) => {
-          this.currentOffer = res;
-          this.offerPrice = res.instant_offer_price;
-        },
-        (err) => {
-          this.offerPrice = 0;
-          // this.toaster.warning('Unable to calculate the instant offer at the moment and our customer care team will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
-        }
-      );
+  // //TODO:Move this change to service and call on review page next click.
+  // ngOnChanges() {
+  //   if (this.callAPI) {
+  //     this.isLoading = true;
+  //     setTimeout(() => (this.isLoading = false), 1000);
+  //     this.nhtsa.getInstantOffer(this._store.sellerCompleteDetails).subscribe(
+  //       (res) => {
+  //         this.currentOffer = res;
+  //         this.offerPrice = res.instant_offer_price;
+  //       },
+  //       (err) => {
+  //         this.offerPrice = 0;
+  //         this.isLoading = false;
+  //         // this.toaster.warning('Unable to calculate the instant offer at the moment and our customer care team will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+  //       }
+  //     );
+  //   }
+  // }
+
+
+  openDialog(value: string): void {
+    let title: string;
+    let message: string;
+    if (value == 'accept') {
+      title = accept_title;
+      message = accept_message
+    } else {
+      title = 'Thank You!';
+      message = 'Our representative will be connecting with you shortly please feel free to look into other options.'
     }
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: { title: title, message: message, page: 'contact' }
+    });
+
+    dialogRef.beforeClosed().subscribe(() => {
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false;
+        this.router.navigateByUrl("/sell-car");
+      }, 1000);
+
+    })
   }
 }

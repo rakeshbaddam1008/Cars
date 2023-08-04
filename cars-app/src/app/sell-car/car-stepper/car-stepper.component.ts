@@ -1,7 +1,7 @@
 import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
-import { IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
+import { IOfferData, IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
 import { SellCarStoreService } from 'src/app/services/SellCarStore.Service';
 import { ViewEncapsulation, Renderer2 } from '@angular/core';
 import { ReviewService } from 'src/app/services/review.service';
@@ -11,6 +11,7 @@ import { VechileDetailsComponent } from 'src/app/questionaire/vechile-details/ve
 import { ToastrService } from 'ngx-toastr';
 import { IVechileDetailQuestionaire } from 'src/app/questionaire/questionsJson';
 import { Router } from '@angular/router';
+import { NHTSAService } from 'src/app/services/nhtsa-service';
 
 @Component({
   selector: 'app-car-stepper',
@@ -21,6 +22,7 @@ import { Router } from '@angular/router';
 export class CarStepperComponent {
   private onDestroy$: Subject<void> = new Subject<void>();
 
+  isLoading: boolean = false;
   secondFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
@@ -43,6 +45,7 @@ export class CarStepperComponent {
   constructor(
     private _formBuilder: FormBuilder,
     public _store: SellCarStoreService,
+    public nhtsa: NHTSAService,
     private renderer: Renderer2,
     public router: Router,
     public reviewService: ReviewService,
@@ -100,7 +103,6 @@ export class CarStepperComponent {
   }
 
   validateStepperOne(event: boolean) {
-
     this.validator = event;
   }
 
@@ -112,7 +114,8 @@ export class CarStepperComponent {
     }
     if (this.validator || index == 1 || index == 2) {
       if (index == 4) {
-        this.instantOfferAPICall = true;
+        this.callApiToGetInstantOffer()
+        return;
       }
       this.myStepper.next();
       this.validator = false
@@ -127,15 +130,7 @@ export class CarStepperComponent {
   }
 
   prevStep(index: number) {
-    // this.steps.forEach((step, i) => {
-    //   if (index == i) {
-    //     step.editable = true;
-    //   }
-    // })
     this.myStepper.previous();
-    if (index == 4) {
-      this.instantOfferAPICall = false;
-    }
     // this.disableSteppers();
   }
 
@@ -152,6 +147,33 @@ export class CarStepperComponent {
     this._store.sellerCompleteDetails.vehicleDetails.color = 'other';
     this._store.sellerCompleteDetails.vehicleDetails.mileage = 300000;
     this.router.navigateByUrl('contact-us')
+  }
+
+  callApiToGetInstantOffer() {
+    this.isLoading = true;
+    setTimeout(() => {
+      // let currentOffer = {} as IOfferData
+      // currentOffer.instant_offer_price = 9000;
+      // currentOffer.seller_id = 12345
+      // currentOffer.vehicle_id = 56128
+      // this.reviewService.currentOffer = currentOffer
+      // this.reviewService.offerPrice = currentOffer.instant_offer_price
+      this.nhtsa.getInstantOffer(this._store.sellerCompleteDetails).subscribe(
+        (res) => {
+
+          this.reviewService.currentOffer = res;
+          this.reviewService.offerPrice = res.instant_offer_price;
+        },
+        (err) => {
+          this.reviewService.offerPrice = undefined
+          this.isLoading = false;
+          // this.toaster.warning('Unable to calculate the instant offer at the moment and our customer care team will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+        }
+      );
+      this.myStepper.next()
+      this.isLoading = false
+    }, 2000);
+
   }
 
   public ngOnDestroy(): void {

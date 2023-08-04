@@ -15,7 +15,8 @@
           </div>
 
           <div class="col-6 d-flex align-items-center justify-content-end">
-            <mat-radio-group aria-labelledby="example-radio-group-label" required formControlName="carTitle">
+            <mat-radio-group [ngClass]="{ invalid: vehicleDetailsFormGroup.get('carTitle')?.invalid }"
+              aria-labelledby="example-radio-group-label" required formControlName="carTitle">
               <mat-radio-button class="example-radio-button" name="Question.name" *ngFor="let option of CarTitleOptions"
                 [value]="option" (change)="radioChange($event)">
                 {{ option }}
@@ -156,11 +157,12 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
               <mat-form-field appearance="outline" class="question-form-control">
-                <input matInput required type="number" name="zipcode-field" autocomplete="doNotAutoComplete"
+                <input matInput required #zip type="number" name="zipcode-field" autocomplete="doNotAutoComplete"
                   formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
                 <mat-error class="d-flex justify-content-end"
                   *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid">Please provide proper
                   Zipcode.</mat-error>
+                <mat-hint align="end">Zipcode {{zip.value.length}}/5</mat-hint>
               </mat-form-field>
             </div>
 

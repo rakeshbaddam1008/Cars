@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
+import { Router } from '@angular/router';
+import { conatc_message, contact_title } from 'src/app/constants.ts/constants';
 
 @Component({
   selector: 'app-contact',
@@ -16,9 +18,9 @@ import { NHTSAService } from 'src/app/services/nhtsa-service';
 export class ContactComponent {
   checked !: boolean
   selectedContact: IContact;
-
+  isLoading: boolean = false;
   contactFormGroup: FormGroup = new FormGroup({})
-  constructor(public _store: SellCarStoreService, private reviewService: ReviewService, public nhtsa: NHTSAService, public toaster: ToastrService, public dialog: MatDialog) {
+  constructor(public _store: SellCarStoreService, private reviewService: ReviewService, private router: Router, public nhtsa: NHTSAService, public toaster: ToastrService, public dialog: MatDialog) {
     this.selectedContact = this._store.sellerCompleteDetails.contact;
     this.contactFormGroup = new FormGroup({
       fullName: new FormControl(
@@ -64,6 +66,18 @@ export class ContactComponent {
 
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponent);
+
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: { title: contact_title, message: conatc_message, page: 'contact' }
+    });
+
+    dialogRef.beforeClosed().subscribe(() => {
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false;
+        this.router.navigateByUrl("/sell-car");
+      }, 1000);
+
+    })
   }
 }
