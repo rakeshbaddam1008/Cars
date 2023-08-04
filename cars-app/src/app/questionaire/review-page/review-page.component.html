@@ -251,29 +251,23 @@
       <div class="container">
         <!-- First Row -->
         <div class="row">
-          <!-- Box 1 -->
-          <div class="col-sm-12 col-md-12 p-2">
-            <p class="text-left font-weight-light">
-              We reserve the right to modify or cancel this offer if the
-              condition of the vehicle does not meet the description of the
-              vehicle provided. Offer is valid for seven days or 500 miles
-              whichever comes first. By clicking submit I hereby accept all
-              <a class="text-danger font-weight-bold" style="text-decoration: none">terms and conditions.</a>
-            </p>
-          </div>
-        </div>
-        <div class="row px-0">
-          <div class="col-sm-12 checkbox">
-            <div class="form-check d-flex align-items-center">
-              <input class="form-check-input custom-checkbox-style mr-3 col-form-label-lg" type="checkbox"
-                [formControl]="reviewCheckbox" id="defaultCheck1" />
-              <label class="form-check-label  " for="defaultCheck1">
+          <div class="col-sm-12 checkbox d-flex justify-content-center">
+            <div class="form-check w-50 text-justify">
+              <input class="form-check-input custom-checkbox-style col-form-label-lg" type="checkbox"
+                [formControl]="reviewCheckbox" id="reviewdefaultCheck" />
+              <label class="form-check-label text-justify" for="reviewdefaultCheck">
+                We reserve the right to modify or cancel this offer if the
+                condition of the vehicle does not meet the description of the
+                vehicle provided. Offer is valid for seven days or 500 miles
+                whichever comes first. By clicking submit I hereby accept all
+                <a class="text-danger font-weight-bold" style="text-decoration: none">terms and conditions.</a>
                 The information I provided is correct to the best of my
                 knowledge.
               </label>
             </div>
           </div>
         </div>
+
       </div>
     </mat-card>
   </div>

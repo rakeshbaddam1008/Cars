@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .question-card {
   max-width: 80%;
   min-width: 300px;
@@ -13,17 +14,34 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
 }
 
-.checkbox{
+.checkbox {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
 }
+
 .custom-checkbox-style {
   border: 1px solid rgb(145, 143, 143);
 }
-.custom-checkbox-style:hover{
+
+.custom-checkbox-style:hover {
   border: 2px solid black !important;
 }
+
 .breadcrumb {
   font-size: 16px;
+}
+
+.custom-form-field {
+  /* Set the desired shadow properties */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* You can adjust the values for x, y, blur, and color as needed */
+  transition: box-shadow 0.3s ease;
+  /* Add a smooth transition on hover (optional) */
+}
+
+/* Add styles for the mat-form-field input when focused */
+.custom-form-field.mat-focused {
+  /* Set a different shadow style when the input is focused (optional) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

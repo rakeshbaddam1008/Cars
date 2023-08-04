@@ -1,4 +1,4 @@
-import { Component, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, QueryList, ViewChild, ViewChildren, HostListener } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import { IOfferData, IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
@@ -62,6 +62,9 @@ export class CarStepperComponent {
       .subscribe((index: number) => {
         this.myStepper.selectedIndex = index;
       });
+    if (!this.selectVechileDetails?.year || !this.selectVechileDetails?.make || !this.selectVechileDetails?.model) {
+      this.router.navigateByUrl('/sell-car')
+    }
   }
 
   ngAfterViewInit() {

@@ -11,22 +11,49 @@
           <mat-form-field class="custom-glow" appearance="outline">
             <mat-label>Full Name</mat-label>
             <input matNativeControl matInput formControlName="fullName" type="text" />
+            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('fullName')?.invalid">Please
+              provide
+              Full Name.</mat-error>
           </mat-form-field>
 
           <mat-form-field class="custom-glow" appearance="outline">
             <mat-label>Email</mat-label>
             <input matNativeControl matInput type="email" formControlName="email" />
+            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('email')?.invalid">
+              <span *ngIf="contactFormGroup.get('email')?.hasError('required')">
+                Email is required.
+              </span>
+              <span *ngIf="contactFormGroup.get('email')?.hasError('email')">
+                Please provide valid email.
+              </span>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field class="custom-glow" appearance="outline">
             <mat-label>Phone Number</mat-label>
             <input matNativeControl matInput type="tel" formControlName="mobile" />
+            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('mobile')?.invalid">
+              <span *ngIf="contactFormGroup.get('mobile')?.hasError('required')">
+                Phone Number is required.
+              </span>
+              <span *ngIf="contactFormGroup.get('mobile')?.hasError('pattern')">
+                Please provide valid phone number.
+              </span>
+            </mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Zip Code</mat-label>
             <input matNativeControl #zip matInput type="number" formControlName="zipCode" />
             <mat-hint align="end">Zipcode {{zip.value.length}}/5</mat-hint>
+            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('zipCode')?.invalid">
+              <span *ngIf="contactFormGroup.get('zipCode')?.hasError('required')">
+                Phone Number is required.
+              </span>
+              <span *ngIf="contactFormGroup.get('zipCode')?.hasError('pattern')">
+                ZIP Code should not exceed 5 characters.
+              </span>
+            </mat-error>
           </mat-form-field>
           <div class="container">
             <!-- First Row -->

@@ -102,3 +102,40 @@ mat-form-field {
 .invalid {
   color: red !important;
 }
+
+.custom-form-field {
+  /* Set the desired shadow properties */
+  box-shadow: 0 2px 4px rgba(73, 146, 230, 0.1);
+  /* You can adjust the values for x, y, blur, and color as needed */
+  transition: box-shadow 0.3s ease;
+  /* Add a smooth transition on hover (optional) */
+}
+
+/* Add styles for the mat-form-field input when focused */
+.custom-form-field.mat-focused {
+  /* Set a different shadow style when the input is focused (optional) */
+  box-shadow: 0 4px 8px rgba(73, 146, 230, 0.1);
+}
+
+.custom-select {
+  background-color: white;
+  border: 1px solid lightblue;
+  color: black;
+  /* Set the text color of the options */
+}
+
+/* Style the mat-select options */
+.mat-option {
+  background-color: white;
+  /* Set the background color of even options */
+}
+
+.mat-option:nth-child(2n) {
+  background-color: lightblue;
+  /* Set the background color of odd options */
+}
+
+/* Style the selected option */
+.mat-select-value {
+  color: black;
+}

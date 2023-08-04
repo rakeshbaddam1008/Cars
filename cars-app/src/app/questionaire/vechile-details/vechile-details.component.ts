@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { IVechileData, IVechileModelDetails } from 'src/app/models/IVechile';
 import { CommondataSellService } from 'src/app/services/commondata-sell.service';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
@@ -12,6 +12,7 @@ import { ReviewService } from 'src/app/services/review.service';
   selector: 'app-vechile-details',
   templateUrl: './vechile-details.component.html',
   styleUrls: ['./vechile-details.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class VechileDetailsComponent {
   // sellerDetails: ISellerVechileDetails;

@@ -26,7 +26,7 @@
           </div>
         </div>
         <small all id="passwordHelp" class="text-danger d-flex justify-content-end"
-          *ngIf="vehicleDetailsFormGroup.get('carTitle')?.invalid">
+          *ngIf="vehicleDetailsFormGroup.get('carTitle')?.invalid && vehicleDetailsFormGroup.get('carTitle')?.touched">
           Please select a Title.
         </small>
 
@@ -134,7 +134,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
               <mat-form-field appearance="outline" class="question-form-control">
-                <mat-select required formControlName="color" placeholder="ex. Select Color">
+                <mat-select required formControlName="color" class="custom-select" placeholder="ex. Select Color">
                   <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{ option }}</mat-option>
                 </mat-select>
                 <mat-error class="d-flex justify-content-end"
@@ -160,8 +160,14 @@
                 <input matInput required #zip type="number" name="zipcode-field" autocomplete="doNotAutoComplete"
                   formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
                 <mat-error class="d-flex justify-content-end"
-                  *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid">Please provide proper
-                  Zipcode.</mat-error>
+                  *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid"><span
+                    *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('required')">
+                    ZIP code is required.
+                  </span>
+                  <span *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('pattern')">
+                    ZIP Code should not exceed 5 characters.
+                  </span>
+                </mat-error>
                 <mat-hint align="end">Zipcode {{zip.value.length}}/5</mat-hint>
               </mat-form-field>
             </div>
