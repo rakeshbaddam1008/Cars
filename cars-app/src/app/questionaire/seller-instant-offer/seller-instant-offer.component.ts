@@ -24,7 +24,11 @@ export class SellerInstantOfferComponent {
   @Input() srcImages: string = '';
   @Input() callAPI: boolean = false;
 
-  constructor(public _store: SellCarStoreService, public toaster: ToastrService, public nhtsa: NHTSAService) {
+  constructor(
+    public _store: SellCarStoreService,
+    public toaster: ToastrService,
+    public nhtsa: NHTSAService
+  ) {
     this.sellerDetails = this._store.sellerCompleteDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
     this.sellerDetails.vehicleDetails.mileage;
@@ -38,7 +42,9 @@ export class SellerInstantOfferComponent {
     offer.seller_id = this.currentOffer?.seller_id;
     offer.vehicle_id = this.currentOffer?.vehicle_id;
     offer.acceptance_status = 'Approve';
-    this.nhtsa.RequestOffer(offer);
+    this.nhtsa
+      .RequestOffer(offer)
+      .subscribe((s) => alert('sucesfully Accepted the offer.'));
   }
 
   reject() {
@@ -46,7 +52,9 @@ export class SellerInstantOfferComponent {
     offer.seller_id = this.currentOffer?.seller_id;
     offer.vehicle_id = this.currentOffer?.vehicle_id;
     offer.acceptance_status = 'Reject';
-    this.nhtsa.RequestOffer(offer);
+    this.nhtsa
+      .RequestOffer(offer)
+      .subscribe((s) => alert('Rejected the offer.'));
   }
 
   //TODO:Move this change to service and call on review page next click.
@@ -63,6 +71,5 @@ export class SellerInstantOfferComponent {
         }
       );
     }
-
   }
 }
