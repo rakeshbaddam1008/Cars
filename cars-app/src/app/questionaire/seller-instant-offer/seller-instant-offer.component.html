@@ -82,7 +82,7 @@
                 </h2>
               </div>
             </ng-container>
-            <div class="container mt-5" *ngIf="offerPrice && offerPrice <= 1">
+            <div class="container mt-5" *ngIf="offerPrice && offerPrice >0">
               <div class="row text-right">
                 <div class="vehica-car-card-row__price-desktop">
                   {{ offerPrice | currency }}
