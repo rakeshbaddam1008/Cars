@@ -1,5 +1,4 @@
-<app-car-loader *ngIf="isLoading"></app-car-loader>
-<div *ngIf="!isLoading" style="background-color: whitesmoke; padding: 25px">
+<div style="background-color: whitesmoke; padding: 25px">
   <!--  -->
   <!-- <mat-card class="question-card">
     <mat-card-content>
@@ -72,7 +71,8 @@
                 </span>
               </div>
             </div>
-            <ng-container *ngIf="offerPrice <= 1">
+            <ng-container *ngIf="!reviewService.offerPrice">
+
               <br />
               <div class="col-12 alert alert-warning" role="alert">
                 <h2>
@@ -82,10 +82,10 @@
                 </h2>
               </div>
             </ng-container>
-            <div class="container mt-5" *ngIf="offerPrice && offerPrice <= 1">
+            <div class="container mt-5" *ngIf="reviewService.offerPrice && reviewService.offerPrice > 1">
               <div class="row text-right">
                 <div class="vehica-car-card-row__price-desktop">
-                  {{ offerPrice | currency }}
+                  {{ reviewService.offerPrice | currency }}
                 </div>
                 <div class="vehica-car-card-row__calculate">
                   <a title="" target="_blank"><span>Best Deal</span></a>
@@ -93,7 +93,7 @@
               </div>
             </div>
             <div class="row mt-5">
-              <ng-container *ngIf="offerPrice > 0">
+              <ng-container *ngIf="reviewService.offerPrice && reviewService.offerPrice > 1">
                 <div class="col-sm-6 col-md-8 col-lg-8 d-flex justify-content-end">
                   <button type="button" class="btn float-left btn-success offer-btn" (click)="accept()">
                     <mat-icon>thumb_up</mat-icon> &nbsp;Approve Offer

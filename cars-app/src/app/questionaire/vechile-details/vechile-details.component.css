@@ -25,9 +25,11 @@
   font-size: 15px;
   align-items: start;
 }
+
 .example-radio-button {
   margin: 5px;
 }
+
 .example-h2 {
   margin: 10px;
 }
@@ -37,6 +39,7 @@
   top: 15vh;
   bottom: 25vh;
 }
+
 .car-Declaration {
   font-size: 24px;
   font-weight: 700;
@@ -45,6 +48,7 @@
   text-align: center;
   background-color: white;
 }
+
 /* .example-radio-group {
   display: flex;
   flex-direction: row;
@@ -57,14 +61,17 @@
 mat-form-field {
   padding: 3px 1px;
 }
+
 mat-form-field {
   width: 80%;
   height: 80%;
 }
+
 .question-label {
   font-size: 18px;
   font-weight: 500;
 }
+
 .example-radio-button {
   margin: 3px;
 }
@@ -73,6 +80,7 @@ mat-form-field {
   align-items: center;
   float: right;
 }
+
 .question-float-right {
   flex-flow: end;
 }
@@ -89,4 +97,8 @@ mat-form-field {
   width: 60%;
   margin-bottom: 3px;
   margin-top: 3px;
+}
+
+.invalid {
+  color: red !important;
 }

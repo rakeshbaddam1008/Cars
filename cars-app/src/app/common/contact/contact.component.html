@@ -1,3 +1,4 @@
+<app-car-loader *ngIf="isLoading"></app-car-loader>
 <div class="conatiner">
   <form [formGroup]="contactFormGroup">
     <mat-card class="question-card mt-5 pt-2 ml-auto mr-auto">
@@ -24,7 +25,8 @@
 
           <mat-form-field appearance="outline">
             <mat-label>Zip Code</mat-label>
-            <input matNativeControl matInput type="number" formControlName="zipCode" />
+            <input matNativeControl #zip matInput type="number" formControlName="zipCode" />
+            <mat-hint align="end">Zipcode {{zip.value.length}}/5</mat-hint>
           </mat-form-field>
           <div class="container">
             <!-- First Row -->

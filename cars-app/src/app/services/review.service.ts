@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { IOfferData } from '../models/IVechile';
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,9 @@ export class ReviewService {
     conatctPageStepper: boolean = false;
     reviewPageStepper: boolean = false;
     contactPage: boolean = false;
+
+    offerPrice?: number;
+    currentOffer?: IOfferData;
 
     constructor() { }
 

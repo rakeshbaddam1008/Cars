@@ -262,3 +262,9 @@ export const VechileYears: Number[] = [
   2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,
   2017, 2018, 2019, 2020, 2021, 2022, 2023,
 ];
+
+
+export const contact_title = 'Personalized Offer Coming Soon!'
+export const conatc_message = 'Carizma Customer Team will follow up with you to provide a better offer suitable for the car details you have provided. Stay tuned for a customized and exclusive deal tailored just for you!'
+export const accept_title = 'Congratulations!'
+export const accept_message = 'Congratulation message to be displayed here'

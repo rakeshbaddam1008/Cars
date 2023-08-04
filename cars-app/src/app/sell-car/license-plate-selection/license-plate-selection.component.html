@@ -32,6 +32,7 @@
 
           <input type="text" placeholder="Select State" aria-label="Number" matInput name="State"
             formControlName="selectedState" [formControl]="myStateControl" [matAutocomplete]="auto" required />
+          <mat-hint *ngIf="!myStateControl.value" align="end">Click to select state</mat-hint>
           <mat-error *ngIf="myStateControl.invalid">State is required</mat-error>
 
           <mat-autocomplete #auto="matAutocomplete">

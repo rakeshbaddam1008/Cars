@@ -39,6 +39,8 @@ export class VechileBodyConditionComponent {
   onChangeEventBodyDamage(event: any) {
     if (!event) {
       this.vechileCondition.externalConditions.doesBodyDamageSeverity = 1
+    } else {
+      this.vechileCondition.externalConditions.doesBodyDamageSeverity = 5
     }
   }
 }
