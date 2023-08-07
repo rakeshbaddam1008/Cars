@@ -39,6 +39,7 @@ import { ContactComponent } from './common/contact/contact.component';
 import { DialogComponent } from './common/dialog/dialog.component';
 import { LoginComponent } from './common/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { DashboardComponent } from './common/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { ToastrModule } from 'ngx-toastr';
     ContactComponent,
     DialogComponent,
     LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

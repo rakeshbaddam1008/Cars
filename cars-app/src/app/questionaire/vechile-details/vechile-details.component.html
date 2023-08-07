@@ -105,20 +105,26 @@
               &nbsp; &nbsp;
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
-              <mat-form-field appearance="outline" class="question-form-control">
-                <input matInput type="number" maxlength="6" name="Mileage-field" autocomplete="doNotAutoComplete"
-                  formControlName="mileage" required placeholder="Mileage ex. 123456" />
-                <mat-error class="d-flex justify-content-end" *ngIf="vehicleDetailsFormGroup.get('mileage')?.invalid">
-                  <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('required')">
-                    Please provide mileage.
-                  </span>
-                  <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('max')">
-                    Mileage Should be less than 400000.
-                  </span>
-                </mat-error>
-              </mat-form-field>
+              <!-- <mat-form-field appearance="outline" class="form-control"> -->
+              <input matInput type="number"
+                [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('mileage')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('mileage')?.invalid && vehicleDetailsFormGroup.get('mileage')?.touched}"
+                maxlength="6" name="Mileage-field" autocomplete="doNotAutoComplete" formControlName="mileage" required
+                placeholder="Mileage ex. 123456" />
+
+              <!-- </mat-form-field> -->
             </div>
             <!-- {{vehicleDetailsFormGroup.get('mileage'). | json}} -->
+          </div>
+          <div class="row align-items-center justify-content-end">
+            <mat-error class="d-flex justify-content-end mt-1"
+              *ngIf="vehicleDetailsFormGroup.get('mileage')?.invalid && vehicleDetailsFormGroup.get('mileage')?.touched">
+              <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('required')">
+                Please provide mileage.
+              </span>
+              <span *ngIf="vehicleDetailsFormGroup.get('mileage')?.hasError('max')">
+                Mileage Should be less than 400000.
+              </span>
+            </mat-error>
           </div>
         </mat-card-content>
       </mat-card>
@@ -133,17 +139,20 @@
               &nbsp; &nbsp;
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
-              <mat-form-field appearance="outline" class="question-form-control">
-                <mat-select required formControlName="color" class="custom-select" placeholder="ex. Select Color">
-                  <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{ option }}</mat-option>
-                </mat-select>
-                <mat-error class="d-flex justify-content-end"
-                  *ngIf="vehicleDetailsFormGroup.get('color')?.invalid">Please select color of your
-                  Car.</mat-error>
-
-              </mat-form-field>
+              <!-- <mat-form-field appearance="outline" class="question-form-control"> -->
+              <mat-select required formControlName="color"
+                [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('color')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched}"
+                placeholder="ex. Select Color">
+                <mat-option *ngFor="let option of CarColorOptions" [value]="option">{{ option }}</mat-option>
+              </mat-select>
+              <!-- </mat-form-field> -->
             </div>
-
+          </div>
+          <div class="row align-itmes-center justify-content-end mt-1">
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched">Please
+              select color of your
+              Car.</mat-error>
           </div>
         </mat-card-content>
       </mat-card>
@@ -155,22 +164,28 @@
               <label class="content-title" id="example-radio-group-label">What is your vehicle pickup zipCode?</label>
               &nbsp; &nbsp;
             </div>
-            <div class="col-6 d-flex align-items-center justify-content-end">
-              <mat-form-field appearance="outline" class="question-form-control">
-                <input matInput required #zip type="number" name="zipcode-field" autocomplete="doNotAutoComplete"
-                  formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
-                <mat-error class="d-flex justify-content-end"
-                  *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid"><span
-                    *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('required')">
-                    ZIP code is required.
-                  </span>
-                  <span *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('pattern')">
-                    ZIP Code should not exceed 5 characters.
-                  </span>
-                </mat-error>
-                <mat-hint align="end">Zipcode {{zip.value.length}}/5</mat-hint>
-              </mat-form-field>
+            <div class="col-6 d-flex align-items-center justify-content-end form-group">
+              <!-- <mat-form-field appearance="outline" class="question-form-control"> -->
+              <input matInput required #zip type="number" class="form-control" name="zipcode-field"
+                [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('zipCode')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('zipCode')?.invalid && vehicleDetailsFormGroup.get('zipCode')?.touched}"
+                autocomplete="doNotAutoComplete" formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
+
+              <!-- </mat-form-field> -->
             </div>
+
+          </div>
+          <div class="row offset-md-6 offset-lg-6 align-itmes-center justify-content-end mt-1">
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid &&  vehicleDetailsFormGroup.get('zipCode')?.touched"><span
+                *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('required')">
+                ZIP code is required.
+              </span>
+              <span *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('pattern')">
+                ZIP Code should not exceed 5 characters.
+              </span>
+            </mat-error>
+            <mat-hint align="end" class="justify-content-start">{{zip.value.length}}/5</mat-hint>
+
 
           </div>
         </mat-card-content>

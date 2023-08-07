@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-title">
+                <h3 class="text-center">Dasboard</h3>
+            </div>
+            <div class="card-body">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Make</th>
+                            <th scope="col">Model</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Offer</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let country of countries; index as i">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>
+                                {{ country.make }}
+                            </td>
+                            <td>{{ country.model }}</td>
+                            <td>{{ country.year}}</td>
+
+                            <td>{{ country.offer }}</td>
+
+                            <td>{{ country.status }}</td>
+
+                            <td><mat-icon>edit</mat-icon></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

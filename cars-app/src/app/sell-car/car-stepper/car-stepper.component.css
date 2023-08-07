@@ -76,3 +76,9 @@
 .mat-horizontal-stepper-header {
   pointer-events: none !important;
 }
+
+@media only screen and (max-width: 768px) {
+  .car-stepper-content {
+    margin: 5px 10px 0 15px
+  }
+}

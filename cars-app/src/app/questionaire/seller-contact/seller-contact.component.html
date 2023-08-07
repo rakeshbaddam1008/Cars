@@ -10,19 +10,24 @@
           <!-- <h2>Where should we send your Instant Cash Offer?</h2> -->
           <span class="breadcrumb" style="text-decoration: none !important">Where should we send your Instant Cash
             Offer?</span>
-
-          <mat-form-field class="custom-form-field" appearance="outline">
+          <div class="form-group mt-2 w-50">
             <mat-label>Full Name</mat-label>
-            <input matNativeControl matInput name="fullName" type="text" formControlName="fullName" />
-            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('fullName')?.invalid">Please
+            <input matNativeControl
+              [ngClass]="{'input-form-success': contactFormGroup.get('fullName')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('fullName')?.invalid && contactFormGroup.get('fullName')?.touched}"
+              matInput name="fullName" type="text" formControlName="fullName" />
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="contactFormGroup.get('fullName')?.invalid && contactFormGroup.get('fullName')?.touched">Please
               provide
               Full Name.</mat-error>
-          </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
+          <div class="form-group mt-2 w-50 ">
             <mat-label>Email</mat-label>
-            <input matNativeControl name="email" matInput type="email" formControlName="email" />
-            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('email')?.invalid">
+            <input matNativeControl
+              [ngClass]="{'input-form-success': contactFormGroup.get('email')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('email')?.invalid && contactFormGroup.get('email')?.touched}"
+              name="email" matInput type="email" formControlName="email" />
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="contactFormGroup.get('email')?.invalid && contactFormGroup.get('email')?.touched">
               <span *ngIf="contactFormGroup.get('email')?.hasError('required')">
                 Email is required.
               </span>
@@ -30,12 +35,15 @@
                 Please provide valid email.
               </span>
             </mat-error>
-          </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
+          <div class="form-group mt-2 w-50">
             <mat-label>Phone Number</mat-label>
-            <input matNativeControl matInput name="mobile" type="tel" formControlName="mobile" />
-            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('mobile')?.invalid">
+            <input matNativeControl
+              [ngClass]="{'input-form-success': contactFormGroup.get('mobile')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('mobile')?.invalid && contactFormGroup.get('mobile')?.touched}"
+              matInput name="mobile" type="tel" formControlName="mobile" />
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="contactFormGroup.get('mobile')?.invalid && contactFormGroup.get('mobile')?.touched">
               <span *ngIf="contactFormGroup.get('mobile')?.hasError('required')">
                 Phone Number is required.
               </span>
@@ -43,7 +51,8 @@
                 Please provide valid phone number.
               </span>
             </mat-error>
-          </mat-form-field>
+          </div>
+
 
           <!-- <mat-form-field appearance="outline">
           <mat-label>Zip Code</mat-label>
@@ -55,7 +64,7 @@
           />
         </mat-form-field> -->
 
-          <div class="container">
+          <div class="container mt-2">
             <!-- First Row -->
             <div class="row">
               <div class="col-sm-12 checkbox d-flex justify-content-center">

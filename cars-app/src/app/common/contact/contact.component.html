@@ -8,18 +8,25 @@
           <span class="breadcrumb" style="text-decoration: none !important">Where should we send your Instant Cash
             Offer?</span>
 
-          <mat-form-field class="custom-glow" appearance="outline">
+          <div class="form-group mt-2 w-50">
+
             <mat-label>Full Name</mat-label>
-            <input matNativeControl matInput formControlName="fullName" type="text" />
-            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('fullName')?.invalid">Please
+            <input
+              [ngClass]="{'input-form-success': contactFormGroup.get('fullName')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('fullName')?.invalid && contactFormGroup.get('fullName')?.touched}"
+              matNativeControl matInput formControlName="fullName" type="text" />
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="contactFormGroup.get('fullName')?.invalid && contactFormGroup.get('fullName')?.touched">Please
               provide
               Full Name.</mat-error>
-          </mat-form-field>
+          </div>
 
-          <mat-form-field class="custom-glow" appearance="outline">
+          <div class="form-group w-50 mt-2">
             <mat-label>Email</mat-label>
-            <input matNativeControl matInput type="email" formControlName="email" />
-            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('email')?.invalid">
+            <input matNativeControl
+              [ngClass]="{'input-form-success': contactFormGroup.get('email')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('email')?.invalid && contactFormGroup.get('email')?.touched}"
+              matInput type="email" formControlName="email" />
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="contactFormGroup.get('email')?.invalid && contactFormGroup.get('email')?.touched">
               <span *ngIf="contactFormGroup.get('email')?.hasError('required')">
                 Email is required.
               </span>
@@ -27,12 +34,15 @@
                 Please provide valid email.
               </span>
             </mat-error>
-          </mat-form-field>
+          </div>
 
-          <mat-form-field class="custom-glow" appearance="outline">
+          <div class="form-group w-50 mt-2">
             <mat-label>Phone Number</mat-label>
-            <input matNativeControl matInput type="tel" formControlName="mobile" />
-            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('mobile')?.invalid">
+            <input matNativeControl
+              [ngClass]="{'input-form-success': contactFormGroup.get('mobile')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('mobile')?.invalid && contactFormGroup.get('mobile')?.touched}"
+              matInput type="tel" formControlName="mobile" />
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="contactFormGroup.get('mobile')?.invalid && contactFormGroup.get('mobile')?.touched">
               <span *ngIf="contactFormGroup.get('mobile')?.hasError('required')">
                 Phone Number is required.
               </span>
@@ -40,13 +50,17 @@
                 Please provide valid phone number.
               </span>
             </mat-error>
-          </mat-form-field>
+          </div>
 
-          <mat-form-field appearance="outline">
+          <div class="form-group w-50 mt-2">
             <mat-label>Zip Code</mat-label>
-            <input matNativeControl #zip matInput type="number" formControlName="zipCode" />
-            <mat-hint align="end">Zipcode {{zip.value.length}}/5</mat-hint>
-            <mat-error class="d-flex justify-content-end" *ngIf="contactFormGroup.get('zipCode')?.invalid">
+            <input matNativeControl
+              [ngClass]="{'input-form-success': contactFormGroup.get('zipCode')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('zipCode')?.invalid && contactFormGroup.get('zipCode')?.touched}"
+              #zip matInput type="number" formControlName="zipCode" />
+            <mat-hint align="end">{{zip.value.length}}/5</mat-hint>
+            <mat-error class="d-flex justify-content-end"
+              *ngIf="contactFormGroup.get('mobile')?.invalid && contactFormGroup.get('mobile')?.touched">
+              >
               <span *ngIf="contactFormGroup.get('zipCode')?.hasError('required')">
                 Phone Number is required.
               </span>
@@ -54,8 +68,8 @@
                 ZIP Code should not exceed 5 characters.
               </span>
             </mat-error>
-          </mat-form-field>
-          <div class="container">
+          </div>
+          <div class="container mt-2">
             <!-- First Row -->
             <div class="row">
               <div class="col-sm-12 checkbox d-flex justify-content-center">
