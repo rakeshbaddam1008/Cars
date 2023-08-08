@@ -56,7 +56,7 @@
             <mat-label>Zip Code</mat-label>
             <input matNativeControl
               [ngClass]="{'input-form-success': contactFormGroup.get('zipCode')?.valid, 'form-control':true,'input-form-error': contactFormGroup.get('zipCode')?.invalid && contactFormGroup.get('zipCode')?.touched}"
-              #zip matInput type="number" formControlName="zipCode" />
+              #zip matInput type="text" maxlength="5" formControlName="zipCode" />
             <mat-hint align="end">{{zip.value.length}}/5</mat-hint>
             <mat-error class="d-flex justify-content-end"
               *ngIf="contactFormGroup.get('mobile')?.invalid && contactFormGroup.get('mobile')?.touched">

@@ -40,6 +40,7 @@ import { DialogComponent } from './common/dialog/dialog.component';
 import { LoginComponent } from './common/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
+import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { DashboardComponent } from './common/dashboard/dashboard.component';
     DialogComponent,
     LoginComponent,
     DashboardComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     BrowserModule,

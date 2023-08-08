@@ -64,6 +64,7 @@
   min-width: 200px;
   max-width: 200px;
 }
+
 .pricingtable a {
   display: block;
   height: 40px;
@@ -81,54 +82,59 @@
   border-radius: 10px;
 
   /*Gradient*/
-  background: #9dcc55; /* Old browsers */
-  background: -moz-linear-gradient(top, #9dcc55 0%, #96c23d 100%); /* FF3.6+ */
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0%, #9dcc55),
-    color-stop(100%, #96c23d)
-  ); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(
-    top,
-    #9dcc55 0%,
-    #96c23d 100%
-  ); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(
-    top,
-    #9dcc55 0%,
-    #96c23d 100%
-  ); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #9dcc55 0%, #96c23d 100%); /* IE10+ */
-  background: linear-gradient(top, #9dcc55 0%, #96c23d 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dcc55', endColorstr='#96c23d',GradientType=0 ); /* IE6-9 */
+  background: #9dcc55;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #9dcc55 0%, #96c23d 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      color-stop(0%, #9dcc55),
+      color-stop(100%, #96c23d));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,
+      #9dcc55 0%,
+      #96c23d 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,
+      #9dcc55 0%,
+      #96c23d 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #9dcc55 0%, #96c23d 100%);
+  /* IE10+ */
+  background: linear-gradient(top, #9dcc55 0%, #96c23d 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dcc55', endColorstr='#96c23d', GradientType=0);
+  /* IE6-9 */
 }
 
 .pricingtable a:hover {
-  background: #b2e560; /* Old browsers */
-  background: -moz-linear-gradient(top, #b2e560 0%, #96c23d 100%); /* FF3.6+ */
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(0%, #b2e560),
-    color-stop(100%, #96c23d)
-  ); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(
-    top,
-    #b2e560 0%,
-    #96c23d 100%
-  ); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(
-    top,
-    #b2e560 0%,
-    #96c23d 100%
-  ); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #b2e560 0%, #96c23d 100%); /* IE10+ */
-  background: linear-gradient(top, #b2e560 0%, #96c23d 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2e560', endColorstr='#96c23d',GradientType=0 ); /* IE6-9 */
+  background: #b2e560;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #b2e560 0%, #96c23d 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      color-stop(0%, #b2e560),
+      color-stop(100%, #96c23d));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,
+      #b2e560 0%,
+      #96c23d 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,
+      #b2e560 0%,
+      #96c23d 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #b2e560 0%, #96c23d 100%);
+  /* IE10+ */
+  background: linear-gradient(top, #b2e560 0%, #96c23d 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b2e560', endColorstr='#96c23d', GradientType=0);
+  /* IE6-9 */
 }
+
 .seller-contact mat-form-field {
   width: 50%;
 }
@@ -179,6 +185,7 @@
   --swiper-pagination-bullet-size: 6px;
   --swiper-pagination-bullet-horizontal-gap: 6px;
 }
+
 .elementor-element {
   --flex-direction: initial;
   --flex-wrap: initial;
@@ -197,9 +204,8 @@
   order: var(--order);
   align-self: var(--align-self);
 }
-.elementor-11944
-  .elementor-element.elementor-element-582487b
-  > .elementor-element-populated {
+
+.elementor-11944 .elementor-element.elementor-element-582487b>.elementor-element-populated {
   margin: 0;
   --e-column-margin-right: 0px;
   --e-column-margin-left: 0px;
@@ -221,6 +227,7 @@
   margin-bottom: 8px;
   margin-top: 6px;
 }
+
 .vehica-car-card__price-mobile {
   display: none;
 }
@@ -262,6 +269,7 @@
   overflow: hidden;
   max-height: 28px;
 }
+
 .vehica-car-card-row .vehica-car-card__info__single:first-child {
   margin-right: 13px;
   padding-right: 11px;
@@ -271,6 +279,7 @@
   margin-right: 13px;
   padding-right: 11px;
 }
+
 /* @media (min-width: 1024px) */
 .vehica-car-card-row .vehica-car-card__info__single {
   position: relative;
@@ -278,11 +287,13 @@
   margin-right: 0;
   padding-right: 25px;
 }
+
 .vehica-car-card__info__single:first-child {
   padding: 0 11px;
   color: #fff;
   background: #ff4605;
 }
+
 .vehica-car-card__info__single {
   display: inline-block;
   border-radius: 5px;
@@ -292,6 +303,7 @@
   margin-right: 20px;
   line-height: 28px;
 }
+
 .vehica-car-card-row .vehica-car-card__info__single i {
   position: absolute;
   top: 1px;
@@ -317,6 +329,7 @@
 .vehica-car-card-row .vehica-car-card-row__info-more__value {
   color: #222732;
 }
+
 .vehica-car-card-row .vehica-car-card-row__right {
   display: flex;
   flex-direction: column;
@@ -332,10 +345,12 @@
   z-index: 20;
   position: relative;
 }
+
 .vehica-car-card-row__favorite {
   top: 0;
   transition: top 0.2s ease;
 }
+
 .vehica-car-card-row__price-desktop {
   font-size: 40px;
   line-height: 36px;
@@ -355,6 +370,7 @@
   z-index: 11;
   white-space: nowrap;
 }
+
 .vehica-car-card-row .vehica-car-card-row__calculate a {
   color: #222732;
   opacity: 0.5;
@@ -370,6 +386,7 @@
   width: 100%;
   height: 100%;
 }
+
 /* @media (min-width: 1024px)  */
 .vehica-car-card-row .vehica-car-card__image {
   top: 0;
@@ -394,6 +411,7 @@
   height: 550px;
   width: 290px;
 }
+
 .vehica-car-card__image img {
   position: absolute;
   left: 0;
@@ -404,6 +422,7 @@
   opacity: 1;
   transition: all 0.8s ease;
 }
+
 .elementor img {
   height: auto;
   max-width: 100%;
@@ -411,17 +430,20 @@
   border-radius: 0;
   box-shadow: none;
 }
+
 .elementor *,
 .elementor :after,
 .elementor :before {
   box-sizing: border-box;
 }
+
 img {
   max-width: 100%;
   height: auto;
   vertical-align: middle;
   object-fit: cover;
 }
+
 *,
 :after,
 :before {
@@ -429,10 +451,12 @@ img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 * {
   outline: 0;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
+
 /* user agent stylesheet */
 img {
   overflow-clip-margin: content-box;
@@ -443,26 +467,35 @@ img {
   display: flex;
   align-items: center;
   /* line-height: 40px; */
-  font-size: 1.67vw!important;
+  font-size: 1.67vw !important;
   font-weight: 500;
   width: 17vw;
   /* font-size: larger; */
   cursor: pointer !important;
 }
 
-.card {overflow: hidden;}
-
-.attributes{
+.card {
   overflow: hidden;
-    margin-bottom: 17px;
-    font-size: 15px;
-    line-height: 22px;
-    font-weight: 500;
-    opacity: 0.5;
 }
+
+.attributes {
+  overflow: hidden;
+  margin-bottom: 17px;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+  opacity: 0.5;
+}
+
 .car-make {
   padding: 3px 10px;
   color: #fff;
   background: #ff4605;
   border-radius: 6px;
+}
+
+.my-class .mat-dialog-container {
+  border-top: 5px solid red;
+  background: lightcyan;
+  color: #039be5;
 }

@@ -1,36 +1,40 @@
 .seller-contact mat-form-field {
-    width: 50%;
-  }
-  
-  .seller-contact {
-    justify-content: center;
-    align-items: center;
-  }
-  .question-card {
-    max-width: 80%;
-    min-width: 300px;
-    margin-bottom: 25px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
-  }
-  
-  .checkbox{
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .custom-checkbox-style {
-    border: 1px solid rgb(145, 143, 143);
-  }
-  .custom-checkbox-style:hover{
-    border: 2px solid black !important;
-  }
-  .breadcrumb {
-    font-size: 1.4rem !important;
-  }
+  width: 50%;
+}
 
-  .mat-form-field-appearance-outline .mat-form-field-can-float .mat-form-field-should-float .mat-form-field-label {
-    transform: translateY(-1.4em) translateX(1em) scale(.80);
-    color: #ff0000;
+.seller-contact {
+  justify-content: center;
+  align-items: center;
+}
+
+.question-card {
+  max-width: 80%;
+  min-width: 300px;
+  margin-bottom: 25px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
+}
+
+.checkbox {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-checkbox-style {
+  border: 1px solid rgb(145, 143, 143);
+}
+
+.custom-checkbox-style:hover {
+  border: 2px solid black !important;
+}
+
+.breadcrumb {
+  font-size: 1.4rem !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-can-float .mat-form-field-should-float .mat-form-field-label {
+  transform: translateY(-1.4em) translateX(1em) scale(.80);
+  color: #ff0000;
 }
 
 .btn-go {
@@ -51,13 +55,14 @@
   padding-right: 32px;
   padding-top: 16px; */
 }
-.btn-go:hover{
+
+.btn-go:hover {
   background: linear-gradient(90deg, #022c41 -48.75%, #02a0d4 153.75%);
-  box-shadow: 2px 1px 5px #02a0d4 ;
+  box-shadow: 2px 1px 5px #02a0d4;
 }
 
 
-.offer-button{
+.offer-button {
   height: 45px;
   padding: 7px 0;
   margin-top: 30px;

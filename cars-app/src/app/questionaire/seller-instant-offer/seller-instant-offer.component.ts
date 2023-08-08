@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmModalComponent } from 'src/app/common/confirm-modal/confirm-modal.component';
 import { DialogComponent } from 'src/app/common/dialog/dialog.component';
 import { contact_title, conatc_message, accept_title, accept_message } from 'src/app/constants.ts/constants';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
@@ -111,6 +112,16 @@ export class SellerInstantOfferComponent {
         this.router.navigateByUrl("/sell-car");
       }, 1000);
 
+    })
+  }
+
+  confirmDialog() {
+    const dialogRef = this.dialog.open(ConfirmModalComponent, { panelClass: 'my-class' });
+    dialogRef.afterClosed().subscribe((result) => {
+
+      if (result.event === 'Reject') {
+        this.reject()
+      }
     })
   }
 }

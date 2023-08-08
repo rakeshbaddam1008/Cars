@@ -116,3 +116,7 @@ svg {
     box-shadow: inset 0px 0px 0px 30px #7ac142
   }
 }
+
+.container {
+  border-top: 10px solid #7ac142 !important;
+}

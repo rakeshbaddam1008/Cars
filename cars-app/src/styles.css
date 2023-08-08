@@ -88,3 +88,19 @@ body {
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
   /* Lowering the shadow */
 }
+
+
+
+.mat-mdc-option.mdc-list-item:hover {
+  background: #158897 !important;
+  color: white !important
+}
+
+.mat-mdc-option.mat-mdc-option-active {
+  background: #158897 !important;
+  color: white !important
+}
+
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+  color: white !important;
+}

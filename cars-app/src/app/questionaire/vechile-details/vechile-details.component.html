@@ -166,7 +166,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end form-group">
               <!-- <mat-form-field appearance="outline" class="question-form-control"> -->
-              <input matInput required #zip type="number" class="form-control" name="zipcode-field"
+              <input matInput required #zip type="text" class="form-control" name="zipcode-field"
                 [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('zipCode')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('zipCode')?.invalid && vehicleDetailsFormGroup.get('zipCode')?.touched}"
                 autocomplete="doNotAutoComplete" formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
 
