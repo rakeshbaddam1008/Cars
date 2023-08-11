@@ -1,5 +1,5 @@
 .sell-car-l1 {
-  background-image: url("../../../assets/images/v02.jpg");
+  background-image: url("../../../assets/images/Landing Page.jpg");
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -10,7 +10,6 @@
   height: -webkit-fill-available; */
   background-color: rgb(255, 255, 255);
 }
-
 
 .overlay {
   position: absolute;
@@ -28,7 +27,8 @@
 }
 
 .bg-section {
-  background: url("../../../assets/images/v02.jpg") no-repeat center top;
+  background: url("../../../assets/images/Landing Page.jpg") no-repeat center
+    top;
   background-size: cover;
   background-attachment: scroll;
   /* Adjust this line */
@@ -37,7 +37,6 @@
 .vh-100 {
   height: 100vh;
 }
-
 
 .img-fit {
   width: -webkit-fill-available;
@@ -347,7 +346,6 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
-
 
 .testimonial-section {
   background-color: #f8f9fa;
