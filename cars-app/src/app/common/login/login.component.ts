@@ -11,6 +11,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent {
   loginFormGroup: FormGroup = new FormGroup({})
+  logintemplate: boolean = true;
+  signupFormGroup: FormGroup = new FormGroup({})
+  signuptemplate:boolean = false;
+  passwordFormGroup: FormGroup = new FormGroup({})
+  passwordtemplate: boolean = false;
   constructor(private router: Router, public toaster: ToastrService,) {
     this.loginFormGroup = new FormGroup({
       email: new FormControl(
@@ -18,6 +23,20 @@ export class LoginComponent {
         [Validators.required, Validators.email]
       ),
       password: new FormControl('', Validators.required)
+    })
+    this.signupFormGroup = new FormGroup({
+      email: new FormControl(
+        '',
+        [Validators.required, Validators.email]
+      ),
+      password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required)
+    })
+    this.passwordFormGroup = new FormGroup({
+      email: new FormControl(
+        '',
+        [Validators.required, Validators.email]
+      )
     })
   }
 
@@ -30,6 +49,23 @@ export class LoginComponent {
 
     }
 
+  }
+
+  toggleBetweenLoginPages(event: string) {
+    if(event === 'login') {
+      this.logintemplate = true;
+      this.signuptemplate = false;
+      this.passwordtemplate = false;
+    } else if(event === 'signUp') {
+      this.logintemplate = false;
+      this.signuptemplate = true;
+      this.passwordtemplate = false;
+    }
+    else if(event === 'forgetPassword') {
+      this.logintemplate = false;
+      this.signuptemplate = false;
+      this.passwordtemplate = true;
+    }
   }
 
 }

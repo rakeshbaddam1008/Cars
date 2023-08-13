@@ -15,7 +15,7 @@
           </div>
 
           <div class="col-6 col-sm-12 col-md-12 col-lg-6 d-flex align-items-center justify-content-end">
-            <mat-radio-group [ngClass]="{ invalid: vehicleDetailsFormGroup.get('carTitle')?.invalid }"
+            <mat-radio-group color="primary" [ngClass]="{ invalid: vehicleDetailsFormGroup.get('carTitle')?.invalid }"
               aria-labelledby="example-radio-group-label" required formControlName="carTitle">
               <mat-radio-button class="example-radio-button" name="Question.name" *ngFor="let option of CarTitleOptions"
                 [value]="option" (change)="radioChange($event)">
@@ -106,7 +106,7 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
               <!-- <mat-form-field appearance="outline" class="form-control"> -->
-              <input matInput type="number"
+              <input matInput type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                 [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('mileage')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('mileage')?.invalid && vehicleDetailsFormGroup.get('mileage')?.touched}"
                 maxlength="6" name="Mileage-field" autocomplete="doNotAutoComplete" formControlName="mileage" required
                 placeholder="Mileage ex. 123456" />
@@ -166,7 +166,8 @@
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end form-group">
               <!-- <mat-form-field appearance="outline" class="question-form-control"> -->
-              <input matInput required #zip type="text" class="form-control" name="zipcode-field"
+              <input matInput required #zip type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                class="form-control" name="zipcode-field"
                 [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('zipCode')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('zipCode')?.invalid && vehicleDetailsFormGroup.get('zipCode')?.touched}"
                 autocomplete="doNotAutoComplete" formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
 
@@ -181,7 +182,7 @@
                 ZIP code is required.
               </span>
               <span *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('pattern')">
-                ZIP Code should not exceed 5 characters.
+                Please enter a valid 5-digit ZIP code.
               </span>
             </mat-error>
             <mat-hint align="end" class="justify-content-start">{{zip.value.length}}/5</mat-hint>
@@ -201,8 +202,8 @@
               &nbsp; &nbsp;
             </div>
             <div class="col-6 d-flex align-items-center justify-content-end">
-              <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" required
-                formControlName="vechileTransmissionType">
+              <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                required formControlName="vechileTransmissionType">
                 <mat-radio-button class="example-radio-button" name="Question.name"
                   *ngFor="let option of carTransmissionTypes" [value]="option">
                   {{ option }}

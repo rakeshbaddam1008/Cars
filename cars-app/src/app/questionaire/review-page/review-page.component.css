@@ -92,6 +92,11 @@ mat-icon {
   background-color: white;
 }
 
+.content-title {
+  font-size: 1.1rem;
+  font-weight: 480;
+  color: #1e6c92 !important;
+}
 
 @keyframes circle-anim {
   0% {}

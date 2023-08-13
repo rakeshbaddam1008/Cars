@@ -133,15 +133,29 @@ mat-form-field {
 }
 
 .mat-mdc-option.mdc-list-item:hover {
-  background: #158897 !important;
+  background: #1e6c92 !important;
   color: white !important
 }
 
 .mat-mdc-option.mat-mdc-option-active {
-  background: #158897 !important;
+  background: #1e6c92 !important;
   color: white !important
 }
 
 .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
   color: white !important;
 }
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: rgb(0, 0, 0)!important;   /*inner circle color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+ border-color:rgb(0, 0, 0)!important; /*outer ring color change*/
+}
+
+

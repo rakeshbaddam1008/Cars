@@ -6,7 +6,7 @@
       <mat-grid-tile colspan="2" rowspan="1.5">
         <mat-form-field appearance="outline">
           <mat-label>License Plate</mat-label>
-          <input matNativeControl matInput name="licensePlate" formControlName="licensePlate" />
+          <input matNativeControl autocomplete="doNotAutoComplete" matInput name="licensePlate" formControlName="licensePlate" />
           <mat-error *ngIf="licensePlateSelection.invalid">License Plate is required</mat-error>
         </mat-form-field>
       </mat-grid-tile>
@@ -31,7 +31,7 @@
           <mat-label>State</mat-label>
 
           <input type="text" placeholder="Select State" aria-label="Number" matInput name="State"
-            formControlName="selectedState" [formControl]="myStateControl" [matAutocomplete]="auto" required />
+            formContrjholName="selectedState" [formControl]="myStateControl" [matAutocomplete]="auto" required />
           <mat-hint *ngIf="!myStateControl.value" align="end">Click to select state</mat-hint>
           <mat-error *ngIf="myStateControl.invalid">State is required</mat-error>
 

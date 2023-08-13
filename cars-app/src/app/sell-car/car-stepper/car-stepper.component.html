@@ -13,7 +13,7 @@
 </div>
 <div class="car-stepper-content">
   <mat-horizontal-stepper #stepper (selectionChange)="onStepChange($event)" linear>
-    <mat-step label="Vechile Details">
+    <mat-step label="Vehicle  Details">
       <app-vechile-details (stepOneValidated)="validateStepperOne($event)"></app-vechile-details>
       <mat-divider></mat-divider>
       <div *ngIf="reviewService.activateContactPage" class="w-100">
@@ -35,7 +35,7 @@
         </div>
       </div>
     </mat-step>
-    <mat-step label="Vechile Condition">
+    <mat-step label="Vehicle Condition">
       <app-vechile-condition></app-vechile-condition>
 
       <mat-divider></mat-divider>
@@ -52,7 +52,7 @@
         </div>
       </div>
     </mat-step>
-    <mat-step label="Vechile Body Condition">
+    <mat-step label="Vehicle Body Condition">
       <app-vechile-body-condition></app-vechile-body-condition>
 
       <mat-divider></mat-divider>
@@ -134,13 +134,13 @@
     <mat-step label="Instant Offer">
       <app-seller-instant-offer [callAPI]="instantOfferAPICall" [srcImages]="srcImages"></app-seller-instant-offer>
       <mat-divider></mat-divider>
-      <div class="w-100">
+      <!-- <div class="w-100">
         <div class="row m-0">
           <div class="col-6 d-flex m-0 mt-3 p-0">
             <button class="btn btn-back" (click)="prevStep(4)">Back</button>
           </div>
         </div>
-      </div>
+      </div> -->
     </mat-step>
 
 

@@ -22,8 +22,11 @@
         <!-- </mat-grid-tile> -->
         <!-- <mat-grid-tile colspan="2" (focusout)="validateTextField($event, 'Make')"> -->
         <mat-form-field appearance="outline">
+          <mat-label>
+            Make
+          </mat-label>
           <input type="text" #state placeholder="Select Make" aria-label="Number" name="Make" matInput
-            formControlName="selectedMake" [formControl]="makelistControl" [matAutocomplete]="autoModel" required />
+            formControlNamehj="selectedMake" [formControl]="makelistControl" [matAutocomplete]="autoModel" required />
           <mat-hint *ngIf="makelistControl.value == ''" class="text-center">Click to see Make</mat-hint>
           <mat-autocomplete #autoModel="matAutocomplete" (optionSelected)="makeSelectionChange($event)">
             <mat-optgroup style="  font-weight: bold;" *ngFor="let group of makesList | async"
@@ -54,14 +57,17 @@
       <div class="col-6">
         <!-- <mat-grid-tile colspan="2"> -->
         <mat-form-field appearance="outline">
-          <input type="text" placeholder="Select Model" matInput formControlNameame="selectedModel" name="selectedModel"
+          <mat-label>
+            Model
+          </mat-label>
+          <input type="text" placeholder="Select Model" matInput formControlNamehj="selectedModel" name="selectedModel"
             [formControl]="modelControl" [matAutocomplete]="autoMake" required />
           <!-- <mat-error *ngIf="licensePlateSelection.status == 'INVALID'"
             >State is required</mat-error
           > -->
           <mat-hint *ngIf="modelControl.value === ''" class="text-center">Click to see Model</mat-hint>
           <mat-autocomplete #autoMake="matAutocomplete" (optionSelected)="modelSelectionChange($event)">
-            <mat-option matTooltip="{{option}}" *ngFor="let option of modelList | async" [value]="option">
+            <mat-option *ngFor="let option of modelList | async" [value]="option">
               {{ option }}
             </mat-option>
           </mat-autocomplete>

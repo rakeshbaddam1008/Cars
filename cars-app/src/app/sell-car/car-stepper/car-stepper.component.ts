@@ -110,9 +110,17 @@ export class CarStepperComponent {
   }
 
   nextStep(index: number) {
-    if (this.reviewService.conatctPageStepper && index == 3) {
+    let sellerDetails  = this._store.sellerCompleteDetails;
+    if(index === 0 && sellerDetails.vehicleDetails.carTitle 
+      && sellerDetails.vehicleDetails.mileage 
+      && sellerDetails.vehicleDetails.zipCode 
+      && sellerDetails.vehicleDetails.vechileTransmissionType) {
+        
+      this.validator = true
+    }
+      if (this.reviewService.conatctPageStepper && index == 3) {
       this.validator = true;
-    } else if (this.reviewService.reviewPageStepper && index == 4) {
+    }  if (this.reviewService.reviewPageStepper && index == 4) {
       this.validator = true;
     }
     if (this.validator || index == 1 || index == 2) {

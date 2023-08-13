@@ -21,42 +21,42 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Title?</label>
+            <label class="content-title mb-0 ">Title?</label>
             <div class="text-secondary">
               {{ sellerCarDetails.vehicleDetails.carTitle }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">
-              Do you currently have a loan on your [Make]?
+            <label class="content-title mb-0 ">
+              Do you currently have a loan on your {{selectedMake}}?
             </label>
             <div class="text-secondary">
-              {{ sellerCarDetails.vehicleDetails?.carLoan | yesNo }}
+              {{ sellerCarDetails.vehicleDetails.carLoan | yesNo }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Mileage?</label>
+            <label class="content-title mb-0 ">Mileage?</label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.vehicleDetails?.mileage }}
+              {{ sellerCarDetails.vehicleDetails.mileage }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">What is the color of your [Make]?</label>
+            <label class="content-title mb-0 ">What is the color of your {{selectedMake}}?</label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.vehicleDetails?.color }}
+              {{ sellerCarDetails.vehicleDetails.color }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">What is your zipCode?</label>
+            <label class="content-title mb-0 ">What is your zipCode?</label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.vehicleDetails?.zipCode }}
+              {{ sellerCarDetails.vehicleDetails.zipCode }}
             </div>
           </div>
 
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Vehicle transmission type?</label>
+            <label class="content-title mb-0 ">Vehicle transmission type?</label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.vehicleDetails?.vechileTransmissionType }}
+              {{ sellerCarDetails.vehicleDetails.vechileTransmissionType }}
             </div>
           </div>
         </div>
@@ -82,42 +82,30 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">
-              Are all of the wheels inflated on your {{ selectedMake }} ?
+            <label class="content-title mb-0 ">
+              Does your {{ selectedMake }} run and drive? 
             </label>
             <div class="text-secondary">
               {{
-              sellerCarDetails?.vehicleCondition?.externalConditions
-              ?.doesAllCarWheelInflated | yesNo
+              sellerCarDetails.vehicleCondition.doesCarDrive | yesNo
               }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
             <label class="content-title mb-0">
-              Any glass or lights cracked or broken on your {{ selectedMake }} ?
+              Does your {{ selectedMake }} start? 
             </label>
             <div class="text-secondary">
               {{
-              sellerCarDetails?.vehicleCondition?.externalConditions
-              ?.doesAllGlassorLightCracked | yesNo
+              sellerCarDetails.vehicleCondition.doesCarStart | yesNo
               }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Does it have any body damage?</label>
+            <label class="content-title mb-0">Are the engines and transmission in the {{ selectedMake }}?</label>
             <div class="text-secondary">
               {{
-              sellerCarDetails?.vehicleCondition?.externalConditions
-              ?.doesBodyDamage | yesNo
-              }}
-            </div>
-          </div>
-          <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Severity of Body Damages?</label>
-            <div class="text-secondary">
-              {{
-              sellerCarDetails?.vehicleCondition?.externalConditions
-              ?.doesBodyDamageSeverity
+              sellerCarDetails.vehicleCondition.carEngineandTransmission | yesNo
               }}
             </div>
           </div>
@@ -148,13 +136,50 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
+            <label class="content-title mb-0">Are all of the wheels inflated on your {{ selectedMake
+            }} ?</label>
+            <div class="text-secondary">
+              {{
+              sellerCarDetails.vehicleCondition.externalConditions.doesAllCarWheelInflated | yesNo
+              }}
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <label class="content-title mb-0">Any glass or lights cracked or broken on your {{
+              selectedMake }} ?</label>
+            <div class="text-secondary">
+              {{
+              sellerCarDetails.vehicleCondition.externalConditions
+              .doesAllGlassorLightCracked | yesNo
+              }} 
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <label class="content-title mb-0">Does it have any body damage?</label>
+            <div class="text-secondary">
+              {{
+              sellerCarDetails.vehicleCondition.externalConditions
+              .doesBodyDamage | yesNo
+              }}
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
+            <label class="content-title mb-0">Severity of Body Damages?</label>
+            <div class="text-secondary">
+              {{
+              sellerCarDetails.vehicleCondition.externalConditions
+              .doesBodyDamageSeverity
+              }}
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6 text-start p-2">
             <label class="content-title mb-0">
               Noticeable Dings/Dents/Scratches on your {{ selectedMake }} ?
             </label>
             <div class="text-secondary">
               {{
-              sellerCarDetails?.vehicleCondition?.externalConditions
-              ?.NoticeableDingsDentsScratches | yesNo
+              sellerCarDetails.vehicleCondition.externalConditions
+              .NoticeableDingsDentsScratches | yesNo
               }}
             </div>
           </div>
@@ -162,8 +187,8 @@
             <label class="content-title mb-0">Body panels intact?</label>
             <div class="text-secondary">
               {{
-              sellerCarDetails?.vehicleCondition?.externalConditions
-              ?.doesBodyPanelIntact | yesNo
+              sellerCarDetails.vehicleCondition.externalConditions
+              .doesBodyPanelIntact | yesNo
               }}
             </div>
           </div>
@@ -171,8 +196,8 @@
             <label class="content-title mb-0">Are the airbags deployed or missing?</label>
             <div class="text-secondary">
               {{
-              sellerCarDetails?.vehicleCondition?.externalConditions
-              ?.doesAirbagsDeployedOrMissing | yesNo
+              sellerCarDetails.vehicleCondition.externalConditions
+              .doesAirbagsDeployedOrMissing | yesNo
               }}
             </div>
           </div>
@@ -182,8 +207,8 @@
             </label>
             <div class="text-secondary">
               {{
-              sellerCarDetails?.vehicleCondition?.externalConditions
-              ?.DoesCarSufferedFloodorFireDamage | yesNo
+              sellerCarDetails.vehicleCondition.externalConditions
+              .DoesCarSufferedFloodorFireDamage | yesNo
               }}
             </div>
           </div>
@@ -193,7 +218,7 @@
             </label>
             <div class="text-secondary">
               {{
-              sellerCarDetails?.vehicleCondition?.DoesInteriorIntact | yesNo
+              sellerCarDetails.vehicleCondition.DoesInteriorIntact | yesNo
               }}
             </div>
           </div>
@@ -221,19 +246,19 @@
           <div class="col-6 text-start p-2">
             <label class="content-title mb-0">Full Name:</label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.contact?.fullName }}
+              {{ sellerCarDetails.contact.fullName }}
             </div>
           </div>
           <div class="col-6 text-start p-2">
             <label class="content-title mb-0">Email</label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.contact?.email }}
+              {{ sellerCarDetails.contact.email }}
             </div>
           </div>
           <div class="col-6 text-start p-2">
             <label class="content-title mb-0">Phone Number</label>
             <div class="text-secondary">
-              {{ sellerCarDetails?.contact?.mobile }}
+              {{ sellerCarDetails.contact.mobile }}
             </div>
           </div>
           <!-- <div class="col-6 text-start p-2">
