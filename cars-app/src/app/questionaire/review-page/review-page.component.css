@@ -95,9 +95,12 @@ mat-icon {
 .content-title {
   font-size: 1.1rem;
   font-weight: 480;
-  color: #1e6c92 !important;
 }
 
+.text-secondary {
+  color: darkgrey;
+  /* color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important; */
+} 
 @keyframes circle-anim {
   0% {}
 
