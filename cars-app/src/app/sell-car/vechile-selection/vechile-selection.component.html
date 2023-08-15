@@ -10,7 +10,7 @@
           <mat-label>Year</mat-label>
           <!-- <mat-hint *ngIf="manualVechileSelectionForm.value.yearSelected === 0" class="text-center">Select
             Year</mat-hint> -->
-          <mat-select matNativeControl (selectionChange)="yearSelectionChange($event)" formControlName="yearSelected"
+          <mat-select style="font-size: 1.1rem;" matNativeControl (selectionChange)="yearSelectionChange($event)" formControlName="yearSelected"
             name="yearSelected">
             <mat-option *ngFor="let year of VechileRegisterationList" [value]="year">
               {{ year }}
@@ -25,7 +25,7 @@
           <mat-label>
             Make
           </mat-label>
-          <input type="text" #state placeholder="Select Make" aria-label="Number" name="Make" matInput
+          <input style="font-size: 1.1rem;" type="text" #state placeholder="Select Make" aria-label="Number" name="Make" matInput
             formControlNamehj="selectedMake" [formControl]="makelistControl" [matAutocomplete]="autoModel" required />
           <mat-hint *ngIf="makelistControl.value == ''" class="text-center">Click to see Make</mat-hint>
           <mat-autocomplete #autoModel="matAutocomplete" (optionSelected)="makeSelectionChange($event)">
@@ -60,7 +60,7 @@
           <mat-label>
             Model
           </mat-label>
-          <input type="text" placeholder="Select Model" matInput formControlNamehj="selectedModel" name="selectedModel"
+          <input style="font-size: 1.1rem;" type="text" placeholder="Select Model" matInput formControlNamehj="selectedModel" name="selectedModel"
             [formControl]="modelControl" [matAutocomplete]="autoMake" required />
           <!-- <mat-error *ngIf="licensePlateSelection.status == 'INVALID'"
             >State is required</mat-error
@@ -85,7 +85,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Trim</mat-label>
           <mat-hint *ngIf="!selectedTrim.value" class="text-center">Select Trim</mat-hint>
-          <mat-select matNativeControl [formControl]="selectedTrim" name="trim"
+          <mat-select style="font-size: 1.1rem;" matNativeControl [formControl]="selectedTrim" name="trim"
             (selectionChange)="trimSelectionChange()">
             <mat-option *ngFor="let trim of trimList | async" [value]="trim">
               {{ trim }}
@@ -96,7 +96,7 @@
         <!-- <mat-grid-tile [colspan]="2"> -->
       </div>
       <div class="col-12 text-center">
-        <button mat-raised-button color="primary" class="btn-go">
+        <button mat-raised-button class="btn-go">
           GET MY OFFER
           <!-- <div class="row">
             <div class="col-10"> GET MY OFFER</div>
