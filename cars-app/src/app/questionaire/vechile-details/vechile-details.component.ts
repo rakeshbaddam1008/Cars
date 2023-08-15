@@ -25,7 +25,7 @@ export class VechileDetailsComponent {
 
   submitted: boolean | undefined;
 
-  carTransmissionTypes = ['manual', 'automatic', 'others'];
+  carTransmissionTypes = ['Manual', 'Automatic', 'Others'];
   CarTitleOptions: string[] = ['Clean', 'Salvage/Rebuilt', 'Junk', 'No Title'];
   CarOwnershipOptions: string[] = ['Yes', 'No']; //['Own', 'Lease', 'Re-finance'];
   CarColorOptions: string[] = [
