@@ -22,14 +22,14 @@ export class VechileBodyConditionComponent {
     'Engine or Transmission is removed but still available.',
     'Engine or Tranmission is no longer available',
   ];
-  BodyDamageOptions: string[] = ['No Damage', 'Some damage', 'crashed'];
+  BodyDamageOptions: string[] = ['No Damage', 'Some damage', 'Crashed'];
   BodyDamageDentScratchOptions: string[] = [
-    'less than 3',
+    'Less than 3',
     '4 to 6 ',
     '7 and more',
   ];
 
-  BodyNoticableDentsScratcheOptions = ['less than 3', '4 to 6', '7 and more'];
+  BodyNoticableDentsScratcheOptions = ['Less than 3', '4 to 6', '7 and more'];
 
   doesCarDriveEvent(event: boolean) {
     this.vechileCondition.doesCarDrive = event;
