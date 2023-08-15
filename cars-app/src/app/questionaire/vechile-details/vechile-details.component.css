@@ -158,4 +158,19 @@ mat-form-field {
  border-color:rgb(0, 0, 0)!important; /*outer ring color change*/
 }
 
+.content-title {
+  font-size: 1.3rem;
+  font-weight: 480;
+  font-family: serif;
+}
+
+.mdc-form-field>label {
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 4px;
+  padding-right: 0;
+  order: 0;
+  font-family: serif;
+  font-size: 1.1rem;
+}
 
