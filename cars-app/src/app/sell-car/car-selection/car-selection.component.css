@@ -113,8 +113,8 @@ mat-card::before {
   border-width: 4px;
   /* border-color: #757575; */
   background-image: #fff;
+  width: 100%;
 }
-
 
 .mat-tab-group {
   width: 100%;
@@ -174,14 +174,14 @@ mat-card::before {
 
 .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
   color: black !important;
-  font-size:larger;
- font-family:cursive;
+  font-size: larger;
+  font-family: cursive;
   font-weight: bolder;
 }
 
 .mat-mdc-tab .mdc-tab__text-label {
   color: black !important;
   font-size: larger;
-  font-family:cursive;
+  font-family: cursive;
   font-weight: 400;
 }

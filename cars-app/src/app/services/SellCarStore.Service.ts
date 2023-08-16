@@ -42,6 +42,17 @@ export class SellCarStoreService {
       new IVechileConditionQuestionaire();
     this.sellerCompleteDetails.vehicleDetails =
       new IVechileDetailQuestionaire();
+    // all wheels inflate default yes
+    // car search box -center done
+    // body panels intact-yes done
+    // interrior intact-yes  deafult values
+    //Additional default values
+    this.sellerCompleteDetails.vehicleCondition.DoesInteriorIntact = true;
+    this.sellerCompleteDetails.vehicleCondition.externalConditions.doesBodyPanelIntact =
+      true;
+    this.sellerCompleteDetails.vehicleCondition.externalConditions.doesAllCarWheelInflated =
+      true;
+    true;
   }
 
   setCurrentSellVechileDetails(vechileDetails: IVechileModelDetails) {

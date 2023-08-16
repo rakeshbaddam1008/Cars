@@ -4,7 +4,7 @@
   height: 100%;
   object-fit: contain;
   background-repeat: no-repeat;
-  /* background-size: 100% 100%; */
+  background-size: 100% 100%;
   /* margin: 10px; */
   /* width: -webkit-fill-available;
   height: -webkit-fill-available; */
@@ -29,7 +29,9 @@
 .bg-section {
   background: url("../../../assets/images/Landing Page.jpg") no-repeat center
     top;
-  background-size: cover;
+  object-fit: cover;
+  background-size: 100% 100%;
+
   background-attachment: scroll;
   /* Adjust this line */
 }
@@ -64,9 +66,29 @@
   object-fit: cover;
 } */
 
+.car-box {
+  left: 100px;
+  top: 150px !important;
+}
+
+.containerforcar {
+  /* margin-left: 380px; */
+  min-width: 450px;
+  top: 50%; /* changed */
+  left: 50%;
+}
 @media only screen and (max-width: 600px) {
   .sell-car-l1 {
     height: 415px;
+    min-width: 450px;
+  }
+  .containerforcar {
+    /* margin-left: 8px; */
+  }
+
+  .car-box {
+    left: 25px;
+    top: 200px;
   }
 }
 
