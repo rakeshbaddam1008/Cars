@@ -1,16 +1,23 @@
-<div style="
+<div
+  style="
     background-color: 4d95b8;
     padding: 25px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
-  ">
+  "
+>
   <div class="mat-card-cvr">
     <mat-card class="mat-card">
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Vehicle Details</span>
         <div class="ml-auto">
-          <div class="grow-container ">
-            <a (click)="routeToStepperIndex(0)" #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above"
-              class="to-twitter circle-button"><mat-icon>edit</mat-icon>
+          <div class="grow-container">
+            <a
+              (click)="routeToStepperIndex(0)"
+              #tooltip="matTooltip"
+              matTooltip="Edit"
+              matTooltipPosition="above"
+              class="to-twitter circle-button"
+              ><mat-icon>edit</mat-icon>
             </a>
           </div>
         </div>
@@ -21,40 +28,42 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0 ">Title?</label>
+            <label class="content-title mb-0">Title?</label>
             <div class="text-secondary">
               {{ sellerCarDetails.vehicleDetails.carTitle }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0 ">
-              Do you currently have a loan on your {{selectedMake}}?
+            <label class="content-title mb-0">
+              Do you currently have a loan on your {{ selectedMake }}?
             </label>
             <div class="text-secondary">
               {{ sellerCarDetails.vehicleDetails.carLoan | yesNo }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0 ">Mileage?</label>
+            <label class="content-title mb-0">Mileage?</label>
             <div class="text-secondary">
               {{ sellerCarDetails.vehicleDetails.mileage }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0 ">What is the color of your {{selectedMake}}?</label>
+            <label class="content-title mb-0"
+              >What is the color of your {{ selectedMake }}?</label
+            >
             <div class="text-secondary">
               {{ sellerCarDetails.vehicleDetails.color }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0 ">What is your zipCode?</label>
+            <label class="content-title mb-0">What is your zipCode?</label>
             <div class="text-secondary">
               {{ sellerCarDetails.vehicleDetails.zipCode }}
             </div>
           </div>
 
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0 ">Vehicle transmission type?</label>
+            <label class="content-title mb-0">Vehicle transmission type?</label>
             <div class="text-secondary">
               {{ sellerCarDetails.vehicleDetails.vechileTransmissionType }}
             </div>
@@ -68,13 +77,17 @@
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Vehicle Condition</span>
         <div class="ml-auto">
-          <div class="grow-container ">
-            <a (click)="routeToStepperIndex(1)" #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above"
-              class="to-twitter circle-button "><mat-icon>edit</mat-icon>
+          <div class="grow-container">
+            <a
+              (click)="routeToStepperIndex(1)"
+              #tooltip="matTooltip"
+              matTooltip="Edit"
+              matTooltipPosition="above"
+              class="to-twitter circle-button"
+              ><mat-icon>edit</mat-icon>
             </a>
           </div>
         </div>
-
       </div>
 
       <div class="container">
@@ -82,30 +95,30 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0 ">
-              Does your {{ selectedMake }} run and drive? 
+            <label class="content-title mb-0">
+              Does your {{ selectedMake }} run and drive?
             </label>
             <div class="text-secondary">
-              {{
-              sellerCarDetails.vehicleCondition.doesCarDrive | yesNo
-              }}
+              {{ sellerCarDetails.vehicleCondition.doesCarDrive | yesNo }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
             <label class="content-title mb-0">
-              Does your {{ selectedMake }} start? 
+              Does your {{ selectedMake }} start?
             </label>
             <div class="text-secondary">
-              {{
-              sellerCarDetails.vehicleCondition.doesCarStart | yesNo
-              }}
+              {{ sellerCarDetails.vehicleCondition.doesCarStart | yesNo }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Are the engines and transmission in the {{ selectedMake }}?</label>
+            <label class="content-title mb-0"
+              >Are the engines and transmission in the
+              {{ selectedMake }}?</label
+            >
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.carEngineandTransmission | yesNo
+                sellerCarDetails.vehicleCondition.carEngineandTransmission
+                  | yesNo
               }}
             </div>
           </div>
@@ -123,9 +136,14 @@
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Vehicle Body Condition</span>
         <div class="ml-auto">
-          <div class="grow-container ">
-            <a (click)="routeToStepperIndex(2)" #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above"
-              class="to-twitter circle-button "><mat-icon>edit</mat-icon>
+          <div class="grow-container">
+            <a
+              (click)="routeToStepperIndex(2)"
+              #tooltip="matTooltip"
+              matTooltip="Edit"
+              matTooltipPosition="above"
+              class="to-twitter circle-button"
+              ><mat-icon>edit</mat-icon>
             </a>
           </div>
         </div>
@@ -136,30 +154,37 @@
         <div class="row">
           <!-- Box 1 -->
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Are all of the wheels inflated on your {{ selectedMake
-            }} ?</label>
+            <label class="content-title mb-0"
+              >Are all of the wheels inflated on your
+              {{ selectedMake }} ?</label
+            >
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.externalConditions.doesAllCarWheelInflated | yesNo
+                sellerCarDetails.vehicleCondition.externalConditions
+                  .doesAllCarWheelInflated | yesNo
               }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Any glass or lights cracked or broken on your {{
-              selectedMake }} ?</label>
+            <label class="content-title mb-0"
+              >Any glass or lights cracked or broken on your
+              {{ selectedMake }} ?</label
+            >
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.externalConditions
-              .doesAllGlassorLightCracked | yesNo
-              }} 
+                sellerCarDetails.vehicleCondition.externalConditions
+                  .doesAllGlassorLightCracked | yesNo
+              }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Does it have any body damage?</label>
+            <label class="content-title mb-0"
+              >Does it have any body damage?</label
+            >
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.externalConditions
-              .doesBodyDamage | yesNo
+                sellerCarDetails.vehicleCondition.externalConditions
+                  .doesBodyDamage | yesNo
               }}
             </div>
           </div>
@@ -167,8 +192,8 @@
             <label class="content-title mb-0">Severity of Body Damages?</label>
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.externalConditions
-              .doesBodyDamageSeverity
+                sellerCarDetails.vehicleCondition.externalConditions
+                  .doesBodyDamageSeverity
               }}
             </div>
           </div>
@@ -178,8 +203,8 @@
             </label>
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.externalConditions
-              .NoticeableDingsDentsScratches | yesNo
+                sellerCarDetails.vehicleCondition.externalConditions
+                  .NoticeableDingsDentsScratches | yesNo
               }}
             </div>
           </div>
@@ -187,17 +212,19 @@
             <label class="content-title mb-0">Body panels intact?</label>
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.externalConditions
-              .doesBodyPanelIntact | yesNo
+                sellerCarDetails.vehicleCondition.externalConditions
+                  .doesBodyPanelIntact | yesNo
               }}
             </div>
           </div>
           <div class="col-sm-12 col-md-6 text-start p-2">
-            <label class="content-title mb-0">Are the airbags deployed or missing?</label>
+            <label class="content-title mb-0"
+              >Are the airbags deployed or missing?</label
+            >
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.externalConditions
-              .doesAirbagsDeployedOrMissing | yesNo
+                sellerCarDetails.vehicleCondition.externalConditions
+                  .doesAirbagsDeployedOrMissing | yesNo
               }}
             </div>
           </div>
@@ -207,8 +234,8 @@
             </label>
             <div class="text-secondary">
               {{
-              sellerCarDetails.vehicleCondition.externalConditions
-              .DoesCarSufferedFloodorFireDamage | yesNo
+                sellerCarDetails.vehicleCondition.externalConditions
+                  .DoesCarSufferedFloodorFireDamage | yesNo
               }}
             </div>
           </div>
@@ -217,9 +244,7 @@
               Is the interior of your {{ selectedMake }} intact?
             </label>
             <div class="text-secondary">
-              {{
-              sellerCarDetails.vehicleCondition.DoesInteriorIntact | yesNo
-              }}
+              {{ sellerCarDetails.vehicleCondition.DoesInteriorIntact | yesNo }}
             </div>
           </div>
         </div>
@@ -231,14 +256,17 @@
       <div class="col-12 title-col d-flex align-items-center">
         <span class="breadcrumb">Contact Information</span>
         <div class="ml-auto">
-          <div class="grow-container ">
-            <a (click)="routeToStepperIndex(3)" #tooltip="matTooltip" matTooltip="Edit" matTooltipPosition="above"
-              class="to-twitter circle-button "><mat-icon>edit</mat-icon>
+          <div class="grow-container">
+            <a
+              (click)="routeToStepperIndex(3)"
+              #tooltip="matTooltip"
+              matTooltip="Edit"
+              matTooltipPosition="above"
+              class="to-twitter circle-button"
+              ><mat-icon>edit</mat-icon>
             </a>
           </div>
         </div>
-
-
       </div>
 
       <div class="container">
@@ -276,23 +304,33 @@
       <div class="container">
         <!-- First Row -->
         <div class="row">
-          <div class="col-sm-12 checkbox d-flex justify-content-center">
-            <div class="form-check w-50 text-justify">
-              <input class="form-check-input custom-checkbox-style col-form-label-lg" type="checkbox"
-                [formControl]="reviewCheckbox" id="reviewdefaultCheck" />
-              <label class="form-check-label text-justify" for="reviewdefaultCheck">
+          <div class="col-12 checkbox d-flex justify-content-center">
+            <div class="form-check ml-10 text-justify">
+              <input
+                class="form-check-input custom-checkbox-style col-form-label-lg"
+                type="checkbox"
+                [formControl]="reviewCheckbox"
+                id="reviewdefaultCheck"
+              />
+              <label
+                class="form-check-label text-justify"
+                for="reviewdefaultCheck"
+              >
                 We reserve the right to modify or cancel this offer if the
                 condition of the vehicle does not meet the description of the
                 vehicle provided. Offer is valid for seven days or 500 miles
                 whichever comes first. By clicking submit I hereby accept all
-                <a class="text-danger font-weight-bold" style="text-decoration: none">terms and conditions.</a>
+                <a
+                  class="text-danger font-weight-bold"
+                  style="text-decoration: none"
+                  >terms and conditions.</a
+                >
                 The information I provided is correct to the best of my
                 knowledge.
               </label>
             </div>
           </div>
         </div>
-
       </div>
     </mat-card>
   </div>

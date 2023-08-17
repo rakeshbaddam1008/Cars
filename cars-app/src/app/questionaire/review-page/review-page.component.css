@@ -39,7 +39,6 @@
   cursor: pointer;
 }
 
-
 .checkbox {
   display: inline-flex;
   flex-direction: column;
@@ -60,7 +59,7 @@ mat-icon {
 
 /* Redes Sociais */
 .circle-button {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #ccc;
   display: inline-block;
   font-size: 2rem;
@@ -78,8 +77,6 @@ mat-icon {
   margin: 1em;
 }
 
-
-
 .to-twitter {
   background: #ececec;
   padding: 8px;
@@ -94,15 +91,17 @@ mat-icon {
 
 .content-title {
   font-size: 1.1rem;
-  font-weight: 480;
+  font-weight: 580;
+  color: #1e6c92;
 }
 
 .text-secondary {
   color: darkgrey;
   /* color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important; */
-} 
+}
 @keyframes circle-anim {
-  0% {}
+  0% {
+  }
 
   90% {
     padding: 0.35em;
