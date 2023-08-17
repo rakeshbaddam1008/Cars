@@ -15,27 +15,27 @@ const COUNTRIES: Country[] = [
     model: '4RUNNER 2WD V6',
     year: 1993,
     offer: '19865',
-    status: 'pending'
+    status: 'danger'
   }, {
     make: 'AUDI',
     model: '4RUNNER 4WD 4C',
     year: 1993,
     offer: '19865',
-    status: 'pending'
+    status: 'success'
   },
   {
     make: 'BUICK',
     model: 'CAMRY 4C',
     year: 1993,
     offer: '19865',
-    status: 'pending'
+    status: 'warning'
   },
   {
     make: 'CADILLAC',
     model: 'CAMRY V6',
     year: 1993,
     offer: '19865',
-    status: 'pending'
+    status: 'danger'
   }
 ];
 

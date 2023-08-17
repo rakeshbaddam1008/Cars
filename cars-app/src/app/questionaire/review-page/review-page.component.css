@@ -90,13 +90,15 @@ mat-icon {
 }
 
 .content-title {
-  font-size: 1.1rem;
-  font-weight: 580;
-  color: #1e6c92;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Roboto, Helvetica Neue, sans-serif"
 }
 
 .text-secondary {
   color: darkgrey;
+  font-size: 1rem;
+  font-weight: 400;
   /* color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important; */
 }
 @keyframes circle-anim {
@@ -112,4 +114,15 @@ mat-icon {
     padding: 0.25em;
     margin: -0.25em;
   }
+}
+
+
+.collapse
+{
+  visibility: visible !important;
+}
+.edit-card-icon
+{
+  left: -32px;
+  position: absolute;
 }
