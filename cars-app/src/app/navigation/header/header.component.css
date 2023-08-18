@@ -67,3 +67,8 @@ mat-toolbar {
     border-radius: 0px;
   }
 }
+
+.mat-button-iocn-profile{
+  color: white;
+  margin-top: -10px;
+}

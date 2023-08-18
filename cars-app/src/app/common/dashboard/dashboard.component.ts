@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ISellerVehicle } from 'src/app/models/ISellVechile';
 import { NHTSAService } from 'src/app/services/nhtsa-service';
+import { Router } from '@angular/router';
 
 interface Country {
   make: string;
@@ -50,10 +51,13 @@ const COUNTRIES: Country[] = [
 export class DashboardComponent {
   sellerVehicleDetails: Observable<ISellerVehicle[]> = of([]);
 
-  constructor(private _service: NHTSAService) {}
+  constructor(private _service: NHTSAService,private router: Router) {}
 
   ngOnInit(): void {
     this.sellerVehicleDetails = this._service.getSellerVehicleDetails();
+  }
+  onOkClick() {
+    this.router.navigate(['/questionaire']);
   }
   getStatus(status: string): string {
     switch (status) {

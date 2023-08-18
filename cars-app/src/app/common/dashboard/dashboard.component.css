@@ -202,3 +202,12 @@
   vertical-align: baseline;
   border-radius: 9999px;
 }
+.dash-board-card
+{
+  -webkit-box-shadow: 5px 5px 10px 5px rgba(184,178,184,1);
+  -moz-box-shadow: 5px 5px 10px 5px rgba(184,178,184,1);
+  box-shadow: 5px 5px 10px 5px rgba(184,178,184,1);
+}
+.thumb_down,.thumb_up,.scheduler{
+  cursor: pointer;
+}

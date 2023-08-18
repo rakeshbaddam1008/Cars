@@ -1,10 +1,10 @@
 <div class="container mt-5">
   <div class="col-12">
-    <div class="card">
-      <div class="card-title">
+    <div class="">
+      <div class="">
         <h3 class="text-left m-3 fs-2">Seller-Dasboard</h3>
       </div>
-      <div class="card-body">
+      <div class="dash-board-card">
         <table class="table table-hover table-bordered">
           <thead>
             <tr>
@@ -46,21 +46,21 @@
                 >
               </td>
 
-              <td><mat-icon>visibility</mat-icon></td>
+              <td><a href="#" (click)="onOkClick()" ><mat-icon>visibility</mat-icon></a></td>
               <td class="p-6 d-flex align-items-center border-0">
                 <span
-                  class="material-icons"
+                  class="material-icons thumb_up"
                   title="Accept"
                   style="font-size: 30px; color: rgb(74, 235, 11)"
                   >thumb_up</span
-                >
+                ><span>(Accept)</span>
                 &nbsp;
                 <span
-                  class="material-icons"
+                  class="material-icons thumb_down"
                   title="Reject"
                   style="font-size: 30px; color: rgb(245, 94, 94)"
                   >thumb_down</span
-                >
+                ><span>(Reject)</span>
               </td>
               <td>
                 <!-- <mat-form-field>
@@ -68,7 +68,7 @@
                                     <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
                                 </mat-form-field> -->
-                <span class="material-icons">date_range</span>
+                <span class="material-icons scheduler">date_range</span>
               </td>
             </tr>
           </tbody>

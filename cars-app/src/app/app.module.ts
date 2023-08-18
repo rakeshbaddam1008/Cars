@@ -40,6 +40,7 @@ import { DialogComponent } from './common/dialog/dialog.component';
 import { LoginComponent } from './common/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
+import { ProfileComponent } from './common/profile/profile.component';
 import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.component';
 
 @NgModule({
@@ -75,6 +76,7 @@ import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.comp
     LoginComponent,
     DashboardComponent,
     ConfirmModalComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,174 @@
+<div class="container mt-5">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-title">
+        <h3 class="text-left m-3 fs-2">Profile Details</h3>
+      </div>
+      <div class="card-body">
+        <!-- "seller_id": 197,
+    "email_id": "UI@willcoxsystems.com",
+    "customer_contact_number": "8989809505",
+    "charity_name": "",
+    "donor_email": "",
+    "customer_name": "Mithun",
+    "vehicle_owner_name": "",
+    "payee_name": "",
+    "location_type": "",
+    "apt_number": "",
+    "street_address_line1": "",
+    "street_address_line2": "",
+    "city": "",
+    "zip_code": "28215" -->
+
+    <div class="container-card-body">
+      <form
+        class="form"
+        [formGroup]="profileFormGroup"
+      >
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Seller Id:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Seller Id"
+            formControlName="seller_id"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex" >
+          <mat-label>Email:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Email Id"
+            formControlName="email_id"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex" >
+          <mat-label>Contact number:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Contact number"
+            formControlName="customer_contact_number"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Charity name:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Charity name"
+            formControlName="charity_name"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Donor email:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Donor email"
+            formControlName="donor_email"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Customer name:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Customer name"
+            formControlName="customer_name"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Vehicle owner name:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Vehicle owner name"
+            formControlName="vehicle_owner_name"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Payee name:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Payee name"
+            formControlName="payee_name"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Location type:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Location type"
+            formControlName="location_type"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>APT number:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="APT number"
+            formControlName="apt_number"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Street address line 1:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Street address line 1"
+            formControlName="street_address_line1"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Street address line 2:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Street address line 2"
+            formControlName="street_address_line2"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>City:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="City"
+            formControlName="city"
+          />
+        </mat-form-field>
+        <mat-form-field class="form-element d-flex">
+          <mat-label>Zip code:</mat-label>
+    
+          <input
+            matInput
+            type="text"
+            placeholder="Zip code"
+            formControlName="zip_code"
+          />
+        </mat-form-field>
+</form>
+    </div>    
+
+      </div>
+    </div>
+  </div>
+</div>
