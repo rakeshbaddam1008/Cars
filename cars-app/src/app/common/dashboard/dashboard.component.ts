@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-
+import { Observable, of } from 'rxjs';
+import { ISellerVehicle } from 'src/app/models/ISellVechile';
+import { NHTSAService } from 'src/app/services/nhtsa-service';
 
 interface Country {
   make: string;
@@ -15,36 +17,60 @@ const COUNTRIES: Country[] = [
     model: '4RUNNER 2WD V6',
     year: 1993,
     offer: '19865',
-    status: 'danger'
-  }, {
+    status: 'APPROVED',
+  },
+  {
     make: 'AUDI',
     model: '4RUNNER 4WD 4C',
     year: 1993,
     offer: '19865',
-    status: 'success'
+    status: 'REJECTED',
   },
   {
     make: 'BUICK',
     model: 'CAMRY 4C',
     year: 1993,
     offer: '19865',
-    status: 'warning'
+    status: 'APPROVED',
   },
   {
     make: 'CADILLAC',
     model: 'CAMRY V6',
     year: 1993,
     offer: '19865',
-    status: 'danger'
-  }
+    status: 'PENDING',
+  },
 ];
-
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  countries = COUNTRIES;
+  sellerVehicleDetails: Observable<ISellerVehicle[]> = of([]);
+
+  constructor(private _service: NHTSAService) {}
+
+  ngOnInit(): void {
+    this.sellerVehicleDetails = this._service.getSellerVehicleDetails();
+  }
+  getStatus(status: string): string {
+    switch (status) {
+      case 'PENDING':
+        return 'warning';
+        break;
+      case 'REJECTED':
+      case 'Reject':
+        return 'danger';
+        break;
+      case 'APPROVED':
+      case 'ACCEPTED':
+        return 'success';
+        break;
+
+      default:
+        return 'warning';
+    }
+  }
 }
