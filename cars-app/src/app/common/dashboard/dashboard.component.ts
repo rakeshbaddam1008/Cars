@@ -47,6 +47,10 @@ export class DashboardComponent {
   ) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
     this.sellerVehicleDetails = this._service.getSellerVehicleDetails();
   }
   onOkClick(event: ISellerVehicle) {
@@ -64,6 +68,7 @@ export class DashboardComponent {
           alert('Error in loading');
         }
       );
+
     // this.router.navigate(['/questionaire']);
   }
   getStatus(status: string): string {
@@ -90,7 +95,7 @@ export class DashboardComponent {
     let offer: IOfferStatusData = new IOfferStatusData();
     offer.seller_id = event.seller_id;
     offer.vehicle_id = event.vehicle_id;
-    offer.acceptance_status = event.acceptance_status;
+    offer.acceptance_status = 'ACCEPTED';
     console.log(offer);
     this._service.RequestOffer(offer).subscribe(
       () => {
@@ -100,13 +105,14 @@ export class DashboardComponent {
       },
       (error: any) => this.openDialog('accept')
     );
+    this.loadData();
   }
 
   reject(event: ISellerVehicle) {
     let offer: IOfferStatusData = new IOfferStatusData();
     offer.seller_id = event.seller_id;
     offer.vehicle_id = event.vehicle_id;
-    offer.acceptance_status = event.acceptance_status;
+    offer.acceptance_status = 'REJECTED';
     this._service.RequestOffer(offer).subscribe(
       (s: any) => {
         this.openDialog('reject');
@@ -115,6 +121,7 @@ export class DashboardComponent {
         this.openDialog('reject');
       }
     );
+    this.loadData();
   }
 
   openDialog(value: string): void {
