@@ -10,7 +10,7 @@ import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 export class ReviewModalComponent {
   constructor(
     public dialogRef: MatDialogRef<ReviewModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public sellerCarDetails: ISellerVechileDetails,
+    @Inject(MAT_DIALOG_DATA) public sellerCarDetails: any,
   ) { }
 
 }

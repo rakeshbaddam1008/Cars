@@ -526,3 +526,15 @@ img {
   --mdc-protected-button-container-color: #BDF279;
   --mdc-protected-button-label-text-color: #000 !important;
 }
+
+.btn {
+  text-decoration: none;
+  border: none;
+  padding: 12px 40px;
+  font-size: 16px;
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s all;
+}
