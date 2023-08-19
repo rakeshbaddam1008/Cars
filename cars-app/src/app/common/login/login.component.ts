@@ -91,7 +91,7 @@ export class LoginComponent {
         this.passwordtemplate = false;
         setTimeout(() => {
           this.isLoading = false;
-        }, 1000)
+        }, 1000);
         this.isSignUpFailed = false;
       },
       (err) => {
@@ -108,9 +108,7 @@ export class LoginComponent {
               closeButton: true,
             }
           );
-        }, 1000)
-        
-       
+        }, 1000);
       }
     );
   }
@@ -123,6 +121,8 @@ export class LoginComponent {
       this.authService.login(username, pwd).subscribe(
         (data) => {
           this.tokenStorage.saveToken(data.accessToken);
+          this.tokenStorage.saveMail(username);
+
           this.tokenStorage.saveRefreshToken(data.token);
           this.tokenStorage.saveUser(data);
 
@@ -131,21 +131,19 @@ export class LoginComponent {
           this.router.navigateByUrl('/dashboard');
           setTimeout(() => {
             this.isLoading = false;
-          }, 1000)
+          }, 1000);
         },
         (err) => {
-          
           setTimeout(() => {
             this.isLoading = false;
             this.errorMessage = err.error.message;
-          this.isLoginFailed = true;
-          this.toaster.warning('Error occured during Login', 'Warning', {
-            timeOut: 4000,
-            positionClass: 'toast-top-right',
-            closeButton: true,
-          });
-          }, 1000)
-          
+            this.isLoginFailed = true;
+            this.toaster.warning('Error occured during Login', 'Warning', {
+              timeOut: 4000,
+              positionClass: 'toast-top-right',
+              closeButton: true,
+            });
+          }, 1000);
         }
       );
     } else {
