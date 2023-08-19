@@ -138,8 +138,6 @@ export class LoginComponent {
       this.logintemplate = false;
       this.signuptemplate = true;
       this.passwordtemplate = false;
-
-      this.signup1();
     } else if (event === 'forgetPassword') {
       this.logintemplate = false;
       this.signuptemplate = false;
