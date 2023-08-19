@@ -89,7 +89,13 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private isValidRequestForInterceptor(requestUrl: string): boolean {
-    let urlsToInclude = ['', '', ''];
+    let urlsToInclude = [
+      'seller-vehicle-info',
+      '/profile-info',
+      'update-profile-info',
+      '/carizma/acceptance-status',
+      '/seller-vehicle-complete-info',
+    ];
     if (urlsToInclude.some((s) => requestUrl.endsWith(s))) return true;
 
     return false;

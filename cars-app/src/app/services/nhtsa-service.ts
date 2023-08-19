@@ -102,70 +102,70 @@ export class NHTSAService {
   }
 
   getSellerVehicleDetails(): Observable<ISellerVehicle[]> {
-    let data: ISellerVehicle[] = [
-      {
-        seller_id: 121,
-        vehicle_id: 210201,
-        year: 2008,
-        make: 'TOYOTA',
-        model: 'COROLLA',
-        trim: '4D SUV',
-        vin: '',
-        plate_number: '',
-        mileage: '123654',
-        instant_offer_price: '72960',
-        acceptance_status: 'PENDING',
-      },
-      {
-        seller_id: 121,
-        vehicle_id: 210201,
-        year: 2008,
-        make: 'HONDA',
-        model: 'CR-V',
-        trim: 'SEDAN',
-        vin: '',
-        plate_number: '',
-        mileage: '123654',
-        instant_offer_price: '12674',
-        acceptance_status: 'ACCEPTED',
-      },
-      {
-        seller_id: 121,
-        vehicle_id: 210201,
-        year: 2008,
-        make: 'BMW',
-        model: 'X7',
-        trim: 'RX100',
-        vin: '',
-        plate_number: '',
-        mileage: '983652',
-        instant_offer_price: '69871',
-        acceptance_status: 'REJECTED',
-      },
-    ];
-    return of(data);
+    // let data: ISellerVehicle[] = [
+    //   {
+    //     seller_id: 121,
+    //     vehicle_id: 210201,
+    //     year: 2008,
+    //     make: 'TOYOTA',
+    //     model: 'COROLLA',
+    //     trim: '4D SUV',
+    //     vin: '',
+    //     plate_number: '',
+    //     mileage: '123654',
+    //     instant_offer_price: '72960',
+    //     acceptance_status: 'PENDING',
+    //   },
+    //   {
+    //     seller_id: 121,
+    //     vehicle_id: 210201,
+    //     year: 2008,
+    //     make: 'HONDA',
+    //     model: 'CR-V',
+    //     trim: 'SEDAN',
+    //     vin: '',
+    //     plate_number: '',
+    //     mileage: '123654',
+    //     instant_offer_price: '12674',
+    //     acceptance_status: 'ACCEPTED',
+    //   },
+    //   {
+    //     seller_id: 121,
+    //     vehicle_id: 210201,
+    //     year: 2008,
+    //     make: 'BMW',
+    //     model: 'X7',
+    //     trim: 'RX100',
+    //     vin: '',
+    //     plate_number: '',
+    //     mileage: '983652',
+    //     instant_offer_price: '69871',
+    //     acceptance_status: 'REJECTED',
+    //   },
+    // ];
+    // return of(data);
     return this.http.get<ISellerVehicle[]>(
       environment.apiURL + '/carizma/seller-vehicle-info'
     );
   }
 
   getUserProfileDetails(): Observable<ISellerProfile> {
-    let data: ISellerProfile = {
-      seller_id: 121,
-      email_id: 'test2@gmail.com',
-      customer_contact_number: '8989809505',
-      charity_name: '',
-      donor_email: '',
-      customer_name: 'John Dale',
-      vehicle_owner_name: 'John Dale',
-      payee_name: 'John Dale',
-      location_type: 'Residence',
-      apt_number: '403',
-      street_address: '50 King Street',
-      city: 'New York',
-      zip_code: '28213',
-    };
-    return of(data);
+    // let data: ISellerProfile = {
+    //   seller_id: 121,
+    //   email_id: 'test2@gmail.com',
+    //   customer_contact_number: '8989809505',
+    //   charity_name: '',
+    //   donor_email: '',
+    //   customer_name: 'John Dale',
+    //   vehicle_owner_name: 'John Dale',
+    //   payee_name: 'John Dale',
+    //   location_type: 'Residence',
+    //   apt_number: '403',
+    //   street_address: '50 King Street',
+    //   city: 'New York',
+    //   zip_code: '28213',
+    // };
+    // return of(data);
     return this.http.get<ISellerProfile>(
       environment.apiURL + '/carizma/seller-vehicle-info'
     );
@@ -174,22 +174,22 @@ export class NHTSAService {
   updateUserProfileDetails(
     request: ISellerProfile
   ): Observable<ISellerProfile> {
-    let data: ISellerProfile = {
-      seller_id: 121,
-      email_id: 'test2@gmail.com',
-      customer_contact_number: '8989809505',
-      charity_name: '',
-      donor_email: '',
-      customer_name: 'John Dale',
-      vehicle_owner_name: 'John Dale',
-      payee_name: 'John Dale',
-      location_type: 'Residence',
-      apt_number: '403',
-      street_address: '50 King Street',
-      city: 'New York',
-      zip_code: '28213',
-    };
-    return of(data);
+    //   let data: ISellerProfile = {
+    //     seller_id: 121,
+    //     email_id: 'test2@gmail.com',
+    //     customer_contact_number: '8989809505',
+    //     charity_name: '',
+    //     donor_email: '',
+    //     customer_name: 'John Dale',
+    //     vehicle_owner_name: 'John Dale',
+    //     payee_name: 'John Dale',
+    //     location_type: 'Residence',
+    //     apt_number: '403',
+    //     street_address: '50 King Street',
+    //     city: 'New York',
+    //     zip_code: '28213',
+    //   };
+    //   return of(data);
     return this.http.put<ISellerProfile>(
       environment.apiURL + '/carizma/seller-vehicle-info',
       request

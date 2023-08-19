@@ -23,21 +23,27 @@
       <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
       <li class="nav-item dropdown">
         <span class="fill-remaining-space">
-          <button class="mat-button-iocn-profile" mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
+          <button
+            class="mat-button-iocn-profile"
+            mat-icon-button
+            [matMenuTriggerFor]="menu"
+            #menuTrigger="matMenuTrigger"
+            (mouseover)="menuTrigger.openMenu()"
+          >
             <mat-icon>people_outline</mat-icon>
           </button>
           <mat-menu #menu="matMenu" [overlapTrigger]="false">
-          <span (mouseleave)="menuTrigger.closeMenu()">
-            <button mat-menu-item (click)="onClickProfile()">
-              <mat-icon>Profile</mat-icon>
-              <span>Profile</span>
-        </button>        
-        <button mat-menu-item>
-              <mat-icon>exit_to_app</mat-icon>
-              <span>Logout</span>
-            </button>
-        </span>
-        </mat-menu>
+            <span (mouseleave)="menuTrigger.closeMenu()">
+              <button mat-menu-item (click)="onClickProfile()">
+                <mat-icon>Profile</mat-icon>
+                <span>Profile</span>
+              </button>
+              <button mat-menu-item (click)="logOut()">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+              </button>
+            </span>
+          </mat-menu>
         </span>
       </li>
     </ul>

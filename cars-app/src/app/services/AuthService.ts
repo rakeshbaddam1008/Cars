@@ -27,6 +27,10 @@ export class AuthService {
     // true or false
     return !jwtHelper.isTokenExpired(token);
   }
+
+  public logout() {
+    this.tokenService.signOut();
+  }
   login(username: string, password: string): Observable<IToken> {
     return this.http.post<IToken>(
       AUTH_API + '/login',

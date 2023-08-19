@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/AuthService';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +10,19 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   @Output() public sidenavToggle = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();
   };
-  onClickProfile(){
+  onClickProfile() {
     this.router.navigate(['/profile']);
+  }
+
+  logOut() {
+    this.authService.logout();
+    this.router.navigate(['']);
   }
 }
