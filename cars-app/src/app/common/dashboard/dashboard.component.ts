@@ -6,7 +6,12 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmModalComponent } from 'src/app/common/confirm-modal/confirm-modal.component';
 import { DialogComponent } from 'src/app/common/dialog/dialog.component';
-import { contact_title, conatc_message, accept_title, accept_message } from 'src/app/constants.ts/constants';
+import {
+  contact_title,
+  conatc_message,
+  accept_title,
+  accept_message,
+} from 'src/app/constants.ts/constants';
 import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 import {
   IOfferData,
@@ -26,8 +31,6 @@ interface Country {
   status: string;
 }
 
-
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -37,16 +40,35 @@ export class DashboardComponent {
   sellerVehicleDetails: Observable<ISellerVehicle[]> = of([]);
   isLoading: boolean = false;
 
-  constructor(private _service: NHTSAService,private router: Router, public dialog: MatDialog) {}
+  constructor(
+    private _service: NHTSAService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
     this.sellerVehicleDetails = this._service.getSellerVehicleDetails();
   }
-  onOkClick() {
-    const reviewDialog = this.dialog.open(ReviewModalComponent, {
-      data: { sellerVehicleDetails : this.sellerVehicleDetails }, height: '95%',
-      width: '80%'
-    });
+  onOkClick(event: ISellerVehicle) {
+    this._service
+      .getSellerCompleteDetails(event.seller_id, event.vehicle_id)
+      .subscribe(
+        (res) => {
+          const reviewDialog = this.dialog.open(ReviewModalComponent, {
+            data: { sellerVehicleDetails: res },
+            height: '95%',
+            width: '80%',
+          });
+        },
+        () => {
+          alert('Error in loading');
+        }
+      );
+
     // this.router.navigate(['/questionaire']);
   }
   getStatus(status: string): string {
@@ -73,25 +95,33 @@ export class DashboardComponent {
     let offer: IOfferStatusData = new IOfferStatusData();
     offer.seller_id = event.seller_id;
     offer.vehicle_id = event.vehicle_id;
-    offer.acceptance_status = event.acceptance_status;
-    console.log(offer)
-    this._service
-      .RequestOffer(offer)
-      .subscribe(() => {
-        setTimeout(() => (this.isLoading = false), 1000);
+    offer.acceptance_status = 'ACCEPTED';
+    console.log(offer);
+    this._service.RequestOffer(offer).subscribe(
+      () => {
+        this.isLoading = false;
         // this.toaster.war('Successfully Accepted teh offer.', 'Congratulations', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
-        this.openDialog('accept')
-      }, (error: any) => this.openDialog('accept'));
+        this.openDialog('accept');
+      },
+      (error: any) => this.openDialog('accept')
+    );
+    this.loadData();
   }
 
-  reject(event : ISellerVehicle) {
+  reject(event: ISellerVehicle) {
     let offer: IOfferStatusData = new IOfferStatusData();
     offer.seller_id = event.seller_id;
     offer.vehicle_id = event.vehicle_id;
-    offer.acceptance_status = event.acceptance_status;
-    this._service
-      .RequestOffer(offer)
-      .subscribe((s : any) => { this.openDialog('reject') }, (error: any) => { this.openDialog('reject') });
+    offer.acceptance_status = 'REJECTED';
+    this._service.RequestOffer(offer).subscribe(
+      (s: any) => {
+        this.openDialog('reject');
+      },
+      (error: any) => {
+        this.openDialog('reject');
+      }
+    );
+    this.loadData();
   }
 
   openDialog(value: string): void {
@@ -99,32 +129,33 @@ export class DashboardComponent {
     let message: string;
     if (value == 'accept') {
       title = accept_title;
-      message = accept_message
+      message = accept_message;
     } else {
       title = 'Thank You!';
-      message = 'Our representative will be connecting with you shortly please feel free to look into other options.'
+      message =
+        'Our representative will be connecting with you shortly please feel free to look into other options.';
     }
     const dialogRef = this.dialog.open(DialogComponent, {
-      data: { title: title, message: message, page: 'contact' }
+      data: { title: title, message: message, page: 'contact' },
     });
 
     dialogRef.beforeClosed().subscribe(() => {
       this.isLoading = true;
       setTimeout(() => {
         this.isLoading = false;
-        this.router.navigateByUrl("/sell-car");
+        this.router.navigateByUrl('/sell-car');
       }, 1000);
-
-    })
+    });
   }
 
   confirmDialog(event: ISellerVehicle) {
-    const dialogRef = this.dialog.open(ConfirmModalComponent, { panelClass: 'my-class' });
+    const dialogRef = this.dialog.open(ConfirmModalComponent, {
+      panelClass: 'my-class',
+    });
     dialogRef.afterClosed().subscribe((result) => {
-
       if (result.event === 'Reject') {
-        this.reject(event)
+        this.reject(event);
       }
-    })
+    });
   }
 }

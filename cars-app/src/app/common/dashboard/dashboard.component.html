@@ -35,7 +35,8 @@
               <td>{{ country.vin }}</td>
               <td>{{ country.plate_number }}</td>
               <td>{{ country.mileage }}</td>
-              <td class="p-6 d-flex align-items-center border-0"><span class="material-icons"> attach_money </span>
+              <td class="p-6 d-flex align-items-center border-0">
+                <span class="material-icons"> attach_money </span>
                 <span>{{ country.instant_offer_price }}</span>
               </td>
 
@@ -43,7 +44,9 @@
                 <span class="badge bg-{{ getStatus(country.acceptance_status) }}">{{ country.acceptance_status }}</span>
               </td>
 
-              <td><a (click)="onOkClick()"><mat-icon>visibility</mat-icon></a></td>
+              <td>
+                <a (click)="onOkClick(country)"><mat-icon>visibility</mat-icon></a>
+              </td>
               <td class="p-6 d-flex align-items-center border-0">
                 <span *ngIf="country.acceptance_status == 'PENDING' || country.acceptance_status == 'REJECTED'"
                   class="material-icons thumb_up" title="Accept" style="font-size: 30px; color: rgb(74, 235, 11)"
