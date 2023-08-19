@@ -126,8 +126,7 @@ export class NHTSAService {
 
     return this.http.post<ISellerVehicle[]>(
       environment.apiURL + '/carizma/seller-vehicle-info',
-      { email_id: this.token.getEMail() },
-      httpOptions
+      { email_id: this.token.getEMail() }
     );
   }
   // getSellerVehicleDetails(): Observable<ISellerVehicle[]> {
