@@ -20,7 +20,7 @@ export class LoginComponent {
   //   username: null,
   //   password: null
   // };
-
+  isLoading: boolean = false;
   loginFormGroup: FormGroup = new FormGroup({});
   logintemplate: boolean = true;
   signupFormGroup: FormGroup = new FormGroup({});
@@ -29,6 +29,7 @@ export class LoginComponent {
   passwordtemplate: boolean = false;
   isLoggedIn: boolean = false;
   isLoginFailed: boolean = false;
+  isSignUpFailed: boolean = false;
   errorMessage: any;
   passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
 
@@ -70,8 +71,9 @@ export class LoginComponent {
       this.signupFormGroup.controls['confirmPassword'].value;
     if (pwd != confirmPassword) {
       alert('Password mismatch');
+      this.signupFormGroup.controls['confirmPassword'].setValue('');
     }
-
+    this.isLoading = true;
     this.authService.register(username, pwd).subscribe(
       (data) => {
         console.log(data);
@@ -87,24 +89,35 @@ export class LoginComponent {
         this.logintemplate = true;
         this.signuptemplate = false;
         this.passwordtemplate = false;
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 1000)
+        this.isSignUpFailed = false;
       },
       (err) => {
-        this.errorMessage = err.error.message;
-        this.toaster.warning(
-          'Error occured during sign-up, please try later.',
-          'Warning',
-          {
-            timeOut: 4000,
-            positionClass: 'toast-top-right',
-            closeButton: true,
-          }
-        );
+        setTimeout(() => {
+          this.isLoading = false;
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+          this.toaster.warning(
+            'Error occured during sign-up, please try later.',
+            'Warning',
+            {
+              timeOut: 4000,
+              positionClass: 'toast-top-right',
+              closeButton: true,
+            }
+          );
+        }, 1000)
+        
+       
       }
     );
   }
 
   routeToDashboard() {
     if (this.loginFormGroup.valid) {
+      this.isLoading = true;
       let username = this.loginFormGroup.controls['email'].value;
       let pwd = this.loginFormGroup.controls['password'].value;
       this.authService.login(username, pwd).subscribe(
@@ -116,15 +129,23 @@ export class LoginComponent {
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.router.navigateByUrl('/dashboard');
+          setTimeout(() => {
+            this.isLoading = false;
+          }, 1000)
         },
         (err) => {
-          this.errorMessage = err.error.message;
+          
+          setTimeout(() => {
+            this.isLoading = false;
+            this.errorMessage = err.error.message;
           this.isLoginFailed = true;
           this.toaster.warning('Error occured during Login', 'Warning', {
             timeOut: 4000,
             positionClass: 'toast-top-right',
             closeButton: true,
           });
+          }, 1000)
+          
         }
       );
     } else {
