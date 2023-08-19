@@ -175,13 +175,13 @@ mat-card::before {
 .mat-mdc-tab.mdc-tab--active .mdc-tab__text-label {
   color: black !important;
   font-size: larger;
-  font-family: cursive;
+  font-family: 'Roboto';
   font-weight: bolder;
 }
 
 .mat-mdc-tab .mdc-tab__text-label {
   color: black !important;
   font-size: larger;
-  font-family: cursive;
+  font-family: 'Roboto';
   font-weight: 400;
 }
