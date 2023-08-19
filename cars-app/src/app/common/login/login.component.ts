@@ -30,6 +30,8 @@ export class LoginComponent {
   isLoggedIn: boolean = false;
   isLoginFailed: boolean = false;
   errorMessage: any;
+  passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+
   constructor(
     private router: Router,
     public toaster: ToastrService,
@@ -40,9 +42,14 @@ export class LoginComponent {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
     });
+
     this.signupFormGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.pattern(this.passwordRegex),
+      ]),
       confirmPassword: new FormControl('', Validators.required),
     });
     this.passwordFormGroup = new FormGroup({
