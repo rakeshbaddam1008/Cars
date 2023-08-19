@@ -7,19 +7,29 @@ import { ContactComponent } from '../common/contact/contact.component';
 import { LoginComponent } from '../common/login/login.component';
 import { DashboardComponent } from '../common/dashboard/dashboard.component';
 import { ProfileComponent } from '../common/profile/profile.component';
-
+import { AuthGuardService } from '../services/AuthGuardService';
+// import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'questionaire', component: CarStepperComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'sell-car', component: SellCarHomeComponent },
   { path: '', redirectTo: '/sell-car', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent }
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuardService],
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

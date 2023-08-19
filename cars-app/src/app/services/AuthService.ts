@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { TokenStorageService } from './TokenStorageService';
 
 const AUTH_API = environment.apiURL + '/carizma';
 
@@ -13,10 +15,20 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
-
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(
+  constructor(
+    private http: HttpClient,
+    public tokenService: TokenStorageService,
+    public jwtHelper: JwtHelperService
+  ) {}
+  // ...
+  public isAuthenticated(): boolean {
+    const token = this.tokenService.getToken();
+    // Check whether the token is expired and return
+    // true or false
+    return !this.jwtHelper.isTokenExpired(token);
+  }
+  login(username: string, password: string): Observable<IToken> {
+    return this.http.post<IToken>(
       AUTH_API + '/login',
       {
         email_id: username,
@@ -30,7 +42,7 @@ export class AuthService {
     return this.http.post(
       AUTH_API + '/signup',
       {
-        email,
+        email_id: email,
         password,
       },
       httpOptions
@@ -48,6 +60,10 @@ export class AuthService {
   }
 }
 
+export interface IToken {
+  accessToken: string;
+  token: string;
+}
 // import { Injectable } from '@angular/core';
 // import { HttpClient, HttpHeaders } from '@angular/common/http';
 // import { Observable } from 'rxjs';

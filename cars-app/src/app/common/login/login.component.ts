@@ -56,12 +56,12 @@ export class LoginComponent {
     }
   }
 
-  signup() {
+  signup1() {
     let username = this.signupFormGroup.controls['email'].value;
     let pwd = this.signupFormGroup.controls['password'].value;
     let confirmPassword =
       this.signupFormGroup.controls['confirmPassword'].value;
-    if (pwd == confirmPassword) {
+    if (pwd != confirmPassword) {
       alert('Password mismatch');
     }
 
@@ -103,7 +103,7 @@ export class LoginComponent {
       this.authService.login(username, pwd).subscribe(
         (data) => {
           this.tokenStorage.saveToken(data.accessToken);
-          this.tokenStorage.saveRefreshToken(data.refreshToken);
+          this.tokenStorage.saveRefreshToken(data.token);
           this.tokenStorage.saveUser(data);
 
           this.isLoginFailed = false;
@@ -138,6 +138,8 @@ export class LoginComponent {
       this.logintemplate = false;
       this.signuptemplate = true;
       this.passwordtemplate = false;
+
+      this.signup1();
     } else if (event === 'forgetPassword') {
       this.logintemplate = false;
       this.signuptemplate = false;
