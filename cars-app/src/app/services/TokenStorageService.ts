@@ -19,7 +19,7 @@ export class TokenStorageService {
   }
   public saveMail(mail: string) {
     window.sessionStorage.removeItem(USER_Email);
-    window.sessionStorage.setItem(TOKEN_KEY, mail.trim());
+    window.sessionStorage.setItem(USER_Email, mail.trim());
   }
   public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);

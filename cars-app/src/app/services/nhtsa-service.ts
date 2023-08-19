@@ -123,6 +123,7 @@ export class NHTSAService {
         Authorization: `Bearer ${this.token.getToken()}`,
       }),
     };
+
     return this.http.post<ISellerVehicle[]>(
       environment.apiURL + '/carizma/seller-vehicle-info',
       { email_id: this.token.getEMail() },
