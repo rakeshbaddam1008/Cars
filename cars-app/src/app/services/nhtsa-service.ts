@@ -123,53 +123,54 @@ export class NHTSAService {
         Authorization: `Bearer ${this.token.getToken()}`,
       }),
     };
-    return this.http.get<ISellerVehicle[]>(
+    return this.http.post<ISellerVehicle[]>(
       environment.apiURL + '/carizma/seller-vehicle-info',
+      { email_id: this.token.getEMail() },
       httpOptions
     );
   }
   // getSellerVehicleDetails(): Observable<ISellerVehicle[]> {
-  //   // let data: ISellerVehicle[] = [
-  //   //   {
-  //   //     seller_id: 121,
-  //   //     vehicle_id: 210201,
-  //   //     year: 2008,
-  //   //     make: 'TOYOTA',
-  //   //     model: 'COROLLA',
-  //   //     trim: '4D SUV',
-  //   //     vin: '',
-  //   //     plate_number: '',
-  //   //     mileage: '123654',
-  //   //     instant_offer_price: '72960',
-  //   //     acceptance_status: 'PENDING',
-  //   //   },
-  //   //   {
-  //   //     seller_id: 121,
-  //   //     vehicle_id: 210201,
-  //   //     year: 2008,
-  //   //     make: 'HONDA',
-  //   //     model: 'CR-V',
-  //   //     trim: 'SEDAN',
-  //   //     vin: '',
-  //   //     plate_number: '',
-  //   //     mileage: '123654',
-  //   //     instant_offer_price: '12674',
-  //   //     acceptance_status: 'ACCEPTED',
-  //   //   },
-  //   //   {
-  //   //     seller_id: 121,
-  //   //     vehicle_id: 210201,
-  //   //     year: 2008,
-  //   //     make: 'BMW',
-  //   //     model: 'X7',
-  //   //     trim: 'RX100',
-  //   //     vin: '',
-  //   //     plate_number: '',
-  //   //     mileage: '983652',
-  //   //     instant_offer_price: '69871',
-  //   //     acceptance_status: 'REJECTED',
-  //   //   },
-  //   // ];
+  // let data: ISellerVehicle[] = [
+  //   {
+  //     seller_id: 121,
+  //     vehicle_id: 210201,
+  //     year: 2008,
+  //     make: 'TOYOTA',
+  //     model: 'COROLLA',
+  //     trim: '4D SUV',
+  //     vin: '',
+  //     plate_number: '',
+  //     mileage: '123654',
+  //     instant_offer_price: '72960',
+  //     acceptance_status: 'PENDING',
+  //   },
+  //   {
+  //     seller_id: 121,
+  //     vehicle_id: 210201,
+  //     year: 2008,
+  //     make: 'HONDA',
+  //     model: 'CR-V',
+  //     trim: 'SEDAN',
+  //     vin: '',
+  //     plate_number: '',
+  //     mileage: '123654',
+  //     instant_offer_price: '12674',
+  //     acceptance_status: 'ACCEPTED',
+  //   },
+  //   {
+  //     seller_id: 121,
+  //     vehicle_id: 210201,
+  //     year: 2008,
+  //     make: 'BMW',
+  //     model: 'X7',
+  //     trim: 'RX100',
+  //     vin: '',
+  //     plate_number: '',
+  //     mileage: '983652',
+  //     instant_offer_price: '69871',
+  //     acceptance_status: 'REJECTED',
+  //   },
+  // ];
   //   // return of(data);
   //   return this.http.get<ISellerVehicle[]>(
   //     environment.apiURL + '/carizma/seller-vehicle-info',
