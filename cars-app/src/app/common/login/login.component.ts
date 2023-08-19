@@ -95,20 +95,19 @@ export class LoginComponent {
         this.isSignUpFailed = false;
       },
       (err) => {
-        setTimeout(() => {
-          this.isLoading = false;
-          this.errorMessage = err.error.message;
-          this.isSignUpFailed = true;
-          this.toaster.warning(
-            'Error occured during sign-up, please try later.',
-            'Warning',
-            {
-              timeOut: 4000,
-              positionClass: 'toast-top-right',
-              closeButton: true,
-            }
-          );
-        }, 1000);
+        this.isLoading = false;
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+        this.toaster.warning(
+          'Error occured during sign-up, please try later.',
+          'Warning',
+          {
+            timeOut: 4000,
+            positionClass: 'toast-top-right',
+            closeButton: true,
+          }
+        );
+        return;
       }
     );
   }
