@@ -15,7 +15,7 @@ export class TokenStorageService {
     window.sessionStorage.clear();
   }
   public getEMail() {
-    window.sessionStorage.getItem(USER_Email);
+    return window.sessionStorage.getItem(USER_Email);
   }
   public saveMail(mail: string) {
     window.sessionStorage.removeItem(USER_Email);
