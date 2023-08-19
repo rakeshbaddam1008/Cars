@@ -267,4 +267,4 @@ export const VechileYears: Number[] = [
 export const contact_title = 'Personalized Offer Coming Soon!'
 export const conatc_message = 'Carizma Customer Team will follow up with you to provide a better offer.'
 export const accept_title = 'Congratulations!'
-export const accept_message = 'Congratulation message to be displayed here'
+export const accept_message = 'Thanks for aacccepting the offer'

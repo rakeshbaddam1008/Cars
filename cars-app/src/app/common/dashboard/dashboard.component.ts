@@ -1,8 +1,22 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { ISellerVehicle } from 'src/app/models/ISellVechile';
-import { NHTSAService } from 'src/app/services/nhtsa-service';
+// import { NHTSAService } from 'src/app/services/';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ConfirmModalComponent } from 'src/app/common/confirm-modal/confirm-modal.component';
+import { DialogComponent } from 'src/app/common/dialog/dialog.component';
+import { contact_title, conatc_message, accept_title, accept_message } from 'src/app/constants.ts/constants';
+import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
+import {
+  IOfferData,
+  IOfferStatusData,
+  IVechileModelDetails,
+} from 'src/app/models/IVechile';
+import { ReviewService } from 'src/app/services/review.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NHTSAService } from 'src/app/services/nhtsa-service';
+import { ReviewModalComponent } from '../review-modal/review-modal.component';
 
 interface Country {
   make: string;
@@ -12,36 +26,7 @@ interface Country {
   status: string;
 }
 
-const COUNTRIES: Country[] = [
-  {
-    make: 'ACURA',
-    model: '4RUNNER 2WD V6',
-    year: 1993,
-    offer: '19865',
-    status: 'APPROVED',
-  },
-  {
-    make: 'AUDI',
-    model: '4RUNNER 4WD 4C',
-    year: 1993,
-    offer: '19865',
-    status: 'REJECTED',
-  },
-  {
-    make: 'BUICK',
-    model: 'CAMRY 4C',
-    year: 1993,
-    offer: '19865',
-    status: 'APPROVED',
-  },
-  {
-    make: 'CADILLAC',
-    model: 'CAMRY V6',
-    year: 1993,
-    offer: '19865',
-    status: 'PENDING',
-  },
-];
+
 
 @Component({
   selector: 'app-dashboard',
@@ -50,14 +35,19 @@ const COUNTRIES: Country[] = [
 })
 export class DashboardComponent {
   sellerVehicleDetails: Observable<ISellerVehicle[]> = of([]);
+  isLoading: boolean = false;
 
-  constructor(private _service: NHTSAService,private router: Router) {}
+  constructor(private _service: NHTSAService,private router: Router, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.sellerVehicleDetails = this._service.getSellerVehicleDetails();
   }
   onOkClick() {
-    this.router.navigate(['/questionaire']);
+    const reviewDialog = this.dialog.open(ReviewModalComponent, {
+      data: { sellerVehicleDetails : this.sellerVehicleDetails }, height: '95%',
+      width: '80%'
+    });
+    // this.router.navigate(['/questionaire']);
   }
   getStatus(status: string): string {
     switch (status) {
@@ -76,5 +66,65 @@ export class DashboardComponent {
       default:
         return 'warning';
     }
+  }
+
+  accept(event: ISellerVehicle) {
+    this.isLoading = true;
+    let offer: IOfferStatusData = new IOfferStatusData();
+    offer.seller_id = event.seller_id;
+    offer.vehicle_id = event.vehicle_id;
+    offer.acceptance_status = event.acceptance_status;
+    console.log(offer)
+    this._service
+      .RequestOffer(offer)
+      .subscribe(() => {
+        setTimeout(() => (this.isLoading = false), 1000);
+        // this.toaster.war('Successfully Accepted teh offer.', 'Congratulations', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+        this.openDialog('accept')
+      }, (error: any) => this.openDialog('accept'));
+  }
+
+  reject(event : ISellerVehicle) {
+    let offer: IOfferStatusData = new IOfferStatusData();
+    offer.seller_id = event.seller_id;
+    offer.vehicle_id = event.vehicle_id;
+    offer.acceptance_status = event.acceptance_status;
+    this._service
+      .RequestOffer(offer)
+      .subscribe((s : any) => { this.openDialog('reject') }, (error: any) => { this.openDialog('reject') });
+  }
+
+  openDialog(value: string): void {
+    let title: string;
+    let message: string;
+    if (value == 'accept') {
+      title = accept_title;
+      message = accept_message
+    } else {
+      title = 'Thank You!';
+      message = 'Our representative will be connecting with you shortly please feel free to look into other options.'
+    }
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: { title: title, message: message, page: 'contact' }
+    });
+
+    dialogRef.beforeClosed().subscribe(() => {
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false;
+        this.router.navigateByUrl("/sell-car");
+      }, 1000);
+
+    })
+  }
+
+  confirmDialog(event: ISellerVehicle) {
+    const dialogRef = this.dialog.open(ConfirmModalComponent, { panelClass: 'my-class' });
+    dialogRef.afterClosed().subscribe((result) => {
+
+      if (result.event === 'Reject') {
+        this.reject(event)
+      }
+    })
   }
 }

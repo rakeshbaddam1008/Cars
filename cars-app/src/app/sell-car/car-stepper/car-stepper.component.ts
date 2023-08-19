@@ -162,9 +162,9 @@ export class CarStepperComponent {
 
   callApiToGetInstantOffer() {
     this.isLoading = true;
-    setTimeout(() => {
+    // setTimeout(() => {
       // let currentOffer = {} as IOfferData
-      // currentOffer.instant_offer_price = 9000;
+      // currentOffer.instant_offer_price = 9850;
       // currentOffer.seller_id = 12345
       // currentOffer.vehicle_id = 56128
       // this.reviewService.currentOffer = currentOffer
@@ -174,17 +174,20 @@ export class CarStepperComponent {
 
           this.reviewService.currentOffer = res;
           this.reviewService.offerPrice = res.instant_offer_price;
+          this.myStepper.next()
+          this.isLoading = false
         },
         (err) => {
           this.reviewService.offerPrice = undefined
           this.isLoading = false;
+          this.myStepper.next()
           // this.toaster.warning('Unable to calculate the instant offer at the moment and our customer care team will reach out to you shortly.', 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
         }
       );
-      this.myStepper.next()
-      this.isLoading = false
-    }, 2000);
-
+      
+    // }, 2000);
+    // this.isLoading = false;
+    //     this.myStepper.next()
   }
 
   public ngOnDestroy(): void {

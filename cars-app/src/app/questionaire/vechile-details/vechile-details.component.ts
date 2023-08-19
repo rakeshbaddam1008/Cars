@@ -55,7 +55,7 @@ export class VechileDetailsComponent {
       mileage: new FormControl(this.vechileQuestionaire.mileage, [Validators.required, Validators.max(400000)]),
       color: new FormControl(this.vechileQuestionaire?.color, Validators.required),
       zipCode: new FormControl(this.vechileQuestionaire?.zipCode, [Validators.required, Validators.pattern(/(^\d{5}$)|(^\d{5}-\d{4}$)/)]),
-      vechileTransmissionType: new FormControl(this.vechileQuestionaire?.vechileTransmissionType, Validators.required),
+      vechileTransmissionType: new FormControl(this.vechileQuestionaire.vechileTransmissionType, Validators.required),
     });
   }
 

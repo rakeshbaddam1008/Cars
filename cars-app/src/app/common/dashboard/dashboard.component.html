@@ -24,9 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr
-              *ngFor="let country of sellerVehicleDetails | async; index as i"
-            >
+            <tr *ngFor="let country of sellerVehicleDetails | async; index as i">
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ country.year }}</td>
               <td>
@@ -38,30 +36,20 @@
               <td>{{ country.plate_number }}</td>
               <td>{{ country.mileage }}</td>
               <td class="p-6 d-flex align-items-center border-0"><span class="material-icons"> attach_money </span>
-                <span>{{ country.instant_offer_price }}</span></td>
-
-              <td>
-                <span
-                  class="badge bg-{{ getStatus(country.acceptance_status) }}"
-                  >{{ country.acceptance_status }}</span
-                >
+                <span>{{ country.instant_offer_price }}</span>
               </td>
 
-              <td><a href="#" (click)="onOkClick()" ><mat-icon>visibility</mat-icon></a></td>
+              <td>
+                <span class="badge bg-{{ getStatus(country.acceptance_status) }}">{{ country.acceptance_status }}</span>
+              </td>
+
+              <td><a (click)="onOkClick()"><mat-icon>visibility</mat-icon></a></td>
               <td class="p-6 d-flex align-items-center border-0">
-                <span
-                  class="material-icons thumb_up"
-                  title="Accept"
-                  style="font-size: 30px; color: rgb(74, 235, 11)"
-                  >thumb_up</span
-                ><span>(Accept)</span>
+                <span class="material-icons thumb_up" title="Accept" style="font-size: 30px; color: rgb(74, 235, 11)"
+                  (click)="accept(country)">thumb_up</span><span>(Accept)</span>
                 &nbsp;
-                <span
-                  class="material-icons thumb_down"
-                  title="Reject"
-                  style="font-size: 30px; color: rgb(245, 94, 94)"
-                  >thumb_down</span
-                ><span>(Reject)</span>
+                <span class="material-icons thumb_down" title="Reject" style="font-size: 30px; color: rgb(245, 94, 94)"
+                  (click)="confirmDialog(country)">thumb_down</span><span>(Reject)</span>
               </td>
               <td>
                 <!-- <mat-form-field>
