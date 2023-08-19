@@ -5,12 +5,11 @@ import { ISellerVechileDetails } from 'src/app/models/ISellerVechileDetails';
 @Component({
   selector: 'app-review-modal',
   templateUrl: './review-modal.component.html',
-  styleUrls: ['./review-modal.component.css']
+  styleUrls: ['./review-modal.component.css'],
 })
 export class ReviewModalComponent {
   constructor(
     public dialogRef: MatDialogRef<ReviewModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public sellerCarDetails: ISellerVechileDetails,
-  ) { }
-
+    @Inject(MAT_DIALOG_DATA) public sellerCarDetails: ISellerVechileDetails
+  ) {}
 }

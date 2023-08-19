@@ -129,6 +129,18 @@ export class NHTSAService {
       { email_id: this.token.getEMail() }
     );
   }
+
+  getSellerCompleteDetails(
+    sellerId: number,
+    vehicleid: number
+  ): Observable<ISellerVechileDetails> {
+    let data = { seller_id: sellerId, vehicle_id: vehicleid };
+
+    return this.http.post<ISellerVechileDetails>(
+      environment.apiURL + 'carizma/seller-vehicle-complete-info',
+      data
+    );
+  }
   // getSellerVehicleDetails(): Observable<ISellerVehicle[]> {
   // let data: ISellerVehicle[] = [
   //   {
