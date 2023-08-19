@@ -42,6 +42,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { ProfileComponent } from './common/profile/profile.component';
 import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.component';
+import { authInterceptorProviders } from './services/AuthInterceptor';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,7 @@ import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.comp
     UiSwitchModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
