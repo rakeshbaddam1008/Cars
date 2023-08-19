@@ -109,7 +109,7 @@ export class NHTSAService {
   }
 
   RequestOffer(offerData: IOfferStatusData): Observable<IOfferData> {
-    return this.http.post<IOfferData>(
+    return this.http.put<IOfferData>(
       environment.apiURL + getRequestOffer_URL(),
       offerData
     );
