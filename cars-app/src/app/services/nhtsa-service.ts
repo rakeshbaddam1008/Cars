@@ -22,6 +22,7 @@ import {
 import { IMake, IState } from '../models/IState';
 import { ISellerVechileDetails } from '../models/ISellerVechileDetails';
 import { ISellerProfile, ISellerVehicle } from '../models/ISellVechile';
+import { TokenStorageService } from './TokenStorageService';
 
 @Injectable({
   providedIn: 'root',
@@ -30,7 +31,7 @@ export class NHTSAService {
   // getVechileDetailssByLicenseNumberURL(numberPlat: string,state:string) {
   //   throw new Error('Method not implemented.');
   // }
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private token: TokenStorageService) {}
 
   async getVechileDetailsByVIN(vin: string): Promise<IVechileData> {
     // const results = await DecodeVinValues('WA1A4AFY2J2008189');
@@ -94,60 +95,87 @@ export class NHTSAService {
     );
   }
 
+  getHeaders(): any {
+    const headers = new Headers({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': '*',
+      Authorization: `Bearer ${this.token.getToken()}`,
+    });
+    const httpOptions = {
+      headers: headers,
+    };
+    return httpOptions;
+  }
+
   RequestOffer(offerData: IOfferStatusData): Observable<IOfferData> {
     return this.http.post<IOfferData>(
       environment.apiURL + getRequestOffer_URL(),
       offerData
     );
   }
-
   getSellerVehicleDetails(): Observable<ISellerVehicle[]> {
-    // let data: ISellerVehicle[] = [
-    //   {
-    //     seller_id: 121,
-    //     vehicle_id: 210201,
-    //     year: 2008,
-    //     make: 'TOYOTA',
-    //     model: 'COROLLA',
-    //     trim: '4D SUV',
-    //     vin: '',
-    //     plate_number: '',
-    //     mileage: '123654',
-    //     instant_offer_price: '72960',
-    //     acceptance_status: 'PENDING',
-    //   },
-    //   {
-    //     seller_id: 121,
-    //     vehicle_id: 210201,
-    //     year: 2008,
-    //     make: 'HONDA',
-    //     model: 'CR-V',
-    //     trim: 'SEDAN',
-    //     vin: '',
-    //     plate_number: '',
-    //     mileage: '123654',
-    //     instant_offer_price: '12674',
-    //     acceptance_status: 'ACCEPTED',
-    //   },
-    //   {
-    //     seller_id: 121,
-    //     vehicle_id: 210201,
-    //     year: 2008,
-    //     make: 'BMW',
-    //     model: 'X7',
-    //     trim: 'RX100',
-    //     vin: '',
-    //     plate_number: '',
-    //     mileage: '983652',
-    //     instant_offer_price: '69871',
-    //     acceptance_status: 'REJECTED',
-    //   },
-    // ];
-    // return of(data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+        Authorization: `Bearer ${this.token.getToken()}`,
+      }),
+    };
     return this.http.get<ISellerVehicle[]>(
-      environment.apiURL + '/carizma/seller-vehicle-info'
+      environment.apiURL + '/carizma/seller-vehicle-info',
+      httpOptions
     );
   }
+  // getSellerVehicleDetails(): Observable<ISellerVehicle[]> {
+  //   // let data: ISellerVehicle[] = [
+  //   //   {
+  //   //     seller_id: 121,
+  //   //     vehicle_id: 210201,
+  //   //     year: 2008,
+  //   //     make: 'TOYOTA',
+  //   //     model: 'COROLLA',
+  //   //     trim: '4D SUV',
+  //   //     vin: '',
+  //   //     plate_number: '',
+  //   //     mileage: '123654',
+  //   //     instant_offer_price: '72960',
+  //   //     acceptance_status: 'PENDING',
+  //   //   },
+  //   //   {
+  //   //     seller_id: 121,
+  //   //     vehicle_id: 210201,
+  //   //     year: 2008,
+  //   //     make: 'HONDA',
+  //   //     model: 'CR-V',
+  //   //     trim: 'SEDAN',
+  //   //     vin: '',
+  //   //     plate_number: '',
+  //   //     mileage: '123654',
+  //   //     instant_offer_price: '12674',
+  //   //     acceptance_status: 'ACCEPTED',
+  //   //   },
+  //   //   {
+  //   //     seller_id: 121,
+  //   //     vehicle_id: 210201,
+  //   //     year: 2008,
+  //   //     make: 'BMW',
+  //   //     model: 'X7',
+  //   //     trim: 'RX100',
+  //   //     vin: '',
+  //   //     plate_number: '',
+  //   //     mileage: '983652',
+  //   //     instant_offer_price: '69871',
+  //   //     acceptance_status: 'REJECTED',
+  //   //   },
+  //   // ];
+  //   // return of(data);
+  //   return this.http.get<ISellerVehicle[]>(
+  //     environment.apiURL + '/carizma/seller-vehicle-info',
+  //     this.getHeaders()
+  //   );
+  // }
 
   getUserProfileDetails(): Observable<ISellerProfile> {
     // let data: ISellerProfile = {
@@ -167,7 +195,7 @@ export class NHTSAService {
     // };
     // return of(data);
     return this.http.get<ISellerProfile>(
-      environment.apiURL + '/carizma/seller-vehicle-info'
+      environment.apiURL + '/carizma/profile-info'
     );
   }
 
@@ -190,8 +218,10 @@ export class NHTSAService {
     //     zip_code: '28213',
     //   };
     //   return of(data);
+    // "PUT
+    // http://localhost:8080/carizma/update-profile-info"
     return this.http.put<ISellerProfile>(
-      environment.apiURL + '/carizma/seller-vehicle-info',
+      environment.apiURL + '/carizma/update-profile-info',
       request
     );
   }
