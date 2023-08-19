@@ -19,7 +19,7 @@ export class AuthService {
     return this.http.post(
       AUTH_API + '/login',
       {
-        username,
+        email_id: username,
         password,
       },
       httpOptions
