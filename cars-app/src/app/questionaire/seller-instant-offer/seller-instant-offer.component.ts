@@ -115,6 +115,9 @@ export class SellerInstantOfferComponent {
     })
   }
 
+  routeToDashboard() {
+    this.router.navigateByUrl("/dashboard")
+  }
   confirmDialog() {
     const dialogRef = this.dialog.open(ConfirmModalComponent, { panelClass: 'my-class' });
     dialogRef.afterClosed().subscribe((result) => {

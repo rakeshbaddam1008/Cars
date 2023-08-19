@@ -43,6 +43,7 @@ import { DashboardComponent } from './common/dashboard/dashboard.component';
 import { ProfileComponent } from './common/profile/profile.component';
 import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.component';
 import { authInterceptorProviders } from './services/AuthInterceptor';
+import { ReviewModalComponent } from './common/review-modal/review-modal.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { authInterceptorProviders } from './services/AuthInterceptor';
     DashboardComponent,
     ConfirmModalComponent,
     ProfileComponent,
+    ReviewModalComponent,
   ],
   imports: [
     BrowserModule,
