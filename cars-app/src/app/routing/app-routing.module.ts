@@ -8,14 +8,12 @@ import { LoginComponent } from '../common/login/login.component';
 import { DashboardComponent } from '../common/dashboard/dashboard.component';
 import { ProfileComponent } from '../common/profile/profile.component';
 import { AuthGuardService } from '../services/AuthGuardService';
-// import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'questionaire', component: CarStepperComponent },
   { path: 'contact-us', component: ContactComponent },
   { path: 'sell-car', component: SellCarHomeComponent },
   { path: '', redirectTo: '/sell-car', pathMatch: 'full' },
-  { path: '**', redirectTo: '' },
   { path: 'login', component: LoginComponent },
   {
     path: 'dashboard',
@@ -27,6 +25,7 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuardService],
   },
+  { path: '**', redirectTo: '' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

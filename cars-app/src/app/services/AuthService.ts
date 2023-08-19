@@ -10,6 +10,7 @@ const AUTH_API = environment.apiURL + '/carizma';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
 };
+const jwtHelper = new JwtHelperService();
 
 @Injectable({
   providedIn: 'root',
@@ -17,15 +18,14 @@ const httpOptions = {
 export class AuthService {
   constructor(
     private http: HttpClient,
-    public tokenService: TokenStorageService,
-    public jwtHelper: JwtHelperService
+    public tokenService: TokenStorageService
   ) {}
   // ...
   public isAuthenticated(): boolean {
     const token = this.tokenService.getToken();
     // Check whether the token is expired and return
     // true or false
-    return !this.jwtHelper.isTokenExpired(token);
+    return !jwtHelper.isTokenExpired(token);
   }
   login(username: string, password: string): Observable<IToken> {
     return this.http.post<IToken>(
