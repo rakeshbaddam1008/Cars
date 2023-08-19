@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'auth-token';
 const REFRESHTOKEN_KEY = 'auth-refreshtoken';
 const USER_KEY = 'auth-user';
+const USER_Email = 'auth-user-email';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,14 @@ export class TokenStorageService {
   signOut(): void {
     window.sessionStorage.clear();
   }
-
+  public getEMail(mail: string) {
+    window.sessionStorage.getItem(USER_Email);
+    window.sessionStorage.setItem(TOKEN_KEY, mail.trim());
+  }
+  public saveMail(mail: string) {
+    window.sessionStorage.removeItem(USER_Email);
+    window.sessionStorage.setItem(TOKEN_KEY, mail.trim());
+  }
   public saveToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
