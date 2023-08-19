@@ -102,10 +102,11 @@ export class DashboardComponent {
         this.isLoading = false;
         // this.toaster.war('Successfully Accepted teh offer.', 'Congratulations', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
         this.openDialog('accept');
+        this.loadData();
       },
-      (error: any) => this.openDialog('accept')
+      (error: any) => console.log("error") //need to change to warning
     );
-    this.loadData();
+    
   }
 
   reject(event: ISellerVehicle) {
@@ -116,12 +117,13 @@ export class DashboardComponent {
     this._service.RequestOffer(offer).subscribe(
       (s: any) => {
         this.openDialog('reject');
+        this.loadData();
       },
       (error: any) => {
-        this.openDialog('reject');
+        console.log("error") //need to change to warning
       }
     );
-    this.loadData();
+    
   }
 
   openDialog(value: string): void {
@@ -143,7 +145,7 @@ export class DashboardComponent {
       this.isLoading = true;
       setTimeout(() => {
         this.isLoading = false;
-        this.router.navigateByUrl('/sell-car');
+        // this.router.navigateByUrl('/sell-car');
       }, 1000);
     });
   }

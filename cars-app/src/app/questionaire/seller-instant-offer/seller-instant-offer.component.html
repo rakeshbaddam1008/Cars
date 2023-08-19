@@ -93,12 +93,14 @@
             </div>
             <div class="row mt-5">
               <ng-container *ngIf="reviewService.offerPrice">
-                <div class="col-sm-6 col-md-12 col-lg-12 ng-star-inserted d-flex justify-content-center">
-                  <p>Please login to accept/Reject the offerr</p>
+                <!-- <div class="col-sm-6 col-md-12 col-lg-12 ng-star-inserted d-flex justify-content-center">
+                  
 
-                </div>
+                </div> -->
                 <div class="col-sm-6 col-md-12 col-lg-12 ng-star-inserted d-flex justify-content-center">
-                  <button mat-raised-button class="btn-go" style="color: black;" (click)="routeToDashboard()">
+                  <h2>Please login to accept/Reject the offer</h2>
+                  <button mat-raised-button class="ml-2  btn float-right btn-success offer-btn"
+                    (click)="routeToDashboard()">
                     CONTINUE
                   </button>
                 </div>

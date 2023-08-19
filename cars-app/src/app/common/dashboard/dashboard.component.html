@@ -24,9 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr
-              *ngFor="let country of sellerVehicleDetails | async; index as i"
-            >
+            <tr *ngFor="let country of sellerVehicleDetails | async; index as i">
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ country.year }}</td>
               <td>
@@ -43,33 +41,20 @@
               </td>
 
               <td>
-                <span
-                  class="badge bg-{{ getStatus(country.acceptance_status) }}"
-                  >{{ country.acceptance_status }}</span
-                >
+                <span class="badge bg-{{ getStatus(country.acceptance_status) }}">{{ country.acceptance_status }}</span>
               </td>
 
               <td>
-                <a (click)="onOkClick(country)"
-                  ><mat-icon>visibility</mat-icon></a
-                >
+                <a (click)="onOkClick(country)"><mat-icon>visibility</mat-icon></a>
               </td>
               <td class="p-6 d-flex align-items-center border-0">
-                <span
-                  class="material-icons thumb_up"
-                  title="Accept"
-                  style="font-size: 30px; color: rgb(74, 235, 11)"
-                  (click)="accept(country)"
-                  >thumb_up</span
-                ><span>(Accept)</span>
+                <span *ngIf="country.acceptance_status == 'PENDING' || country.acceptance_status == 'REJECTED'"
+                  class="material-icons thumb_up" title="Accept" style="font-size: 30px; color: rgb(74, 235, 11)"
+                  (click)="accept(country)">thumb_up</span><span>(Accept)</span>
                 &nbsp;
-                <span
-                  class="material-icons thumb_down"
-                  title="Reject"
+                <span *ngIf="country.acceptance_status == 'PENDING'" class="material-icons thumb_down" title="Reject"
                   style="font-size: 30px; color: rgb(245, 94, 94)"
-                  (click)="confirmDialog(country)"
-                  >thumb_down</span
-                ><span>(Reject)</span>
+                  (click)="confirmDialog(country)">thumb_down</span><span>(Reject)</span>
               </td>
               <td>
                 <!-- <mat-form-field>
