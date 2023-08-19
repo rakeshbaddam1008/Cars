@@ -134,16 +134,14 @@ export class LoginComponent {
           }, 1000);
         },
         (err) => {
-          setTimeout(() => {
-            this.isLoading = false;
-            this.errorMessage = err.error.message;
-            this.isLoginFailed = true;
-            this.toaster.warning('Error occured during Login', 'Warning', {
-              timeOut: 4000,
-              positionClass: 'toast-top-right',
-              closeButton: true,
-            });
-          }, 1000);
+          this.isLoading = false;
+          this.errorMessage = err.message ?? err.error.message;
+          this.isLoginFailed = true;
+          this.toaster.warning('Error occured during Login', 'Warning', {
+            timeOut: 4000,
+            positionClass: 'toast-top-right',
+            closeButton: true,
+          });
         }
       );
     } else {
