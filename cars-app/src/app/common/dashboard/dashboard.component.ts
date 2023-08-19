@@ -99,7 +99,7 @@ export class DashboardComponent {
     console.log(offer);
     this._service.RequestOffer(offer).subscribe(
       () => {
-        setTimeout(() => (this.isLoading = false), 1000);
+        this.isLoading = false;
         // this.toaster.war('Successfully Accepted teh offer.', 'Congratulations', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
         this.openDialog('accept');
       },
