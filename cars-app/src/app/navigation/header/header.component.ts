@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService';
+import { TokenStorageService } from 'src/app/services/TokenStorageService';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,13 @@ import { AuthService } from 'src/app/services/AuthService';
 export class HeaderComponent {
   @Output() public sidenavToggle = new EventEmitter();
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, public authService: AuthService, public tokenService: TokenStorageService) {
+    
+    
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();

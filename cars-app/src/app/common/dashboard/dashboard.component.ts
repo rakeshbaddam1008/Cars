@@ -54,9 +54,9 @@ export class DashboardComponent {
     this.sellerVehicleDetails = this._service.getSellerVehicleDetails();
   }
   onOkClick(event: ISellerVehicle) {
+
     this._service
-      .getSellerCompleteDetails(event.seller_id, event.vehicle_id)
-      .subscribe(
+      .getSellerCompleteDetails(event.seller_id, event.vehicle_id).subscribe(
         (res) => {
           const reviewDialog = this.dialog.open(ReviewModalComponent, {
             data: { sellerVehicleDetails: res },
@@ -64,7 +64,7 @@ export class DashboardComponent {
             width: '80%',
           });
         },
-        () => {
+        (error) => {
           alert('Error in loading');
         }
       );
@@ -96,7 +96,7 @@ export class DashboardComponent {
     offer.seller_id = event.seller_id;
     offer.vehicle_id = event.vehicle_id;
     offer.acceptance_status = 'ACCEPTED';
-    console.log(offer);
+
     this._service.RequestOffer(offer).subscribe(
       () => {
         this.isLoading = false;

@@ -150,3 +150,17 @@ body {
   --mdc-protected-button-container-color: #BDF279;
   --mdc-protected-button-label-text-color: #000 !important;
 }
+.mat-mdc-menu-content, .mat-mdc-menu-content .mat-mdc-menu-item .mat-mdc-menu-item-text {
+  width: 250px;
+}
+
+.mat-mdc-menu-item{
+  border: 1px solid black !important;
+  border-radius:  2px !important;
+  width: 95% !important;
+  margin: 5px !important;
+}
+.mat-mdc-menu-item:hover{
+  background-color: #1e6c92!important;
+  color: white!important;
+}

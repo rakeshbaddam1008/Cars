@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
   <div class="col-12">
     <div class="card">
       <div class="card-title">
@@ -20,12 +20,333 @@
     "city": "",
     "zip_code": "28215" -->
 
-    <div class="container-card-body">
-      <form
-        class="form"
-        [formGroup]="profileFormGroup"
-      >
-        <mat-form-field class="form-element d-flex">
+        <div class="container-card-body">
+          <form class="form" [formGroup]="profileFormGroup">
+            <div class="row">
+              <!-- <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Seller ID</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <input
+                      [ngClass]="{'input-form-success': profileFormGroup.get('seller_id')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('seller_id')?.invalid && profileFormGroup.get('seller_id')?.touched}"
+                      type="text" placeholder="Seller Id" formControlName="seller_id">
+                  </div>
+                </div>
+
+              </div> -->
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Email ID</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input matInput readonly="true"
+                      [ngClass]="{'input-form-success': profileFormGroup.get('email_id')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('email_id')?.invalid && profileFormGroup.get('email_id')?.touched}"
+                      type="email" placeholder="Email Id" formControlName="email_id">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Contact Number</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input matInput oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="11"
+                      [ngClass]="{'input-form-success': profileFormGroup.get('customer_contact_number')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('customer_contact_number')?.invalid && profileFormGroup.get('customer_contact_number')?.touched}"
+                      type="text" placeholder="Contact Number" formControlName="customer_contact_number">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Charity Name</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input
+                      [ngClass]="{'input-form-success': profileFormGroup.get('charity_name')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('charity_name')?.invalid && profileFormGroup.get('charity_name')?.touched}"
+                      type="text" placeholder="Charity Name" formControlName="charity_name">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Donor Email</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input matInput
+                      [ngClass]="{'input-form-success': profileFormGroup.get('donor_email')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('donor_email')?.invalid && profileFormGroup.get('donor_email')?.touched}"
+                      type="email" placeholder="Donor Email Id" formControlName="donor_email">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Customer Name</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input matInput
+                      [ngClass]="{'input-form-success': profileFormGroup.get('customer_name')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('customer_name')?.invalid && profileFormGroup.get('customer_name')?.touched}"
+                      type="text" placeholder="Customer Name" formControlName="customer_name">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Vehicle Owner Name</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <input
+                      [ngClass]="{'input-form-success': profileFormGroup.get('vehicle_owner_name')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('vehicle_owner_name')?.invalid && profileFormGroup.get('vehicle_owner_name')?.touched}"
+                      type="text" placeholder="Vehicle Owner Name" formControlName="vehicle_owner_name">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Payee Name</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <input matInput
+                      [ngClass]="{'input-form-success': profileFormGroup.get('payee_name')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('payee_name')?.invalid && profileFormGroup.get('payee_name')?.touched}"
+                      type="text" placeholder="Payee Name" formControlName="payee_name">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Location Type</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input matInput
+                      [ngClass]="{'input-form-success': profileFormGroup.get('location_type')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('location_type')?.invalid && profileFormGroup.get('location_type')?.touched}"
+                      type="text" placeholder="Location Type" formControlName="location_type">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Apt Number</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input matInput oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                      [ngClass]="{'input-form-success': profileFormGroup.get('apt_number')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('apt_number')?.invalid && profileFormGroup.get('apt_number')?.touched}"
+                      type="text" placeholder="Apt Number" formControlName="apt_number">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Street Address 1</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input
+                      [ngClass]="{'input-form-success': profileFormGroup.get('street_address_line1')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('street_address_line1')?.invalid && profileFormGroup.get('street_address_line1')?.touched}"
+                      type="text" placeholder="Street Address 1" formControlName="street_address_line1">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Street Address 2</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input
+                      [ngClass]="{'input-form-success': profileFormGroup.get('street_address_line2')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('street_address_line2')?.invalid && profileFormGroup.get('street_address_line2')?.touched}"
+                      type="text" placeholder="Street Address 2" formControlName="street_address_line2">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">City</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input matInput
+                      [ngClass]="{'input-form-success': profileFormGroup.get('city')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('city')?.invalid && profileFormGroup.get('city')?.touched}"
+                      type="text" placeholder="City" formControlName="city">
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+                <div class="row ">
+                  <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
+                    <label class="content-title" id="example-radio-group-label">Zipcode</label>
+                    &nbsp; &nbsp;
+                  </div>
+                  <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
+                    <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                    <input matInput oninput="this.value=this.value.replace(/[^0-9]/g,'');" maxlength="5"
+                      [ngClass]="{'input-form-success': profileFormGroup.get('zip_code')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('zip_code')?.invalid && profileFormGroup.get('zip_code')?.touched}"
+                      type="text" placeholder="Zipcode" formControlName="zip_code">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="row mx-2">
+              <div class="form-group  col-sm-6 col-md-4 col-lg-4">
+                <label>Seller Id</label>
+                <input
+                  [ngClass]="{'input-form-success': profileFormGroup.get('seller_id')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('seller_id')?.invalid && profileFormGroup.get('seller_id')?.touched}"
+                  type="text" placeholder="Seller Id" formControlName="seller_id">
+              </div>
+              <div class="form-group  col-sm-6 col-md-4 col-lg-4">
+                <label>Email Id</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('email_id')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('email_id')?.invalid && profileFormGroup.get('email_id')?.touched}"
+                  type="email" placeholder="Email Id" formControlName="email_id">
+              </div>
+              <div class="form-group   col-sm-6 col-md-4 col-lg-4">
+                <label>Contact Number</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('customer_contact_number')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('customer_contact_number')?.invalid && profileFormGroup.get('customer_contact_number')?.touched}"
+                  type="text" placeholder="Contact Number" formControlName="customer_contact_number">
+              </div>
+
+            </div>
+            <div class="row mx-2 mt-4">
+              <div class="form-group  col-sm-6 col-md-4 col-lg-4">
+                <label>Charity Name</label>
+                <input
+                  [ngClass]="{'input-form-success': profileFormGroup.get('charity_name')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('charity_name')?.invalid && profileFormGroup.get('charity_name')?.touched}"
+                  type="text" placeholder="Charity Name" formControlName="charity_name">
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-4">
+                <label>Donor Email Id</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('donor_email')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('donor_email')?.invalid && profileFormGroup.get('donor_email')?.touched}"
+                  type="email" placeholder="Donor Email Id" formControlName="donor_email">
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-4">
+                <label>Customer Name</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('customer_name')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('customer_name')?.invalid && profileFormGroup.get('customer_name')?.touched}"
+                  type="text" placeholder="Customer Name" formControlName="customer_name">
+              </div>
+
+            </div>
+
+            <div class="row mx-2 mt-4">
+              <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                <label>Vehicle Owner Name</label>
+                <input
+                  [ngClass]="{'input-form-success': profileFormGroup.get('vehicle_owner_name')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('vehicle_owner_name')?.invalid && profileFormGroup.get('vehicle_owner_name')?.touched}"
+                  type="text" placeholder="Vehicle Owner Name" formControlName="vehicle_owner_name">
+              </div>
+              <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                <label>Payee Name</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('payee_name')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('payee_name')?.invalid && profileFormGroup.get('payee_name')?.touched}"
+                  type="text" placeholder="Payee Name" formControlName="payee_name">
+              </div>
+              <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                <label>Location Type</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('location_type')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('location_type')?.invalid && profileFormGroup.get('location_type')?.touched}"
+                  type="text" placeholder="Location Type" formControlName="location_type">
+              </div>
+              <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                <label>Apt Number</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('apt_number')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('apt_number')?.invalid && profileFormGroup.get('apt_number')?.touched}"
+                  type="text" placeholder="Apt Number" formControlName="apt_number">
+              </div>
+            </div>
+            <div class="row mx-2 mt-4">
+              <div class="form-group col-sm-6 col-md-4 col-lg-4">
+                <label>Street Address 1</label>
+                <input
+                  [ngClass]="{'input-form-success': profileFormGroup.get('street_address_line1')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('street_address_line1')?.invalid && profileFormGroup.get('street_address_line1')?.touched}"
+                  type="text" placeholder="Street Address 1" formControlName="street_address_line1">
+              </div>
+              <div class="form-group col-sm-6 col-md-4 col-lg-4">
+                <label>Street Address 2</label>
+                <input
+                  [ngClass]="{'input-form-success': profileFormGroup.get('street_address_line2')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('street_address_line2')?.invalid && profileFormGroup.get('street_address_line2')?.touched}"
+                  type="text" placeholder="Street Address 2" formControlName="street_address_line2">
+              </div>
+              <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                <label>City</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('city')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('city')?.invalid && profileFormGroup.get('city')?.touched}"
+                  type="text" placeholder="City" formControlName="city">
+              </div>
+              <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                <label>Zipcode</label>
+                <input matInput
+                  [ngClass]="{'input-form-success': profileFormGroup.get('zip_code')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('zip_code')?.invalid && profileFormGroup.get('zip_code')?.touched}"
+                  type="text" placeholder="Zipcode" formControlName="zip_code">
+              </div>
+
+            </div> -->
+            <!-- <mat-form-field class="form-element d-flex">
           <mat-label>Seller Id:</mat-label>
     
           <input
@@ -164,9 +485,9 @@
             placeholder="Zip code"
             formControlName="zip_code"
           />
-        </mat-form-field>
-</form>
-    </div>    
+        </mat-form-field> -->
+          </form>
+        </div>
 
       </div>
     </div>

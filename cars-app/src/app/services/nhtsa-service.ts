@@ -133,11 +133,10 @@ export class NHTSAService {
   getSellerCompleteDetails(
     sellerId: number,
     vehicleid: number
-  ): Observable<ISellerVechileDetails> {
+  ): Observable<any> {
     let data = { seller_id: sellerId, vehicle_id: vehicleid };
-
-    return this.http.post<ISellerVechileDetails>(
-      environment.apiURL + 'carizma/seller-vehicle-complete-info',
+    return this.http.post<any>(
+      environment.apiURL + '/carizma/seller-vehicle-complete-info',
       data
     );
   }
@@ -183,11 +182,11 @@ export class NHTSAService {
   //     acceptance_status: 'REJECTED',
   //   },
   // ];
-  //   // return of(data);
-  //   return this.http.get<ISellerVehicle[]>(
-  //     environment.apiURL + '/carizma/seller-vehicle-info',
-  //     this.getHeaders()
-  //   );
+  //   return of(data);
+  //   // return this.http.get<ISellerVehicle[]>(
+  //     // environment.apiURL + '/carizma/seller-vehicle-info',
+  //     // httpOptions
+  //   // );
   // }
 
   getUserProfileDetails(): Observable<ISellerProfile> {
