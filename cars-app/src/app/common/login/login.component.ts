@@ -70,7 +70,7 @@ export class LoginComponent {
     let confirmPassword =
       this.signupFormGroup.controls['confirmPassword'].value;
     if (pwd != confirmPassword) {
-      alert('Password mismatch');
+      this.toaster.warning('Password Missmatch', 'Warning', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
       this.signupFormGroup.controls['confirmPassword'].setValue('');
     }
     this.isLoading = true;
@@ -89,9 +89,9 @@ export class LoginComponent {
         this.logintemplate = true;
         this.signuptemplate = false;
         this.passwordtemplate = false;
-        setTimeout(() => {
+        // setTimeout(() => {
           this.isLoading = false;
-        }, 1000);
+        // }, 1000);
         this.isSignUpFailed = false;
       },
       (err) => {
@@ -128,9 +128,9 @@ export class LoginComponent {
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.router.navigateByUrl('/dashboard');
-          setTimeout(() => {
+          // setTimeout(() => {
             this.isLoading = false;
-          }, 1000);
+          // }, 1000);
         },
         (err) => {
           this.isLoading = false;

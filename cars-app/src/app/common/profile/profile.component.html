@@ -20,10 +20,10 @@
     "city": "",
     "zip_code": "28215" -->
 
-        <div class="container-card-body">
+        <div class="container-card-body m-4">
           <form class="form" [formGroup]="profileFormGroup">
             <div class="row">
-              <!-- <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <!-- <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Seller ID</label>
@@ -37,7 +37,7 @@
                 </div>
 
               </div> -->
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Email ID</label>
@@ -46,14 +46,14 @@
                   <div class="col-sm-12 col-md-7 col-lg-7 d-flex align-items-center justify-content-end">
                     <!-- <mat-form-field appearance="outline" class="form-control"> -->
                     <input matInput readonly="true"
-                      [ngClass]="{'input-form-success': profileFormGroup.get('email_id')?.valid, 'form-control':true,'input-form-error': profileFormGroup.get('email_id')?.invalid && profileFormGroup.get('email_id')?.touched}"
-                      type="email" placeholder="Email Id" formControlName="email_id">
+                      [ngClass]="{'input-form-success': profileFormGroup.get('email_id')?.valid, 'form-control-plaintext':true,'input-form-error': profileFormGroup.get('email_id')?.invalid && profileFormGroup.get('email_id')?.touched}"
+                      type="email" formControlName="email_id">
                   </div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Contact Number</label>
@@ -67,7 +67,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Charity Name</label>
@@ -84,7 +84,7 @@
             </div>
             <div class="row">
 
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Donor Email</label>
@@ -98,7 +98,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Customer Name</label>
@@ -114,7 +114,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Vehicle Owner Name</label>
@@ -127,7 +127,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Payee Name</label>
@@ -142,7 +142,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Location Type</label>
@@ -156,7 +156,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Apt Number</label>
@@ -172,7 +172,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Street Address 1</label>
@@ -186,7 +186,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Street Address 2</label>
@@ -202,7 +202,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">City</label>
@@ -216,7 +216,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-sm-12 col-md-6 col-lg-6 my-2">
+              <div class="col-sm-12 col-md-6 col-lg-6 my-3">
                 <div class="row ">
                   <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-center">
                     <label class="content-title" id="example-radio-group-label">Zipcode</label>
@@ -250,7 +250,7 @@
 
 
 
-            <!-- <div class="row mx-2">
+            <!-- <div class="row my-3">
               <div class="form-group  col-sm-6 col-md-4 col-lg-4">
                 <label>Seller Id</label>
                 <input
@@ -271,7 +271,7 @@
               </div>
 
             </div>
-            <div class="row mx-2 mt-4">
+            <div class="row my-3 mt-4">
               <div class="form-group  col-sm-6 col-md-4 col-lg-4">
                 <label>Charity Name</label>
                 <input
@@ -293,7 +293,7 @@
 
             </div>
 
-            <div class="row mx-2 mt-4">
+            <div class="row my-3 mt-4">
               <div class="form-group col-sm-6 col-md-3 col-lg-3">
                 <label>Vehicle Owner Name</label>
                 <input
@@ -319,7 +319,7 @@
                   type="text" placeholder="Apt Number" formControlName="apt_number">
               </div>
             </div>
-            <div class="row mx-2 mt-4">
+            <div class="row my-3 mt-4">
               <div class="form-group col-sm-6 col-md-4 col-lg-4">
                 <label>Street Address 1</label>
                 <input

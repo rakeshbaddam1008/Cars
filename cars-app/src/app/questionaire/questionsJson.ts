@@ -7,7 +7,7 @@ enum Questiontype {
 
 export class IVechileDetailQuestionaire {
   constructor() {
-    this.vechileTransmissionType = 'automatic';
+    this.vechileTransmissionType = 'Automatic';
   }
   carTitle?: string;
   carLoan: boolean = false;

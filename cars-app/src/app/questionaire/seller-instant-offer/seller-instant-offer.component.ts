@@ -55,10 +55,14 @@ export class SellerInstantOfferComponent {
     this.nhtsa
       .RequestOffer(offer)
       .subscribe((s) => {
-        setTimeout(() => (this.isLoading = false), 1000);
+        
+          this.isLoading = false
         // this.toaster.war('Successfully Accepted teh offer.', 'Congratulations', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
         this.openDialog('accept')
-      }, (error) => this.openDialog('accept'));
+      }, (error) => {
+        this.toaster.error("Unable to Process request, Please try again", 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+
+      })
   }
 
   reject() {
@@ -68,7 +72,10 @@ export class SellerInstantOfferComponent {
     offer.acceptance_status = 'Reject';
     this.nhtsa
       .RequestOffer(offer)
-      .subscribe((s) => { this.openDialog('reject') }, (error) => { this.openDialog('reject') });
+      .subscribe((s) => { this.openDialog('reject') }, (error) => {
+        this.toaster.error("Unable to process request, Please try again", 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+
+       });
   }
 
   // //TODO:Move this change to service and call on review page next click.
@@ -107,10 +114,9 @@ export class SellerInstantOfferComponent {
 
     dialogRef.beforeClosed().subscribe(() => {
       this.isLoading = true;
-      setTimeout(() => {
         this.isLoading = false;
         this.router.navigateByUrl("/sell-car");
-      }, 1000);
+    
 
     })
   }

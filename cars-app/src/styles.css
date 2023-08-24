@@ -92,12 +92,12 @@ body {
 
 
 .mat-mdc-option.mdc-list-item:hover {
-  background: #1e6c92 !important;
+  background: #6299b4 !important;
   color: white !important
 }
 
 .mat-mdc-option.mat-mdc-option-active {
-  background: #1e6c92 !important;
+  background: #6299b4 !important;
   color: white !important
 }
 
@@ -128,7 +128,8 @@ body {
 .btn-go {
   margin-bottom: 14px;
   width: 50%;
-  color:  #BDF279;
+  background-color:  #BDF279;
+  color: black;
   border: 1px solid black;
   border-radius: 30px;
   cursor: pointer;
@@ -142,9 +143,11 @@ body {
   padding-top: 15px;
 }
 .btn-go:hover{
+  color: black;
   background:  #BDF279;
   box-shadow: 2px 1px 5px black ;
 }
+
 
 .mat-mdc-raised-button.mat-unthemed {
   --mdc-protected-button-container-color: #BDF279;
@@ -161,6 +164,22 @@ body {
   margin: 5px !important;
 }
 .mat-mdc-menu-item:hover{
-  background-color: #1e6c92!important;
+  background-color: #6299b4!important;
   color: white!important;
+}
+
+
+
+
+.toast-top-right {
+  top: 85px !important;
+  right: 15px;
+}
+
+.toast-warning {
+  background-color: #ee9e2d;
+  opacity: 0.9!important;
+}
+.toast-error{
+  opacity: 0.9!important;
 }

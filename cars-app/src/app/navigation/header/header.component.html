@@ -20,8 +20,8 @@
       </li>
       <li class="nav-item dropdown" *ngIf="authService.isAuthenticated()">
         <span class="fill-remaining-space">
-          <button class="mat-button-iocn-profile" mat-icon-button [matMenuTriggerFor]="menu"
-            #menuTrigger="matMenuTrigger" (click)="menuTrigger.openMenu()">
+          <button class="mat-button-iocn-profile" style="border: 2px solid white; border-radius: 50%;" mat-icon-button
+            [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (click)="menuTrigger.openMenu()">
             <mat-icon>people_outline</mat-icon>
           </button>
           <mat-menu #menu="matMenu" [overlapTrigger]="false">

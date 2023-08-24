@@ -73,10 +73,10 @@ export class ContactComponent {
 
     dialogRef.beforeClosed().subscribe(() => {
       this.isLoading = true;
-      setTimeout(() => {
+      // setTimeout(() => {
         this.isLoading = false;
         this.router.navigateByUrl("/sell-car");
-      }, 1000);
+      // }, 1000);
 
     })
   }

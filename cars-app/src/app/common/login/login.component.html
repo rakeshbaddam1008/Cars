@@ -60,12 +60,14 @@
             loginFormGroup.get('password')?.invalid &&
             loginFormGroup.get('password')?.touched
           ">
+
           <span *ngIf="loginFormGroup.get('password')?.hasError('required')">
             Password is required.
           </span>
         </mat-error>
       </div>
-      <button type="submit" class="btn btn-primary btn-block mt-3" (click)="routeToDashboard()">
+      <button type="submit" class="btn btn-primary btn-block mt-3" style="cursor: pointer;"
+        (click)="routeToDashboard()">
         Sign In
       </button>
       <mat-error class="d-flex justify-content-center" *ngIf="isLoginFailed">
@@ -77,7 +79,7 @@
       </div> -->
       <div class="text-center mt-3">
         <span>Don't have an account?</span>
-        <a (click)="toggleBetweenLoginPages('signUp')" class="text-primary mx-2">Sign Up</a>
+        <a (click)="toggleBetweenLoginPages('signUp')" class="text-primary mx-2" style="cursor: pointer;">Sign Up</a>
       </div>
       <div class="row w-100 my-4">
         <div class="container d-flex align-items-center justify-content-center">
@@ -127,7 +129,7 @@
       <hr />
       <div class="text-center mt-3">
         <span>Don't have an account?</span>
-        <a (click)="toggleBetweenLoginPages('signUp')">Sign Up</a>
+        <a (click)="toggleBetweenLoginPages('signUp')" style="cursor: pointer;">Sign Up</a>
       </div>
       <div class="row w-100 my-4">
         <div class="container d-flex align-items-center justify-content-center">
@@ -179,6 +181,7 @@
               signupFormGroup.get('password')?.invalid &&
               signupFormGroup.get('password')?.touched
           }" matInput type="password" class="form-control" formControlName="password" id="password" />
+
         <mat-error class="d-flex justify-content-end" *ngIf="
             signupFormGroup.get('password')?.invalid &&
             signupFormGroup.get('password')?.touched
@@ -186,7 +189,14 @@
           <span *ngIf="signupFormGroup.get('password')?.hasError('required')">
             Password is required.
           </span>
+          <span *ngIf="signupFormGroup.get('password')?.hasError('pattern')">
+            Password should contain altleast 1 Capital letter, 1 special character and 1 Number
+          </span>
         </mat-error>
+
+        <!-- <mat-hint>
+          Password should contain altleast 1 Capital letter, 1 special character and 1 Number
+        </mat-hint> -->
       </div>
       <div class="form-group mt-3">
         <label for="password">Confirm Password</label>
@@ -201,8 +211,15 @@
             signupFormGroup.get('confirmPassword')?.invalid &&
             signupFormGroup.get('confirmPassword')?.touched
           ">
+
           <span *ngIf="signupFormGroup.get('confirmPassword')?.hasError('required')">
             Password is required.
+          </span>
+
+        </mat-error>
+        <mat-error class="d-flex justify-content-end" *ngIf="signupFormGroup.get('confirmPassword')?.touched">
+          <span *ngIf="signupFormGroup.get('password')?.value !== signupFormGroup.get('confirmPassword')?.value">
+            Password Does not match
           </span>
         </mat-error>
       </div>
@@ -215,7 +232,7 @@
       <hr />
       <div class="text-center mt-3">
         <span>Have an account?</span>
-        <a (click)="toggleBetweenLoginPages('login')" class="text-primary mx-2">Log In</a>
+        <a (click)="toggleBetweenLoginPages('login')" class="text-primary mx-2" style="cursor: pointer;">Log In</a>
       </div>
     </form>
   </ng-template>

@@ -43,6 +43,7 @@ export class DashboardComponent {
   constructor(
     private _service: NHTSAService,
     private router: Router,
+    public toaster: ToastrService,
     public dialog: MatDialog
   ) {}
 
@@ -65,7 +66,7 @@ export class DashboardComponent {
           });
         },
         (error) => {
-          alert('Error in loading');
+          this.toaster.error('Error in Loading','Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true });
         }
       );
 
@@ -104,7 +105,8 @@ export class DashboardComponent {
         this.openDialog('accept');
         this.loadData();
       },
-      (error: any) => console.log("error") //need to change to warning
+      (error: any) =>         this.toaster.error("Unable to Process request, Please try again", 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
+      //need to change to warning
     );
     
   }
@@ -120,7 +122,7 @@ export class DashboardComponent {
         this.loadData();
       },
       (error: any) => {
-        console.log("error") //need to change to warning
+        this.toaster.error("Unable to Process request, Please try again", 'Error', { timeOut: 4000, positionClass: 'toast-top-right', closeButton: true })
       }
     );
     
@@ -143,10 +145,10 @@ export class DashboardComponent {
 
     dialogRef.beforeClosed().subscribe(() => {
       this.isLoading = true;
-      setTimeout(() => {
+      // setTimeout(() => {
         this.isLoading = false;
         // this.router.navigateByUrl('/sell-car');
-      }, 1000);
+      // }, 1000);
     });
   }
 

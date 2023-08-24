@@ -149,7 +149,7 @@ export class VechileSelectionComponent {
       return;
     }
     this.isLoading = true;
-    setTimeout(() => (this.isLoading = false), 10000);
+    // setTimeout(() => (this.isLoading = false), 10000);
 
     let carSelection = new IVechileModelDetails();
     carSelection.make = this.makelistControl.value;
@@ -167,7 +167,7 @@ export class VechileSelectionComponent {
     // vin?: string;
     // plateNumber?: string;
     // state?: string;
-    this._store.setCurrentSellVechileDetails(carSelection);
+    this._store.setCurrentSellVechileDetails(carSelection)
     this.router.navigate(['/questionaire']);
   }
 
