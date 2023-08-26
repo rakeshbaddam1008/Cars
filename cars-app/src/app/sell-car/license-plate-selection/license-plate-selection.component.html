@@ -1,0 +1,72 @@
+<app-car-loader *ngIf="isLoading"></app-car-loader>
+
+<div>
+  <form [formGroup]="licensePlateSelection" style="height: 70%" (ngSubmit)="onSubmit()">
+    <mat-grid-list cols="4" rowHeight="50px" gutterSize="3px">
+      <mat-grid-tile colspan="2" rowspan="1.5">
+        <mat-form-field appearance="outline">
+          <mat-label>License Plate</mat-label>
+          <input style="font-size: 1.1rem;" matNativeControl autocomplete="doNotAutoComplete" matInput name="licensePlate" formControlName="licensePlate" />
+          <mat-error *ngIf="licensePlateSelection.invalid">License Plate is required</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="2" rowspan="1.5">
+        <!-- <mat-form-field appearance="outline"> -->
+        <!-- <input
+          type="text"
+          matInput
+          placeholder="State"
+          formControlName="selectedState"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of states" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>State</mat-label>
+
+          <input style="font-size: 1.1rem;" type="text" placeholder="Select State" aria-label="Number" matInput name="State"
+            formContrjholName="selectedState" [formControl]="myStateControl" [matAutocomplete]="auto" required />
+          <mat-hint *ngIf="!myStateControl.value" align="end">Click to select state</mat-hint>
+          <mat-error *ngIf="myStateControl.invalid">State is required</mat-error>
+
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </mat-grid-tile>
+      <br />
+      <!-- <mat-grid-tile colspan="2">
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <mat-select required="true" formControlName="selectedState">
+          <mat-option *ngFor="let state of states" [value]="state">
+            {{ state }}
+          </mat-option>
+        </mat-select>
+        <mat-error>State is required</mat-error>
+      </mat-form-field>
+    </mat-grid-tile> -->
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile colspan="4" class="w-80">
+
+        <button mat-raised-button class="btn-go" color="primary" type="submit">
+          GET MY OFFER
+          <!-- <div class="row">
+            <div class="col-12"> GET MY OFFER</div>
+            <div class="col-2 text-right" style="font-size: larger;">
+              >
+            </div>
+          </div> -->
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</div>

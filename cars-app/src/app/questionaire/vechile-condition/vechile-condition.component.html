@@ -1,0 +1,145 @@
+<div style="
+    background-color: #aad0e2;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
+  ">
+  <form [formGroup]="vehicleConditionFormGroup">
+    <mat-card class="question-card ml-auto mr-auto">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">
+              Does your {{ selectedMake }} run and drive?</label>
+            &nbsp; &nbsp;
+          </div>
+          <div class="col-6 d-flex align-items-center justify-content-start">
+            <!-- <ui-switch class="question-slider" uncheckedLabel="No" checkedLabel="Yes" size="medium"
+        (ngModelChange)="onChangeDoesCarDrive($event)" [ngStyle]="{
+          color: vechileCondition.doesCarDrive ? 'white' : 'black'
+        }" [(ngModel)]="vechileCondition.doesCarDrive"></ui-switch> -->
+
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesCarDrive">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <ng-container *ngIf="vehicleConditionFormGroup.get('doesCarDrive')?.value === false">
+      <mat-card class="question-card ml-auto mr-auto">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+              <label class="content-title required--after" id="example-radio-group-label">Does your {{ selectedMake }}
+                start?</label>
+              &nbsp; &nbsp;
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-start">
+              <!-- <ui-switch class="question-slider" uncheckedLabel="No" checkedLabel="Yes" size="medium" [ngStyle]="{
+            color: vechileCondition.doesCarStart ? 'white' : 'black'
+          }" [(ngModel)]="vechileCondition.doesCarStart"></ui-switch> -->
+              <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                required formControlName="doesCarStart">
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                  Yes
+                </mat-radio-button>
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                  No
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="question-card ml-auto mr-auto">
+        <mat-card-content>
+          <div class="row">
+            <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+              <label class="content-title required--after" id="example-radio-group-label">Is its engine or transmission
+                missing</label>
+              &nbsp; &nbsp;
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-start">
+              <!-- <ui-switch class="question-slider" uncheckedLabel="No" checkedLabel="Yes" size="medium" [ngStyle]="{
+            color: vechileCondition.carEngineandTransmission ? 'white' : 'black'
+          }" [(ngModel)]="vechileCondition.carEngineandTransmission"></ui-switch> -->
+              <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                required formControlName="carEngineandTransmission">
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                  Yes
+                </mat-radio-button>
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                  No
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+    <!-- $7a -->
+    <mat-card class="question-card ml-auto mr-auto">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Does your {{ selectedMake }}
+              have any mechanical
+              issues?</label>
+            &nbsp; &nbsp;
+          </div>
+          <div class="col-6 d-flex align-items-center justify-content-start">
+            <!-- <ui-switch class="question-slider" uncheckedLabel="No" checkedLabel="Yes" size="medium"
+          [(ngModel)]="vechileCondition.doesCarHaveMechanicalIssues" [ngStyle]="{
+          color: vechileCondition.doesCarHaveMechanicalIssues
+            ? 'white'
+            : 'black'
+        }"></ui-switch> -->
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+              required formControlName="doesCarHaveMechanicalIssues">
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                Yes
+              </mat-radio-button>
+              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                No
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card *ngIf="vehicleConditionFormGroup.get('doesCarHaveMechanicalIssues')?.value"
+      class="question-card ml-auto mr-auto">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+            <label class="content-title required--after" id="example-radio-group-label">Select Mechanical Issues</label>
+            &nbsp; &nbsp;
+          </div>
+          <div class="col-6 d-flex flex-row align-items-start justify-content-start" formGroupName="mechanicalIssues">
+            <div class="row">
+              <mat-checkbox class="col-12" formControlName="warningLights">Any warning lights (ABS, battery charge
+                warning light,
+                engine
+                temperature etc.)
+              </mat-checkbox>
+              <mat-checkbox class="col-3" formControlName="Electrical">Electrical</mat-checkbox>
+              <mat-checkbox class="col-3" formControlName="Mechanical">Mechanical</mat-checkbox>
+              <mat-checkbox class="col-3" formControlName="Suspension">Suspension</mat-checkbox>
+              <mat-checkbox class="col-3" formControlName="Mechanical">Other</mat-checkbox>
+            </div>
+
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+  <!-- vechileCondition.externalConditions -->
+</div>

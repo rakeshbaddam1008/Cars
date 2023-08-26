@@ -1,0 +1,47 @@
+mat-form-field {
+  padding: 3px 1px;
+}
+mat-form-field {
+  width: 80%;
+  height: 80%;
+}
+
+.btn-go {
+  margin-bottom: 14px;
+  width: 50%;
+  background: #ffff;
+  border: 1px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  padding-bottom: 15px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 15px;
+}
+.btn-go:hover{
+  background:  #BDF279;
+  box-shadow: 2px 1px 5px black ;
+}
+
+
+mat-form-field {
+  font-size: 12px;
+}
+
+
+.mat-mdc-raised-button.mat-primary {
+ --mdc-protected-button-container-color: #BDF279;
+ --mdc-protected-button-label-text-color: black;
+}
+
+
+#mat-mdc-input-element  {
+  display: inline-block;
+  font-family: 'Roboto';
+  font-size: 1.2rem;
+}
+

@@ -1,0 +1,70 @@
+<mat-toolbar class="header-bg">
+  <div fxHide.gt-xs style="margin-right: 15px; z-index: 100; color: white">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="logo">
+    <img src="../../../assets/images/logo01.png" routerLink="/sell-car" height="185px" class="log1" />
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="25px" class="navigation-items">
+      <li>
+        <a routerLink="/dashboard">Dashboard</a>
+      </li>
+      <li>
+        <a routerLink="/">Sell Car</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="!authService.isAuthenticated()">
+        <a routerLink="/login">Login/Sign up</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="authService.isAuthenticated()">
+        <span class="fill-remaining-space">
+          <button class="mat-button-iocn-profile" style="border: 2px solid white; border-radius: 50%;" mat-icon-button
+            [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (click)="menuTrigger.openMenu()">
+            <mat-icon>people_outline</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" [overlapTrigger]="false">
+            <!-- <span (mouseleave)="menuTrigger.closeMenu()"> -->
+            <h2 class="row justify-content-center mb-2" style="color: #1e6c92;">{{tokenService.getUser()}}</h2>
+            <h3 class="row justify-content-center mb-2">{{tokenService.getEMail()}}</h3>
+            <button class="menuItem" mat-menu-item (click)="onClickProfile()">
+              <mat-icon>Profile</mat-icon>
+              <span>Profile</span>
+            </button>
+            <button class="menuItem" mat-menu-item (click)="logOut()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Logout</span>
+            </button>
+            <!-- </span> -->
+          </mat-menu>
+        </span>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../../../assets/images/logo 01.png"
+    routerLink="/sell-car"  class="d-inline-block align-top log1" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->

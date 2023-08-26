@@ -1,0 +1,176 @@
+/* .example-radio-group {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+  align-items: flex-start;
+  line-height: 25px;
+  font-size: 30px;
+  font-weight: 600;
+} */
+
+.question-label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.question-slider {
+  align-items: center;
+  float: right;
+  color: white;
+}
+
+
+
+.question-value {
+  font-size: 15px;
+  align-items: start;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-h2 {
+  margin: 10px;
+}
+
+.car-selection-space {
+  left: 5vw;
+  top: 15vh;
+  bottom: 25vh;
+}
+
+.car-Declaration {
+  font-size: 24px;
+  font-weight: 700;
+  padding-bottom: 0px;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+}
+
+/* .example-radio-group {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+  align-items: flex-start;
+  line-height: 20px;
+  font-size: 25px;
+  font-weight: 600;
+} */
+mat-form-field {
+  padding: 3px 1px;
+}
+
+mat-form-field {
+  width: 80%;
+  height: 80%;
+}
+
+.question-label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.example-radio-button {
+  margin: 3px;
+}
+
+.question-slider {
+  align-items: center;
+  float: right;
+}
+
+.question-float-right {
+  flex-flow: end;
+}
+
+.question-card {
+  max-width: 80%;
+  min-width: 300px;
+  margin-bottom: 25px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
+}
+
+.question-from-control {
+  display: block;
+  width: 60%;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.invalid {
+  color: red !important;
+}
+
+.custom-form-field {
+  /* Set the desired shadow properties */
+  box-shadow: 0 2px 4px rgba(73, 146, 230, 0.1);
+  /* You can adjust the values for x, y, blur, and color as needed */
+  transition: box-shadow 0.3s ease;
+  /* Add a smooth transition on hover (optional) */
+}
+
+/* Add styles for the mat-form-field input when focused */
+.custom-form-field.mat-focused {
+  /* Set a different shadow style when the input is focused (optional) */
+  box-shadow: 0 4px 8px rgba(73, 146, 230, 0.1);
+}
+
+.custom-select {
+  background-color: white;
+  border: 1px solid lightblue;
+  color: black;
+  /* Set the text color of the options */
+}
+
+.mat-selected {
+  color: white !important;
+}
+
+.mat-mdc-option.mdc-list-item--hover {
+  background: red !important;
+}
+
+.mat-mdc-option.mdc-list-item:hover {
+  background: #1e6c92 !important;
+  color: white !important
+}
+
+.mat-mdc-option.mat-mdc-option-active {
+  background: #1e6c92 !important;
+  color: white !important
+}
+
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+  color: white !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: rgb(0, 0, 0)!important;   /*inner circle color change*/
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+ border-color:rgb(0, 0, 0)!important; /*outer ring color change*/
+}
+
+.content-title {
+  font-size: 1.3rem;
+  font-weight: 480;
+  font-family: Roboto;
+}
+
+.mdc-form-field>label {
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: 4px;
+  padding-right: 0;
+  order: 0;
+  font-family: Roboto;
+  font-size: 1.1rem;
+}
+

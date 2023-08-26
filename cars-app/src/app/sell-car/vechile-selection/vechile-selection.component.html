@@ -1,0 +1,111 @@
+<app-car-loader *ngIf="isLoading"></app-car-loader>
+
+<form [formGroup]="manualVechileSelectionForm" (submit)="onSubmit()">
+  <div class="container-fluid" style="padding-top: 15px">
+    <div class="row">
+      <!-- <mat-grid-list cols="4" rowHeight="75px" gutterSize="1px">
+    <mat-grid-tile colspan="2"> -->
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Year</mat-label>
+          <!-- <mat-hint *ngIf="manualVechileSelectionForm.value.yearSelected === 0" class="text-center">Select
+            Year</mat-hint> -->
+          <mat-select style="font-size: 1.1rem;" matNativeControl (selectionChange)="yearSelectionChange($event)" formControlName="yearSelected"
+            name="yearSelected">
+            <mat-option *ngFor="let year of VechileRegisterationList" [value]="year">
+              {{ year }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <!-- </mat-grid-tile> -->
+        <!-- <mat-grid-tile colspan="2" (focusout)="validateTextField($event, 'Make')"> -->
+        <mat-form-field appearance="outline">
+          <mat-label>
+            Make
+          </mat-label>
+          <input style="font-size: 1.1rem;" type="text" #state placeholder="Select Make" aria-label="Number" name="Make" matInput
+            formControlNamehj="selectedMake" [formControl]="makelistControl" [matAutocomplete]="autoModel" required />
+          <mat-hint *ngIf="makelistControl.value == ''" class="text-center">Click to see Make</mat-hint>
+          <mat-autocomplete #autoModel="matAutocomplete" (optionSelected)="makeSelectionChange($event)">
+            <mat-optgroup style="  font-weight: bold;" *ngFor="let group of makesList | async"
+              [label]="group.groupName">
+              <mat-option *ngFor="let make of group.makes" [value]="make">
+                {{ make }}
+              </mat-option>
+            </mat-optgroup>
+          </mat-autocomplete>
+          <!-- <mat-label>Make</mat-label>
+          <mat-select matNativeControl formControlName="selectedMake" name="selectedMake"
+            (selectionChange)="makeSelectionChange()">
+            <mat-optgroup style="  font-weight: bold;" *ngFor="let group of makesList|async" [label]="group.groupName">
+              <mat-option *ngFor="let make of group.makes" [value]="make">
+                {{ make }}
+              </mat-option>
+            </mat-optgroup> -->
+          <!-- <mat-optgroup *ngFor="let group of makesList|async" label="All Makes"
+            >
+               <mat-option *ngFor="let make of makesList | async" [value]="make">
+                 {{ make }}
+               </mat-option>
+               </mat-optgroup> -->
+          <!-- </mat-select> -->
+        </mat-form-field>
+      </div>
+      <!-- </mat-grid-tile> -->
+      <div class="col-6">
+        <!-- <mat-grid-tile colspan="2"> -->
+        <mat-form-field appearance="outline">
+          <mat-label>
+            Model
+          </mat-label>
+          <input style="font-size: 1.1rem;" type="text" placeholder="Select Model" matInput formControlNamehj="selectedModel" name="selectedModel"
+            [formControl]="modelControl" [matAutocomplete]="autoMake" required />
+          <!-- <mat-error *ngIf="licensePlateSelection.status == 'INVALID'"
+            >State is required</mat-error
+          > -->
+          <mat-hint *ngIf="modelControl.value === ''" class="text-center">Click to see Model</mat-hint>
+          <mat-autocomplete #autoMake="matAutocomplete" (optionSelected)="modelSelectionChange($event)">
+            <mat-option *ngFor="let option of modelList | async" [value]="option">
+              {{ option }}
+            </mat-option>
+          </mat-autocomplete>
+          <!-- <mat-label>Model</mat-label>
+          <mat-select matNativeControl formControlNameame="selectedModel" name="selectedModel"
+            (selectionChange)="modelSelectionChange($event)">
+            <mat-option *ngFor="let model of modelList | async" [value]="model">
+              {{ model }}
+            </mat-option>
+          </mat-select> -->
+        </mat-form-field>
+      </div>
+
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Trim</mat-label>
+          <mat-hint *ngIf="!selectedTrim.value" class="text-center">Select Trim</mat-hint>
+          <mat-select style="font-size: 1.1rem;" matNativeControl [formControl]="selectedTrim" name="trim"
+            (selectionChange)="trimSelectionChange()">
+            <mat-option *ngFor="let trim of trimList | async" [value]="trim">
+              {{ trim }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- </mat-grid-tile> -->
+        <!-- <mat-grid-tile [colspan]="2"> -->
+      </div>
+      <div class="col-12 text-center">
+        <button mat-raised-button class="btn-go">
+          GET MY OFFER
+          <!-- <div class="row">
+            <div class="col-10"> GET MY OFFER</div>
+            <div class="col-2 text-right" style="font-size: larger;">
+              >
+            </div>
+          </div> -->
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

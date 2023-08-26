@@ -1,0 +1,12 @@
+.modal-header {
+    border-bottom: 1px solid black;
+}
+
+.modal-body {
+    border-bottom: 1px solid black;
+}
+
+
+.container {
+    border-top: 10px solid red !important;
+}
