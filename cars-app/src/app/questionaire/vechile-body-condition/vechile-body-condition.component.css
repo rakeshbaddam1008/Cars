@@ -121,3 +121,20 @@
   --mdc-slider-with-tick-marks-disabled-container-color: #1e6c92;
   --mat-mdc-slider-value-indicator-opacity: 0.9;
 }
+
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  outline: 3px solid #1e6c92;
+}

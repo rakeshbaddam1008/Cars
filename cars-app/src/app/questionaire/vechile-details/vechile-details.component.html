@@ -3,20 +3,20 @@
     padding: 25px;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
   ">
-  <form [formGroup]="vehicleDetailsFormGroup" (submit)="onSubmit()">
+  <form [formGroup]="vehicleDetailsFormGroup">
     <mat-card class="question-card ml-auto mr-auto">
       <mat-card-content>
 
         <div class="row">
           <div class="col-6 col-sm-12 col-md-12 col-lg-6 d-flex align-items-center">
-            <label class="content-title mb-0" id="example-radio-group-label">Title?</label>
+            <label class="content-title  required--after mb-0" id="example-radio-group-label">Title?</label>
             &nbsp; &nbsp;
 
           </div>
 
           <div class="col-6 col-sm-12 col-md-12 col-lg-6 d-flex align-items-center justify-content-end">
-            <mat-radio-group color="primary" [ngClass]="{ invalid: vehicleDetailsFormGroup.get('carTitle')?.invalid }"
-              aria-labelledby="example-radio-group-label" required formControlName="carTitle">
+            <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" required
+              formControlName="carTitle">
               <mat-radio-button class="example-radio-button" name="Question.name" *ngFor="let option of CarTitleOptions"
                 [value]="option" (change)="radioChange($event)">
                 {{ option }}
@@ -71,16 +71,27 @@
         <mat-card-content>
           <div class="row">
             <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
-              <label class="content-title" id="example-radio-group-label">Do you currently have a loan on your
+              <label class="content-title required--after" id="example-radio-group-label">Do you currently have a loan
+                on your
                 {{ selectVechileDetails?.make }}?
               </label>
 
               &nbsp; &nbsp;
             </div>
-            <div class="col-6 d-flex align-items-center justify-content-end">
-              <ui-switch uncheckedLabel="No" checkedLabel="Yes" size="medium" [ngStyle]="{
+            <div class="col-6 d-flex align-items-center justify-content-start">
+              <!-- <ui-switch uncheckedLabel="No" checkedLabel="Yes" size="medium"
+                (changeEvent)="toggleChange(vehicleDetailsFormGroup.controls['carLoan'].value)" [ngStyle]="{
             color: vehicleDetailsFormGroup.controls['carLoan'].value ? 'white' : 'black'
-          }" formControlName="carLoan"></ui-switch>
+          }" formControlName="carLoan"></ui-switch> -->
+              <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
+                required formControlName="carLoan">
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                  Yes
+                </mat-radio-button>
+                <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                  No
+                </mat-radio-button>
+              </mat-radio-group>
             </div>
 
             <!-- <div class="col-6 d-flex align-items-center">
@@ -96,22 +107,54 @@
           </div>
         </mat-card-content>
       </mat-card>
+      <!-- {{vehicleDetailsFormGroup.get('carLoan')?.value | json}} -->
+      <ng-container *ngIf="vechileQuestionaire.carLoan === true">
+
+        <mat-card class="question-card ml-auto mr-auto">
+          <mat-card-content>
+            <div class="row">
+              <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
+                <label class="content-title required--after" id="example-radio-group-label">Enter Loan Amount
+                </label>
+
+                &nbsp; &nbsp;
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-end">
+                <!-- <mat-form-field appearance="outline" class="form-control"> -->
+                <input matInput required type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                  [ngClass]="{'form-control':true}" maxlength="6" name="loanAmount-field"
+                  autocomplete="doNotAutoComplete" formControlName="loanAmount" placeholder="Loan Amount $" />
+
+                <!-- </mat-form-field> -->
+              </div>
+              <!-- {{vehicleDetailsFormGroup.get('carLoan')?.value | json}} -->
+            </div>
+            <!-- <div class="row align-items-center justify-content-end">
+              <mat-error class="d-flex justify-content-end mt-1"
+                *ngIf="vehicleDetailsFormGroup.get('loanAmount')?.invalid && vehicleDetailsFormGroup.get('loanAmount')?.touched">
+                <span *ngIf="vehicleDetailsFormGroup.get('loanAmount')?.hasError('required')">
+                  Please provide loan amount.
+                </span>
+              </mat-error>
+            </div> -->
+          </mat-card-content>
+        </mat-card>
+      </ng-container>
+
+
 
       <mat-card class="question-card ml-auto mr-auto">
         <mat-card-content>
           <div class="row">
             <div class="col-6 col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
-              <label class="content-title" id="example-radio-group-label">Mileage?</label>
+              <label class="content-title required--after" id="example-radio-group-label">Mileage?</label>
               &nbsp; &nbsp;
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-end">
-              <!-- <mat-form-field appearance="outline" class="form-control"> -->
               <input matInput type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                 [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('mileage')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('mileage')?.invalid && vehicleDetailsFormGroup.get('mileage')?.touched}"
                 maxlength="6" name="Mileage-field" autocomplete="doNotAutoComplete" formControlName="mileage" required
                 placeholder="Mileage ex. 123456" />
-
-              <!-- </mat-form-field> -->
             </div>
             <!-- {{vehicleDetailsFormGroup.get('mileage'). | json}} -->
           </div>
@@ -133,7 +176,7 @@
         <mat-card-content>
           <div class="row">
             <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
-              <label class="content-title" id="example-radio-group-label">What is the color of your {{
+              <label class="content-title required--after" id="example-radio-group-label">What is the color of your {{
                 selectVechileDetails?.make }}?
               </label>
               &nbsp; &nbsp;
@@ -161,7 +204,8 @@
         <mat-card-content>
           <div class="row">
             <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
-              <label class="content-title" id="example-radio-group-label">What is your vehicle pickup zipCode?</label>
+              <label class="content-title required--after" id="example-radio-group-label">What is your vehicle pickup
+                zipCode?</label>
               &nbsp; &nbsp;
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-end form-group">
@@ -196,7 +240,7 @@
         <mat-card-content>
           <div class="row">
             <div class="col-6 col-sm-12 col-md-6 col-lg-6  d-flex align-items-center">
-              <label class="content-title" id="example-radio-group-label">
+              <label class="content-title required--after" id="example-radio-group-label">
                 Vehicle transmission type?
               </label>
               &nbsp; &nbsp;

@@ -36,7 +36,7 @@
       </div>
     </mat-step>
     <mat-step label="Vehicle Condition">
-      <app-vechile-condition></app-vechile-condition>
+      <app-vechile-condition (stepTwoValidated)="validateStepperOne($event)"></app-vechile-condition>
 
       <mat-divider></mat-divider>
       <div class="w-100">
@@ -53,7 +53,7 @@
       </div>
     </mat-step>
     <mat-step label="Vehicle Body Condition">
-      <app-vechile-body-condition></app-vechile-body-condition>
+      <app-vechile-body-condition (stepThreeValidated)="validateStepperOne($event)"></app-vechile-body-condition>
 
       <mat-divider></mat-divider>
       <div class="w-100">

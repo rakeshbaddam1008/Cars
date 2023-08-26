@@ -111,19 +111,19 @@ export class CarStepperComponent {
 
   nextStep(index: number) {
     let sellerDetails  = this._store.sellerCompleteDetails;
-    if(index === 0 && sellerDetails.vehicleDetails.carTitle 
-      && sellerDetails.vehicleDetails.mileage 
-      && sellerDetails.vehicleDetails.zipCode 
-      && sellerDetails.vehicleDetails.vechileTransmissionType) {
+    // if(index === 0 && sellerDetails.vehicleDetails.carTitle 
+    //   && sellerDetails.vehicleDetails.mileage 
+    //   && sellerDetails.vehicleDetails.zipCode 
+    //   && sellerDetails.vehicleDetails.vechileTransmissionType) {
         
-      this.validator = true
-    }
+    //   this.validator = true
+    // }
       if (this.reviewService.conatctPageStepper && index == 3) {
       this.validator = true;
     }  if (this.reviewService.reviewPageStepper && index == 4) {
       this.validator = true;
     }
-    if (this.validator || index == 1 || index == 2) {
+    if (this.validator ) {
       if (index == 4) {
         this.callApiToGetInstantOffer()
         return;

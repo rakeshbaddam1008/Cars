@@ -47,12 +47,13 @@ export class SellCarStoreService {
     // body panels intact-yes done
     // interrior intact-yes  deafult values
     //Additional default values
-    this.sellerCompleteDetails.vehicleCondition.DoesInteriorIntact = true;
-    this.sellerCompleteDetails.vehicleCondition.externalConditions.doesBodyPanelIntact =
-      true;
-    this.sellerCompleteDetails.vehicleCondition.externalConditions.doesAllCarWheelInflated =
-      true;
-    true;
+
+    
+    // this.sellerCompleteDetails.vehicleCondition.DoesInteriorIntact = true;
+    // this.sellerCompleteDetails.vehicleCondition.externalConditions.doesBodyPanelIntact =
+    //   true;
+    // this.sellerCompleteDetails.vehicleCondition.externalConditions.doesAllCarWheelInflated =
+    //   true;
   }
 
   setCurrentSellVechileDetails(vechileDetails: IVechileModelDetails) {
