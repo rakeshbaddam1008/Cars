@@ -156,6 +156,22 @@ export class CarStepperComponent {
 
   setNoTittleDefaultValue() {
     this._store.sellerCompleteDetails.vehicleDetails.color = 'other';
+    this._store.sellerCompleteDetails.vehicleDetails.carLoan = false;
+    this._store.sellerCompleteDetails.vehicleCondition.doesCarStart = false;
+    this._store.sellerCompleteDetails.vehicleCondition.doesCarDrive = false;
+    this._store.sellerCompleteDetails.vehicleCondition.doesCarHaveMechanicalIssues = false;
+    this._store.sellerCompleteDetails.vehicleCondition.carEngineandTransmission = false;
+    this._store.sellerCompleteDetails.vehicleCondition.DoesInteriorIntact = false;
+    this._store.sellerCompleteDetails.vehicleCondition.externalConditions.DoesCarSufferedFloodorFireDamage = false;
+    this._store.sellerCompleteDetails.vehicleCondition.externalConditions.doesAirbagsDeployedOrMissing = true;
+    this._store.sellerCompleteDetails.vehicleCondition.externalConditions.doesAllCarWheelInflated = true;
+    this._store.sellerCompleteDetails.vehicleCondition.externalConditions.doesBodyDamage = true;
+    this._store.sellerCompleteDetails.vehicleCondition.externalConditions.doesBodyDamageSeverity = 'Severe';
+    this._store.sellerCompleteDetails.vehicleCondition.externalConditions.doesBodyPanelIntact = false;
+    this._store.sellerCompleteDetails.vehicleCondition.externalConditions.NoticeableDingsDentsScratches = '7 and more';
+    this._store.sellerCompleteDetails.vehicleCondition.externalConditions.doesAllGlassorLightCracked = false;
+    
+
     this._store.sellerCompleteDetails.vehicleDetails.mileage = 300000;
     this.router.navigateByUrl('contact-us')
   }

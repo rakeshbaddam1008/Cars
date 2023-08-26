@@ -14,7 +14,7 @@
 
           </div>
 
-          <div class="col-6 col-sm-12 col-md-12 col-lg-6 d-flex align-items-center justify-content-end">
+          <div class="col-6 col-sm-12 col-md-12 col-lg-6 d-flex align-items-center justify-content-start">
             <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" required
               formControlName="carTitle">
               <mat-radio-button class="example-radio-button" name="Question.name" *ngFor="let option of CarTitleOptions"
@@ -119,7 +119,7 @@
 
                 &nbsp; &nbsp;
               </div>
-              <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-end">
+              <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-start">
                 <!-- <mat-form-field appearance="outline" class="form-control"> -->
                 <input matInput required type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                   [ngClass]="{'form-control':true}" maxlength="6" name="loanAmount-field"
@@ -150,7 +150,7 @@
               <label class="content-title required--after" id="example-radio-group-label">Mileage?</label>
               &nbsp; &nbsp;
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-end">
+            <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-start">
               <input matInput type="text" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
                 [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('mileage')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('mileage')?.invalid && vehicleDetailsFormGroup.get('mileage')?.touched}"
                 maxlength="6" name="Mileage-field" autocomplete="doNotAutoComplete" formControlName="mileage" required
@@ -181,7 +181,7 @@
               </label>
               &nbsp; &nbsp;
             </div>
-            <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-end">
+            <div class="col-sm-6 col-md-6 col-lg-6 d-flex align-items-center justify-content-start">
               <!-- <mat-form-field appearance="outline" class="question-form-control"> -->
               <mat-select required formControlName="color"
                 [ngClass]="{'input-form-success': vehicleDetailsFormGroup.get('color')?.valid, 'form-control':true,'input-form-error': vehicleDetailsFormGroup.get('color')?.invalid && vehicleDetailsFormGroup.get('color')?.touched}"
@@ -216,23 +216,24 @@
                 autocomplete="doNotAutoComplete" formControlName="zipCode" maxlength="5" placeholder="Zip ex. 28213" />
 
               <!-- </mat-form-field> -->
+
             </div>
+            <div class="row  align-itmes-center justify-content-end mt-1">
+              <mat-error class="d-flex justify-content-end"
+                *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid &&  vehicleDetailsFormGroup.get('zipCode')?.touched"><span
+                  *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('required')">
+                  ZIP code is required.
+                </span>
+                <span *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('pattern')">
+                  Please enter a valid 5-digit ZIP code.
+                </span>
+              </mat-error>
+              <mat-hint align="end" class="d-flex justify-content-end">{{zip.value.length}}/5</mat-hint>
 
+
+            </div>
           </div>
-          <div class="row  align-itmes-center justify-content-end mt-1">
-            <mat-error class="d-flex justify-content-end"
-              *ngIf="vehicleDetailsFormGroup.get('zipCode')?.invalid &&  vehicleDetailsFormGroup.get('zipCode')?.touched"><span
-                *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('required')">
-                ZIP code is required.
-              </span>
-              <span *ngIf="vehicleDetailsFormGroup.get('zipCode')?.hasError('pattern')">
-                Please enter a valid 5-digit ZIP code.
-              </span>
-            </mat-error>
-            <mat-hint align="end" class="justify-content-start">{{zip.value.length}}/5</mat-hint>
 
-
-          </div>
         </mat-card-content>
       </mat-card>
 
@@ -245,7 +246,7 @@
               </label>
               &nbsp; &nbsp;
             </div>
-            <div class="col-6 d-flex align-items-center justify-content-end">
+            <div class="col-6 d-flex align-items-center justify-content-start">
               <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
                 required formControlName="vechileTransmissionType">
                 <mat-radio-button class="example-radio-button" name="Question.name"

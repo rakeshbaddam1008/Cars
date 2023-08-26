@@ -32,6 +32,9 @@ export class VechileConditionComponent {
         Other: new FormControl(false),
       }),
      });
+     if(this.vehicleConditionFormGroup.valid) {
+      this.stepTwoValidated.emit(true)
+    }
   }
 
   EngineRepairOptions: string[] = ['Engine repairs', "I don't know"];
@@ -66,6 +69,7 @@ export class VechileConditionComponent {
 
 
   ngOnInit(){
+    
     this.vehicleConditionFormGroup.get('doesCarDrive')?.valueChanges.subscribe((value) => {
       if(value) {
         this.vehicleConditionFormGroup.get('doesCarStart')?.setValue(true)

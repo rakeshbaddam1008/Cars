@@ -48,7 +48,7 @@ export class VechileDetailsComponent {
     public _store: SellCarStoreService,
     public reviewService: ReviewService,
   ) {
-    this.vechileQuestionaire = new IVechileDetailQuestionaire();
+    this.vechileQuestionaire = this._store.sellerCompleteDetails.vehicleDetails;
     this.selectVechileDetails = this._store.sellerCompleteDetails.carDetails;
 
     this.vehicleDetailsFormGroup = new FormGroup({
@@ -102,8 +102,6 @@ export class VechileDetailsComponent {
     this.vehicleDetailsFormGroup.get('vechileTransmissionType')?.valueChanges.subscribe((value) => {
       this.vechileQuestionaire.vechileTransmissionType = value
     })
-
-    this.vehicleDetailsFormGroup
     
     this.vehicleDetailsFormGroup.statusChanges.subscribe(status => {
       if(status === 'VALID') {

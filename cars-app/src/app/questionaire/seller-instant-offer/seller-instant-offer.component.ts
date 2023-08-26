@@ -106,7 +106,7 @@ export class SellerInstantOfferComponent {
       message = accept_message
     } else {
       title = 'Thank You!';
-      message = 'Our representative will be connecting with you shortly please feel free to look into other options.'
+      message = 'You will be recieving the email and get a call from our representative shortly.'
     }
     const dialogRef = this.dialog.open(DialogComponent, {
       data: { title: title, message: message, page: 'contact' }

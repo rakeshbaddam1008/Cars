@@ -29,6 +29,9 @@ export class VechileBodyConditionComponent {
       DoesCarSufferedFloodorFireDamage: new FormControl(this.vechileCondition.externalConditions.DoesCarSufferedFloodorFireDamage, [Validators.required]),
       DoesInteriorIntact: new FormControl(this.vechileCondition.DoesInteriorIntact, [Validators.required]),     
     });
+    if(this.vehicleConditionFormGroup.valid) {
+      this.stepThreeValidated.emit(true)
+    }
   }
   severityBodyDamageOptions = [{
     id: 1,
@@ -64,6 +67,8 @@ export class VechileBodyConditionComponent {
   }
 
   ngOnInit() {
+    
+
     this.vehicleConditionFormGroup.get('doesAllCarWheelInflated')?.valueChanges.subscribe((value) => {
       this.vechileCondition.externalConditions.doesAllCarWheelInflated = value
     })

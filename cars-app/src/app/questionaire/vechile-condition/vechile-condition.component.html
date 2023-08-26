@@ -123,25 +123,19 @@
             <label class="content-title required--after" id="example-radio-group-label">Select Mechanical Issues</label>
             &nbsp; &nbsp;
           </div>
-          <div class="col-6 d-flex flex-column align-items-start justify-content-start"
-            formGroupName="mechanicalIssues">
+          <div class="col-6 d-flex flex-row align-items-start justify-content-start" formGroupName="mechanicalIssues">
+            <div class="row">
+              <mat-checkbox class="col-12" formControlName="warningLights">Any warning lights (ABS, battery charge
+                warning light,
+                engine
+                temperature etc.)
+              </mat-checkbox>
+              <mat-checkbox class="col-3" formControlName="Electrical">Electrical</mat-checkbox>
+              <mat-checkbox class="col-3" formControlName="Mechanical">Mechanical</mat-checkbox>
+              <mat-checkbox class="col-3" formControlName="Suspension">Suspension</mat-checkbox>
+              <mat-checkbox class="col-3" formControlName="Mechanical">Other</mat-checkbox>
+            </div>
 
-            <mat-checkbox formControlName="warningLights">Any warning lights (ABS, battery charge warning light, engine
-              temperature etc.)
-            </mat-checkbox>
-            <mat-checkbox formControlName="Electrical">Electrical</mat-checkbox>
-            <mat-checkbox formControlName="Mechanical">Mechanical</mat-checkbox>
-            <mat-checkbox formControlName="Suspension">Suspension</mat-checkbox>
-            <mat-checkbox formControlName="Mechanical">Other</mat-checkbox>
-            <!-- <mat-radio-group color="primary" aria-labelledby="example-radio-group-label" class="example-radio-group"
-              required formControlName="doesCarHaveMechanicalIssues">
-              <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
-                Yes
-              </mat-radio-button>
-              <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
-                No
-              </mat-radio-button>
-            </mat-radio-group> -->
           </div>
         </div>
       </mat-card-content>
