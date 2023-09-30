@@ -1,0 +1,7 @@
+.form-select {
+    --bs-form-select-bg-img: none
+  }
+
+  .readonly {
+    background-color: #e2e3e5;
+  }

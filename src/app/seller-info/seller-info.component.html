@@ -1,0 +1,189 @@
+<div [formGroup]="sellerInfo">
+    <div class="row mt-2">
+        <div class="col-6 mb-2">
+            <div class="form-group">
+                <label for="email_id" class="form-label-sm">Email ID</label>
+                <div class="input-group">
+                    <input type="text" class="form-control border-right-0" name="email_id" placeholder="Search"
+                        formControlName="email_id">
+                    <div class="input-group-text  rounded-right p-0">
+                        <span class="input-group-btn">
+                            <button class="btn btn-lg btn-secondary btn-sm" type="button" id="button-addon2">
+                                <mat-icon>search seller email</mat-icon>
+                            </button>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="displaySellerDetails">
+        <div class="row mt-2">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="seller_id" class="form-label-sm">Seller ID</label>
+                    <input type="text" readonly class="form-control border-right-0 readonly" name="seller_id"
+                        formControlName="seller_id">
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="password" class="form-label-sm">Password</label>
+                    <input type="password" readonly class="form-control border-right-0 "
+                        [ngClass]="{'is-invalid': sellerInfo.get('password')?.hasError('required')}" name="password"
+                        formControlName="password">
+                    <div class="invalid-feedback">
+                        Password is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="customer_contact_number" class="form-label-sm">Customer Contact Number</label>
+                    <input type="text" class="form-control border-right-0"
+                        [ngClass]="{'is-invalid': sellerInfo.get('customer_contact_number')?.hasError('required')}"
+                        name="customer_contact_number" formControlName="customer_contact_number">
+                    <div class="invalid-feedback">
+                        Contact Number is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="charity_name" class="form-label-sm">Charity Name</label>
+                    <input type="text" class="form-control border-right-0 " name="charity_name"
+                        [ngClass]="{'is-invalid': sellerInfo.get('charity_name')?.hasError('required')}"
+                        formControlName="charity_name">
+                    <div class="invalid-feedback">
+                        Charity Name is a required field.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="donor_email" class="form-label-sm">Donor Email</label>
+                    <input type="text" class="form-control is-invalid border-right-0" name="donor_email"
+                        [ngClass]="{'is-invalid': sellerInfo.get('donor_email')?.hasError('email')}"
+                        formControlName="donor_email">
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="customer_name" class="form-label-sm">Customer Name</label>
+                    <input type="text" class="form-control border-right-0 " name="customer_name"
+                        [ngClass]="{'is-invalid': sellerInfo.get('customer_name')?.hasError('required')}"
+                        formControlName="customer_name">
+                    <div class="invalid-feedback">
+                        Customer Name is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="vehicle_owner_name" class="form-label-sm">Vechile Owner Name</label>
+                    <input type="text" class="form-control border-right-0" name="vehicle_owner_name"
+                        [ngClass]="{'is-invalid': sellerInfo.get('vehicle_owner_name')?.hasError('required')}"
+                        formControlName="vehicle_owner_name">
+                    <div class="invalid-feedback">
+                        Vechile Owner Name is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="payee_name" class="form-label-sm">Payee Name</label>
+                    <input type="text" class="form-control border-right-0 " name="payee_name"
+                        [ngClass]="{'is-invalid': sellerInfo.get('payee_name')?.hasError('required')}"
+                        formControlName="payee_name">
+                    <div class="invalid-feedback">
+                        Payee Name is a required field.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="location_type" class="form-label-sm">Location Type</label>
+                    <input type="text" class="form-control border-right-0" name="location_type"
+                        [ngClass]="{'is-invalid': sellerInfo.get('location_type')?.hasError('required')}"
+                        formControlName="location_type">
+                    <div class="invalid-feedback">
+                        Location Type is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="apt_number" class="form-label-sm">Apt Number</label>
+                    <input type="text" class="form-control border-right-0 " name="apt_number"
+                        [ngClass]="{'is-invalid': sellerInfo.get('apt_number')?.hasError('required')}"
+                        formControlName="apt_number">
+                    <div class="invalid-feedback">
+                        Apt Number is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="street_address_line1" class="form-label-sm">Street Address 1</label>
+                    <input type="text" class="form-control border-right-0" name="street_address_line1"
+                        [ngClass]="{'is-invalid': sellerInfo.get('street_address_line1')?.hasError('required')}"
+                        formControlName="street_address_line1">
+                    <div class="invalid-feedback">
+                        Street Address 1 is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="street_address_line2" class="form-label-sm">Street Address 2</label>
+                    <input type="text" class="form-control border-right-0 " name="street_address_line2"
+                        [ngClass]="{'is-invalid': sellerInfo.get('street_address_line2')?.hasError('required')}"
+                        formControlName="street_address_line2">
+                    <div class="invalid-feedback">
+                        Street Address 2 is a required field.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="zip_code" class="form-label-sm">Zipcode</label>
+                    <input type="text" class="form-control border-right-0" name="zip_code"
+                        [ngClass]="{'is-invalid': sellerInfo.get('zip_code')?.hasError('required')}"
+                        formControlName="zip_code">
+                    <div class="invalid-feedback">
+                        Zipcode is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="city" class="form-label-sm">City</label>
+                    <input type="text" class="form-control border-right-0 " name="city" formControlName="city"
+                        [ngClass]="{'is-invalid': sellerInfo.get('city')?.hasError('required')}">
+                    <div class="invalid-feedback">
+                        City is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

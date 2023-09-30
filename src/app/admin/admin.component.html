@@ -1,0 +1,75 @@
+<div class="container py-2  mx-auto h2 my-3">
+    <span>Dashboard</span>
+</div>
+<div class="container mx-auto">
+
+    <div class="card-header">
+        <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item tab-item">
+                <a class="nav-link" (click)="activeTab = 'seller'" [class.active]="activeTab === 'seller'" role="tab"
+                    aria-controls="seller" aria-selected="false">
+                    <span>Seller</span>
+                </a>
+            </li>
+            <li class="nav-item tab-item">
+                <a class="nav-link" (click)="activeTab = 'buyer'" [class.active]="activeTab === 'buyer'" role="tab"
+                    aria-controls="buyer" aria-selected="true">
+                    <span>Buyer</span>
+                </a>
+            </li>
+
+        </ul> -->
+
+    </div>
+    <div class="card shadow-lg">
+        <div>
+            <mat-tab-group>
+                <mat-tab label="Seller">
+                    <div class="card-body mt-3">
+
+                        <div>
+                            <!-- Content for the Seller tab goes here -->
+                            <ng-container
+                                *ngIf="selectedTemplate === 'sellerInfo'; then sellerInfo else sellerVehicleInfo"></ng-container>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Buyer">
+                    <div class="card-body mt-3">
+                        <div>
+                            <!-- Content for the Buyer tab goes here -->
+                            <p>This is the Buyer tab content.</p>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+
+
+    </div>
+</div>
+
+<ng-template #sellerInfo>
+    <!-- <div class="card-title mb-2">
+        <h5>Seller Info</h5>
+    </div> -->
+    <app-seller-info></app-seller-info>
+    <div class="card-footer mt-2">
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-secondary d-flex justify-content-end"
+                (click)="changeTemplate('sellerVehicleInfo')">Vechile Info
+                <mat-icon>arrow_forward</mat-icon></button>
+        </div>
+    </div>
+</ng-template>
+<ng-template #sellerVehicleInfo>
+    <app-seller-vehicle-info></app-seller-vehicle-info>
+    <div class="card-footer mt-2">
+        <div class="d-flex justify-content-start">
+            <button class="btn btn-secondary d-flex justify-content-end"
+                (click)="changeTemplate('sellerInfo')"><mat-icon>arrow_back</mat-icon>Seller Info
+            </button>
+        </div>
+
+    </div>
+</ng-template>

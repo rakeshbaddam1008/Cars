@@ -1,0 +1,13 @@
+.tab-item {
+    font-size: 20px;
+    font-weight: 500;
+    width: 15%;
+}
+.tab-item:hover {
+    cursor: pointer;
+}
+  
+.card {
+    border-top-left-radius: 0%;
+}
+  

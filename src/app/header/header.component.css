@@ -1,0 +1,21 @@
+.header-bg {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 6px;
+  z-index: 2;
+  width: 100%;
+  min-height: 80px;
+  left: 0;
+  /* background-image: url(../../../assets/images/bg-layout.png); */
+  background-repeat: round;
+  background-position: start right;
+  top: 0px;
+  z-index: 1100;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: #1e6c92;
+  }
+
+  .img-logo {
+    position: absolute;
+    top: -30px;
+  }
