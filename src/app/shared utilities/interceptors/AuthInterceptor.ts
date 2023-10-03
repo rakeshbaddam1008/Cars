@@ -14,6 +14,7 @@ import {
   import { catchError, filter, switchMap, take } from 'rxjs/operators';
   import { TokenStorageService } from '../services/TokenStorageService';
   import { AuthService } from '../services/AuthService';
+import { Router } from '@angular/router';
   
   const TOKEN_HEADER_KEY = 'Authorization'; // for Spring Boot back-end
   //const TOKEN_HEADER_KEY = 'x-access-token'; // for Node.js Express back-end
@@ -27,7 +28,8 @@ import {
   
     constructor(
       private tokenService: TokenStorageService,
-      private authService: AuthService
+      private authService: AuthService,
+      private router: Router
     ) {}
   
     intercept(
@@ -62,7 +64,7 @@ import {
   
         const token = this.tokenService.getRefreshToken();
   
-        if (token)
+        if (token) {
           return this.authService.refreshToken(token).pipe(
             switchMap((token: any) => {
               this.isRefreshing = false;
@@ -79,6 +81,10 @@ import {
               return throwError(err);
             })
           );
+        } else {
+          // this.router.navigate(['/login'])
+        }
+          
       }
   
       return this.refreshTokenSubject.pipe(

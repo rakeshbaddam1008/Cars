@@ -25,7 +25,7 @@ export class AuthService {
     const token = this.tokenService.getToken();
     // Check whether the token is expired and return
     // true or false
-    return true;
+    // return true;
     return !!this.tokenService.getToken(); //!jwtHelper.isTokenExpired(token);
   }
 
@@ -35,7 +35,7 @@ export class AuthService {
   
   login(username: string, password: string): Observable<IToken> {
     return this.http.post<IToken>(
-      AUTH_API + '/carizma/login',
+      AUTH_API + '/login',
       {
         email_id: username,
         password,

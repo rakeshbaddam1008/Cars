@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../shared utilities/services/api.service';
+import { SellerInfo } from '../shared utilities/models/SellerInfo.modal';
 
 @Component({
   selector: 'app-seller-info',
@@ -13,7 +14,7 @@ export class SellerInfoComponent {
   constructor(private apiService: ApiService) {
     this.sellerInfo = new FormGroup({
       seller_id : new FormControl(),
-      email_id : new FormControl(),
+      email_id : new FormControl(null, [Validators.required, Validators.email]),
       password : new FormControl(null, Validators.required),
       customer_contact_number : new FormControl(null, Validators.required),
       charity_name : new FormControl(null, Validators.required),
@@ -31,6 +32,17 @@ export class SellerInfoComponent {
   }
 
   ngOnInit() {
-    //
+    // this.apiService.getSellerInfoAdminData().subscribe(item => console.log(item))
+    this.apiService.getSellerVehicleAdminData().subscribe(item => console.log(item))
+
+  }
+
+  searchForSellerInfo() {
+    if(!this.sellerInfo.get('email_id')?.hasError) {
+      this.apiService.getSellerInfoAdminData(this.sellerInfo.get('email_id')?.value).subscribe((item: SellerInfo[]) => {
+        this.sellerInfo.patchValue(item[0])
+        console.log(this.sellerInfo)
+      })
+    }
   }
 }

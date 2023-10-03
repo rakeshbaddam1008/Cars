@@ -32,4 +32,19 @@ export class ApiService {
   getStates(): Observable<IState[]> {
     return this.http.get<IState[]>(environment.apiURL + `/carizma/us-states-region`);
   }
+
+  getSellerInfoAdminData(email_id: string) : Observable<any>  {
+    return this.http.post<any>(environment.apiURL + '/carizma/admin/data', {
+      admin_id: 'carizma_admin',
+      detail_type:'SELLER_INFO',
+      id: email_id
+    })
+  }
+  getSellerVehicleAdminData() : Observable<any>  {
+    return this.http.post<any>(environment.apiURL + '/carizma/admin/data', {
+      admin_id: 'carizma_admin',
+      detail_type:'SELLER_VEHICLE',
+      id: '115'
+    })
+  }
 }

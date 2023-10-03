@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../shared utilities/services/AuthService';
+import { TokenStorageService } from '../shared utilities/services/TokenStorageService';
 
 @Component({
   selector: 'app-login',
@@ -24,8 +26,8 @@ export class LoginComponent {
   constructor(
     private router: Router,
     // public toaster: ToastrService,
-    // private authService: AuthService,
-    // private tokenStorage: TokenStorageService
+    private authService: AuthService,
+    private tokenStorage: TokenStorageService
   ) {
     this.loginFormGroup = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -105,32 +107,32 @@ export class LoginComponent {
       this.isLoading = true;
       let username = this.loginFormGroup.controls['email'].value;
       let pwd = this.loginFormGroup.controls['password'].value;
-      // this.authService.login(username, pwd).subscribe(
-      //   (data) => {
-      //     this.tokenStorage.saveToken(data.accessToken);
-      //     this.tokenStorage.saveMail(username);
+      this.authService.login(username, pwd).subscribe(
+        (data) => {
+          this.tokenStorage.saveToken(data.accessToken);
+          this.tokenStorage.saveMail(username);
 
-      //     this.tokenStorage.saveRefreshToken(data.token);
-      //     this.tokenStorage.saveUser(data);
+          this.tokenStorage.saveRefreshToken(data.token);
+          this.tokenStorage.saveUser(data);
 
-      //     this.isLoginFailed = false;
-      //     this.isLoggedIn = true;
-      //     this.router.navigateByUrl('/dashboard');
-      //     // setTimeout(() => {
-      //       this.isLoading = false;
-      //     // }, 1000);
-      //   },
-      //   (err) => {
-      //     this.isLoading = false;
-      //     this.errorMessage = err.message ?? err.error.message;
-      //     this.isLoginFailed = true;
-      //     this.toaster.warning('Error occured during Login', 'Warning', {
-      //       timeOut: 4000,
-      //       positionClass: 'toast-top-right',
-      //       closeButton: true,
-      //     });
-      //   }
-      // );
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.router.navigateByUrl('/admin');
+          // setTimeout(() => {
+            this.isLoading = false;
+          // }, 1000);
+        },
+        (err) => {
+          this.isLoading = false;
+          this.errorMessage = err.message ?? err.error.message;
+          this.isLoginFailed = true;
+          // this.toaster.warning('Error occured during Login', 'Warning', {
+          //   timeOut: 4000,
+          //   positionClass: 'toast-top-right',
+          //   closeButton: true,
+          // });
+        }
+      );
     } else {
       // this.toaster.warning('Please fill all the required Fields', 'Warning', {
       //   timeOut: 4000,
