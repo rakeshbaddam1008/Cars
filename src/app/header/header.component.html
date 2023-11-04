@@ -8,5 +8,10 @@
                 </a>
             </li>
         </ul>
+        <ul class="nav ml-auto d-flex justify-content-end" *ngIf="authService.isAuthenticated()">
+            <li class="nav-item">
+                <a href="#" class="log-out p-2 d-flex" (click)="authService.logout()">Log Out</a>
+            </li>
+        </ul>
     </div>
 </nav>

@@ -30,12 +30,9 @@
             <div class="col-6 mb-2">
                 <div class="form-group mb-0">
                     <label for="password" class="form-label-sm">Password</label>
-                    <input type="password" readonly class="form-control border-right-0 "
-                        [ngClass]="{'is-invalid': sellerInfo.get('password')?.hasError('required')}" name="password"
+                    <input type="password" readonly class="form-control border-right-0 readonly "name="password"
                         formControlName="password">
-                    <div class="invalid-feedback">
-                        Password is a required field.
-                    </div>
+                    
                 </div>
             </div>
         </div>

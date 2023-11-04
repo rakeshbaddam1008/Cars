@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../shared utilities/services/api.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,7 +10,7 @@ export class AdminComponent {
   activeTab = 'seller'
   selectedTemplate: string = 'sellerInfo'
   
-  constructor() {
+  constructor(public apiService: ApiService) {
     
   }
 

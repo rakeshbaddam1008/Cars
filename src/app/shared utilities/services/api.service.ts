@@ -9,6 +9,7 @@ import { TokenStorageService } from './TokenStorageService';
   providedIn: 'root'
 })
 export class ApiService {
+  seller_id: string = '';
 
   constructor(private http: HttpClient, private token: TokenStorageService) {}
 
@@ -35,16 +36,16 @@ export class ApiService {
 
   getSellerInfoAdminData(email_id: string) : Observable<any>  {
     return this.http.post<any>(environment.apiURL + '/carizma/admin/data', {
-      admin_id: 'carizma_admin',
+      // admin_id: 'carizma_admin',
       detail_type:'SELLER_INFO',
       id: email_id
     })
   }
-  getSellerVehicleAdminData() : Observable<any>  {
+  getSellerVehicleAdminData(id : string) : Observable<any>  {
     return this.http.post<any>(environment.apiURL + '/carizma/admin/data', {
       admin_id: 'carizma_admin',
       detail_type:'SELLER_VEHICLE',
-      id: '115'
+      id: id
     })
   }
 }

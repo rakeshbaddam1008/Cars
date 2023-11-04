@@ -14,35 +14,37 @@ export class SellerInfoComponent {
   constructor(private apiService: ApiService) {
     this.sellerInfo = new FormGroup({
       seller_id : new FormControl(),
-      email_id : new FormControl(null, [Validators.required, Validators.email]),
-      password : new FormControl(null, Validators.required),
-      customer_contact_number : new FormControl(null, Validators.required),
-      charity_name : new FormControl(null, Validators.required),
-      donor_email : new FormControl(null, Validators.required),
-      customer_name : new FormControl(null, Validators.required),
-      vehicle_owner_name  : new FormControl(null, Validators.required),
-      payee_name : new FormControl(null, Validators.required),
-      location_type : new FormControl(null, Validators.required),
-      apt_number : new FormControl(null, Validators.required),
-      street_address_line1 : new FormControl(null, Validators.required),
-      street_address_line2 : new FormControl(null, Validators.required),
-      city : new FormControl(null, Validators.required),
-      zip_code : new FormControl(null, Validators.required),
+      email_id : new FormControl(null, [ Validators.email]),
+      password : new FormControl(null ),
+      customer_contact_number : new FormControl(null, ),
+      charity_name : new FormControl(null, ),
+      donor_email : new FormControl(null, ),
+      customer_name : new FormControl(null, ),
+      vehicle_owner_name  : new FormControl(null, ),
+      payee_name : new FormControl(null, ),
+      location_type : new FormControl(null, ),
+      apt_number : new FormControl(null, ),
+      street_address_line1 : new FormControl(null, ),
+      street_address_line2 : new FormControl(null, ),
+      city : new FormControl(null, ),
+      zip_code : new FormControl(null, ),
     })
   }
 
   ngOnInit() {
     // this.apiService.getSellerInfoAdminData().subscribe(item => console.log(item))
-    this.apiService.getSellerVehicleAdminData().subscribe(item => console.log(item))
+    
 
   }
 
   searchForSellerInfo() {
-    if(!this.sellerInfo.get('email_id')?.hasError) {
+    // if(!this.sellerInfo.get('email_id')?.hasError('email')) {
       this.apiService.getSellerInfoAdminData(this.sellerInfo.get('email_id')?.value).subscribe((item: SellerInfo[]) => {
         this.sellerInfo.patchValue(item[0])
-        console.log(this.sellerInfo)
+        this.apiService.seller_id = item[0].seller_id.toString();
+        this.displaySellerDetails = true
+        this.apiService.getSellerVehicleAdminData(this.sellerInfo.get('seller_id')?.value.toString()).subscribe(item => console.log(item))
       })
-    }
+    // }
   }
 }

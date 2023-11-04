@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable, map, of, startWith } from 'rxjs';
 import { IMake, groupMakesData } from '../shared utilities/models/IState';
 import { ApiService } from '../shared utilities/services/api.service';
+import { SellerVehicleInfo } from '../shared utilities/models/SellerInfo.modal';
 
 @Component({
   selector: 'app-seller-vehicle-info',
@@ -99,7 +100,10 @@ export class SellerVehicleInfoComponent {
   }
 
   ngOnInit() {
-    this.apiService.getAllMakes(this.vechileInfoFormGroup.get('year')?.value)
+    
+    this.apiService.getSellerVehicleAdminData(this.apiService.seller_id).subscribe((item: SellerVehicleInfo[]) => {
+      this.vechileInfoFormGroup.patchValue(item[0]);
+      this.apiService.getAllMakes(this.vechileInfoFormGroup.get('year')?.value)
       .subscribe((s) => {
         this.makes = this.groupBy(s);
         this.makesList = this.vechileInfoFormGroup.get('make')?.valueChanges.pipe(
@@ -123,6 +127,8 @@ export class SellerVehicleInfoComponent {
         this.vechileInfoFormGroup.get('make')?.value ?? 'TOYOTA',
         this.vechileInfoFormGroup.get('model')?.value ?? 'COROLLA'
       );
+    })
+    
   }
 
   groupBy(list: IMake[]): groupMakesData[] {

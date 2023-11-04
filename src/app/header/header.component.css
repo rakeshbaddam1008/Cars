@@ -19,3 +19,8 @@
     position: absolute;
     top: -30px;
   }
+
+  .log-out{
+    text-decoration: none;
+    color: white;
+  }

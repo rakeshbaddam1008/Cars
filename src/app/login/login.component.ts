@@ -30,7 +30,7 @@ export class LoginComponent {
     private tokenStorage: TokenStorageService
   ) {
     this.loginFormGroup = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required]),
       password: new FormControl('', Validators.required),
     });
 
@@ -147,6 +147,7 @@ export class LoginComponent {
       this.logintemplate = true;
       this.signuptemplate = false;
       this.passwordtemplate = false;
+      console.log();
     } else if (event === 'signUp') {
       this.logintemplate = false;
       this.signuptemplate = true;

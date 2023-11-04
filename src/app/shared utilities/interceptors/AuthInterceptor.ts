@@ -47,7 +47,7 @@ import { Router } from '@angular/router';
           if (
             error instanceof HttpErrorResponse &&
             !authReq.url.includes('auth/signin') &&
-            error.status === 401
+            error.status === 403
           ) {
             return this.handle401Error(authReq, next);
           }
