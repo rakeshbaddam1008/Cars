@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/shared utilities/services/api.service';
 })
 export class BuyerInfoComponent {
   buyerInfo: FormGroup;
-  displayBuyerDetails: boolean = false;
+  displayBuyerDetails: boolean = true;
   constructor(private apiService: ApiService) {
     this.buyerInfo = new FormGroup({
       buyer_id : new FormControl(),

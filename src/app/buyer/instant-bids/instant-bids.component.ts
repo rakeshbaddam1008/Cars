@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of, startWith } from 'rxjs';
 import { IMake, groupMakesData } from 'src/app/shared utilities/models/IState';
 import { ApiService } from 'src/app/shared utilities/services/api.service';
 
@@ -11,14 +11,14 @@ import { ApiService } from 'src/app/shared utilities/services/api.service';
 })
 export class InstantBidsComponent {
   instantBid: FormGroup;
-  displayCampaignDetails: boolean = false;
+  displayCampaignDetails: boolean = true;
   makesList?: Observable<groupMakesData[]>;
   modelList?: Observable<string[]>;
   trimList?: Observable<string[]>;
   makes: groupMakesData[] = [];
   model: string[] = [];
   years: number[] = [];
-  
+  endYears: number[] = [];  
   constructor(private apiService: ApiService) {
     this.makesList = of([]);
     this.modelList = of([]);
@@ -49,6 +49,37 @@ export class InstantBidsComponent {
 
   ngOnInit(){
     this.generateYearList()
+    this.apiService.getAllMakes(this.instantBid.get('year')?.value)
+      .subscribe((s) => {
+        this.makes = this.groupBy(s);
+        this.makesList = this.instantBid.get('make')?.valueChanges.pipe(
+          startWith(''),
+          map((value) => this._filter(value))
+        );
+      });
+      this.apiService.getModel(
+        this.instantBid.get('year')?.value,
+        this.instantBid.get('make')?.value ?? 'TOYOTA'
+      )
+      .subscribe((s) => {
+        this.model = s;
+        this.modelList = this.instantBid.get('model')?.valueChanges.pipe(
+          startWith(''),
+          map((value) => this._filterModel(value))
+        );
+      });
+      this.trimList = this.apiService.getTrim(
+        this.instantBid.get('year')?.value,
+        this.instantBid.get('make')?.value ?? 'TOYOTA',
+        this.instantBid.get('model')?.value ?? 'COROLLA'
+      );
+    
+    this.instantBid.get('start_year')?.valueChanges.subscribe((res) => {
+      this.instantBid.get('end_year')?.setValue(null)
+      this.generateEndYears(this.instantBid.get('start_year')?.value);
+    })
+
+
   }
 
 
@@ -70,7 +101,17 @@ export class InstantBidsComponent {
     const startYear = 1991;
 
     for (let year = startYear; year <= currentYear; year++) {
+      this.endYears.push(year);
       this.years.push(year);
+    }
+  }
+
+  generateEndYears(star: number) {
+    this.endYears = []
+    const currentYear = new Date().getFullYear();
+    const startYear = star;
+    for (let year = startYear; year <= currentYear; year++) {
+      this.endYears.push(year);
     }
   }
 

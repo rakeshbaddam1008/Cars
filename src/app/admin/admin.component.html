@@ -38,8 +38,8 @@
                     <div class="card-body mt-3">
                         <div>
                             <!-- Content for the Buyer tab goes here -->
-                            <ng-container
-                                *ngIf="buyerTemplate === 'buyerInfo'; then buyerInfo else campaign"></ng-container>
+                            <ng-container *ngIf="buyerTemplate === 'buyerInfo'; then buyerInfo"></ng-container>
+                            <ng-container *ngIf="buyerTemplate === 'campaign'; then campaign"></ng-container>
                             <ng-container *ngIf="buyerTemplate === 'instantBid'; then instantBid"></ng-container>
                         </div>
 
@@ -53,13 +53,10 @@
 </div>
 
 <ng-template #sellerInfo>
-    <!-- <div class="card-title mb-2">
-        <h5>Seller Info</h5>
-    </div> -->
     <app-seller-info></app-seller-info>
     <div class="card-footer mt-2">
         <div class="d-flex justify-content-end">
-            <button class="btn btn-primary-outline d-flex justify-content-end" [disabled]="apiService.seller_id === ''"
+            <button class="btn btn-outline-primary d-flex justify-content-end" [disabled]="apiService.seller_id === ''"
                 (click)="changeTemplate('sellerVehicleInfo')">Vechile Info
                 <mat-icon>arrow_forward</mat-icon></button>
         </div>
@@ -69,7 +66,7 @@
     <app-seller-vehicle-info></app-seller-vehicle-info>
     <div class="card-footer mt-2">
         <div class="d-flex justify-content-start">
-            <button class="btn btn-primary-outline d-flex justify-content-end"
+            <button class="btn btn-outline-primary d-flex justify-content-end"
                 (click)="changeTemplate('sellerInfo')"><mat-icon>arrow_back</mat-icon>Seller Info
             </button>
         </div>
@@ -77,24 +74,24 @@
     </div>
 </ng-template>
 <ng-template #buyerInfo>
-    <app-seller-vehicle-info></app-seller-vehicle-info>
+    <app-buyer-info></app-buyer-info>
     <div class="card-footer mt-2">
-        <div class="d-flex justify-content-start">
-            <button class="btn btn-primary-outline d-flex justify-content-end" [disabled]="apiService.buyer_id === ''"
-                (click)="changeBuyerTemplate('campaign')"><mat-icon>arrow_forwrd</mat-icon>Campaign
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-outline-primary d-flex justify-content-end"
+                (click)="changeBuyerTemplate('campaign')"><mat-icon>arrow_forward</mat-icon>Campaign
             </button>
         </div>
 
     </div>
 </ng-template>
 <ng-template #campaign>
-    <app-seller-vehicle-info></app-seller-vehicle-info>
+    <app-campaign></app-campaign>
     <div class="card-footer mt-2">
-        <div class="d-flex justify-content-start">
-            <button class="btn btn-primary-outline d-flex justify-content-end"
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-primary d-flex justify-content-end"
                 (click)="changeBuyerTemplate('buyerInfo')"><mat-icon>arrow_back</mat-icon>Buyer Info
             </button>
-            <button class="btn btn-primary-outline d-flex justify-content-end"
+            <button class="btn btn-outline-primary d-flex justify-content-end"
                 (click)="changeBuyerTemplate('instantBid')"><mat-icon>arrow_forward</mat-icon>Instant Bid
             </button>
         </div>
@@ -102,10 +99,10 @@
     </div>
 </ng-template>
 <ng-template #instantBid>
-    <app-seller-vehicle-info></app-seller-vehicle-info>
+    <app-instant-bids></app-instant-bids>
     <div class="card-footer mt-2">
         <div class="d-flex justify-content-start">
-            <button class="btn btn-primary-outline d-flex justify-content-end"
+            <button class="btn btn-outline-primary d-flex justify-content-"
                 (click)="changeBuyerTemplate('campaign')"><mat-icon>arrow_back</mat-icon>Campaign
             </button>
         </div>

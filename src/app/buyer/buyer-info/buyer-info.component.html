@@ -164,7 +164,7 @@
             <div class="col-6 mb-2">
                 <div class="form-group mb-0">
                     <label for="Country" class="form-label-sm">Country</label>
-                    <input type="text" class="form-control border-right-0 " name="Country" formControlName="Country"
+                    <input type="text" class="form-control border-right-0 " name="Country" formControlName="country"
                         [ngClass]="{'is-invalid': buyerInfo.get('Country')?.hasError('required')}">
                     <div class="invalid-feedback">
                         Country is a required field.
@@ -173,10 +173,10 @@
             </div>
             <div class="col-6 mb-2">
                 <div class="form-group mb-0">
-                    <label for="zip_code" class="form-label-sm">Zipcode</label>
-                    <input type="text" class="form-control border-right-0" name="zip_code"
-                        [ngClass]="{'is-invalid': buyerInfo.get('zip_code')?.hasError('required')}"
-                        formControlName="zip_code">
+                    <label for="zipcode" class="form-label-sm">Zipcode</label>
+                    <input type="text" class="form-control border-right-0" name="zipcode"
+                        [ngClass]="{'is-invalid': buyerInfo.get('zipcode')?.hasError('required')}"
+                        formControlName="zipcode">
                     <div class="invalid-feedback">
                         Zipcode is a required field.
                     </div>

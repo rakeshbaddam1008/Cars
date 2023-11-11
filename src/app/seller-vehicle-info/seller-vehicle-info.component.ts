@@ -100,10 +100,7 @@ export class SellerVehicleInfoComponent {
   }
 
   ngOnInit() {
-    
-    this.apiService.getSellerVehicleAdminData(this.apiService.seller_id).subscribe((item: SellerVehicleInfo[]) => {
-      this.vechileInfoFormGroup.patchValue(item[0]);
-      this.apiService.getAllMakes(this.vechileInfoFormGroup.get('year')?.value)
+    this.apiService.getAllMakes(this.vechileInfoFormGroup.get('year')?.value)
       .subscribe((s) => {
         this.makes = this.groupBy(s);
         this.makesList = this.vechileInfoFormGroup.get('make')?.valueChanges.pipe(
@@ -127,6 +124,9 @@ export class SellerVehicleInfoComponent {
         this.vechileInfoFormGroup.get('make')?.value ?? 'TOYOTA',
         this.vechileInfoFormGroup.get('model')?.value ?? 'COROLLA'
       );
+    this.apiService.getSellerVehicleAdminData(this.apiService.seller_id).subscribe((item: SellerVehicleInfo[]) => {
+      this.vechileInfoFormGroup.patchValue(item[0]);
+      
     })
     
   }

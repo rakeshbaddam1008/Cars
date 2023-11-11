@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/shared utilities/services/api.service';
 })
 export class CampaignComponent {
   campaignInfo: FormGroup;
-  displayCampaignDetails: boolean = false;
+  displayCampaignDetails: boolean = true;
   constructor(private apiService: ApiService) {
     this.campaignInfo = new FormGroup({
       campaign_id : new FormControl(),
