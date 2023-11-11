@@ -1,0 +1,256 @@
+<div [formGroup]="instantBid">
+    <div>
+        <div class="row mt-2">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="campaign_id" class="form-label-sm">Campaign ID</label>
+                    <input type="text" readonly class="form-control border-right-0 readonly" name="campaign_id"
+                        formControlName="campaign_id">
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="campaign_name" class="form-label-sm">Campaign Name</label>
+                    <input type="campaign_name" readonly class="form-control border-right-0  " name="campaign_name"
+                        formControlName="campaign_name">
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="campaign_status" class="form-label-sm">Campaign Status</label>
+                    <input type="text" class="form-control border-right-0 " name="campaign_status"
+                        [ngClass]="{'is-invalid': instantBid.get('campaign_status')?.hasError('required')}"
+                        formControlName="campaign_status">
+                    <div class="invalid-feedback">
+                        Campaign Status is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="bid_id" class="form-label-sm">Bid Id</label>
+                    <input type="text" class="form-control border-right-0 " name="bid_id"
+                        [ngClass]="{'is-invalid': instantBid.get('bid_id')?.hasError('required')}"
+                        formControlName="bid_id">
+                    <div class="invalid-feedback">
+                        Bid Id is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="bid_name" class="form-label-sm">Bid Name</label>
+                    <input type="text" class="form-control border-right-0 " name="bid_name"
+                        [ngClass]="{'is-invalid': instantBid.get('bid_name')?.hasError('required')}"
+                        formControlName="bid_name">
+                    <div class="invalid-feedback">
+                        Bid Name is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="bid_status" class="form-label-sm">Bid Status</label>
+                    <input type="text" class="form-control border-right-0 " name="bid_status"
+                        [ngClass]="{'is-invalid': instantBid.get('bid_status')?.hasError('required')}"
+                        formControlName="bid_status">
+                    <div class="invalid-feedback">
+                        Bid Status is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="bid_amount" class="form-label-sm">Bid Amount</label>
+                    <input type="text" class="form-control border-right-0 " name="bid_amount"
+                        [ngClass]="{'is-invalid': instantBid.get('bid_amount')?.hasError('required')}"
+                        formControlName="bid_amount">
+                    <div class="invalid-feedback">
+                        Bid Amount is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="make" class="form-label-sm">Make</label>
+                    <input type="text" class="form-control border-right-0" name="make" [matAutocomplete]="autoModel"
+                        formControlName="make" [ngClass]="{'is-invalid': instantBid.get('make')?.hasError('required')}">
+                    <div class="invalid-feedback">
+                        Make is a required field.
+                    </div>
+                </div>
+                <mat-autocomplete #autoModel="matAutocomplete">
+                    <mat-optgroup *ngFor="let group of makesList | async" [label]="group.groupName">
+                        <mat-option *ngFor="let make of group.makes" [value]="make">
+                            {{ make }}
+                        </mat-option>
+                    </mat-optgroup>
+                </mat-autocomplete>
+
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="model" class="form-label-sm">Model</label>
+                    <input type="text" class="form-control border-right-0" name="model" [matAutocomplete]="autoMake"
+                        formControlName="model"
+                        [ngClass]="{'is-invalid': instantBid.get('model')?.hasError('required')}">
+                    <mat-autocomplete #autoMake="matAutocomplete">
+                        <mat-option *ngFor="let model of modelList | async" [value]="model">
+                            {{ model }}
+                        </mat-option>
+                    </mat-autocomplete>
+                    <div class="invalid-feedback">
+                        Model is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="trim" class="form-label-sm">Trim</label>
+                    <mat-select class="form-select" matNativeControl name="trim" formControlName="trim"
+                        [ngClass]="{'is-invalid': instantBid.get('trim')?.hasError('required')}">
+                        <mat-option *ngFor="let trim of trimList | async" [value]="trim">
+                            {{ trim }}
+                        </mat-option>
+                    </mat-select>
+                    <div class="invalid-feedback">
+                        Trim is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="start_year" class="form-label-sm">Start Year</label>
+                    <mat-select name="start_year" id="start_year" class="form-select custom-mat-select"
+                        formControlName="start_year">
+                        <mat-option [value]="year" *ngFor="let year of years">{{year}}</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="end_year" class="form-label-sm">End Year</label>
+                    <mat-select name="end_year" id="end_year" class="form-select custom-mat-select"
+                        formControlName="end_year">
+                        <mat-option [value]="year" *ngFor="let year of years">{{year}}</mat-option>
+                    </mat-select>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="body_style" class="form-label-sm">Body Style</label>
+                    <input type="text" class="form-control border-right-0 " name="body_style"
+                        [ngClass]="{'is-invalid': instantBid.get('body_style')?.hasError('required')}"
+                        formControlName="body_style">
+                    <div class="invalid-feedback">
+                        Body Style is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="any_vehicle_condition" class="col-12 form-label-sm">Any Vehicle Condition</label>
+                    <mat-radio-group color="primary" aria-labelledby="example-radio-group-label"
+                        class="example-radio-group" required formControlName="any_vehicle_condition">
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                            Yes
+                        </mat-radio-button>
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                            No
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="only_vehicle_that_run_and_drive" class="col-12 form-label-sm">only vehicle that run and
+                        drive</label>
+                    <mat-radio-group color="primary" aria-labelledby="example-radio-group-label"
+                        class="example-radio-group" required formControlName="only_vehicle_that_run_and_drive">
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                            Yes
+                        </mat-radio-button>
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                            No
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="only_vehicle_with_engine_and_transmission" class="col-12 form-label-sm">Only Vehicle
+                        With Engine and Transmission</label>
+                    <mat-radio-group color="primary" aria-labelledby="example-radio-group-label"
+                        class="example-radio-group" required
+                        formControlName="only_vehicle_with_engine_and_transmission">
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                            Yes
+                        </mat-radio-button>
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                            No
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="only_vehicle_with_all_tires" class="col-12 form-label-sm">only vehicle with all
+                        tires</label>
+                    <mat-radio-group color="primary" aria-labelledby="example-radio-group-label"
+                        class="example-radio-group" required formControlName="only_vehicle_with_all_tires">
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                            Yes
+                        </mat-radio-button>
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                            No
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="only_vehicle_with_no_exterior_damage" class="col-12 form-label-sm">Only Vehicle With No
+                        Exterior Damage</label>
+                    <mat-radio-group color="primary" aria-labelledby="example-radio-group-label"
+                        class="example-radio-group" required formControlName="only_vehicle_with_no_exterior_damage">
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="true">
+                            Yes
+                        </mat-radio-button>
+                        <mat-radio-button class="example-radio-button" name="Question.name" [value]="false">
+                            No
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="mileage" class="form-label-sm">Mileage</label>
+                    <input type="text" class="form-control border-right-0" name="mileage" formControlName="mileage"
+                        [ngClass]="{'is-invalid': instantBid.get('mileage')?.hasError('required')}">
+                    <div class="invalid-feedback">
+                        mileage is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

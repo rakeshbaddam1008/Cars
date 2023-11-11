@@ -1,0 +1,296 @@
+<div [formGroup]="buyerInfo">
+    <div class="row mt-2">
+        <div class="col-6 mb-2">
+            <div class="form-group">
+                <label for="email_id" class="form-label-sm">Email ID</label>
+                <div class="input-group">
+                    <input type="text" class="form-control border-right-0" name="email_id" placeholder="Search"
+                        formControlName="email_id">
+                    <div class="input-group-text  rounded-right p-0">
+                        <span class="input-group-btn">
+                            <button class="btn btn-lg btn-secondary btn-sm" type="button" id="button-addon2"
+                                (click)="searchForBuyerInfo()">
+                                <mat-icon>search Buyer email</mat-icon>
+                            </button>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="displayBuyerDetails">
+        <div class="row mt-2">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="buyer_id" class="form-label-sm">Buyer ID</label>
+                    <input type="text" readonly class="form-control border-right-0 readonly" name="buyer_id"
+                        formControlName="buyer_id">
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="buyer_type" class="form-label-sm">Buyer Type</label>
+                    <input type="buyer_type" readonly class="form-control border-right-0  " name="buyer_type"
+                        formControlName="buyer_type">
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="first_name" class="form-label-sm">First Name</label>
+                    <input type="text" class="form-control border-right-0 " name="first_name"
+                        [ngClass]="{'is-invalid': buyerInfo.get('first_name')?.hasError('required')}"
+                        formControlName="first_name">
+                    <div class="invalid-feedback">
+                        First Name is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="last_name" class="form-label-sm">Last Name</label>
+                    <input type="text" class="form-control border-right-0 " name="last_name"
+                        [ngClass]="{'is-invalid': buyerInfo.get('last_name')?.hasError('required')}"
+                        formControlName="last_name">
+                    <div class="invalid-feedback">
+                        Last Name is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="license_number" class="form-label-sm">License Number</label>
+                    <input type="text" class="form-control border-right-0 " name="license_number"
+                        [ngClass]="{'is-invalid': buyerInfo.get('license_number')?.hasError('required')}"
+                        formControlName="license_number">
+                    <div class="invalid-feedback">
+                        License Number is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="license_expiry" class="form-label-sm">License Expiry</label>
+                    <input type="text" class="form-control border-right-0 " name="license_expiry"
+                        [ngClass]="{'is-invalid': buyerInfo.get('license_expiry')?.hasError('required')}"
+                        formControlName="license_expiry">
+                    <div class="invalid-feedback">
+                        License Expiry is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="company_name" class="form-label-sm">Company Name</label>
+                    <input type="text" class="form-control border-right-0 " name="company_name"
+                        [ngClass]="{'is-invalid': buyerInfo.get('company_name')?.hasError('required')}"
+                        formControlName="company_name">
+                    <div class="invalid-feedback">
+                        Company Name is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="building_number" class="form-label-sm">Building Number</label>
+                    <input type="text" class="form-control border-right-0 " name="building_number"
+                        [ngClass]="{'is-invalid': buyerInfo.get('building_number')?.hasError('required')}"
+                        formControlName="building_number">
+                    <div class="invalid-feedback">
+                        Building Number is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="street_address_line1" class="form-label-sm">Street Address 1</label>
+                    <input type="text" class="form-control border-right-0" name="street_address_line1"
+                        [ngClass]="{'is-invalid': buyerInfo.get('street_address_line1')?.hasError('required')}"
+                        formControlName="street_address_line1">
+                    <div class="invalid-feedback">
+                        Street Address 1 is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="street_address_line2" class="form-label-sm">Street Address 2</label>
+                    <input type="text" class="form-control border-right-0 " name="street_address_line2"
+                        [ngClass]="{'is-invalid': buyerInfo.get('street_address_line2')?.hasError('required')}"
+                        formControlName="street_address_line2">
+                    <div class="invalid-feedback">
+                        Street Address 2 is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="city" class="form-label-sm">City</label>
+                    <input type="text" class="form-control border-right-0 " name="city" formControlName="city"
+                        [ngClass]="{'is-invalid': buyerInfo.get('city')?.hasError('required')}">
+                    <div class="invalid-feedback">
+                        City is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="state" class="form-label-sm">State</label>
+                    <input type="text" class="form-control border-right-0" name="state"
+                        [ngClass]="{'is-invalid': buyerInfo.get('state')?.hasError('required')}"
+                        formControlName="state">
+                    <div class="invalid-feedback">
+                        State is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="Country" class="form-label-sm">Country</label>
+                    <input type="text" class="form-control border-right-0 " name="Country" formControlName="Country"
+                        [ngClass]="{'is-invalid': buyerInfo.get('Country')?.hasError('required')}">
+                    <div class="invalid-feedback">
+                        Country is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="zip_code" class="form-label-sm">Zipcode</label>
+                    <input type="text" class="form-control border-right-0" name="zip_code"
+                        [ngClass]="{'is-invalid': buyerInfo.get('zip_code')?.hasError('required')}"
+                        formControlName="zip_code">
+                    <div class="invalid-feedback">
+                        Zipcode is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="contact_number_1" class="form-label-sm">Contact Number 1</label>
+                    <input type="text" class="form-control border-right-0"
+                        [ngClass]="{'is-invalid': buyerInfo.get('contact_number_1')?.hasError('required')}"
+                        name="contact_number_1" formControlName="contact_number_1">
+                    <div class="invalid-feedback">
+                        Contact Number 1 is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="office_number_1" class="form-label-sm">Office Number 1</label>
+                    <input type="text" class="form-control border-right-0 " name="office_number_1"
+                        [ngClass]="{'is-invalid': buyerInfo.get('office_number_1')?.hasError('required')}"
+                        formControlName="office_number_1">
+                    <div class="invalid-feedback">
+                        Office Number 1 is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="contact_number_2" class="form-label-sm">Contact Number 2</label>
+                    <input type="text" class="form-control border-right-0"
+                        [ngClass]="{'is-invalid': buyerInfo.get('contact_number_2')?.hasError('required')}"
+                        name="contact_number_2" formControlName="contact_number_2">
+                    <div class="invalid-feedback">
+                        Contact Number 2 is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="office_number_2" class="form-label-sm">Office Number 2</label>
+                    <input type="text" class="form-control border-right-0 " name="office_number_2"
+                        [ngClass]="{'is-invalid': buyerInfo.get('office_number_2')?.hasError('required')}"
+                        formControlName="office_number_2">
+                    <div class="invalid-feedback">
+                        Office Number 2 is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="credit_limit" class="form-label-sm">Credit Limit</label>
+                    <input type="text" class="form-control border-right-0"
+                        [ngClass]="{'is-invalid': buyerInfo.get('credit_limit')?.hasError('required')}"
+                        name="credit_limit" formControlName="credit_limit">
+                    <div class="invalid-feedback">
+                        Credit Limit is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="updated_limit" class="form-label-sm">Updated Limit</label>
+                    <input type="text" class="form-control border-right-0 " name="updated_limit"
+                        [ngClass]="{'is-invalid': buyerInfo.get('updated_limit')?.hasError('required')}"
+                        formControlName="updated_limit">
+                    <div class="invalid-feedback">
+                        Updated Limit is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="api_url" class="form-label-sm">API URL</label>
+                    <input type="text" class="form-control border-right-0"
+                        [ngClass]="{'is-invalid': buyerInfo.get('api_url')?.hasError('required')}" name="api_url"
+                        formControlName="api_url">
+                    <div class="invalid-feedback">
+                        API URL is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="status" class="form-label-sm">Status</label>
+                    <input type="text" class="form-control border-right-0 " name="status"
+                        [ngClass]="{'is-invalid': buyerInfo.get('status')?.hasError('required')}"
+                        formControlName="status">
+                    <div class="invalid-feedback">
+                        Status is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="number_of_vehicles" class="form-label-sm">Number Of Vehicles</label>
+                    <input type="text" class="form-control border-right-0 " name="number_of_vehicles"
+                        [ngClass]="{'is-invalid': buyerInfo.get('number_of_vehicles')?.hasError('required')}"
+                        formControlName="number_of_vehicles">
+                    <div class="invalid-feedback">
+                        Number Of Vehicles is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

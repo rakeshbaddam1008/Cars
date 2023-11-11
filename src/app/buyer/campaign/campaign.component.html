@@ -1,0 +1,93 @@
+<div [formGroup]="campaignInfo">
+    <div *ngIf="displayCampaignDetails">
+        <div class="row mt-2">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="campaign_id" class="form-label-sm">Campaign ID</label>
+                    <input type="text" readonly class="form-control border-right-0 readonly" name="campaign_id"
+                        formControlName="campaign_id">
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="campaign_name" class="form-label-sm">Campaign Name</label>
+                    <input type="campaign_name" readonly class="form-control border-right-0  " name="campaign_name"
+                        formControlName="campaign_name">
+
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="status" class="form-label-sm">Status</label>
+                    <input type="text" class="form-control border-right-0 " name="status"
+                        [ngClass]="{'is-invalid': campaignInfo.get('status')?.hasError('required')}"
+                        formControlName="status">
+                    <div class="invalid-feedback">
+                        Status is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="assigned_claim_count" class="form-label-sm">Assigned Claim Count</label>
+                    <input type="text" class="form-control border-right-0 " name="assigned_claim_count"
+                        [ngClass]="{'is-invalid': campaignInfo.get('assigned_claim_count')?.hasError('required')}"
+                        formControlName="assigned_claim_count">
+                    <div class="invalid-feedback">
+                        Assigned Claim Count is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="qualified_claim_count" class="form-label-sm">Qualified Claim Count</label>
+                    <input type="text" class="form-control border-right-0 " name="qualified_claim_count"
+                        [ngClass]="{'is-invalid': campaignInfo.get('qualified_claim_count')?.hasError('required')}"
+                        formControlName="qualified_claim_count">
+                    <div class="invalid-feedback">
+                        Qualified Claim Count is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="instant_bid_count" class="form-label-sm">Instant Bid Count</label>
+                    <input type="text" class="form-control border-right-0 " name="instant_bid_count"
+                        [ngClass]="{'is-invalid': campaignInfo.get('instant_bid_count')?.hasError('required')}"
+                        formControlName="instant_bid_count">
+                    <div class="invalid-feedback">
+                        Instant Bid Count is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="accept_without_title" class="form-label-sm">Accept Without Title</label>
+                    <input type="text" class="form-control border-right-0 " name="accept_without_title"
+                        [ngClass]="{'is-invalid': campaignInfo.get('accept_without_title')?.hasError('required')}"
+                        formControlName="accept_without_title">
+                    <div class="invalid-feedback">
+                        Accept Without Title is a required field.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mb-2">
+                <div class="form-group mb-0">
+                    <label for="buyer_id" class="form-label-sm">Buyer ID</label>
+                    <input type="text" class="form-control border-right-0 " name="buyer_id"
+                        [ngClass]="{'is-invalid': campaignInfo.get('buyer_id')?.hasError('required')}"
+                        formControlName="buyer_id">
+                    <div class="invalid-feedback">
+                        Buyer ID is a required field.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

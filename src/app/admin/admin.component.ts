@@ -9,6 +9,7 @@ import { ApiService } from '../shared utilities/services/api.service';
 export class AdminComponent {
   activeTab = 'seller'
   selectedTemplate: string = 'sellerInfo'
+  buyerTemplate: string = 'buyerInfo'
   
   constructor(public apiService: ApiService) {
     
@@ -19,6 +20,10 @@ export class AdminComponent {
   }
   changeTemplate(templateName: string) {
     this.selectedTemplate = templateName
+  }
+
+  changeBuyerTemplate(tempName : string) {
+    this.buyerTemplate = tempName;
   }
 
 }

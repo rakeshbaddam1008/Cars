@@ -10,6 +10,7 @@ import { TokenStorageService } from './TokenStorageService';
 })
 export class ApiService {
   seller_id: string = '';
+  buyer_id: string = '';
 
   constructor(private http: HttpClient, private token: TokenStorageService) {}
 
@@ -46,6 +47,22 @@ export class ApiService {
       admin_id: 'carizma_admin',
       detail_type:'SELLER_VEHICLE',
       id: id
+    })
+  }
+
+  getBuyerInfoData(email_id :string) : Observable<any> {
+    return this.http.post<any>(environment.apiURL + '/carizma/admin/data', {
+
+    })
+  }
+  getCampaignInfoData(id :string) : Observable<any> {
+    return this.http.post<any>(environment.apiURL + '/carizma/admin/data', {
+      
+    })
+  }
+  getInstantBidInfoData(id :string) : Observable<any> {
+    return this.http.post<any>(environment.apiURL + '/carizma/admin/data', {
+      
     })
   }
 }

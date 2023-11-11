@@ -26,7 +26,6 @@ export class AuthService {
     // Check whether the token is expired and return
     // true or false
     // return true;
-    console.log(!!this.tokenService.getToken())
     return !!this.tokenService.getToken(); //!jwtHelper.isTokenExpired(token);
   }
 
