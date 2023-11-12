@@ -11,6 +11,9 @@ import { ApiService } from 'src/app/shared utilities/services/api.service';
 export class BuyerInfoComponent {
   buyerInfo: FormGroup;
   displayBuyerDetails: boolean = true;
+  enableSaveButton: boolean = false;
+  originalForm: any;
+
   constructor(private apiService: ApiService) {
     this.buyerInfo = new FormGroup({
       buyer_id : new FormControl(),
@@ -41,17 +44,34 @@ export class BuyerInfoComponent {
   }
 
   ngOnInit(){
-    //
+    this.originalForm = this.buyerInfo.value
+    this.buyerInfo.valueChanges.subscribe((changes) => {
+      const changesExceptEmail = Object.keys(changes).some(key => key !== 'email_id' && changes[key] !== this.originalForm[key]);
+
+      if (changesExceptEmail) {
+        this.enableSaveButton = true;
+      } else {
+        // Disable the save button
+        // Code to disable the save button
+      }
+    })
   }
 
   searchForBuyerInfo() {
     if(!this.buyerInfo.get('email_id')?.hasError('email')) {
-      this.apiService.getSellerInfoAdminData(this.buyerInfo.get('email_id')?.value).subscribe((item: BuyerInfo[]) => {
+      this.apiService.getBuyerInfoData(this.buyerInfo.get('email_id')?.value).subscribe((item: BuyerInfo[]) => {
         this.buyerInfo.patchValue(item[0])
         this.apiService.buyer_id = item[0].buyer_id.toString();
         this.displayBuyerDetails = true
-        this.apiService.getSellerVehicleAdminData(this.buyerInfo.get('buyer_id')?.value.toString()).subscribe(item => console.log(item))
+        // this.apiService.getSellerVehicleAdminData(this.buyerInfo.get('buyer_id')?.value.toString()).subscribe(item => console.log(item))
       })
     }
+  }
+
+
+  saveBuyerInfo(){
+    this.apiService.saveBuyerInfo(this.buyerInfo.value).subscribe((res) => {
+      console.log(res)
+    });
   }
 }

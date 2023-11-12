@@ -35,3 +35,25 @@ export class CampaignInfo{
     instant_bid_count !: string;
     buyer_id !: string;
 }
+
+export class InstantBidInfo{
+    campaign_id !: string;
+      campaign_name !: string;
+      campaign_status !: string;
+      bid_id !: string;
+      bid_name !: string;
+      bid_status !: string;
+      bid_amount !: string;
+      make !: string;
+      model !: string;
+      trim !: string;
+      start_year !: string;
+      end_year !: string;
+      body_style !: string;
+      any_vehicle_condition !: string;
+      only_vehicle_that_run_and_drive !: string;
+      only_vehicle_with_engine_and_transmission !: string;
+      only_vehicle_with_all_tires !: string;
+      only_vehicle_with_no_exterior_damage !: string;
+      mileage !: string;
+}

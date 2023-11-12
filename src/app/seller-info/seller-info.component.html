@@ -8,7 +8,8 @@
                         formControlName="email_id">
                     <div class="input-group-text  rounded-right p-0">
                         <span class="input-group-btn">
-                            <button class="btn btn-lg btn-secondary btn-sm" type="button" id="button-addon2" (click)="searchForSellerInfo()">
+                            <button class="btn btn-lg btn-secondary btn-sm" type="button" id="button-addon2"
+                                (click)="searchForSellerInfo()">
                                 <mat-icon>search seller email</mat-icon>
                             </button>
                         </span>
@@ -30,9 +31,9 @@
             <div class="col-6 mb-2">
                 <div class="form-group mb-0">
                     <label for="password" class="form-label-sm">Password</label>
-                    <input type="password" readonly class="form-control border-right-0 readonly "name="password"
+                    <input type="password" readonly class="form-control border-right-0 readonly " name="password"
                         formControlName="password">
-                    
+
                 </div>
             </div>
         </div>
@@ -182,5 +183,10 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="row mt-2 border-top" *ngIf="enableSaveButton">
+    <div class="d-flex justify-content-center mt-1">
+        <button class="btn btn-primary" (click)="saveSellerInfo()">Save Changes</button>
     </div>
 </div>

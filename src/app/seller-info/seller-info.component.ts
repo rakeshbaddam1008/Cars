@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../shared utilities/services/api.service';
 import { SellerInfo } from '../shared utilities/models/SellerInfo.modal';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-seller-info',
@@ -10,7 +11,9 @@ import { SellerInfo } from '../shared utilities/models/SellerInfo.modal';
 })
 export class SellerInfoComponent {
   sellerInfo: FormGroup;
+  enableSaveButton: boolean = false;
   displaySellerDetails: boolean = false;
+  originalForm: any;
   constructor(private apiService: ApiService) {
     this.sellerInfo = new FormGroup({
       seller_id : new FormControl(),
@@ -33,8 +36,16 @@ export class SellerInfoComponent {
 
   ngOnInit() {
     // this.apiService.getSellerInfoAdminData().subscribe(item => console.log(item))
-    
+    this.sellerInfo.valueChanges.subscribe((changes) => {
+        const changesExceptEmail = Object.keys(changes).some(key => key !== 'email_id' && changes[key] !== this.originalForm[key]);
 
+      if (changesExceptEmail) {
+        this.enableSaveButton = true;
+      } else {
+        // Disable the save button
+        // Code to disable the save button
+      }
+    })
   }
 
   searchForSellerInfo() {
@@ -46,5 +57,10 @@ export class SellerInfoComponent {
         this.apiService.getSellerVehicleAdminData(this.sellerInfo.get('seller_id')?.value.toString()).subscribe(item => console.log(item))
       })
     // }
+  }
+  saveSellerInfo(){
+    this.apiService.saveSellerInfo(this.sellerInfo.value).subscribe((res) => {
+      console.log(res)
+    });
   }
 }

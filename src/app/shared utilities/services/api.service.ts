@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IMake, IState } from '../models/IState';
 import { TokenStorageService } from './TokenStorageService';
+import { SellerInfo, SellerVehicleInfo } from '../models/SellerInfo.modal';
+import { BuyerInfo, CampaignInfo, InstantBidInfo } from '../models/buyer';
 
 @Injectable({
   providedIn: 'root'
@@ -65,4 +67,20 @@ export class ApiService {
       
     })
   }
+  saveSellerInfo(sellerInfo : SellerInfo) :Observable<any> {
+    return this.http.post(environment.apiURL + '/carizma/admin/data', sellerInfo)
+  }
+  saveSellerVehicleInfo(sellerVehicleInfo : SellerVehicleInfo) :Observable<any> {
+    return this.http.post(environment.apiURL + '/carizma/admin/data', sellerVehicleInfo)
+  }
+  saveBuyerInfo(buyerInfo : BuyerInfo) :Observable<any> {
+    return this.http.post(environment.apiURL + '/carizma/admin/data', buyerInfo)
+  }
+  saveCampaignInfo(campaign : CampaignInfo) :Observable<any> {
+    return this.http.post(environment.apiURL + '/carizma/admin/data', campaign)
+  }
+  saveInstantBidInfo(instantBid : InstantBidInfo) :Observable<any> {
+    return this.http.post(environment.apiURL + '/carizma/admin/data', instantBid)
+  }
+
 }

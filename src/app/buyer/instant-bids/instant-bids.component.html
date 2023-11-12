@@ -11,7 +11,7 @@
             <div class="col-6 mb-2">
                 <div class="form-group mb-0">
                     <label for="campaign_name" class="form-label-sm">Campaign Name</label>
-                    <input type="campaign_name" readonly class="form-control border-right-0  " name="campaign_name"
+                    <input type="campaign_name" class="form-control border-right-0  " name="campaign_name"
                         formControlName="campaign_name">
 
                 </div>
@@ -32,7 +32,7 @@
             <div class="col-6 mb-2">
                 <div class="form-group mb-0">
                     <label for="bid_id" class="form-label-sm">Bid Id</label>
-                    <input type="text" class="form-control border-right-0 " name="bid_id"
+                    <input type="text" readonly class="form-control border-right-0 readonly" name="bid_id"
                         [ngClass]="{'is-invalid': instantBid.get('bid_id')?.hasError('required')}"
                         formControlName="bid_id">
                     <div class="invalid-feedback">
@@ -252,5 +252,10 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="row mt-2 border-top" *ngIf="enableSaveButton">
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="saveInstantBidInfo()">Save Changes</button>
     </div>
 </div>

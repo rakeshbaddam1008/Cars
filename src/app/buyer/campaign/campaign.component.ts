@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/shared utilities/services/api.service';
 })
 export class CampaignComponent {
   campaignInfo: FormGroup;
+  enableSaveButton: boolean = false;
   displayCampaignDetails: boolean = true;
   constructor(private apiService: ApiService) {
     this.campaignInfo = new FormGroup({
@@ -24,6 +25,19 @@ export class CampaignComponent {
   }
 
   ngOnInit(){
-    //
+    this.campaignInfo.valueChanges.subscribe((changes) => {
+        this.enableSaveButton = true;
+    })
+
+    this.apiService.getCampaignInfoData(this.apiService.buyer_id).subscribe((res) => {
+      console.log(res)
+      // this.campaignInfo.patchValue(res)
+    })
+  }
+
+  saveCampaignInfo(){
+    this.apiService.saveCampaignInfo(this.campaignInfo.value).subscribe((res) => {
+      console.log(res)
+    });
   }
 }

@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/shared utilities/services/api.service';
 })
 export class InstantBidsComponent {
   instantBid: FormGroup;
+  enableSaveButton: boolean = false;
   displayCampaignDetails: boolean = true;
   makesList?: Observable<groupMakesData[]>;
   modelList?: Observable<string[]>;
@@ -79,6 +80,14 @@ export class InstantBidsComponent {
       this.generateEndYears(this.instantBid.get('start_year')?.value);
     })
 
+    this.instantBid.valueChanges.subscribe((changes) => {
+      
+        this.enableSaveButton = true;
+    })
+
+    this.apiService.getInstantBidInfoData(this.apiService.buyer_id).subscribe((res) => {
+      console.log(res)
+    })
 
   }
 
@@ -113,6 +122,12 @@ export class InstantBidsComponent {
     for (let year = startYear; year <= currentYear; year++) {
       this.endYears.push(year);
     }
+  }
+  
+  saveInstantBidInfo(){
+    this.apiService.saveInstantBidInfo(this.instantBid.value).subscribe((res) => {
+      console.log(res)
+    });
   }
 
 

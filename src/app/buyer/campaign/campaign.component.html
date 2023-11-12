@@ -11,8 +11,8 @@
             <div class="col-6 mb-2">
                 <div class="form-group mb-0">
                     <label for="campaign_name" class="form-label-sm">Campaign Name</label>
-                    <input type="campaign_name" readonly class="form-control border-right-0  " name="campaign_name"
-                        formControlName="campaign_name">
+                    <input type="campaign_name" readonly class="form-control border-right-0  readonly"
+                        name="campaign_name" formControlName="campaign_name">
 
                 </div>
             </div>
@@ -80,7 +80,7 @@
             <div class="col-6 mb-2">
                 <div class="form-group mb-0">
                     <label for="buyer_id" class="form-label-sm">Buyer ID</label>
-                    <input type="text" class="form-control border-right-0 " name="buyer_id"
+                    <input type="text" readonly class="form-control border-right-0 readonly" name="buyer_id"
                         [ngClass]="{'is-invalid': campaignInfo.get('buyer_id')?.hasError('required')}"
                         formControlName="buyer_id">
                     <div class="invalid-feedback">
@@ -89,5 +89,10 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="row mt-2 border-top" *ngIf="enableSaveButton">
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="saveCampaignInfo()">Save Changes</button>
     </div>
 </div>

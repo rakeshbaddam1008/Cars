@@ -37,6 +37,7 @@ export class SellerVehicleInfoComponent {
   trimList?: Observable<string[]>;
   makes: groupMakesData[] = [];
   model: string[] = [];
+  enableSaveButton: boolean = false;
 
   constructor(private apiService: ApiService) {
     this.makesList = of([]);
@@ -126,7 +127,10 @@ export class SellerVehicleInfoComponent {
       );
     this.apiService.getSellerVehicleAdminData(this.apiService.seller_id).subscribe((item: SellerVehicleInfo[]) => {
       this.vechileInfoFormGroup.patchValue(item[0]);
-      
+    })
+    
+    this.vechileInfoFormGroup.valueChanges.subscribe((changes) => {
+      this.enableSaveButton = true
     })
     
   }
@@ -157,6 +161,11 @@ export class SellerVehicleInfoComponent {
     }
   }
 
+  saveSellerVehicleInfo(){
+    this.apiService.saveSellerVehicleInfo(this.vechileInfoFormGroup.value).subscribe((res) => {
+      console.log(res)
+    });
+  }
 
   private _filter(value: string): groupMakesData[] {
     const filterValue = value.toLowerCase();
